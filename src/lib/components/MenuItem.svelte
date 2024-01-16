@@ -8,7 +8,7 @@
 </script>
 
 <a
-	class="block p-2 text-sm"
+	class="block p-2 text-sm hover:no-underline"
 	class:rounded={isActive}
 	class:bg-sky-600={isActive}
 	class:text-white={isActive}

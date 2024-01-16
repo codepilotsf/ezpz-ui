@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	@apply text-slate-800;
+}
+
+section,
+.section {
+	max-width: 1600px;
+	px: 4;
+}
+
+h1 {
+	@apply text-3xl font-bold;
+}
+
+h3 {
+	@apply mt-7 text-xl font-bold;
+}
+
+p {
+	@apply mt-3;
+}
+
+a {
+	@apply text-sky-600 hover:underline;
+}
+
+:not(pre) > code {
+	@apply rounded bg-sky-100 px-1 text-sm;
+}
+
+.debug {
+	outline: 2px dashed green;
+}

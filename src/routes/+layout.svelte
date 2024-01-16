@@ -1,7 +1,9 @@
 <script>
 	import '@fontsource-variable/open-sans';
-	import '../app.pcss';
-	import { FolderOpenDot } from 'lucide-svelte';
+	import '../style/app.pcss';
+	import '../style/code.css';
+	import { FolderOpenDot, DownloadCloud } from 'lucide-svelte';
+	import GitHubIcon from '$lib/components/GitHubIcon.svelte';
 	import MenuItem from '$lib/components/MenuItem.svelte';
 </script>
 
@@ -12,17 +14,24 @@
 <page-wrapper class="flex h-full flex-col">
 	<!-- Header -->
 	<header
-		class="flex h-20 items-center border-b border-b-slate-200 bg-white px-3 text-sky-600 shadow"
+		class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-white px-3 text-sky-600 shadow"
 	>
+		<!-- Logo -->
 		<a href="/" class="flex items-end gap-1 text-2xl font-semibold">
 			<FolderOpenDot size={36} strokeWidth={2.3} />
 			<span>LIB<span class="mx-1">/</span><span class="font-light">UI</span></span>
 		</a>
+		<div class="flex items-center gap-4">
+			<a href="libui.codepilot.com/latest.zip" target="_blank"
+				><DownloadCloud size={28} strokeWidth={3} /></a
+			>
+			<a href="https://github.com/codepilotsf/lib-ui" target="_blank"><GitHubIcon /></a>
+		</div>
 	</header>
 
-	<scrollable-wrapper class="flex w-full flex-1">
+	<scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
 		<!-- Menu -->
-		<scrollable-menu class="block h-full min-w-48 bg-slate-100 px-3">
+		<scrollable-menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-3 pt-2">
 			<MenuItem href="/alert" label="Alert" />
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />
@@ -44,8 +53,10 @@
 		</scrollable-menu>
 
 		<!-- Content -->
-		<scrollable-content class="block h-full flex-1 bg-white p-6">
-			<slot />
+		<scrollable-content class="block h-full flex-1 overflow-y-auto bg-white p-10">
+			<content-container class="block max-w-[50rem]">
+				<slot />
+			</content-container>
 		</scrollable-content>
 	</scrollable-wrapper>
 </page-wrapper>
