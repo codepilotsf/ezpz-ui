@@ -8,7 +8,7 @@
 </script>
 
 <a
-	class="m-1 block p-2 text-sm"
+	class="block p-2 text-sm"
 	class:rounded={isActive}
 	class:bg-sky-600={isActive}
 	class:text-white={isActive}
