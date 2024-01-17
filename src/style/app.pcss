@@ -19,23 +19,46 @@ body {
 section,
 .section {
 	max-width: 1600px;
-	px: 4;
+	@apply mt-6;
 }
 
 h1 {
-	@apply text-3xl font-bold;
+	@apply text-4xl font-bold;
 }
 
 h3 {
-	@apply mt-7 text-xl font-bold;
+	@apply mt-16 !text-xl font-bold;
 }
 
 p {
 	@apply mt-3;
 }
 
-a {
-	@apply text-sky-600 hover:underline;
+h3 code {
+	@apply !text-xl;
+}
+
+table {
+	@apply mt-4 w-full border-collapse;
+}
+
+table td,
+table th {
+	@apply p-2 text-left;
+}
+
+table th {
+	@apply font-bold;
+}
+
+table td {
+	vertical-align: top;
+	border-bottom: 1px solid theme(colors.slate.200);
+	@apply text-sm text-slate-600;
+}
+
+:not(menu) > a {
+	@apply text-sky-600 hover:text-sky-500 hover:underline;
 }
 
 :not(pre) > code {

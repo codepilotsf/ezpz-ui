@@ -1,8 +1,8 @@
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	class="icon icon-tabler icon-tabler-brand-github-filled"
-	width="32"
-	height="32"
+	width="26"
+	height="26"
 	viewBox="0 0 24 24"
 	stroke-width="1.5"
 	stroke="#ffffff"

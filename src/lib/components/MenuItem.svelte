@@ -8,10 +8,11 @@
 </script>
 
 <a
-	class="block p-2 text-sm hover:no-underline"
+	class="block p-3 text-sm text-sky-700"
+	class:hover:bg-sky-100={!isActive}
 	class:rounded={isActive}
 	class:bg-sky-600={isActive}
-	class:text-white={isActive}
+	class:!text-white={isActive}
 	{href}
 >
 	{label}

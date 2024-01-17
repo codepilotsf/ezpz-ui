@@ -1,0 +1,120 @@
+.lib-ui,
+.lib-ui * {
+	--ui-form-max-width: 50rem;
+
+	/* Colors
+  -------------------
+  Colors to be used for foregrounds and backgrounds across the UI
+  ------------------- */
+	/* Default state of components */
+	--ui-color-default-text: #334155;
+	--ui-color-default-foreground: #94a3b8;
+	--ui-color-default-background: #fff;
+
+	/* Active: Brand colors used as accents for things like selected radio button  */
+	--ui-color-brand-text: #3b82f6;
+	--ui-color-brand-foreground: #3b82f6;
+	--ui-color-brand-background: #3b82f6;
+
+	/* Hover: Alternative colors for hover state on buttons and other components */
+	--ui-color-hover-text: #ebf4ff;
+	--ui-color-hover-foreground: #3b82f6;
+	--ui-color-hover-background: #ebf4ff;
+
+	/* Info: Components with "type" property set to "info"  */
+	--ui-color-info-text: #075985;
+	--ui-color-info-foreground: #075985;
+	--ui-color-info-background: #bae6fd;
+
+	/* Success: Components with "type" property set to "success"  */
+	--ui-color-success-text: #0c4a6e;
+	--ui-color-success-foreground: #0c4a6e;
+	--ui-color-success-background: #bbf7d0;
+
+	/* Warning: Components with "type" property set to "warning"  */
+	--ui-color-warning-text: #a16207;
+	--ui-color-warning-foreground: #a16207;
+	--ui-color-warning-background: #fef08a;
+
+	/* Error: Components with "type" property set to "error"  */
+	--ui-color-error-text: #7f1d1d;
+	--ui-color-error-foreground: #7f1d1d;
+	--ui-color-error-background: #fecaca;
+
+	/* Borders
+  -------------------
+  Border width and radius for things like form elements
+  ------------------- */
+	--ui-border-width: 1px;
+	--ui-border-radius: 3px;
+
+	/* Spacing
+  -------------------
+  Spacing for modals, alerts, and other components
+  ------------------- */
+	--ui-spacing-sm: 0.25rem;
+	--ui-spacing-md: 0.75rem;
+	--ui-spacing-lg: 1.25rem;
+
+	/* Form Items
+  -------------------
+  The container around a form element, label, and messages
+  ------------------- */
+	--ui-form-item-margin-top: 1rem;
+	--ui-form-item-column-gap: 0.5rem;
+	--ui-form-item-row-gap: 0.5rem;
+
+	/* Form Labels
+  -------------------
+  The label for a form element
+  --------------------- */
+	--ui-form-label-font-size: 1rem;
+	--ui-form-label-font-weight: 600;
+	--ui-form-label-margin: 0.5rem 0;
+
+	/* Form Elements
+  -------------------
+  The form element itself, like an input or select
+  --------------------- */
+	--ui-form-element-padding: 6px;
+	--ui-form-element-font-size: 1.1rem;
+	--ui-form-element-line-height: 1.6;
+	--ui-form-element-placeholder-color: #94a3b8;
+
+	/* Form Elements: :focus */
+	/* --ui-form-element-focus-border: 2px solid #3b82f6;
+	--ui-form-element-focus-outline: 2px solid #3b82f6;
+	--ui-form-element-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
+
+	/* Form elements :disabled */
+	/* --ui-form-element-disabled-opacity: 0.5;
+	--ui-form-element-disabled-background: #ddd;
+	--ui-form-element-inverse-disabled-background: var(--midtone); */
+
+	/* Form elements .error */
+	/* --ui-form-element-error-outline: 1px solid var(--error);
+	--ui-form-element-error-border: 1px solid var(--error);
+	--ui-form-element-error-box-shadow: 0 0 1px 1px var(--error);
+	--ui-form-element-error-color: var(--error); */
+
+	/* Form checkboxes and radios */
+	/* --ui-form-checkradio-border: 1px solid var(--lighter);
+	--ui-form-checkradio-border-focus: 1px solid var(--brand-1);
+	--ui-form-checkradio-gap: var(--fluid-space-2xs);
+	--ui-form-checkradio-label-gap: 7px;
+	--ui-form-checkradio-label-font-size: var(--fluid-text-sm);
+	--ui-form-checkradio-background: var(--white);
+	--ui-form-checkradio-checked-background: var(--brand-1);
+	--ui-form-checkradio-inverse-border: 1px solid var(--light);
+	--ui-form-checkradio-inverse-border-focus: 1px solid var(--brand-1);
+	--ui-form-checkradio-inverse-background: var(--lighter);
+	--ui-form-checkradio-inverse-checked-background: var(--brand-1); */
+
+	/* Form errors and notes */
+	/* --ui-form-error-note-font-size: var(--fluid-text-sm);
+	--ui-form-error-note-line-height: 1;
+	--ui-form-error-note-margin-top: 4px;
+	--ui-form-error-color: var(--error);
+	--ui-form-note-color: var(--dark);
+	--ui-form-note-inverse-color: var(--light); */
+}
