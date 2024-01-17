@@ -36,12 +36,12 @@
 <p>Show an alert to users for info, warning, success, or error messages.</p>
 
 <!-- Example -->
-<h3>Example</h3>
+<h3>Example Usage</h3>
 <Example />
 
 <!-- Basic -->
 <h3 class="flex items-center">
-	Basic
+	Basic Alert
 	{#if !isActive.basic.info || !isActive.basic.warning || !isActive.basic.success || !isActive.basic.error}
 		<ResetButton on:click={resetBasic} />
 	{/if}
@@ -60,9 +60,22 @@
 	>
 </section>
 
-<!-- With Title -->
+<!-- With No Icon -->
 <h3 class="flex items-center">
-	<span>With <code>title</code> slot</span>
+	<span>Alert With No Icon</span>
+	{#if !isActive.withNoIcon}
+		<ResetButton on:click={resetWithNoIcon} />
+	{/if}
+</h3>
+<section class="flex flex-col gap-4">
+	<Alert type="success" icon={false} bind:active={isActive.withNoIcon}
+		>Successfully alerted with no icon.</Alert
+	>
+</section>
+
+<!-- Alert With Title Slot -->
+<h3 class="flex items-center">
+	<span>Alert With <code>title</code> Slot</span>
 	{#if !isActive.withTitle}
 		<ResetButton on:click={resetWithTitle} />
 	{/if}
@@ -75,9 +88,9 @@
 	</Alert>
 </section>
 
-<!-- With Custom Icon -->
+<!-- Alert With Custom Icon Slot -->
 <h3 class="flex items-center">
-	<span>With custom <code>icon</code> slot</span>
+	<span>Alert With Custom <code>icon</code> Slot</span>
 	{#if !isActive.withCustomIcon}
 		<ResetButton on:click={resetWithCustomIcon} />
 	{/if}
@@ -85,21 +98,8 @@
 <section class="flex flex-col gap-4">
 	<Alert type="info" bind:active={isActive.withCustomIcon}>
 		<div slot="icon"><IceCream size={26} /></div>
-		You probably already know that ice cream is delicious.
+		Ice cream is delicious.
 	</Alert>
-</section>
-
-<!-- With No Icon -->
-<h3 class="flex items-center">
-	<span>With no icon</span>
-	{#if !isActive.withNoIcon}
-		<ResetButton on:click={resetWithNoIcon} />
-	{/if}
-</h3>
-<section class="flex flex-col gap-4">
-	<Alert type="success" icon={false} bind:active={isActive.withNoIcon}
-		>Successfully alerted with no icon.</Alert
-	>
 </section>
 
 <!-- Properties Table -->

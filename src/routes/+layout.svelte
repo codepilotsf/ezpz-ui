@@ -42,23 +42,24 @@
 		<!-- Menu -->
 		<menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-2 pt-2">
 			<MenuItem href="/alert" label="Alert" />
-			<MenuItem href="/avatar" label="Avatar" />
-			<MenuItem href="/button" label="Button" />
-			<MenuItem href="/button-group" label="ButtonGroup" />
-			<MenuItem href="/checkbox" label="Checkbox" />
-			<MenuItem href="/checkbox-group" label="CheckboxGroup" />
-			<MenuItem href="/file-picker" label="FilePicker" />
-			<MenuItem href="/form-row" label="FormRow" />
-			<MenuItem href="/input" label="Input" />
-			<MenuItem href="/input-number" label="InputNumber" />
-			<MenuItem href="/modal" label="Modal" />
-			<MenuItem href="/radio" label="Radio" />
-			<MenuItem href="/radio-group" label="RadioGroup" />
-			<MenuItem href="/select" label="Select" />
-			<MenuItem href="/spinner" label="Spinner" />
-			<MenuItem href="/textarea" label="Textarea" />
-			<MenuItem href="/toast" label="Toast" />
-			<MenuItem href="/toggle" label="Toggle" />
+			<MenuItem href="/avatar" label="Avatar" disabled />
+			<MenuItem href="/button" label="Button" disabled />
+			<MenuItem href="/button-group" label="ButtonGroup" disabled />
+			<MenuItem href="/checkbox" label="Checkbox" disabled />
+			<MenuItem href="/checkbox-group" label="CheckboxGroup" disabled />
+			<MenuItem href="/file-picker" label="FilePicker" disabled />
+			<MenuItem href="/form-row" label="FormRow" disabled />
+			<MenuItem href="/input" label="Input" disabled />
+			<MenuItem href="/input-number" label="InputNumber" disabled />
+			<MenuItem href="/modal" label="Modal" disabled />
+			<MenuItem href="/radio" label="Radio" disabled />
+			<MenuItem href="/radio-group" label="RadioGroup" disabled />
+			<MenuItem href="/select" label="Select" disabled />
+			<MenuItem href="/spinner" label="Spinner" disabled />
+			<MenuItem href="/textarea" label="Textarea" disabled />
+			<MenuItem href="/toast" label="Toast" disabled />
+			<MenuItem href="/tooltip" label="Tooltip" disabled />
+			<MenuItem href="/toggle" label="Toggle" disabled />
 		</menu>
 
 		<!-- Content -->

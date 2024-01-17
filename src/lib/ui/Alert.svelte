@@ -7,11 +7,14 @@
 	export let active = true;
 	export let type = 'info';
 	export let icon = true;
+
+	let _class = '';
+	export { _class as class };
 </script>
 
 {#if active}
 	<ui-alert
-		class="lib-ui"
+		class={`lib-ui ${_class}`}
 		class:info={type === 'info'}
 		class:warning={type === 'warning'}
 		class:success={type === 'success'}
