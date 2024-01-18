@@ -13,8 +13,14 @@ Since these are just files sitting in a directory rather than hidden away in you
 the components to fit your needs. This keeps things simple and transparent.
 
 ### Getting Started
-Since LIB/UI isn't a Node package and has zero dependencies (other than Svelte), there's nothing to install. Just
-[download the zip file](https://libui.codepilot.com/latest.zip) to your project's `src/lib/` and extract it.
+LIB/UI isn't a Node package so it isn't installed. Just
+[download the zip file](https://libui.codepilot.com/latest.zip) to your project's `src/lib/` and extract it. Additionally,
+please make sure that both TailwindCSS and Lucide-Svelte (icons) are installed in your project.
+
+```bash
+npm install -D tailwindcss;
+npm install -D lucide-svelte;
+```
 
 ### How To Use
 LIB/UI components are imported and instantiated like any other Svelte component.

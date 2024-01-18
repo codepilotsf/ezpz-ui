@@ -27,7 +27,7 @@ h1 {
 }
 
 h3 {
-	@apply mt-16 !text-xl font-bold;
+	@apply mb-3 mt-16 !text-xl font-bold;
 }
 
 p {
@@ -55,6 +55,10 @@ table td {
 	vertical-align: top;
 	border-bottom: 1px solid theme(colors.slate.200);
 	@apply text-sm text-slate-600;
+}
+
+pre[class*='language-'] {
+	@apply mb-4 !important;
 }
 
 :not(menu) > a {

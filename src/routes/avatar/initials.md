@@ -1,0 +1,3 @@
+```html
+<Avatar initials="CK" />
+```

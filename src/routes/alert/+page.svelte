@@ -1,164 +1,116 @@
 <script>
 	import { Alert } from '$lib/ui';
 	import { IceCream } from 'lucide-svelte';
-	import ResetButton from '$lib/components/ResetButton.svelte';
-	import Example from './example.md';
-
-	let isActive = {};
-	resetBasic();
-	resetWithTitle();
-	resetWithCustomIcon();
-	resetWithNoIcon();
-
-	function resetBasic() {
-		isActive.basic = {
-			info: true,
-			warning: true,
-			success: true,
-			error: true
-		};
-	}
-
-	function resetWithTitle() {
-		isActive.withTitle = true;
-	}
-
-	function resetWithCustomIcon() {
-		isActive.withCustomIcon = true;
-	}
-
-	function resetWithNoIcon() {
-		isActive.withNoIcon = true;
-	}
+	import Import from './import.md';
+	import Info from './info.md';
+	import Warning from './warning.md';
+	import Success from './success.md';
+	import Error from './error.md';
+	import NoIcon from './no-icon.md';
+	import WithTitle from './with-title.md';
+	import WithIcon from './with-icon.md';
 </script>
 
 <h1>Alert</h1>
-<p>Show an alert to users for info, warning, success, or error messages.</p>
+<p>
+	Alerts can be used to provide user feedback for things like successful operations and errors. By
+	default, Alerts are displayed at full-width with an icon appropriate for the type of Alert. Use <code
+		>bind:active</code
+	> two-way binding so that the parent template can trigger an Alert and the Alert's close button can
+	also close it.
+</p>
 
-<!-- Example -->
-<h3>Example Usage</h3>
-<Example />
+<!-- Import -->
+<h3>Import</h3>
+<Import />
 
-<!-- Basic -->
-<h3 class="flex items-center">
-	Basic Alert
-	{#if !isActive.basic.info || !isActive.basic.warning || !isActive.basic.success || !isActive.basic.error}
-		<ResetButton on:click={resetBasic} />
-	{/if}
-</h3>
+<h3>Info (default)</h3>
+<Info />
+<Alert type="info">This is just a simple info alert.</Alert>
 
-<section class="flex flex-col gap-4">
-	<Alert type="info" bind:active={isActive.basic.info}>This is just a simple info alert.</Alert>
-	<Alert type="warning" bind:active={isActive.basic.warning}
-		>Warning! This is alert is slightly scary.</Alert
-	>
-	<Alert type="success" bind:active={isActive.basic.success}
-		>You have been alerted successfully.</Alert
-	>
-	<Alert type="error" bind:active={isActive.basic.error}
-		>Error: This alert means something bad happened.</Alert
-	>
-</section>
+<h3>Warning</h3>
+<Warning />
+<Alert type="warning">Warning! This is alert is slightly scary.</Alert>
 
-<!-- With No Icon -->
-<h3 class="flex items-center">
-	<span>Alert With No Icon</span>
-	{#if !isActive.withNoIcon}
-		<ResetButton on:click={resetWithNoIcon} />
-	{/if}
-</h3>
-<section class="flex flex-col gap-4">
-	<Alert type="success" icon={false} bind:active={isActive.withNoIcon}
-		>Successfully alerted with no icon.</Alert
-	>
-</section>
+<h3>Success</h3>
+<Success />
+<Alert type="success">You have been alerted successfully.</Alert>
 
-<!-- Alert With Title Slot -->
-<h3 class="flex items-center">
-	<span>Alert With <code>title</code> Slot</span>
-	{#if !isActive.withTitle}
-		<ResetButton on:click={resetWithTitle} />
-	{/if}
-</h3>
+<h3>Error</h3>
+<Error />
+<Alert type="error">Something bad happened.</Alert>
 
-<section class="flex flex-col gap-4">
-	<Alert type="warning" bind:active={isActive.withTitle}>
-		<div slot="title">Watch out!</div>
-		I have a bad feeling about this.
-	</Alert>
-</section>
+<h3>No Icon</h3>
+<NoIcon />
+<Alert icon={false}>Keepin' it simple.</Alert>
 
-<!-- Alert With Custom Icon Slot -->
-<h3 class="flex items-center">
-	<span>Alert With Custom <code>icon</code> Slot</span>
-	{#if !isActive.withCustomIcon}
-		<ResetButton on:click={resetWithCustomIcon} />
-	{/if}
-</h3>
-<section class="flex flex-col gap-4">
-	<Alert type="info" bind:active={isActive.withCustomIcon}>
-		<div slot="icon"><IceCream size={26} /></div>
-		Ice cream is delicious.
-	</Alert>
-</section>
+<h3>With Title</h3>
+<WithTitle />
+<Alert type="warning">
+	<span slot="title">Watch out!</span>
+	This seems like a bad idea.
+</Alert>
+
+<h3>With Custom Icon</h3>
+<WithIcon />
+<Alert type="success">
+	<IceCream slot="icon" size={26} />
+	That ice cream was delicious.
+</Alert>
 
 <!-- Properties Table -->
-<section>
-	<h3>Alert Properties</h3>
-	<table class="w-full">
-		<thead class="text-left">
-			<tr>
-				<th>Prop</th>
-				<th>Type</th>
-				<th>Default</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><code>active</code></td>
-				<td>Boolean</td>
-				<td><code>true</code></td>
-				<td class="description"
-					>Use with <code>bind:active</code> two-way binding so that the parent template can trigger
-					an alert and the Alert's close button can also close it</td
-				>
-			</tr>
-			<tr>
-				<td><code>type</code></td>
-				<td>String: 'info', 'warning', 'success', or 'error'</td>
-				<td>'info'</td>
-				<td class="description">Sets the type of alert to be displayed</td>
-			</tr>
-			<tr>
-				<td><code>icon</code></td>
-				<td>Boolean</td>
-				<td><code>true</code></td>
-				<td class="description">Sets whether an icon is displayed</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
+<h3>Alert Properties</h3>
+<table class="w-full">
+	<thead class="text-left">
+		<tr>
+			<th>Prop</th>
+			<th>Type</th>
+			<th>Default</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>active</code></td>
+			<td>Boolean</td>
+			<td><code>true</code></td>
+			<td class="description"
+				>Use with <code>bind:active</code> two-way binding so that the parent template can trigger an
+				alert and the Alert's close button can also close it</td
+			>
+		</tr>
+		<tr>
+			<td><code>type</code></td>
+			<td>String: 'info', 'warning', 'success', or 'error'</td>
+			<td>'info'</td>
+			<td class="description">Sets the type of alert to be displayed</td>
+		</tr>
+		<tr>
+			<td><code>icon</code></td>
+			<td>Boolean</td>
+			<td><code>true</code></td>
+			<td class="description">Sets whether an icon is displayed</td>
+		</tr>
+	</tbody>
+</table>
 
 <!-- Named Slots Table -->
-<section>
-	<h3>Alert Named Slots</h3>
-	<table class="w-full">
-		<thead class="text-left">
-			<tr>
-				<th>Slot Name</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><code>title</code></td>
-				<td class="description">Content to be used as a title</td>
-			</tr>
-			<tr>
-				<td><code>icon</code></td>
-				<td class="description">An icon component to replace the default icon </td>
-			</tr>
-		</tbody>
-	</table>
-</section>
+<h3>Alert Named Slots</h3>
+<table class="w-full">
+	<thead class="text-left">
+		<tr>
+			<th>Slot Name</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>title</code></td>
+			<td class="description">Content to be used as a title</td>
+		</tr>
+		<tr>
+			<td><code>icon</code></td>
+			<td class="description">An icon component to replace the default icon </td>
+		</tr>
+	</tbody>
+</table>

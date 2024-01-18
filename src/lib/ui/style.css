@@ -1,25 +1,19 @@
 .lib-ui,
 .lib-ui * {
-	--ui-form-max-width: 50rem;
-
 	/* Colors
   -------------------
-  Colors to be used for foregrounds and backgrounds across the UI
+  Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
 	/* Default state of components */
 	--ui-color-default-text: #334155;
 	--ui-color-default-foreground: #94a3b8;
 	--ui-color-default-background: #fff;
 
-	/* Active: Brand colors used as accents for things like selected radio button  */
-	--ui-color-brand-text: #3b82f6;
-	--ui-color-brand-foreground: #3b82f6;
-	--ui-color-brand-background: #3b82f6;
-
-	/* Hover: Alternative colors for hover state on buttons and other components */
-	--ui-color-hover-text: #ebf4ff;
-	--ui-color-hover-foreground: #3b82f6;
-	--ui-color-hover-background: #ebf4ff;
+	/* Accent: Accent colors for things like buttons and checkmark backgrounds  */
+	--ui-color-accent-foreground: #f97316;
+	--ui-color-accent-background: #ffedd5;
+	--ui-color-accent-hover-foreground: #3b82f6;
+	--ui-color-accent-hover-background: #bbf7d0;
 
 	/* Info: Components with "type" property set to "info"  */
 	--ui-color-info-text: #075985;

@@ -42,8 +42,8 @@
 		<!-- Menu -->
 		<menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-2 pt-2">
 			<MenuItem href="/alert" label="Alert" />
-			<MenuItem href="/avatar" label="Avatar" disabled />
-			<MenuItem href="/button" label="Button" disabled />
+			<MenuItem href="/avatar" label="Avatar" />
+			<MenuItem href="/button" label="Button" />
 			<MenuItem href="/button-group" label="ButtonGroup" disabled />
 			<MenuItem href="/checkbox" label="Checkbox" disabled />
 			<MenuItem href="/checkbox-group" label="CheckboxGroup" disabled />
