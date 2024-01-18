@@ -8,8 +8,11 @@
 
 <h1>Avatar</h1>
 <p>
-	Avatars are used to display a user's profile image. They can be used with or without an image. The
-	user's initials can also be provided and used as a fallback if no image is provided. <!-- The image for
+	Avatars are used to display a user's profile image or initials. If an <code>initials</code>
+	property is passed, it will be used as the value of the image element's <code>alt</code> attribute
+	and as the backup display in case no image <code>src</code>
+	is passed. Alternatively, a <code>name</code> attribute can be passed from which initials will be
+	derived automatically. <!-- The image for
 	an avatar may be supplied as a url supplied to the <code>src</code> property or as a named
 	<code>image</code>slot which makes it possible for example to use
 	<a href="https://kit.svelte.dev/docs/images" target="_blank"
@@ -40,7 +43,7 @@
 <Avatar name="Michael Jackson" />
 
 <!-- Properties Table -->
-<h3>Alert Properties</h3>
+<h3>Avatar Properties</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -52,46 +55,36 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><code>active</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
+			<td><code>src</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
 			<td class="description"
-				>Use with <code>bind:active</code> two-way binding so that the parent template can trigger an
-				alert and the Alert's close button can also close it</td
+				>URL (either relative or full URL) to the image file to use in avatar. Preferably 1:1 aspect
+				ratio. Does not need to be cropped to a circle</td
 			>
 		</tr>
 		<tr>
-			<td><code>type</code></td>
-			<td>String: 'info', 'warning', 'success', or 'error'</td>
-			<td>'info'</td>
-			<td class="description">Sets the type of alert to be displayed</td>
+			<td><code>size</code></td>
+			<td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
+			<td>'md'</td>
+			<td class="description">Sets the the size of the avatar</td>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td class="description">Sets whether an icon is displayed</td>
-		</tr>
-	</tbody>
-</table>
-
-<!-- Named Slots Table -->
-<h3>Alert Named Slots</h3>
-<table class="w-full">
-	<thead class="text-left">
-		<tr>
-			<th>Slot Name</th>
-			<th>Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><code>title</code></td>
-			<td class="description">Content to be used as a title</td>
+			<td><code>initials</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td class="description"
+				>Initials to display if <code>src</code> is falsey. Also used as value of <code>alt</code> attribute</td
+			>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td class="description">An icon component to replace the default icon </td>
+			<td><code>name</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td class="description"
+				>Initials automatically derived from name to display if <code>src</code> is falsey. Also
+				used as value of <code>alt</code> attribute</td
+			>
 		</tr>
 	</tbody>
 </table>
