@@ -1,5 +1,5 @@
 ```html
-<Alert icon={false}>
+<Alert theme="info" icon={false}>
   Keepin' it simple.
 </Alert>
 ```

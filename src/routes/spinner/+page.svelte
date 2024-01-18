@@ -3,7 +3,8 @@
 	import Import from './import.md';
 	import Sizes from './sizes.md';
 	import Types from './types.md';
-	import OpenCircle from './open-circle.md';
+	import DotsCircle from './dots-circle.md';
+	import DotsRow from './dots-row.md';
 </script>
 
 <h1>Spinner</h1>
@@ -23,16 +24,19 @@
 
 <h3>Sizes</h3>
 <Sizes />
-<Spinner size="xs" />
-<Spinner size="sm" />
-<Spinner size="md" />
-<Spinner size="lg" />
-<Spinner size="xl" />
+<div class="flex items-center gap-3">
+	<Spinner size="xs" />
+	<Spinner size="sm" />
+	<Spinner size="md" />
+	<Spinner size="lg" />
+	<Spinner size="xl" />
+</div>
 
 <hr />
 
 <h3>Types</h3>
 <Types />
+<Spinner type="default" />
 <Spinner type="accent" />
 <Spinner type="info" />
 <Spinner type="warning" />
@@ -41,14 +45,24 @@
 
 <hr />
 
-<h3>Open Circle (default variant)</h3>
-<OpenCircle />
-<Spinner variant="open-circle" />
+<h3>Dots Circle</h3>
+<DotsCircle />
+<Spinner variant="dots-circle" />
+
+<hr />
+
+<h3>Dots Row Sizes</h3>
+<DotsRow />
+<Spinner variant="dots-row" size="xs" />
+<Spinner variant="dots-row" size="sm" />
+<Spinner variant="dots-row" size="md" />
+<Spinner variant="dots-row" size="lg" />
+<Spinner variant="dots-row" size="xl" />
 
 <hr />
 
 <!-- Properties Table -->
-<h3>Alert Properties</h3>
+<h3>Spinner Properties</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -60,46 +74,22 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><code>active</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td class="description"
-				>Use with <code>bind:active</code> two-way binding so that the parent template can trigger an
-				alert and the Alert's close Spinner can also close it</td
-			>
-		</tr>
-		<tr>
 			<td><code>type</code></td>
-			<td>String: 'info', 'warning', 'success', or 'error'</td>
-			<td>'info'</td>
-			<td class="description">Sets the type of alert to be displayed</td>
+			<td>String: 'default', 'white', 'accent', 'info', 'warning', 'success', 'error'</td>
+			<td><code>'default'</code></td>
+			<td>spinner type (color theme)</td>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td class="description">Sets whether an icon is displayed</td>
-		</tr>
-	</tbody>
-</table>
-
-<!-- Named Slots Table -->
-<h3>Alert Named Slots</h3>
-<table class="w-full">
-	<thead class="text-left">
-		<tr>
-			<th>Slot Name</th>
-			<th>Description</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><code>title</code></td>
-			<td class="description">Content to be used as a title</td>
+			<td><code>variant</code></td>
+			<td>String: 'dots-circle', 'dots-row'</td>
+			<td>'dots-circle'</td>
+			<td>Spinner style variant</td>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td class="description">An icon component to replace the default icon </td>
+			<td><code>size</code></td>
+			<td>String: 'xs', 'sm', 'md', 'lg', 'xl'</td>
+			<td><code>'md'</code></td>
+			<td>Spinner size</td>
 		</tr>
 	</tbody>
 </table>

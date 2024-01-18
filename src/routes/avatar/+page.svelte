@@ -66,7 +66,7 @@
 			<td><code>src</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td class="description"
+			<td
 				>URL (either relative or full URL) to the image file to use in avatar. Preferably 1:1 aspect
 				ratio. Does not need to be cropped to a circle</td
 			>
@@ -75,13 +75,13 @@
 			<td><code>size</code></td>
 			<td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
 			<td>'md'</td>
-			<td class="description">Sets the the size of the avatar</td>
+			<td>Sets the the size of the avatar</td>
 		</tr>
 		<tr>
 			<td><code>initials</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td class="description"
+			<td
 				>Initials to display if <code>src</code> is falsey. Also used as value of <code>alt</code> attribute</td
 			>
 		</tr>
@@ -89,7 +89,7 @@
 			<td><code>name</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td class="description"
+			<td
 				>Initials automatically derived from name to display if <code>src</code> is falsey. Also
 				used as value of <code>alt</code> attribute</td
 			>

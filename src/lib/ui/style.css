@@ -5,35 +5,31 @@
   Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
 	/* Default state of components */
-	--ui-color-default-text: #334155;
-	--ui-color-default-foreground: #94a3b8;
-	--ui-color-default-background: #fff;
+	--ui-color-default-light: #fff;
+	--ui-color-default-midtone: #94a3b8;
+	--ui-color-default-dark: #334155;
 
-	/* Accent: Accent colors for things like buttons and checkmark backgrounds  */
-	--ui-color-accent-foreground: #f97316;
-	--ui-color-accent-background: #ffedd5;
-	--ui-color-accent-hover-foreground: #3b82f6;
-	--ui-color-accent-hover-background: #bbf7d0;
+	/* Brand: Components with "theme" property set to "brand" – also used as default for buttons, etc. */
+	--ui-color-brand-light: #ffedd5;
+	--ui-color-brand-dark: #f97316;
+	--ui-color-brand-hover-light: #bbf7d0;
+	--ui-color-brand-hover-dark: #3b82f6;
 
-	/* Info: Components with "type" property set to "info"  */
-	--ui-color-info-text: #075985;
-	--ui-color-info-foreground: #075985;
-	--ui-color-info-background: #bae6fd;
+	/* Info: Components with "theme" property set to "info"  */
+	--ui-color-info-light: #e0f2fe;
+	--ui-color-info-dark: #075985;
 
-	/* Success: Components with "type" property set to "success"  */
-	--ui-color-success-text: #0c4a6e;
-	--ui-color-success-foreground: #0c4a6e;
-	--ui-color-success-background: #bbf7d0;
+	/* Success: Components with "theme" property set to "success"  */
+	--ui-color-success-light: #bbf7d0;
+	--ui-color-success-dark: #15803d;
 
-	/* Warning: Components with "type" property set to "warning"  */
-	--ui-color-warning-text: #a16207;
-	--ui-color-warning-foreground: #a16207;
-	--ui-color-warning-background: #fef08a;
+	/* Warning: Components with "theme" property set to "warning"  */
+	--ui-color-warning-light: #fef08a;
+	--ui-color-warning-dark: #713f12;
 
-	/* Error: Components with "type" property set to "error"  */
-	--ui-color-error-text: #7f1d1d;
-	--ui-color-error-foreground: #7f1d1d;
-	--ui-color-error-background: #fecaca;
+	/* Error: Components with "theme" property set to "error"  */
+	--ui-color-error-light: #fecaca;
+	--ui-color-error-dark: #7f1d1d;
 
 	/* Borders
   -------------------

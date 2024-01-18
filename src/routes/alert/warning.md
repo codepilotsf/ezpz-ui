@@ -1,5 +1,5 @@
 ```html
-<Alert type="warning">
+<Alert theme="warning">
   Warning! This alert is slightly scary.
 </Alert>
 ```

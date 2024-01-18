@@ -1,5 +1,5 @@
 ```html
-<Alert type="info">
+<Alert theme="info">
   This is just a simple info alert.
 </Alert>
 ```

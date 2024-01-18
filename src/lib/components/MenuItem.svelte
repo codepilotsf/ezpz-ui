@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	export let href;
 	export let label;
-	export let disabled;
+	export let disabled = false;
 
 	$: isActive = $page.url.pathname === href;
 	let isActive = false;

@@ -6,7 +6,14 @@
 
 	export let active = true;
 	export let icon = true;
-	export let type = 'info';
+	export let theme = 'default';
+	export let color = '';
+	export let background = '';
+
+	let styleValue = '';
+	if (color) styleValue += `color: ${color};`;
+	if (background) styleValue += `background: ${background};`;
+	const style = styleValue || null;
 
 	let _class = '';
 	export { _class as class };
@@ -17,23 +24,24 @@
 		class={`lib-ui ${_class}`}
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
-		{type}
+		{theme}
+		{style}
 	>
 		{#if icon}
 			<div>
 				{#if $$slots.icon}
 					<!-- Custom Icon -->
 					<slot name="icon" />
-				{:else if type === 'info'}
+				{:else if theme === 'info'}
 					<!-- Default Info Icon -->
 					<BadgeInfo size={24} />
-				{:else if type === 'warning'}
+				{:else if theme === 'warning'}
 					<!-- Default Warning Icon -->
 					<AlertTriangle size={24} />
-				{:else if type === 'success'}
+				{:else if theme === 'success'}
 					<!-- Default Success Icon -->
 					<CheckCheck size={24} />
-				{:else if type === 'error'}
+				{:else if theme === 'error'}
 					<!-- Default Error Icon -->
 					<AlertCircle size={24} />
 				{/if}
@@ -68,20 +76,28 @@
 		border-radius: var(--ui-border-radius);
 		padding: var(--ui-spacing-md);
 	}
-	ui-alert[type='info'] {
-		color: var(--ui-color-info-text);
-		background-color: var(--ui-color-info-background);
+	ui-alert[theme='default'] {
+		color: var(--ui-color-default-light);
+		background-color: var(--ui-color-default-midtone);
 	}
-	ui-alert[type='warning'] {
-		color: var(--ui-color-alert-text);
-		background-color: var(--ui-color-warning-background);
+	ui-alert[theme='info'] {
+		color: var(--ui-color-info-dark);
+		background-color: var(--ui-color-info-light);
 	}
-	ui-alert[type='success'] {
-		color: var(--ui-color-success-text);
-		background-color: var(--ui-color-success-background);
+	ui-alert[theme='warning'] {
+		color: var(--ui-color-warning-dark);
+		background-color: var(--ui-color-warning-light);
 	}
-	ui-alert[type='error'] {
-		color: var(--ui-color-error-text);
-		background-color: var(--ui-color-error-background);
+	ui-alert[theme='success'] {
+		color: var(--ui-color-success-dark);
+		background-color: var(--ui-color-success-light);
+	}
+	ui-alert[theme='error'] {
+		color: var(--ui-color-error-dark);
+		background-color: var(--ui-color-error-light);
+	}
+	ui-alert[theme='brand'] {
+		color: var(--ui-color-brand-dark);
+		background-color: var(--ui-color-brand-light);
 	}
 </style>

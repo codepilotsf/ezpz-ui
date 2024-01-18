@@ -1,5 +1,5 @@
 ```html
-<Alert type="error">
+<Alert theme="error">
   Something bad happened.
 </Alert>
 ```

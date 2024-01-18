@@ -4,75 +4,298 @@
 	let _class = '';
 	export { _class as class };
 
-	export let type = 'accent';
-	export let variant = 'open-circle';
+	export let type = 'default';
+	export let variant = 'dots-circle';
 	export let size = 'md';
 </script>
 
-<ui-spinner class={`lib-ui ${_class}`} {type} {variant} {size}></ui-spinner>
+{#if variant === 'open-circle'}
+	<ui-spinner class={`lib-ui ${_class}`} {type} {size}></ui-spinner>
+{/if}
+
+{#if variant === 'dots-circle'}
+	<ui-spinner class={`lib-ui ${_class}`} {type} {size} {variant}>
+		<div class="dots-circle-part1 dots-circle-part"></div>
+		<div class="dots-circle-part2 dots-circle-part"></div>
+		<div class="dots-circle-part3 dots-circle-part"></div>
+		<div class="dots-circle-part4 dots-circle-part"></div>
+		<div class="dots-circle-part5 dots-circle-part"></div>
+		<div class="dots-circle-part6 dots-circle-part"></div>
+		<div class="dots-circle-part7 dots-circle-part"></div>
+		<div class="dots-circle-part8 dots-circle-part"></div>
+		<div class="dots-circle-part9 dots-circle-part"></div>
+		<div class="dots-circle-part10 dots-circle-part"></div>
+		<div class="dots-circle-part11 dots-circle-part"></div>
+		<div class="dots-circle-part12 dots-circle-part"></div>
+	</ui-spinner>
+{/if}
+
+{#if variant === 'dots-row'}
+	<ui-spinner class={`lib-ui ${_class}`} {type} {size} {variant}>
+		<div class="bounce1"></div>
+		<div class="bounce2"></div>
+		<div class="bounce3"></div>
+	</ui-spinner>
+{/if}
 
 <style>
 	ui-spinner {
 		display: inline-block;
-		box-sizing: border-box;
 	}
 
 	/* Types
   ------------------- */
+	ui-spinner[type='default'] {
+		--spinner-color: var(--ui-color-default-foreground);
+	}
+
+	ui-spinner[type='white'] {
+		--spinner-color: #fff;
+	}
+
 	ui-spinner[type='accent'] {
-		border-color: var(--ui-color-accent-foreground);
+		--spinner-color: var(--ui-color-accent-foreground);
 	}
 
 	ui-spinner[type='info'] {
-		border-color: var(--ui-color-info-foreground);
+		--spinner-color: var(--ui-color-info-foreground);
 	}
 
 	ui-spinner[type='warning'] {
-		border-color: var(--ui-color-warning-foreground);
+		--spinner-color: var(--ui-color-warning-foreground);
 	}
 
 	ui-spinner[type='success'] {
-		border-color: var(--ui-color-warning-foreground);
+		--spinner-color: var(--ui-color-warning-foreground);
 	}
 
 	ui-spinner[type='error'] {
-		border-color: var(--ui-color-warning-foreground);
+		--spinner-color: var(--ui-color-warning-foreground);
 	}
 
 	/* Sizes
   ------------------- */
 	ui-spinner[size='xs'] {
-		width: 1rem;
+		--spinner-size: 16px;
 	}
 	ui-spinner[size='sm'] {
-		width: 1.5rem;
+		--spinner-size: 26px;
 	}
 	ui-spinner[size='md'] {
-		width: 2rem;
+		--spinner-size: 42px;
 	}
 	ui-spinner[size='lg'] {
-		width: 2.5rem;
+		--spinner-size: 68px;
 	}
 	ui-spinner[size='xl'] {
-		width: 3rem;
+		--spinner-size: 110px;
 	}
 
 	/* Variants 
   ------------------- */
-	ui-spinner[variant='open-circle'] {
-		aspect-ratio: 1;
-		border-width: 5px;
-		border-style: solid;
-		border-bottom-color: transparent;
-		border-radius: 50%;
-		animation: spin 1s linear infinite;
+
+	/* Dots Circle 
+  ------------------------------------*/
+	ui-spinner[variant='dots-circle'] {
+		display: inline-block;
+		position: relative;
+		width: var(--spinner-size);
+		height: var(--spinner-size);
 	}
-	@keyframes spin {
-		0% {
-			transform: rotate(0deg);
-		}
+
+	ui-spinner[variant='dots-circle'] .dots-circle-part {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+	ui-spinner[variant='dots-circle'] .dots-circle-part:before {
+		content: '';
+		display: block;
+		margin: 0 auto;
+		width: 15%;
+		height: 15%;
+		background-color: var(--spinner-color);
+		border-radius: 100%;
+		-webkit-animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
+		animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part2 {
+		-webkit-transform: rotate(30deg);
+		-ms-transform: rotate(30deg);
+		transform: rotate(30deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part3 {
+		-webkit-transform: rotate(60deg);
+		-ms-transform: rotate(60deg);
+		transform: rotate(60deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part4 {
+		-webkit-transform: rotate(90deg);
+		-ms-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part5 {
+		-webkit-transform: rotate(120deg);
+		-ms-transform: rotate(120deg);
+		transform: rotate(120deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part6 {
+		-webkit-transform: rotate(150deg);
+		-ms-transform: rotate(150deg);
+		transform: rotate(150deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part7 {
+		-webkit-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part8 {
+		-webkit-transform: rotate(210deg);
+		-ms-transform: rotate(210deg);
+		transform: rotate(210deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part9 {
+		-webkit-transform: rotate(240deg);
+		-ms-transform: rotate(240deg);
+		transform: rotate(240deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part10 {
+		-webkit-transform: rotate(270deg);
+		-ms-transform: rotate(270deg);
+		transform: rotate(270deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part11 {
+		-webkit-transform: rotate(300deg);
+		-ms-transform: rotate(300deg);
+		transform: rotate(300deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part12 {
+		-webkit-transform: rotate(330deg);
+		-ms-transform: rotate(330deg);
+		transform: rotate(330deg);
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part2:before {
+		-webkit-animation-delay: -1.1s;
+		animation-delay: -1.1s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part3:before {
+		-webkit-animation-delay: -1s;
+		animation-delay: -1s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part4:before {
+		-webkit-animation-delay: -0.9s;
+		animation-delay: -0.9s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part5:before {
+		-webkit-animation-delay: -0.8s;
+		animation-delay: -0.8s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part6:before {
+		-webkit-animation-delay: -0.7s;
+		animation-delay: -0.7s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part7:before {
+		-webkit-animation-delay: -0.6s;
+		animation-delay: -0.6s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part8:before {
+		-webkit-animation-delay: -0.5s;
+		animation-delay: -0.5s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part9:before {
+		-webkit-animation-delay: -0.4s;
+		animation-delay: -0.4s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part10:before {
+		-webkit-animation-delay: -0.3s;
+		animation-delay: -0.3s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part11:before {
+		-webkit-animation-delay: -0.2s;
+		animation-delay: -0.2s;
+	}
+	ui-spinner[variant='dots-circle'] .dots-circle-part12:before {
+		-webkit-animation-delay: -0.1s;
+		animation-delay: -0.1s;
+	}
+
+	@-webkit-keyframes dots-circle-partFadeDelay {
+		0%,
+		39%,
 		100% {
-			transform: rotate(360deg);
+			opacity: 0;
+		}
+		40% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes dots-circle-partFadeDelay {
+		0%,
+		39%,
+		100% {
+			opacity: 0;
+		}
+		40% {
+			opacity: 1;
+		}
+	}
+
+	/* Dots Row 
+  ------------------------------------*/
+	ui-spinner[variant='dots-row'] {
+		width: calc(1.5 * var(--spinner-size));
+		height: calc(1.5 * var(--spinner-size));
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	ui-spinner[variant='dots-row'] > div {
+		width: calc(0.35 * var(--spinner-size));
+		height: calc(0.35 * var(--spinner-size));
+		background-color: var(--spinner-color);
+		border-radius: 100%;
+		display: inline-block;
+		-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+		animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+	}
+
+	ui-spinner[variant='dots-row'] .bounce1 {
+		-webkit-animation-delay: -0.32s;
+		animation-delay: -0.32s;
+	}
+
+	ui-spinner[variant='dots-row'] .bounce2 {
+		-webkit-animation-delay: -0.16s;
+		animation-delay: -0.16s;
+	}
+
+	@-webkit-keyframes sk-bouncedelay {
+		0%,
+		80%,
+		100% {
+			-webkit-transform: scale(0);
+		}
+		40% {
+			-webkit-transform: scale(1);
+		}
+	}
+
+	@keyframes sk-bouncedelay {
+		0%,
+		80%,
+		100% {
+			-webkit-transform: scale(0);
+			transform: scale(0);
+		}
+		40% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
 		}
 	}
 </style>
