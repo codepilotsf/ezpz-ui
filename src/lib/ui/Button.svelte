@@ -6,17 +6,25 @@
 	export let disabled = false;
 	export let loading = false;
 	export let size = 'full';
+	export let htmlType = null;
 
 	let _class = '';
 	export { _class as class };
 </script>
 
-<button class={`lib-ui ${_class}`}>
-	<slot />
-</button>
+{#if href}
+	<a class={`lib-ui ${_class}`} {href} {type} {loading} {size}>
+		<slot />
+	</a>
+{:else}
+	<button class={`lib-ui ${_class}`} {type} {disabled} {loading} {size} {htmlType}>
+		<slot />
+	</button>
+{/if}
 
 <style>
-	button {
+	button,
+	a {
 		width: 100%;
 		border-radius: var(--ui-border-radius);
 		padding: var(--ui-spacing-md);

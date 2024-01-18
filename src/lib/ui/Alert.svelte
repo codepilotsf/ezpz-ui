@@ -15,12 +15,9 @@
 {#if active}
 	<ui-alert
 		class={`lib-ui ${_class}`}
-		class:info={type === 'info'}
-		class:warning={type === 'warning'}
-		class:success={type === 'success'}
-		class:error={type === 'error'}
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
+		{type}
 	>
 		{#if icon}
 			<div>
@@ -71,19 +68,19 @@
 		border-radius: var(--ui-border-radius);
 		padding: var(--ui-spacing-md);
 	}
-	ui-alert.info {
+	ui-alert[type='info'] {
 		color: var(--ui-color-info-text);
 		background-color: var(--ui-color-info-background);
 	}
-	ui-alert.warning {
+	ui-alert[type='warning'] {
 		color: var(--ui-color-alert-text);
 		background-color: var(--ui-color-warning-background);
 	}
-	ui-alert.success {
+	ui-alert[type='success'] {
 		color: var(--ui-color-success-text);
 		background-color: var(--ui-color-success-background);
 	}
-	ui-alert.error {
+	ui-alert[type='error'] {
 		color: var(--ui-color-error-text);
 		background-color: var(--ui-color-error-background);
 	}

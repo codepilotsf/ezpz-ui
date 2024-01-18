@@ -24,6 +24,8 @@
 <h3>Import</h3>
 <Import />
 
+<hr />
+
 <h3>Sizes</h3>
 <Sizes />
 <div class="flex items-center gap-2">
@@ -34,13 +36,19 @@
 	<Avatar src="/avatars/f3.jpg" size="xl" />
 </div>
 
+<hr />
+
 <h3>Initials</h3>
 <Initials />
 <Avatar initials="ck" />
 
+<hr />
+
 <h3>Name</h3>
 <Name />
 <Avatar name="Michael Jackson" />
+
+<hr />
 
 <!-- Properties Table -->
 <h3>Avatar Properties</h3>

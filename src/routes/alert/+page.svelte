@@ -24,25 +24,37 @@
 <h3>Import</h3>
 <Import />
 
+<hr />
+
 <h3>Info (default)</h3>
 <Info />
 <Alert type="info">This is just a simple info alert.</Alert>
+
+<hr />
 
 <h3>Warning</h3>
 <Warning />
 <Alert type="warning">Warning! This is alert is slightly scary.</Alert>
 
+<hr />
+
 <h3>Success</h3>
 <Success />
 <Alert type="success">You have been alerted successfully.</Alert>
+
+<hr />
 
 <h3>Error</h3>
 <Error />
 <Alert type="error">Something bad happened.</Alert>
 
+<hr />
+
 <h3>No Icon</h3>
 <NoIcon />
 <Alert icon={false}>Keepin' it simple.</Alert>
+
+<hr />
 
 <h3>With Title</h3>
 <WithTitle />
@@ -51,12 +63,16 @@
 	This seems like a bad idea.
 </Alert>
 
+<hr />
+
 <h3>With Custom Icon</h3>
 <WithIcon />
 <Alert type="success">
 	<IceCream slot="icon" size={26} />
 	That ice cream was delicious.
 </Alert>
+
+<hr />
 
 <!-- Properties Table -->
 <h3>Alert Properties</h3>

@@ -55,7 +55,7 @@
 			<MenuItem href="/radio" label="Radio" disabled />
 			<MenuItem href="/radio-group" label="RadioGroup" disabled />
 			<MenuItem href="/select" label="Select" disabled />
-			<MenuItem href="/spinner" label="Spinner" disabled />
+			<MenuItem href="/spinner" label="Spinner" />
 			<MenuItem href="/textarea" label="Textarea" disabled />
 			<MenuItem href="/toast" label="Toast" disabled />
 			<MenuItem href="/tooltip" label="Tooltip" disabled />

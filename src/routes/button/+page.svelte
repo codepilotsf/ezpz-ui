@@ -1,28 +1,35 @@
 <script>
 	import { Button } from '$lib/ui';
-	import Example from './example.md';
+	import Import from './import.md';
+	import Basic from './basic.md';
 
-	export let type = 'brand';
+	export let type = 'accent';
 </script>
 
 <h1>Button</h1>
 <p>
 	Button components are rendered as a <code>button</code> element by default or if an
 	<code>href</code>
-	property is passed, it will be rendered as a regular <code>a</code> anchor link element. Styling will
-	be the same in either case. Buttons are full-width by default.
+	property is passed, it will be rendered as a regular <code>a</code> anchor link element. Styling
+	will be the same in either case. By default, buttons are full-width and use the accent colors set
+	in
+	<code>style.css</code>.
 </p>
 
-<!-- Example -->
-<h3>Example Usage</h3>
-<Example />
+<!-- Import -->
+<h3>Import</h3>
+<Import />
+
+<hr />
 
 <!-- Basic -->
 <h3>Basic Button</h3>
-
+<Basic />
 <section>
-	<Button {type}>Button</Button>
+	<Button {type}>Sign in</Button>
 </section>
+
+<hr />
 
 <!-- Properties Table -->
 <section>
