@@ -30,10 +30,10 @@
 		padding: var(--ui-spacing-md);
 		font-weight: 600;
 		/* Colors are inversed for button */
-		background-color: var(--ui-color-accent-foreground);
-		color: var(--ui-color-accent-background);
+		background-color: var(--ui-color-brand-dark);
+		color: var(--ui-color-brand-light);
 	}
 	button:hover {
-		background-color: var(--ui-color-accent-hover-foreground);
+		background-color: var(--ui-color-brand-hover-dark);
 	}
 </style>

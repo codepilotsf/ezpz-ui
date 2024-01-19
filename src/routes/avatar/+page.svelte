@@ -4,6 +4,8 @@
 	import Sizes from './sizes.md';
 	import Initials from './initials.md';
 	import Name from './name.md';
+	import Themes from './themes.md';
+	import Color from './color.md';
 </script>
 
 <h1>Avatar</h1>
@@ -47,6 +49,21 @@
 <h3>Name</h3>
 <Name />
 <Avatar name="Michael Jackson" />
+
+<h3>Themes (for initials fallback)</h3>
+<Themes />
+<Avatar initials="AB" theme="default" />
+<Avatar initials="CD" theme="info" />
+<Avatar initials="EF" theme="warning" />
+<Avatar initials="GH" theme="success" />
+<Avatar initials="IJ" theme="error" />
+<Avatar initials="KL" theme="brand" />
+
+<hr />
+
+<h3>Color and Background (for initials fallback)</h3>
+<Color />
+<Avatar initials="MD" color="white" background="cornflowerblue" />
 
 <hr />
 
@@ -92,6 +109,26 @@
 			<td
 				>Initials automatically derived from name to display if <code>src</code> is falsey. Also
 				used as value of <code>alt</code> attribute</td
+			>
+		</tr>
+		<tr>
+			<td><code>theme</code></td>
+			<td>String: 'default', 'info', 'warning', 'success', 'error', or 'brand'</td>
+			<td>'default'</td>
+			<td>Color theme of avatar to be displayed (when no image is present)</td>
+		</tr>
+		<tr>
+			<td><code>color</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td>Color used for initials (overrides <code>theme</code> if present)</td>
+		</tr>
+		<tr>
+			<td><code>background</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td
+				>Color or CSS background value used for background (overrides <code>theme</code> if present)</td
 			>
 		</tr>
 	</tbody>

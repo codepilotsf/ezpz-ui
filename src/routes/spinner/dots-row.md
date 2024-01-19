@@ -1,7 +1,7 @@
 ```html
-<Spinner variant="dots-row" size="xs" />
-<Spinner variant="dots-row" size="sm" />
-<Spinner variant="dots-row" size="md" />
-<Spinner variant="dots-row" size="lg" />
-<Spinner variant="dots-row" size="xl" />
+<Spinner type="dots-row" size="xs" />
+<Spinner type="dots-row" size="sm" />
+<Spinner type="dots-row" size="md" />
+<Spinner type="dots-row" size="lg" />
+<Spinner type="dots-row" size="xl" />
 ```

@@ -3,6 +3,7 @@
 	import { X, BadgeInfo, AlertTriangle, CheckCheck, AlertCircle } from 'lucide-svelte';
 
 	import './style.css';
+	import { utils } from './utils.js';
 
 	export let active = true;
 	export let icon = true;
@@ -10,10 +11,7 @@
 	export let color = '';
 	export let background = '';
 
-	let styleValue = '';
-	if (color) styleValue += `color: ${color};`;
-	if (background) styleValue += `background: ${background};`;
-	const style = styleValue || null;
+	const style = utils.getStyle(color, background);
 
 	let _class = '';
 	export { _class as class };

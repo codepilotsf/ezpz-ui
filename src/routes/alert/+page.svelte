@@ -110,6 +110,12 @@
 			>
 		</tr>
 		<tr>
+			<td><code>icon</code></td>
+			<td>Boolean</td>
+			<td><code>true</code></td>
+			<td>Sets whether an icon is displayed for theme which includes a default icon.</td>
+		</tr>
+		<tr>
 			<td><code>theme</code></td>
 			<td>String: 'default', 'info', 'warning', 'success', 'error', or 'brand'</td>
 			<td>'default'</td>
@@ -128,12 +134,6 @@
 			<td
 				>Color or CSS background value used for background (overrides <code>theme</code> if present)</td
 			>
-		</tr>
-		<tr>
-			<td><code>icon</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td>Sets whether an icon is displayed for theme which includes a default icon.</td>
 		</tr>
 	</tbody>
 </table>

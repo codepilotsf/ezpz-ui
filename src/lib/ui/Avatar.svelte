@@ -1,13 +1,19 @@
 <script>
 	import './style.css';
+	import { utils } from './utils.js';
 
 	export let src = '';
 	export let initials = '';
 	export let name = '';
 	export let size = 'md';
+	export let theme = 'default';
+	export let color = '';
+	export let background = '';
 
 	let _class = '';
 	export { _class as class };
+
+	const style = utils.getStyle(color, background);
 
 	// Format initials or get from name
 	if (initials) {
@@ -28,6 +34,8 @@
 	class:w-20={size === 'md'}
 	class:w-32={size === 'lg'}
 	class:w-40={size === 'xl'}
+	{theme}
+	{style}
 >
 	{#if src}
 		<img {src} alt={name || initials || 'Avatar'} />
@@ -50,8 +58,6 @@
 		height: auto;
 		justify-content: center;
 		border-radius: 50%;
-		background-color: var(--ui-color-accent-foreground);
-		color: var(--ui-color-accent-background);
 		font-weight: 600;
 		font-size: 1.25rem;
 		overflow: hidden;
@@ -62,5 +68,35 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	ui-avatar[theme='default'] {
+		background-color: var(--ui-color-default-midtone);
+		color: var(--ui-color-default-light);
+	}
+
+	ui-avatar[theme='info'] {
+		background-color: var(--ui-color-info-dark);
+		color: var(--ui-color-info-light);
+	}
+
+	ui-avatar[theme='warning'] {
+		background-color: var(--ui-color-warning-dark);
+		color: var(--ui-color-warning-light);
+	}
+
+	ui-avatar[theme='success'] {
+		background-color: var(--ui-color-success-dark);
+		color: var(--ui-color-success-light);
+	}
+
+	ui-avatar[theme='error'] {
+		background-color: var(--ui-color-error-dark);
+		color: var(--ui-color-error-light);
+	}
+
+	ui-avatar[theme='brand'] {
+		background-color: var(--ui-color-brand-dark);
+		color: var(--ui-color-brand-light);
 	}
 </style>

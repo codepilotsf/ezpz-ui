@@ -1,0 +1,3 @@
+```html
+<Spinner color="cornflowerblue" />
+```

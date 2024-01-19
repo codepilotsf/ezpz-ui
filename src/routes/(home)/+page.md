@@ -1,6 +1,7 @@
 <script>
   import HeadsUp from '$lib/components/HeadsUp.svelte';
   import Footer from './Footer.svelte';
+  import { Alert, Avatar, Spinner } from '$lib/ui';
 </script>
 
 <svelte:head>
@@ -27,30 +28,36 @@ LIB/UI components are imported and instantiated like any other Svelte component.
 
 ```html
 <script>
-  import { Alert } from '$lib/ui';
+  import { Spinner } from '$lib/ui';
 </script>
 
-<Alert>Holy crap!</Alert>
+<Spinner />
 ```
+<Spinner />
 
 ### Properties
-Properties are used to pass options to the component. For example, the `Alert` component takes an optional `type`
-property which can be used to set the type of alert.
+Properties are used to pass options to the component. For example, the `Alert` component takes an optional `theme`
+property which can be used to set the color/icon theme of the alert.
 
 ```html
-<Alert type="error">Something exploded.</Alert>
+<Alert theme="error">Something exploded.</Alert>
 ```
+<Alert theme="error">Something exploded.</Alert>
 
-### Slots
+### Named Slots
 Slots are used to pass default content as seen in the above example. However, many LIB/UI components also use <em>named</em> 
 slots to pass additional content to specific areas of the component. For example, the `Alert` component accepts an optional `title` slot which can be used to pass a title to the top of the alert.
 
 ```html
-<Alert type="error">
-  <div slot="title">Boom!</div>
-  Something exploded.
+<Alert theme="success">
+  <div slot="title">Hooray!</div>
+  This is a total success.
 </Alert>
 ```
+<Alert theme="success">
+  <div slot="title">Hooray!</div>
+  This is a total success.
+</Alert>
 
 <HeadsUp>
   See component docs for a full list of available properties and named slots and their usage for each component.
@@ -60,18 +67,22 @@ slots to pass additional content to specific areas of the component. For example
 All LIB/UI components use values set in `$lib/ui/style.css` for colors, spacing, border-radius, and so on. The look and
 feel of your components can be substantially changed just by modifying these values.
 
-### Class
+<!-- ### Class
 You can also pass a `class` property to any LIB/UI component to add additional classes to the component's outermost
 element. This can be especially effective when used with Tailwind classes – and of course classes can also be used
 directly on named slots as usual. So for an Alert which has a fixed width and a title that's underlined,
 you could do something like this:
 
 ```html
-<Alert type="success" class="w-96">
+<Alert theme="success" class="w-96">
   <div slot="title" class="underline">Hooray!</div>
   Item added to cart.
 </Alert>
 ```
+<Alert theme="success" class="w-96">
+  <div slot="title" class="!text-3xl">Hooray!</div>
+  Item added to cart.
+</Alert> -->
 
 ### Modifying Components
 Component files are heavily commented to make it easy to understand what's going on. You can modify the components as
