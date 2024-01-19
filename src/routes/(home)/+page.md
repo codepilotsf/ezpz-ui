@@ -10,18 +10,12 @@
 
 # LIB/UI SvelteKit Components
 LIB/UI is a collection of Svelte components meant to be <em>downloaded directly</em> to `src/lib/ui` in your project.
-Since these are just files sitting in a directory rather than hidden away in your Node modules, you can directly modify
-the components to fit your needs. This keeps things simple and transparent.
+Since these are just files sitting in a directory and not hidden away in your Node modules, that means you can directly
+modify the components to fit your needs. This keeps things simple and transparent.
 
 ### Getting Started
-LIB/UI isn't a Node package so it isn't installed. Just
-[download the zip file](https://libui.codepilot.com/latest.zip) to your project's `src/lib/` and extract it. Additionally,
-please make sure that both TailwindCSS and Lucide-Svelte (icons) are installed in your project.
-
-```bash
-npm install -D tailwindcss;
-npm install -D lucide-svelte;
-```
+LIB/UI isn't a Node package so it isn't installed. Just [download the zip file](https://libui.codepilot.com/latest.zip)
+to your SvelteKit project's `src/lib/` and extract it. It requires no dependencies other than Svelte itself.
 
 ### How To Use
 LIB/UI components are imported and instantiated like any other Svelte component.
@@ -64,7 +58,7 @@ slots to pass additional content to specific areas of the component. For example
 </HeadsUp>
 
 ### Style
-All LIB/UI components use values set in `$lib/ui/style.css` for colors, spacing, border-radius, and so on. The look and
+All LIB/UI components use values set in `lib/ui/style.css` for colors, spacing, border-radius, and so on. The look and
 feel of your components can be substantially changed just by modifying these values.
 
 <!-- ### Class

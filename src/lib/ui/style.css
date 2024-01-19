@@ -5,31 +5,30 @@
   Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
 	/* Default state of components */
-	--ui-color-default-light: #fff;
-	--ui-color-default-midtone: #94a3b8;
-	--ui-color-default-dark: #334155;
+	--ui-color-default-background: #cbd5e1;
+	--ui-color-default-color: #334155;
 
 	/* Brand: Components with "theme" property set to "brand" – also used as default for buttons, etc. */
-	--ui-color-brand-light: #ffedd5;
-	--ui-color-brand-dark: #f97316;
-	--ui-color-brand-hover-light: #bbf7d0;
-	--ui-color-brand-hover-dark: #3b82f6;
+	--ui-color-brand-background: #ffedd5;
+	--ui-color-brand-color: #f97316;
+	--ui-color-brand-hover-background: #bbf7d0;
+	--ui-color-brand-hover-color: #3b82f6;
 
 	/* Info: Components with "theme" property set to "info"  */
-	--ui-color-info-light: #e0f2fe;
-	--ui-color-info-dark: #075985;
+	--ui-color-info-background: #e0f2fe;
+	--ui-color-info-color: #075985;
 
 	/* Success: Components with "theme" property set to "success"  */
-	--ui-color-success-light: #bbf7d0;
-	--ui-color-success-dark: #15803d;
+	--ui-color-success-background: #bbf7d0;
+	--ui-color-success-color: #15803d;
 
 	/* Warning: Components with "theme" property set to "warning"  */
-	--ui-color-warning-light: #fef08a;
-	--ui-color-warning-dark: #713f12;
+	--ui-color-warning-background: #fef08a;
+	--ui-color-warning-color: #713f12;
 
 	/* Error: Components with "theme" property set to "error"  */
-	--ui-color-error-light: #fecaca;
-	--ui-color-error-dark: #7f1d1d;
+	--ui-color-error-background: #fecaca;
+	--ui-color-error-color: #7f1d1d;
 
 	/* Borders
   -------------------

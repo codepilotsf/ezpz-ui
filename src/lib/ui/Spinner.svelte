@@ -11,14 +11,23 @@
 	export let size = 'md';
 	export let color = '';
 
-	let uiSpinnerEl;
+	const sizes = {
+		xs: '16px',
+		sm: '26px',
+		md: '42px',
+		lg: '68px',
+		xl: '110px'
+	};
 
+	let parentEl;
 	onMount(() => {
-		uiSpinnerEl.style.setProperty('--spinner-color', color);
+		let { newColor } = utils.getColors({ theme, color });
+		parentEl.style.setProperty('--color', newColor);
+		parentEl.style.setProperty('--size', sizes[size]);
 	});
 </script>
 
-<ui-spinner bind:this={uiSpinnerEl} class={`lib-ui ${_class}`} {type} {size} {theme}>
+<ui-spinner bind:this={parentEl} class={`lib-ui ${_class}`} {type} {size}>
 	{#if type === 'dots-circle'}
 		<div class="dots-circle-part1 dots-circle-part"></div>
 		<div class="dots-circle-part2 dots-circle-part"></div>
@@ -45,52 +54,13 @@
 		display: inline-block;
 	}
 
-	/* Themes
-  ------------------- */
-	ui-spinner[theme='default'] {
-		--spinner-color: var(--ui-color-default-dark);
-	}
-	ui-spinner[theme='info'] {
-		--spinner-color: var(--ui-color-info-dark);
-	}
-	ui-spinner[theme='warning'] {
-		--spinner-color: var(--ui-color-warning-dark);
-	}
-	ui-spinner[theme='success'] {
-		--spinner-color: var(--ui-color-warning-dark);
-	}
-	ui-spinner[theme='error'] {
-		--spinner-color: var(--ui-color-warning-dark);
-	}
-	ui-spinner[theme='brand'] {
-		--spinner-color: var(--ui-color-brand-dark);
-	}
-
-	/* Sizes
-  ------------------- */
-	ui-spinner[size='xs'] {
-		--spinner-size: 16px;
-	}
-	ui-spinner[size='sm'] {
-		--spinner-size: 26px;
-	}
-	ui-spinner[size='md'] {
-		--spinner-size: 42px;
-	}
-	ui-spinner[size='lg'] {
-		--spinner-size: 68px;
-	}
-	ui-spinner[size='xl'] {
-		--spinner-size: 110px;
-	}
-
 	/* Dots Circle 
   ------------------------------------*/
 	ui-spinner[type='dots-circle'] {
 		display: inline-block;
 		position: relative;
-		width: var(--spinner-size);
-		height: var(--spinner-size);
+		width: var(--size);
+		height: var(--size);
 	}
 
 	ui-spinner[type='dots-circle'] .dots-circle-part {
@@ -107,7 +77,7 @@
 		margin: 0 auto;
 		width: 15%;
 		height: 15%;
-		background-color: var(--spinner-color);
+		background-color: var(--color);
 		border-radius: 100%;
 		-webkit-animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
 		animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
@@ -237,8 +207,8 @@
 	/* Dots Row 
   ------------------------------------*/
 	ui-spinner[type='dots-row'] {
-		width: calc(1.5 * var(--spinner-size));
-		height: calc(1.5 * var(--spinner-size));
+		width: calc(1.5 * var(--size));
+		height: calc(1.5 * var(--size));
 		text-align: center;
 		display: flex;
 		justify-content: space-between;
@@ -246,9 +216,9 @@
 	}
 
 	ui-spinner[type='dots-row'] > div {
-		width: calc(0.35 * var(--spinner-size));
-		height: calc(0.35 * var(--spinner-size));
-		background-color: var(--spinner-color);
+		width: calc(0.35 * var(--size));
+		height: calc(0.35 * var(--size));
+		background-color: var(--color);
 		border-radius: 100%;
 		display: inline-block;
 		-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;

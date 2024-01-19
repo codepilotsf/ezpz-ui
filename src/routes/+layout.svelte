@@ -28,7 +28,7 @@
 			<FolderOpenDot size={34} strokeWidth={2.3} />
 			<span>LIB<span class="mx-1">/</span><span class="font-light">UI</span></span>
 		</a>
-		<div class="flex items-center">
+		<div class="flex items-center gap-3">
 			<!-- Download Link -->
 			<a class="p-2" href="libui.codepilot.com/latest.zip" target="_blank"
 				><DownloadCloud size={24} strokeWidth={3} /></a

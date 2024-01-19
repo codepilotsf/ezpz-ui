@@ -1,3 +1,7 @@
 ```html
-<Avatar initials="MD" color="white" background="cornflowerblue" />
+<Avatar 
+  initials="MD" 
+  color="white" 
+  background="cornflowerblue" 
+/>
 ```

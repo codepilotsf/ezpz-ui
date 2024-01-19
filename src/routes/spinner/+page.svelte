@@ -11,8 +11,7 @@
 <p>
 	Spinners are used to indicate to the user that the interface is waiting for an action to complete
 	such as a server-side operation that is taking a long time. There options for different types of
-	spinners and sizes. This components is also used within other components such as <code
-		>Button</code
+	spinners and sizes. This component is also used within other components such as <code>Button</code
 	>
 	to indicate <code>loading</code> state.
 </p>

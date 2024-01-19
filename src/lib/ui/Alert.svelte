@@ -1,6 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
-	import { X, BadgeInfo, AlertTriangle, CheckCheck, AlertCircle } from 'lucide-svelte';
 
 	import './style.css';
 	import { utils } from './utils.js';
@@ -8,10 +8,18 @@
 	export let active = true;
 	export let icon = true;
 	export let theme = 'default';
-	export let color = '';
 	export let background = '';
+	export let color = '';
 
-	const style = utils.getStyle(color, background);
+	const defaultIcon = utils.getIcon(theme);
+	const xIcon = utils.getIcon('x', 18);
+
+	let parentEl;
+	onMount(() => {
+		let { newBackground, newColor } = utils.getColors({ theme, background, color });
+		parentEl.style.setProperty('--background', newBackground);
+		parentEl.style.setProperty('--color', newColor);
+	});
 
 	let _class = '';
 	export { _class as class };
@@ -23,25 +31,15 @@
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
 		{theme}
-		{style}
+		bind:this={parentEl}
 	>
 		{#if icon}
 			<div>
+				<!-- Custom or default icon -->
 				{#if $$slots.icon}
-					<!-- Custom Icon -->
 					<slot name="icon" />
-				{:else if theme === 'info'}
-					<!-- Default Info Icon -->
-					<BadgeInfo size={24} />
-				{:else if theme === 'warning'}
-					<!-- Default Warning Icon -->
-					<AlertTriangle size={24} />
-				{:else if theme === 'success'}
-					<!-- Default Success Icon -->
-					<CheckCheck size={24} />
-				{:else if theme === 'error'}
-					<!-- Default Error Icon -->
-					<AlertCircle size={24} />
+				{:else if defaultIcon}
+					{@html defaultIcon}
 				{/if}
 			</div>
 		{/if}
@@ -61,8 +59,8 @@
 		</div>
 
 		<!-- Close Button -->
-		<button class="ml-auto mt-1 h-fit" on:click={() => (active = false)}>
-			<X size={18} />
+		<button on:click={() => (active = false)}>
+			{@html xIcon}
 		</button>
 	</ui-alert>
 {/if}
@@ -73,29 +71,12 @@
 		gap: var(--ui-spacing-md);
 		border-radius: var(--ui-border-radius);
 		padding: var(--ui-spacing-md);
+		color: var(--color);
+		background-color: var(--background);
 	}
-	ui-alert[theme='default'] {
-		color: var(--ui-color-default-light);
-		background-color: var(--ui-color-default-midtone);
-	}
-	ui-alert[theme='info'] {
-		color: var(--ui-color-info-dark);
-		background-color: var(--ui-color-info-light);
-	}
-	ui-alert[theme='warning'] {
-		color: var(--ui-color-warning-dark);
-		background-color: var(--ui-color-warning-light);
-	}
-	ui-alert[theme='success'] {
-		color: var(--ui-color-success-dark);
-		background-color: var(--ui-color-success-light);
-	}
-	ui-alert[theme='error'] {
-		color: var(--ui-color-error-dark);
-		background-color: var(--ui-color-error-light);
-	}
-	ui-alert[theme='brand'] {
-		color: var(--ui-color-brand-dark);
-		background-color: var(--ui-color-brand-light);
+	button {
+		margin-left: auto;
+		margin-top: 4px;
+		height: fit-content;
 	}
 </style>
