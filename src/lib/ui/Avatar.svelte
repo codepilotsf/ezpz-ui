@@ -8,8 +8,6 @@
 	export let name = '';
 	export let size = 'md';
 	export let theme = 'default';
-	export let color = '';
-	export let background = '';
 
 	let _class = '';
 	export { _class as class };
@@ -28,11 +26,7 @@
   `;
 
 	let parentEl;
-	onMount(() => {
-		let { newBackground, newColor } = utils.getColors({ theme, background, color });
-		parentEl.style.setProperty('--background', newBackground);
-		parentEl.style.setProperty('--color', newColor);
-	});
+	onMount(() => utils.setColors(parentEl, $$props));
 
 	// Format initials or get from name
 	if (initials) {

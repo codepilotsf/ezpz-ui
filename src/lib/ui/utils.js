@@ -1,17 +1,12 @@
 export const utils = {
-
-  getColors({ theme, background, color }) {
-    // Return newBackground and newColor based on theme colors if present but 
-    // prefer background and color if present
-    let newBackground;
-    let newColor;
-    if (theme) {
-      newBackground = `var(--ui-color-${theme}-background)`;
-      newColor = `var(--ui-color-${theme}-color)`;
-    }
-    if (background) newBackground = background;
-    if (color) newColor = color;
-    return { newBackground, newColor };
+  setColors(el, { theme, background, color, backgroundHover, colorHover }) {
+    // Set colors based on theme colors if present but prefer color, background, colorHover, and backgroundHover
+    // if explicitly set. This is accomplished by setting the CSS variables on the component's parent element.
+    theme = theme || 'default';
+    el.style.setProperty('--color', color || `var(--ui-color-${theme}-color)`);
+    el.style.setProperty('--background', background || `var(--ui-color-${theme}-background)`);
+    el.style.setProperty('--color-hover', colorHover || `var(--ui-color-${theme}-color-hover)`);
+    el.style.setProperty('--background-hover', backgroundHover || `var(--ui-color-${theme}-background-hover)`);
   },
 
   getIcon(name, size = 24) {

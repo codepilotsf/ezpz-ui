@@ -6,10 +6,8 @@
 	let _class = '';
 	export { _class as class };
 
-	export let theme = 'default';
 	export let type = 'dots-circle';
 	export let size = 'md';
-	export let color = '';
 
 	const sizes = {
 		xs: '16px',
@@ -21,8 +19,7 @@
 
 	let parentEl;
 	onMount(() => {
-		let { newColor } = utils.getColors({ theme, color });
-		parentEl.style.setProperty('--color', newColor);
+		utils.setColors(parentEl, $$props);
 		parentEl.style.setProperty('--size', sizes[size]);
 	});
 </script>

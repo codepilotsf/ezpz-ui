@@ -8,18 +8,12 @@
 	export let active = true;
 	export let icon = true;
 	export let theme = 'default';
-	export let background = '';
-	export let color = '';
 
 	const defaultIcon = utils.getIcon(theme);
 	const xIcon = utils.getIcon('x', 18);
 
 	let parentEl;
-	onMount(() => {
-		let { newBackground, newColor } = utils.getColors({ theme, background, color });
-		parentEl.style.setProperty('--background', newBackground);
-		parentEl.style.setProperty('--color', newColor);
-	});
+	onMount(() => utils.setColors(parentEl, $$props));
 
 	let _class = '';
 	export { _class as class };
