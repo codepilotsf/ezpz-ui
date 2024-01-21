@@ -1,63 +1,128 @@
 <script>
 	import { Button } from '$lib/ui';
-	import Import from './import.md';
-	import Default from './default.md';
-	import Info from './info.md';
-	import Warning from './warning.md';
-	import Success from './success.md';
-	import Error from './error.md';
-	import Brand from './brand.md';
-	import Anchor from './anchor.md';
 </script>
 
-<h1>Button</h1>
-<p>
-	Button components are rendered as a <code>button</code> element by default or if an
-	<code>href</code>
-	property is passed, it will be rendered as a regular <code>a</code> anchor link element. Styling
-	will be the same in either case. By default, buttons are full-width and color themes set in
-	<code>style.css</code> are inversed.
-</p>
+# Button
+Button components are rendered as a `button` element by default or if an `href` property is passed, it will be rendered
+as a regular `a` anchor link element. Styling will be the same in either case. By default, buttons are full-width and
+color themes set in `style.css` are inversed.
 
-<h3>Import</h3>
-<Import />
+### Import
+```html
+<script>
+  import { Button } from '$lib/ui';
+</script>
+```
 
-<hr />
+---
 
-<h3>Themes</h3>
-<Default />
+### Themes
+```html
+<Button>
+  Click Me
+</Button>
+```
 <Button>Click Me</Button>
 
-<hr />
+---
 
-<Info />
+```html
+<Button theme="info">
+  Click Me
+</Button>
+```
 <Button theme="info">Click Me</Button>
 
-<hr />
+---
 
-<Warning />
+```html
+<Button theme="warning">
+  Click Me
+</Button>
+```
 <Button theme="warning">Click Me</Button>
 
-<hr />
+---
 
-<Success />
+```html
+<Button theme="success">
+  Click Me
+</Button>
+```
 <Button theme="success">Click Me</Button>
 
-<hr />
+---
 
-<Error />
+```html
+<Button theme="error">
+  Click Me
+</Button>
+```
 <Button theme="error">Click Me</Button>
 
-<hr />
+---
 
-<Brand />
+```html
+<Button theme="brand">
+  Click Me
+</Button>
+```
 <Button theme="brand">Click Me</Button>
 
-<hr />
+---
 
-<h3>Anchor Tag Button</h3>
+### Sizes
+```html
+<Button size="xs">
+  Click Me
+</Button>
+```
+<Button size="xs">Click Me</Button>
 
-<Anchor />
+---
+
+```html
+<Button size="sm">
+  Click Me
+</Button>
+```
+<Button size="sm">Click Me</Button>
+
+---
+
+```html
+<Button size="md">
+  Click Me
+</Button>
+```
+<Button size="md">Click Me</Button>
+
+---
+
+```html
+<Button size="lg">
+  Click Me
+</Button>
+```
+<Button size="lg">Click Me</Button>
+
+---
+
+```html
+<Button size="xl">
+  Click Me
+</Button>
+```
+<Button size="xl">Click Me</Button>
+
+---
+
+### Anchor Tag
+```html
+<Button href="https://svelte.dev">
+  Check Out Svelte
+</Button>
+```
 <Button href="https://svelte.dev">Check Out Svelte</Button>
 
 <!-- Properties Table -->
