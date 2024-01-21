@@ -8,17 +8,14 @@
 	export let disabled = false;
 	export let loading = false;
 	export let size = 'full';
-	export let theme = 'default';
-	export let color = '';
-	export let background = '';
+	export let inverse = true;
+	export let target = false;
 
 	let aEl;
 	let buttonEl;
 	onMount(() => {
 		const parentEl = aEl || buttonEl;
-		let { newBackground, newColor } = utils.getColors({ theme, background, color });
-		parentEl.style.setProperty('--background', newBackground);
-		parentEl.style.setProperty('--color', newColor);
+		utils.setColors(parentEl, $$props);
 	});
 
 	let _class = '';
@@ -26,27 +23,63 @@
 </script>
 
 {#if href}
-	<a bind:this={aEl} class={`lib-ui ${_class}`} {href} {type} {loading} {size}>
+	<a bind:this={aEl} class={`lib-ui ${_class}`} {href} {type} {loading} {size} {inverse} {target}>
 		<slot />
 	</a>
 {:else}
-	<button bind:this={buttonEl} class={`lib-ui ${_class}`} {type} {disabled} {loading} {size}>
+	<button
+		bind:this={buttonEl}
+		class={`lib-ui ${_class}`}
+		{type}
+		{disabled}
+		{loading}
+		{size}
+		{inverse}
+	>
 		<slot />
 	</button>
 {/if}
 
 <style>
 	button,
-	a {
+	a,
+	button:active,
+	a:active {
 		width: 100%;
 		border-radius: var(--ui-border-radius);
 		padding: var(--ui-spacing-md);
 		font-weight: 600;
-		/* Colors are inversed for button */
-		background-color: var(--color);
-		color: var(--background);
+		background-color: var(--background);
+		color: var(--color);
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 	}
-	button:hover {
-		background-color: var(--ui-color-brand-hover-dark);
+	button:hover,
+	a:hover {
+		background-color: var(--background-hover);
+		color: var(--color-hover);
+	}
+	button:active,
+	a:active {
+		background-color: var(--background);
+		color: var(--color);
+	}
+
+	.lib-ui[inverse='true'] {
+		background-color: var(--color);
+		color: #fff;
+	}
+	.lib-ui[inverse='true']:hover {
+		background-color: var(--color-hover);
+		color: #fff;
+	}
+	.lib-ui[inverse='true']:active {
+		background-color: var(--color);
+		color: #fff;
+	}
+
+	a,
+	a:hover {
+		text-decoration: none;
+		text-align: center;
 	}
 </style>

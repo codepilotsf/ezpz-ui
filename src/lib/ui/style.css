@@ -5,40 +5,40 @@
   Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
 	/* Default state of components */
-	--ui-color-default-background: #cbd5e1;
 	--ui-color-default-color: #334155;
-	--ui-color-default-background-hover: #cbd5e1;
-	--ui-color-default-color-hover: #fff;
+	--ui-color-default-background: #cbd5e1;
+	--ui-color-default-color-hover: #475569;
+	--ui-color-default-background-hover: #e2e8f0;
 
 	/* Brand: Components with "theme" property set to "brand" – also used as default for buttons, etc. */
-	--ui-color-brand-background: #ffedd5;
-	--ui-color-brand-color: #f97316;
-	--ui-color-brand-background-hover: #bbf7d0;
-	--ui-color-brand-color-hover: #3b82f6;
+	--ui-color-brand-color: #7e22ce;
+	--ui-color-brand-background: #e9d5ff;
+	--ui-color-brand-color-hover: #9333ea;
+	--ui-color-brand-background-hover: #f3e8ff;
 
 	/* Info: Components with "theme" property set to "info"  */
-	--ui-color-info-background: #e0f2fe;
 	--ui-color-info-color: #075985;
-	--ui-color-info-background-hover: #e0f2fe;
-	--ui-color-info-color-hover: #075985;
+	--ui-color-info-background: #e0f2fe;
+	--ui-color-info-color-hover: #0369a1;
+	--ui-color-info-background-hover: #f0f9ff;
 
 	/* Success: Components with "theme" property set to "success"  */
-	--ui-color-success-background: #bbf7d0;
 	--ui-color-success-color: #15803d;
-	--ui-color-success-background-hover: #bbf7d0;
-	--ui-color-success-color-hover: #15803d;
+	--ui-color-success-background: #bbf7d0;
+	--ui-color-success-color-hover: #16a34a;
+	--ui-color-success-background-hover: #dcfce7;
 
 	/* Warning: Components with "theme" property set to "warning"  */
+	--ui-color-warning-color: #ea580c;
 	--ui-color-warning-background: #fef08a;
-	--ui-color-warning-color: #713f12;
-	--ui-color-warning-background-hover: #fef08a;
-	--ui-color-warning-color-hover: #713f12;
+	--ui-color-warning-color-hover: #f97316;
+	--ui-color-warning-background-hover: #fef9c3;
 
 	/* Error: Components with "theme" property set to "error"  */
+	--ui-color-error-color: #b91c1c;
 	--ui-color-error-background: #fecaca;
-	--ui-color-error-color: #7f1d1d;
-	--ui-color-error-background-hover: #fecaca;
-	--ui-color-error-color-hover: #7f1d1d;
+	--ui-color-error-color-hover: #dc2626;
+	--ui-color-error-background-hover: #fee2e2;
 
 	/* Borders
   -------------------

@@ -1,9 +1,13 @@
 <script>
 	import { Button } from '$lib/ui';
 	import Import from './import.md';
-	import Basic from './basic.md';
-
-	export let type = 'accent';
+	import Default from './default.md';
+	import Info from './info.md';
+	import Warning from './warning.md';
+	import Success from './success.md';
+	import Error from './error.md';
+	import Brand from './brand.md';
+	import Anchor from './anchor.md';
 </script>
 
 <h1>Button</h1>
@@ -11,9 +15,8 @@
 	Button components are rendered as a <code>button</code> element by default or if an
 	<code>href</code>
 	property is passed, it will be rendered as a regular <code>a</code> anchor link element. Styling
-	will be the same in either case. By default, buttons are full-width and use the accent colors set
-	in
-	<code>style.css</code>.
+	will be the same in either case. By default, buttons are full-width and color themes set in
+	<code>style.css</code> are inversed.
 </p>
 
 <h3>Import</h3>
@@ -21,11 +24,41 @@
 
 <hr />
 
-<h3>Basic Button</h3>
-<Basic />
-<Button {type}>Sign in</Button>
+<h3>Themes</h3>
+<Default />
+<Button>Click Me</Button>
 
 <hr />
+
+<Info />
+<Button theme="info">Click Me</Button>
+
+<hr />
+
+<Warning />
+<Button theme="warning">Click Me</Button>
+
+<hr />
+
+<Success />
+<Button theme="success">Click Me</Button>
+
+<hr />
+
+<Error />
+<Button theme="error">Click Me</Button>
+
+<hr />
+
+<Brand />
+<Button theme="brand">Click Me</Button>
+
+<hr />
+
+<h3>Anchor Tag Button</h3>
+
+<Anchor />
+<Button href="https://svelte.dev">Check Out Svelte</Button>
 
 <!-- Properties Table -->
 <h3>Alert Properties</h3>

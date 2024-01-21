@@ -1,7 +1,7 @@
 export const utils = {
   setColors(el, { theme, background, color, backgroundHover, colorHover }) {
     // Set colors based on theme colors if present but prefer color, background, colorHover, and backgroundHover
-    // if explicitly set. This is accomplished by setting the CSS variables on the component's parent element.
+    // if explicitly set. This is done by setting scoped CSS variables on the component's parent element.
     theme = theme || 'default';
     el.style.setProperty('--color', color || `var(--ui-color-${theme}-color)`);
     el.style.setProperty('--background', background || `var(--ui-color-${theme}-background)`);
