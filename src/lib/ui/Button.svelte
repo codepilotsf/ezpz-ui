@@ -1,7 +1,7 @@
 <script>
 	import './theme.css';
 	import { utils } from './utils.js';
-	import { onMount } from 'svelte';
+	import { onMount, getContext } from 'svelte';
 
 	export let type = 'button';
 	export let href = false;
@@ -55,10 +55,22 @@
 
 	let _class = '';
 	export { _class as class };
+
+	const isInButtonGroup = getContext('isInButtonGroup');
 </script>
 
 {#if href}
-	<a bind:this={aEl} class={`lib-ui ${_class}`} {href} {type} {loading} {size} {target} {style}>
+	<a
+		bind:this={aEl}
+		class={`lib-ui ${_class}`}
+		{href}
+		{type}
+		{loading}
+		{size}
+		{target}
+		{style}
+		{isInButtonGroup}
+	>
 		<slot />
 	</a>
 {:else}
@@ -70,6 +82,7 @@
 		{loading}
 		{size}
 		{style}
+		{isInButtonGroup}
 	>
 		<slot />
 	</button>
@@ -102,5 +115,10 @@
 	button:active,
 	a:active {
 		filter: brightness(1);
+	}
+
+	button[isInButtonGroup],
+	a[isInButtonGroup] {
+		border-radius: 0;
 	}
 </style>

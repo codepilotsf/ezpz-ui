@@ -7,8 +7,9 @@
 	export let initials = '';
 	export let name = '';
 	export let size = 'md';
-	export let theme = 'default';
-
+	export let scheme = 'brand';
+	export let color = '';
+	export let background = '';
 	let _class = '';
 	export { _class as class };
 
@@ -26,7 +27,7 @@
   `;
 
 	let parentEl;
-	onMount(() => utils.setColors(parentEl, $$props));
+	onMount(() => utils.setColors(parentEl, { scheme, color, background }));
 
 	// Format initials or get from name
 	if (initials) {
@@ -40,7 +41,7 @@
 	}
 </script>
 
-<ui-avatar class={`lib-ui ${_class}`} {theme} bind:this={parentEl} {style}>
+<ui-avatar class={`lib-ui ${_class}`} {scheme} bind:this={parentEl} {style}>
 	{#if src}
 		<img {src} alt={name || initials || 'Avatar'} />
 	{:else if initials}
@@ -60,8 +61,8 @@
 		font-size: 1.25rem;
 		overflow: hidden;
 		aspect-ratio: 1;
-		background: var(--background);
-		color: var(--color);
+		background: var(--ui-background);
+		color: var(--ui-color);
 	}
 
 	ui-avatar img {

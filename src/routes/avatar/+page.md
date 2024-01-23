@@ -66,19 +66,17 @@ an avatar may be supplied as a url supplied to the <code>src</code> property or 
 ### Themes (for initials fallback)
 
 ```svelte
-<Avatar initials="AB" theme="default" />
-<Avatar initials="CD" theme="info" />
-<Avatar initials="EF" theme="warning" />
-<Avatar initials="GH" theme="success" />
-<Avatar initials="IJ" theme="error" />
-<Avatar initials="KL" theme="brand" />
+<Avatar initials="CD" scheme="info" />
+<Avatar initials="EF" scheme="warning" />
+<Avatar initials="GH" scheme="success" />
+<Avatar initials="IJ" scheme="error" />
+<Avatar initials="KL" scheme="brand" />
 ```
-<Avatar initials="AB" theme="default" />
-<Avatar initials="CD" theme="info" />
-<Avatar initials="EF" theme="warning" />
-<Avatar initials="GH" theme="success" />
-<Avatar initials="IJ" theme="error" />
-<Avatar initials="KL" theme="brand" />
+<Avatar initials="CD" scheme="info" />
+<Avatar initials="EF" scheme="warning" />
+<Avatar initials="GH" scheme="success" />
+<Avatar initials="IJ" scheme="error" />
+<Avatar initials="KL" scheme="brand" />
 
 ---
 

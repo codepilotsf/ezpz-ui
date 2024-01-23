@@ -1,126 +1,49 @@
 <script>
-	import { ButtonGroup } from '$lib/ui';
+	import { ButtonGroup, Button } from '$lib/ui';
   import Tables from './Tables.svelte';
 </script>
 
-# Button
+# ButtonGroup
 
-Button components are rendered as a `button` element by default or if an `href` property is passed, it will be rendered
-as a regular `a` anchor link element. Styling will be the same in either case. By default, buttons are `md` size and use
-the `ui-brand-color` with white text.
+A ButtonGroup is used to group child Button components together as a single element.
 
 ### Import
 
 ```svelte
 <script>
-  import { Button } from '$lib/ui';
+  import { ButtonGroup, Button } from '$lib/ui';
 </script>
 ```
 
 ---
 
-### Themes
+### Simple
 
 ```svelte
-<Button scheme="brand">
-  Click Me
-</Button>
+<ButtonGroup>
+  <Button>Left</Button>
+  <Button>Middle</Button>
+  <Button>Right</Button>
+</ButtonGroup>
 ```
-<Button scheme="brand">Click Me</Button>
+<ButtonGroup>
+  <Button>Left</Button>
+  <Button>Middle</Button>
+  <Button>Right</Button>
+</ButtonGroup>
 
 ---
 
 ```svelte
-<Button scheme="info">
-  Click Me
-</Button>
+<ButtonGroup>
+  <Button color="#b91c1c">Red Pill</Button>
+  <Button color="#1d4ed8">Blue Pill</Button>
+</ButtonGroup>
 ```
-<Button scheme="info">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="warning">
-  Click Me
-</Button>
-```
-<Button scheme="warning">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="success">
-  Click Me
-</Button>
-```
-<Button scheme="success">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="error">
-  Click Me
-</Button>
-```
-<Button scheme="error">Click Me</Button>
-
----
-
-### Sizes
-
-```svelte
-<Button size="xs">
-  Click Me
-</Button>
-```
-<Button size="xs">Click Me</Button>
-
----
-
-```svelte
-<Button size="sm">
-  Click Me
-</Button>
-```
-<Button size="sm">Click Me</Button>
-
----
-
-```svelte
-<Button size="md">
-  Click Me
-</Button>
-```
-<Button size="md">Click Me</Button>
-
----
-
-```svelte
-<Button size="lg">
-  Click Me
-</Button>
-```
-<Button size="lg">Click Me</Button>
-
----
-
-```svelte
-<Button size="xl">
-  Click Me
-</Button>
-```
-<Button size="xl">Click Me</Button>
-
----
-
-### Anchor Tag
-
-```svelte
-<Button href="https://svelte.dev">
-  Explore Svelte
-</Button>
-```
-<Button href="https://svelte.dev">Explore Svelte</Button>
+<ButtonGroup>
+  <Button color="#b91c1c">Red Pill</Button>
+  <Button color="#1d4ed8">Blue Pill</Button>
+</ButtonGroup>
 
 ---
 
