@@ -9,7 +9,8 @@
 </svelte:head>
 
 # LIB/UI SvelteKit Components
-LIB/UI is a collection of Svelte components meant to be <em>downloaded directly</em> to `src/lib/ui` in your project.
+
+LIB/UI is a collection of Svelte components meant to be *downloaded directly* to `src/lib/ui` in your project.
 Since these are just files sitting in a directory and not hidden away in your Node modules, that means you can directly
 modify the components to fit your needs. This keeps things simple and transparent.
 
@@ -20,7 +21,7 @@ to your SvelteKit project's `src/lib/` and extract it. It requires no dependenci
 ### How To Use
 LIB/UI components are imported and instantiated like any other Svelte component.
 
-```html
+```svelte
 <script>
   import { Spinner } from '$lib/ui';
 </script>
@@ -30,25 +31,25 @@ LIB/UI components are imported and instantiated like any other Svelte component.
 <Spinner />
 
 ### Properties
-Properties are used to pass options to the component. For example, the `Alert` component takes an optional `theme`
+Properties are used to pass options to the component. For example, the `Alert` component takes an optional `scheme`
 property which can be used to set the color/icon theme of the alert.
 
-```html
-<Alert theme="error">Something exploded.</Alert>
+```svelte
+<Alert scheme="error">Something exploded.</Alert>
 ```
-<Alert theme="error">Something exploded.</Alert>
+<Alert scheme="error">Something exploded.</Alert>
 
 ### Named Slots
 Slots are used to pass default content as seen in the above example. However, many LIB/UI components also use <em>named</em> 
 slots to pass additional content to specific areas of the component. For example, the `Alert` component accepts an optional `title` slot which can be used to pass a title to the top of the alert.
 
-```html
-<Alert theme="success">
+```svelte
+<Alert scheme="success">
   <div slot="title">Hooray!</div>
   This is a total success.
 </Alert>
 ```
-<Alert theme="success">
+<Alert scheme="success">
   <div slot="title">Hooray!</div>
   This is a total success.
 </Alert>
@@ -67,13 +68,13 @@ element. This can be especially effective when used with Tailwind classes – an
 directly on named slots as usual. So for an Alert which has a fixed width and a title that's underlined,
 you could do something like this:
 
-```html
-<Alert theme="success" class="w-96">
+```svelte
+<Alert scheme="success" class="w-96">
   <div slot="title" class="underline">Hooray!</div>
   Item added to cart.
 </Alert>
 ```
-<Alert theme="success" class="w-96">
+<Alert scheme="success" class="w-96">
   <div slot="title" class="!text-3xl">Hooray!</div>
   Item added to cart.
 </Alert> -->
