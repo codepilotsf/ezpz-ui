@@ -1,5 +1,5 @@
 <script>
-	import { Button } from '$lib/ui';
+	import { ButtonGroup } from '$lib/ui';
   import Tables from './Tables.svelte';
 </script>
 

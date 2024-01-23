@@ -4,56 +4,36 @@
   -------------------
   Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
-	/* Default state of components */
-	--ui-color-default-color: #334155;
-	--ui-color-default-background: #cbd5e1;
-	--ui-color-default-color-hover: #475569;
-	--ui-color-default-background-hover: #e2e8f0;
+	/* Brand: Components with "scheme" property set to "brand" – (default for buttons, etc.) */
+	--ui-brand-color: #7e22ce;
+	--ui-brand-background: #e9d5ff;
 
-	/* Brand: Components with "theme" property set to "brand" – also used as default for buttons, etc. */
-	--ui-color-brand-color: #7e22ce;
-	--ui-color-brand-background: #e9d5ff;
-	--ui-color-brand-color-hover: #9333ea;
-	--ui-color-brand-background-hover: #f3e8ff;
+	/* Info: Components with "scheme" property set to "info"  */
+	--ui-info-color: #075985;
+	--ui-info-background: #e0f2fe;
 
-	/* Info: Components with "theme" property set to "info"  */
-	--ui-color-info-color: #075985;
-	--ui-color-info-background: #e0f2fe;
-	--ui-color-info-color-hover: #0369a1;
-	--ui-color-info-background-hover: #f0f9ff;
+	/* Success: Components with "scheme" property set to "success"  */
+	--ui-success-color: #15803d;
+	--ui-success-background: #bbf7d0;
 
-	/* Success: Components with "theme" property set to "success"  */
-	--ui-color-success-color: #15803d;
-	--ui-color-success-background: #bbf7d0;
-	--ui-color-success-color-hover: #16a34a;
-	--ui-color-success-background-hover: #dcfce7;
+	/* Warning: Components with "scheme" property set to "warning"  */
+	--ui-warning-color: #ea580c;
+	--ui-warning-background: #fef08a;
 
-	/* Warning: Components with "theme" property set to "warning"  */
-	--ui-color-warning-color: #ea580c;
-	--ui-color-warning-background: #fef08a;
-	--ui-color-warning-color-hover: #f97316;
-	--ui-color-warning-background-hover: #fef9c3;
+	/* Error: Components with "scheme" property set to "error"  */
+	--ui-error-color: #b91c1c;
+	--ui-error-background: #fecaca;
 
-	/* Error: Components with "theme" property set to "error"  */
-	--ui-color-error-color: #b91c1c;
-	--ui-color-error-background: #fecaca;
-	--ui-color-error-color-hover: #dc2626;
-	--ui-color-error-background-hover: #fee2e2;
+	/* Neutral text color for things like form labels */
+	--ui-text-color: #0f172a;
 
 	/* Borders
   -------------------
-  Border width and radius for things like form elements
+  Border styles for things like form elements
   ------------------- */
 	--ui-border-width: 1px;
 	--ui-border-radius: 3px;
-
-	/* Spacing
-  -------------------
-  Spacing for modals, alerts, and other components
-  ------------------- */
-	--ui-spacing-sm: 0.25rem;
-	--ui-spacing-md: 0.75rem;
-	--ui-spacing-lg: 1.25rem;
+	--ui-border-color: #334155;
 
 	/* Form Items
   -------------------

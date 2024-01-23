@@ -1,12 +1,9 @@
 export const utils = {
-  setColors(el, { theme, background, color, backgroundHover, colorHover }) {
-    // Set colors based on theme colors if present but prefer color, background, colorHover, and backgroundHover
-    // if explicitly set. This is done by setting scoped CSS variables on the component's parent element.
-    theme = theme || 'default';
-    el.style.setProperty('--color', color || `var(--ui-color-${theme}-color)`);
-    el.style.setProperty('--background', background || `var(--ui-color-${theme}-background)`);
-    el.style.setProperty('--color-hover', colorHover || `var(--ui-color-${theme}-color-hover)`);
-    el.style.setProperty('--background-hover', backgroundHover || `var(--ui-color-${theme}-background-hover)`);
+  setColors(el, { scheme, background, color }) {
+    // Set colors based on scheme colors if present but prefer color, background if explicitly set. This is done by
+    // setting scoped CSS variables on the component's parent element.
+    el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-color)`);
+    el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-background)`);
   },
 
   getIcon(name, size = 24) {

@@ -5,14 +5,14 @@
 </script>
 
 # Alert
+
 Alerts can be used to provide user feedback for things like successful operations and errors. By default, alerts are
-displayed at full-width. Use `bind:active` two-way binding so that the parent template can trigger an Alert and the
-Alert's close button can also close it. When using a theme other than the default, the alert will use the theme's accent
-color and an appropriate default icon which can be replaced with a custom icon via a named slot.
+displayed at full-width. Use `bind:active` two-way binding so that the parent template can trigger an alert and the
+alert's close button can also close it. When using a scheme, an appropriate icon will be included by default.
 
 ### Import
 
-```html
+```svelte
 <script>
   import { Alert } from '$lib/ui';
 </script>
@@ -20,62 +20,53 @@ color and an appropriate default icon which can be replaced with a custom icon v
 
 ### Themes
 
-```html
-<Alert theme="default">
-  The default alert has no icon.
-</Alert>
-```
-<Alert theme="default">The default alert has no icon.</Alert>
-
----
-
-```html
-<Alert theme="info">
+```svelte
+<Alert scheme="info">
   This is just a simple info alert.
 </Alert>
 ```
-<Alert theme="info">This is just a simple info alert.</Alert>
+<Alert scheme="info">This is just a simple info alert.</Alert>
 
 ---
 
-```html
-<Alert theme="warning">
+```svelte
+<Alert scheme="warning">
   Warning! This alert is slightly scary.
 </Alert>
 ```
-<Alert theme="warning">Warning! This alert is slightly scary.</Alert>
+<Alert scheme="warning">Warning! This alert is slightly scary.</Alert>
 
 ---
-```html
-<Alert theme="success">
+```svelte
+<Alert scheme="success">
   You have been alerted successfully.
 </Alert>
 ```
-<Alert theme="success">You have been alerted successfully.</Alert>
+<Alert scheme="success">You have been alerted successfully.</Alert>
 
 ---
 
-```html
-<Alert theme="error">
+```svelte
+<Alert scheme="error">
   Something bad happened.
 </Alert>
 ```
-<Alert theme="error">Something bad happened.</Alert>
+<Alert scheme="error">Something bad happened.</Alert>
 
 ---
 
-```html
-<Alert theme="brand">
+```svelte
+<Alert scheme="brand">
   A nicely branded alert.
 </Alert>
 ```
-<Alert theme="brand">A nicely branded alert.</Alert>
+<Alert scheme="brand">A nicely branded alert.</Alert>
 
 ---
 
 ### Custom Colors
 
-```html
+```svelte
 <Alert color="#ec4899" background="#fce7f3">
   Pink alert!
 </Alert>
@@ -86,24 +77,24 @@ color and an appropriate default icon which can be replaced with a custom icon v
 
 ### No Icon
 
-```html
-<Alert theme="info" icon={false}>
+```svelte
+<Alert scheme="info" icon={false}>
   Keepin' it simple.
 </Alert>
 ```
-<Alert theme="info" icon={false}>Keepin' it simple.</Alert>
+<Alert scheme="info" icon={false}>Keepin' it simple.</Alert>
 
 ---
 
 ### Title Named Slot
 
-```html
-<Alert theme="warning">
+```svelte
+<Alert scheme="warning">
   <span slot="title">Watch out!</span>
   This seems like a bad idea.
 </Alert>
 ```
-<Alert theme="warning">
+<Alert scheme="warning">
 	<span slot="title">Watch out!</span>
 	This seems like a bad idea.
 </Alert>
@@ -112,13 +103,13 @@ color and an appropriate default icon which can be replaced with a custom icon v
 
 ### Icon Named Slot
   
-```html
-<Alert theme="success">
+```svelte
+<Alert scheme="success">
   <IceCream slot="icon" size={26} />
   That ice cream was delicious.
 </Alert>
 ```
-<Alert theme="success">
+<Alert scheme="success">
 	<IceCream slot="icon" size={26} />
 	That ice cream was delicious.
 </Alert>

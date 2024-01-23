@@ -23,26 +23,26 @@
 			<td><code>icon</code></td>
 			<td>Boolean</td>
 			<td><code>true</code></td>
-			<td>Sets whether an icon is displayed for theme which includes a default icon.</td>
+			<td>Sets whether an icon is displayed for scheme which includes a default icon.</td>
 		</tr>
 		<tr>
-			<td><code>theme</code></td>
-			<td>String: 'default', 'info', 'warning', 'success', 'error', or 'brand'</td>
-			<td>'default'</td>
-			<td>Color/Icon theme of alert to be displayed</td>
+			<td><code>scheme</code></td>
+			<td>String: 'info', 'warning', 'success', 'error', or 'brand'</td>
+			<td>'info'</td>
+			<td>Color/Icon scheme of alert to be displayed</td>
 		</tr>
 		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td>Color used for text and icons (overrides <code>theme</code> if present)</td>
+			<td>Color used for text and icons (overrides <code>scheme</code> if present)</td>
 		</tr>
 		<tr>
 			<td><code>background</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
 			<td
-				>Color or CSS background value used for background (overrides <code>theme</code> if present)</td
+				>Color or CSS background value used for background (overrides <code>scheme</code> if present)</td
 			>
 		</tr>
 	</tbody>

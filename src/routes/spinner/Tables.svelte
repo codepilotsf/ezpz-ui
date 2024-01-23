@@ -23,16 +23,16 @@
 			<td>Spinner size</td>
 		</tr>
 		<tr>
-			<td><code>theme</code></td>
-			<td>String: 'default', 'info', 'warning', 'success', 'error', or 'brand'</td>
-			<td>'default'</td>
-			<td>Color theme to be used for spinner</td>
+			<td><code>scheme</code></td>
+			<td>String: 'info', 'warning', 'success', 'error', or 'brand'</td>
+			<td>'brand'</td>
+			<td>Color scheme to be used for spinner</td>
 		</tr>
 		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td>Color of spinner (overrides <code>theme</code> if present)</td>
+			<td>Color of spinner (overrides <code>scheme</code> if present)</td>
 		</tr>
 	</tbody>
 </table>

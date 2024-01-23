@@ -1,5 +1,5 @@
 <!-- Properties Table -->
-<h3>Alert Properties</h3>
+<h3>Button Properties</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -11,31 +11,58 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><code>active</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td
-				>Use with <code>bind:active</code> two-way binding so that the parent template can trigger an
-				alert and the Alert's close button can also close it</td
-			>
+			<td><code>scheme</code></td>
+			<td>String: 'info', 'warning', 'success', 'error'</td>
+			<td><code>'brand'</code></td>
+			<td>Color scheme to use as button color with white text</td>
+		</tr>
+		<tr>
+			<td><code>size</code></td>
+			<td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
+			<td>'md'</td>
+			<td>Size of button</td>
+		</tr>
+		<tr>
+			<td><code>href</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td>If present, <code>a</code> (anchor tag) is used to style a link as a button</td>
+		</tr>
+		<tr>
+			<td><code>target</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td>Used with <code>href</code> to set the anchor tag's <code>target</code> attribute</td>
 		</tr>
 		<tr>
 			<td><code>type</code></td>
-			<td>String: 'info', 'warning', 'success', or 'error'</td>
-			<td>'info'</td>
-			<td>Sets the type of alert to be displayed</td>
+			<td>(todo)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td>Boolean</td>
-			<td><code>true</code></td>
-			<td>Sets whether an icon is displayed</td>
+			<td><code>disabled</code></td>
+			<td>(todo)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><code>loading</code></td>
+			<td>(todo)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><code>variant</code></td>
+			<td>(todo)</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
 		</tr>
 	</tbody>
 </table>
 
 <!-- Named Slots Table -->
-<h3>Alert Named Slots</h3>
+<h3>Button Named Slots</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -45,12 +72,12 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><code>title</code></td>
-			<td>Content to be used as a title</td>
+			<td><code>icon</code></td>
+			<td>(todo)</td>
 		</tr>
 		<tr>
-			<td><code>icon</code></td>
-			<td>An icon component to replace the default icon </td>
+			<td><code>iconTrailing</code></td>
+			<td>(todo)</td>
 		</tr>
 	</tbody>
 </table>

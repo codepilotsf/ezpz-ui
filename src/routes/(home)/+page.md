@@ -58,7 +58,7 @@ slots to pass additional content to specific areas of the component. For example
 </HeadsUp>
 
 ### Style
-All LIB/UI components use values set in `lib/ui/style.css` for colors, spacing, border-radius, and so on. The look and
+All LIB/UI components use values set in `lib/ui/theme.css` for colors, spacing, border-radius, and so on. The look and
 feel of your components can be substantially changed just by modifying these values.
 
 <!-- ### Class
@@ -85,7 +85,7 @@ much or as little as you like. You can also delete the ones you don't need. Be s
 
 ### Custom Components
 LIB/UI components can also be extended to add new functionality. Using one of the existing components as a
-template, you can create your own components that reference the same styles set in `lib/ui/style.css` and add them to 
+template, you can create your own components that reference the same styles set in `lib/ui/theme.css` and add them to 
 the `lib/ui` directory. Remember to also add a line to export your custom component from `lib/ui/index.js`. 
 
 <Footer />

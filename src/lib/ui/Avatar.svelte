@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import './style.css';
+	import './theme.css';
 	import { utils } from './utils.js';
 
 	export let src = '';

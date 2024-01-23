@@ -28,7 +28,7 @@ used within other components such as `Button` to indicate `loading` state.
 <Spinner size="lg" />
 <Spinner size="xl" />
 ```
-<div class="flex items-center gap-5">
+<div class="flex items-center gap-6">
 	<Spinner size="xs" />
 	<Spinner size="sm" />
 	<Spinner size="md" />
@@ -60,20 +60,19 @@ used within other components such as `Button` to indicate `loading` state.
 ### Themes
 
 ```svelte
-<Spinner theme="default" />
-<Spinner theme="info" />
-<Spinner theme="warning" />
-<Spinner theme="success" />
-<Spinner theme="error" />
-<Spinner theme="brand" />
+<Spinner scheme="info" />
+<Spinner scheme="warning" />
+<Spinner scheme="success" />
+<Spinner scheme="error" />
+<Spinner scheme="brand" />
 ```
 <div class="flex items-center gap-5">
-	<Spinner theme="default" />
-	<Spinner theme="info" />
-	<Spinner theme="warning" />
-	<Spinner theme="success" />
-	<Spinner theme="error" />
-	<Spinner theme="brand" />
+	<Spinner scheme="default" />
+	<Spinner scheme="info" />
+	<Spinner scheme="warning" />
+	<Spinner scheme="success" />
+	<Spinner scheme="error" />
+	<Spinner scheme="brand" />
 </div>
 
 ---
@@ -81,9 +80,9 @@ used within other components such as `Button` to indicate `loading` state.
 ### Color
   
 ```svelte
-<Spinner color="cornflowerblue" />
+<Spinner color="#999" />
 ```
-<Spinner color="cornflowerblue" />
+<Spinner color="#999" />
 
 ---
 

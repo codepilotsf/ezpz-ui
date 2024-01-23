@@ -2,18 +2,20 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	import './style.css';
+	import './theme.css';
 	import { utils } from './utils.js';
 
 	export let active = true;
 	export let icon = true;
-	export let theme = 'default';
+	export let color = '';
+	export let background = '';
+	export let scheme = 'brand';
 
-	const defaultIcon = utils.getIcon(theme);
+	const defaultIcon = utils.getIcon(scheme);
 	const xIcon = utils.getIcon('x', 18);
 
 	let parentEl;
-	onMount(() => utils.setColors(parentEl, $$props));
+	onMount(() => utils.setColors(parentEl, { scheme, color, background }));
 
 	let _class = '';
 	export { _class as class };
@@ -24,11 +26,11 @@
 		class={`lib-ui ${_class}`}
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
-		{theme}
+		{scheme}
 		bind:this={parentEl}
 	>
 		{#if icon}
-			<div>
+			<div class="ui-icon">
 				<!-- Custom or default icon -->
 				{#if $$slots.icon}
 					<slot name="icon" />
@@ -62,15 +64,20 @@
 <style>
 	ui-alert {
 		display: flex;
-		gap: var(--ui-spacing-md);
+		gap: 8px;
 		border-radius: var(--ui-border-radius);
-		padding: var(--ui-spacing-md);
-		color: var(--color);
-		background-color: var(--background);
+		padding: 12px;
+		color: var(--ui-color);
+		background-color: var(--ui-background);
 	}
 	button {
 		margin-left: auto;
-		margin-top: 4px;
+		margin-top: 2px;
 		height: fit-content;
+		padding: 2px;
+	}
+	.ui-icon {
+		margin-top: -2px;
+		padding: 2px;
 	}
 </style>

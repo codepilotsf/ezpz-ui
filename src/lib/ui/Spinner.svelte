@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import './style.css';
+	import './theme.css';
 	import { utils } from './utils.js';
 
 	let _class = '';
@@ -8,6 +8,9 @@
 
 	export let type = 'dots-circle';
 	export let size = 'md';
+	export let scheme = 'brand';
+	export let color = '';
+	export let background = '';
 
 	const sizes = {
 		xs: '16px',
@@ -19,7 +22,7 @@
 
 	let parentEl;
 	onMount(() => {
-		utils.setColors(parentEl, $$props);
+		utils.setColors(parentEl, { scheme, color, background });
 		parentEl.style.setProperty('--size', sizes[size]);
 	});
 </script>
@@ -74,7 +77,7 @@
 		margin: 0 auto;
 		width: 15%;
 		height: 15%;
-		background-color: var(--color);
+		background-color: var(--ui-color);
 		border-radius: 100%;
 		-webkit-animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
 		animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
@@ -215,7 +218,7 @@
 	ui-spinner[type='dots-row'] > div {
 		width: calc(0.35 * var(--size));
 		height: calc(0.35 * var(--size));
-		background-color: var(--color);
+		background-color: var(--ui-color);
 		border-radius: 100%;
 		display: inline-block;
 		-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;

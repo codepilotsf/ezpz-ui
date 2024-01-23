@@ -1,15 +1,17 @@
 <script>
-	import { onMount } from 'svelte';
-	import './style.css';
+	import './theme.css';
 	import { utils } from './utils.js';
+	import { onMount } from 'svelte';
 
 	export let type = 'button';
 	export let href = false;
 	export let disabled = false;
 	export let loading = false;
 	export let size = 'md';
-	export let inverse = true;
 	export let target = false;
+	export let scheme = 'brand';
+	export let color = '';
+	export let background = '';
 
 	const sizes = {
 		xs: {
@@ -44,13 +46,11 @@
 		`padding: ${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px;`
 	].join(' ');
 
-	console.log('style:', style);
-
 	let aEl;
 	let buttonEl;
 	onMount(() => {
 		const parentEl = aEl || buttonEl;
-		utils.setColors(parentEl, $$props);
+		utils.setColors(parentEl, { scheme, color, background });
 	});
 
 	let _class = '';
@@ -58,17 +58,7 @@
 </script>
 
 {#if href}
-	<a
-		bind:this={aEl}
-		class={`lib-ui ${_class}`}
-		{href}
-		{type}
-		{loading}
-		{size}
-		{inverse}
-		{target}
-		{style}
-	>
+	<a bind:this={aEl} class={`lib-ui ${_class}`} {href} {type} {loading} {size} {target} {style}>
 		<slot />
 	</a>
 {:else}
@@ -79,7 +69,6 @@
 		{disabled}
 		{loading}
 		{size}
-		{inverse}
 		{style}
 	>
 		<slot />
@@ -89,43 +78,29 @@
 <style>
 	button,
 	a {
+		background-color: var(--ui-color);
+		transition: all 0.15s ease-in-out;
 		border-radius: var(--ui-border-radius);
 		font-weight: 600;
 		letter-spacing: 1px;
-		background-color: var(--background);
-		color: var(--color);
+		color: #fff;
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-		transition: all 0.2s ease-in-out;
-	}
-
-	button:hover,
-	a:hover {
-		background-color: var(--background-hover);
-		color: var(--color-hover);
-	}
-
-	button:active,
-	a:active {
-		background-color: var(--background);
-		color: var(--color);
 	}
 
 	a,
 	a:hover {
+		color: #fff;
 		text-decoration: none;
 		text-align: center;
 	}
 
-	.lib-ui[inverse='true'] {
-		background-color: var(--color);
-		color: #fff;
+	button:hover,
+	a:hover {
+		filter: brightness(1.3);
 	}
-	.lib-ui[inverse='true']:hover {
-		background-color: var(--color-hover);
-		color: #fff;
-	}
-	.lib-ui[inverse='true']:active {
-		background-color: var(--color);
-		color: #fff;
+
+	button:active,
+	a:active {
+		filter: brightness(1);
 	}
 </style>
