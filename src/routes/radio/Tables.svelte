@@ -1,5 +1,5 @@
 <!-- Properties Table -->
-<h3>Checkbox Properties</h3>
+<h3>Radio Properties</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -38,7 +38,7 @@
 			<td><code>checked</code></td>
 			<td>Boolean</td>
 			<td><code>false</code></td>
-			<td>Normally used with `bind:checked` directive. Not needed within a CheckboxGroup</td>
+			<td>&nbsp;</td>
 		</tr>
 		<tr>
 			<td><code>disabled</code></td>
@@ -51,15 +51,15 @@
 			<td>String</td>
 			<td>&nbsp;</td>
 			<td>
-				When within a CheckboxGroup, sets the array item name if checked (see
-				<a href="/checkbox-group">CheckboxGroup</a>)
+				When within a RadioGroup, sets the <code>selected</code> value if checked (see
+				<a href="/radio-group">RadioGroup</a>)
 			</td>
 		</tr>
 	</tbody>
 </table>
 
 <!-- Named Slots Table -->
-<h3>Checkbox Named Slots</h3>
+<h3>Radio Named Slots</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -70,12 +70,12 @@
 	<tbody>
 		<tr>
 			<td><code>label</code></td>
-			<td>Content to be used for label after checkbox (supercedes <code>label</code> property)</td>
+			<td>Content to be used for label after radio (supercedes <code>label</code> property)</td>
 		</tr>
 		<tr>
 			<td><code>labelLeading</code></td>
 			<td
-				>Content to be used for label preceding checkbox (supercedes <code>leadingLabel</code> property)</td
+				>Content to be used for label preceding radio (supercedes <code>leadingLabel</code> property)</td
 			>
 		</tr>
 	</tbody>

@@ -8,20 +8,14 @@
 
 # CheckboxGroup
 
-Use a CheckboxGroup to group multiple Checkbox components for a predictable layout and the ability to set `scheme`
-or `color` as a single property to be inherited by all children.
+Use a CheckboxGroup to group multiple Checkbox components for a predictable layout and the ability to two-way bind a
+`selected` array value coupled to which radio button is selected. Additionally, you can  set a `scheme` or `color` as a single
+property to be inherited by all child Checkboxs.
 
-### Import
+### Example
 
-```svelte
-<script>
-  import { CheckboxGroup, Checkbox } from '$lib/ui';
-</script>
-```
-
----
-
-### Bind Selected
+Use `bind:selected` to bind an array of selected values to the CheckboxGroup. This eliminates the need to use
+`bind:checked` or `bind:group` on each individual Checkbox.
 
 ```svelte
 <script>
@@ -45,8 +39,12 @@ or `color` as a single property to be inherited by all children.
 
 <p>Toppings: {toppings}</p>
 
+---
 
 ### Legend
+
+Use the `legend` prop to set a legend for the CheckboxGroup. This will be rendered as a `<legend>` element and will be
+styled like the `label` elements on other form components.
 
 ```svelte
 <CheckboxGroup legend="Beer Options">
@@ -65,6 +63,9 @@ or `color` as a single property to be inherited by all children.
 
 ### Scheme
 
+If all of the Checkbox components in a CheckboxGroup should have the same color scheme, use the `scheme` prop on the
+CheckboxGroup instead of on each individual Checkbox.
+
 ```svelte
 <CheckboxGroup scheme="error">
   <Checkbox label="Delete Database" checked />
@@ -82,6 +83,9 @@ or `color` as a single property to be inherited by all children.
 
 ### Color
 
+If all of the Checkbox components in a CheckboxGroup should have the same color, use the `color` prop on the
+CheckboxGroup instead of on each individual Checkbox.
+
 ```svelte
 <CheckboxGroup color="#777">
   <Checkbox label="Boring" />
@@ -96,6 +100,9 @@ or `color` as a single property to be inherited by all children.
 ---
 
 ### Legend Named Slot
+
+Instead of using the `legend` prop which can only be a String, a `legend` named slot can be used for a legend with more
+complex content.
 
 ```svelte
 <CheckboxGroup>

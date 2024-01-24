@@ -18,17 +18,27 @@ an avatar may be supplied as a url supplied to the <code>src</code> property or 
 > to supply a retina-friendly, best available format image. 
 -->
 
-### Import
+### Example
 
-```html
+A basic avatar with an image source. The provided image does not need to be a circle, the avatar will
+be clipped to a circle automatically.
+
+```svelte
 <script>
   import { Avatar } from '$lib/ui';
 </script>
+
+<Avatar src="./dave.jpg" />
 ```
+
+<Avatar src="/avatars/m2.jpg" />
 
 ---
 
 ### Sizes
+
+The default size is `md` (medium) as shown above. The `size` property can be used to set the size as defined in
+`theme.css`.
 
 ```svelte
 <Avatar src="./bob.jpg" size="xs" />
@@ -49,6 +59,9 @@ an avatar may be supplied as a url supplied to the <code>src</code> property or 
 
 ### Initials
 
+Supplied initials will be used as the value of the image element's `alt` attribute and as the backup display in case no
+`src` image is passed. Initials are automatically uppercased and only the first two letters are used.
+
 ```svelte
 <Avatar initials="ck" />
 ```
@@ -58,38 +71,48 @@ an avatar may be supplied as a url supplied to the <code>src</code> property or 
 
 ### Name
 
+Instead of passing `initials`, a `name` property can be passed from which initials can be derived for backup display.
+If present, the `name` property is also used as the value of the image element's `alt` attribute.
+
 ```svelte
 <Avatar name="Michael Jackson" />
 ```
 <Avatar name="Michael Jackson" />
-
-### Themes (for initials fallback)
-
-```svelte
-<Avatar initials="CD" scheme="info" />
-<Avatar initials="EF" scheme="warning" />
-<Avatar initials="GH" scheme="success" />
-<Avatar initials="IJ" scheme="error" />
-<Avatar initials="KL" scheme="brand" />
-```
-<Avatar initials="CD" scheme="info" />
-<Avatar initials="EF" scheme="warning" />
-<Avatar initials="GH" scheme="success" />
-<Avatar initials="IJ" scheme="error" />
-<Avatar initials="KL" scheme="brand" />
 
 ---
 
-### Color and Background (for initials fallback)
+### Color Schemes
+
+The `scheme` property can be used to set the color avatar's initials and background if no image `src` is provided. The
+default scheme is `brand`.
+
+```svelte
+<Avatar initials="KL" scheme="brand" />
+<Avatar initials="CD" scheme="info" />
+<Avatar initials="EF" scheme="warning" />
+<Avatar initials="GH" scheme="success" />
+<Avatar initials="IJ" scheme="error" />
+```
+<Avatar initials="KL" scheme="brand" />
+<Avatar initials="CD" scheme="info" />
+<Avatar initials="EF" scheme="warning" />
+<Avatar initials="GH" scheme="success" />
+<Avatar initials="IJ" scheme="error" />
+
+---
+
+### Custom Colors
+
+Custom colors can be used by providing `color` and `background` props.
 
 ```svelte
 <Avatar 
-  initials="MD" 
+  initials="JG" 
   color="white" 
   background="cornflowerblue" 
 />
 ```
-<Avatar initials="MD" color="white" background="cornflowerblue" />
+<Avatar initials="JG" color="white" background="cornflowerblue" />
 
 ---
 

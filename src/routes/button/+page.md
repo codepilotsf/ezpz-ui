@@ -9,26 +9,28 @@ Button components are rendered as a `button` element by default or if an `href` 
 as a regular `a` anchor link element. Styling will be the same in either case. By default, buttons are `md` size and use
 the `ui-brand-color` with white text.
 
-### Import
+### Example
+
+The default button uses the `brand` scheme for color and `md` size.
 
 ```svelte
 <script>
   import { Button } from '$lib/ui';
 </script>
-```
 
----
-
-### Themes
-
-```svelte
-<Button scheme="brand">
+<Button>
   Click Me
 </Button>
 ```
-<Button scheme="brand">Click Me</Button>
+<Button>
+  Click Me
+</Button>
 
 ---
+
+### Color Schemes
+
+Color schemes defined in `theme.css` can be used to set the button color. Text will be white by default.
 
 ```svelte
 <Button scheme="info">
@@ -67,6 +69,8 @@ the `ui-brand-color` with white text.
 ---
 
 ### Sizes
+
+The `size` property can be used to select other button sizes. The default size is `md` (medium). 
 
 ```svelte
 <Button size="xs">
@@ -114,6 +118,9 @@ the `ui-brand-color` with white text.
 ---
 
 ### Anchor Tag
+
+If an `href` property is passed, the button will be rendered as a regular `a` anchor link element. All other props can
+still be used and styling will be the same in either case.
 
 ```svelte
 <Button href="https://svelte.dev">

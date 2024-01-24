@@ -5,8 +5,8 @@
 
 	export let label = '';
 	export let leadingLabel = '';
-	export let checked = false;
-	export let disabled = false;
+	export let disabled = null;
+	export let checked = null;
 	export let value = null;
 
 	export let color = getContext('color') || '';
@@ -15,17 +15,13 @@
 	let _class = '';
 	export { _class as class };
 
-	let checkboxEl;
-	onMount(() => utils.setColors(checkboxEl, { scheme, color }));
+	let radioEl;
+	onMount(() => utils.setColors(radioEl, { scheme, color }));
 
 	const selected = getContext('selected');
 
 	function handleClick() {
-		if (checkboxEl.checked) {
-			$selected = [...$selected, value];
-		} else {
-			$selected = $selected.filter((v) => v != value);
-		}
+		$selected = value;
 	}
 </script>
 
@@ -37,13 +33,13 @@
 	{/if}
 
 	<input
-		type="checkbox"
+		type="radio"
 		class={`lib-ui ${_class}`}
-		bind:this={checkboxEl}
-		bind:checked
+		bind:this={radioEl}
 		on:click={handleClick}
 		{disabled}
 		{value}
+		checked={$selected === value || (!$selected && checked)}
 	/>
 
 	{#if $$slots.label}
@@ -73,6 +69,7 @@
 		margin: 0;
 		vertical-align: top;
 		background: #fff no-repeat center center;
+		border-radius: 50%;
 		transition: all 0.1s ease-in-out;
 	}
 
@@ -82,7 +79,7 @@
 
 	input:disabled,
 	label[disabled='true'] {
-		opacity: 0.5;
+		opacity: 0.4;
 		cursor: not-allowed;
 	}
 	input:disabled {
@@ -90,9 +87,9 @@
 	}
 
 	input:checked {
-		border-color: var(--ui-color);
-		background-color: var(--ui-color);
-		background-position: 40% 40%;
-		background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' %3E%3Cpath fill='white' d='M0,8 5,13 14,4 12,2 5,9 2,6z'/%3E%3C/svg%3E%0A");
+		border-color: var(--ui-brand-color);
+		background-color: var(--ui-brand-color);
+		background-position: 50% 50%;
+		background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Ccircle fill='white' cx='5' cy='5' r='4'/%3E%3C/svg%3E%0A");
 	}
 </style>
