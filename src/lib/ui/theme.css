@@ -25,7 +25,9 @@
 	--ui-error-background: #fecaca;
 
 	/* Neutral text color for things like form labels */
-	--ui-text-color: #0f172a;
+	--ui-light-color: #f1f5f9;
+	--ui-midtone-color: #64748b;
+	--ui-dark-color: #0f172a;
 
 	/* Borders
   -------------------
@@ -33,7 +35,6 @@
   ------------------- */
 	--ui-border-width: 1px;
 	--ui-border-radius: 3px;
-	--ui-border-color: #334155;
 
 	/* Form Items
   -------------------
@@ -48,6 +49,7 @@
   The label for a form element
   --------------------- */
 	--ui-form-label-font-size: 1rem;
+	--ui-form-label-font-size-small: 14px;
 	--ui-form-label-font-weight: 600;
 	--ui-form-label-margin: 0.5rem 0;
 

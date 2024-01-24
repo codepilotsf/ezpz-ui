@@ -45,15 +45,16 @@
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />
 			<MenuItem href="/button-group" label="ButtonGroup" />
-			<MenuItem href="/checkbox" label="Checkbox" disabled />
-			<MenuItem href="/checkbox-group" label="CheckboxGroup" disabled />
+			<MenuItem href="/checkbox" label="Checkbox" />
+			<MenuItem href="/checkbox-group" label="CheckboxGroup" />
 			<MenuItem href="/file-picker" label="FilePicker" disabled />
 			<MenuItem href="/form-row" label="FormRow" disabled />
 			<MenuItem href="/input" label="Input" disabled />
-			<MenuItem href="/input-number" label="InputNumber" disabled />
+			<MenuItem href="/label" label="Label" disabled />
 			<MenuItem href="/modal" label="Modal" disabled />
 			<MenuItem href="/radio" label="Radio" disabled />
 			<MenuItem href="/radio-group" label="RadioGroup" disabled />
+			<MenuItem href="/rating" label="Rating" disabled />
 			<MenuItem href="/select" label="Select" disabled />
 			<MenuItem href="/spinner" label="Spinner" />
 			<MenuItem href="/textarea" label="Textarea" disabled />

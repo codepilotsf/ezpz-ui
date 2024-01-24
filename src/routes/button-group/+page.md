@@ -1,6 +1,8 @@
 <script>
 	import { ButtonGroup, Button } from '$lib/ui';
   import Tables from './Tables.svelte';
+
+  let name = '';
 </script>
 
 # ButtonGroup
@@ -26,10 +28,11 @@ A ButtonGroup is used to group child Button components together as a single elem
   <Button>Right</Button>
 </ButtonGroup>
 ```
-<ButtonGroup>
-  <Button>Left</Button>
-  <Button>Middle</Button>
-  <Button>Right</Button>
+Value: {name}
+<ButtonGroup bind:value={name}>
+  <Button name="left">Left</Button>
+  <Button name="middle">Middle</Button>
+  <Button  name="right">Right</Button>
 </ButtonGroup>
 
 ---

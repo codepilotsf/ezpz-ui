@@ -56,7 +56,7 @@
 	let _class = '';
 	export { _class as class };
 
-	const isInButtonGroup = getContext('isInButtonGroup');
+	const isGroup = getContext('isGroup');
 </script>
 
 {#if href}
@@ -69,7 +69,7 @@
 		{size}
 		{target}
 		{style}
-		{isInButtonGroup}
+		{isGroup}
 	>
 		<slot />
 	</a>
@@ -82,7 +82,7 @@
 		{loading}
 		{size}
 		{style}
-		{isInButtonGroup}
+		{isGroup}
 	>
 		<slot />
 	</button>
@@ -117,8 +117,8 @@
 		filter: brightness(1);
 	}
 
-	button[isInButtonGroup],
-	a[isInButtonGroup] {
+	button[isGroup],
+	a[isGroup] {
 		border-radius: 0;
 	}
 </style>
