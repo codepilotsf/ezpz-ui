@@ -44,7 +44,7 @@
 			<MenuItem href="/alert" label="Alert" />
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />
-			<MenuItem href="/button-group" label="ButtonGroup" disabled />
+			<MenuItem href="/button-group" label="ButtonGroup" />
 			<MenuItem href="/checkbox" label="Checkbox" />
 			<MenuItem href="/checkbox-group" label="CheckboxGroup" />
 			<MenuItem href="/file-picker" label="FilePicker" disabled />

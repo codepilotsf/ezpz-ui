@@ -4,6 +4,7 @@ export const utils = {
     // setting scoped CSS variables on the component's parent element.
     el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-color)`);
     el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-background)`);
+    return { color, background };
   },
 
   getIcon(name, size = 24) {

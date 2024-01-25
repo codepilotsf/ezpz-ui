@@ -62,6 +62,8 @@
 	--ui-form-element-line-height: 1.6;
 	--ui-form-element-placeholder-color: #94a3b8;
 
+	--ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+
 	/* Form Elements: :focus */
 	/* --ui-form-element-focus-border: 2px solid #3b82f6;
 	--ui-form-element-focus-outline: 2px solid #3b82f6;

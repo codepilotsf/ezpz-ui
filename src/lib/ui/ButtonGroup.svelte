@@ -1,23 +1,24 @@
 <script>
 	import './theme.css';
 	import { utils } from './utils.js';
-	import { getContext, onMount, setContext } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 
 	export let color = '';
-	export let background = '';
 	export let scheme = 'brand';
 	export let name = '';
+	export let size = '';
 
 	let _class = '';
 	export { _class as class };
 
 	setContext('isGroup', true);
-	let isGroup = getContext('isGroup');
-	let parentEl;
-	onMount(() => utils.setColors(parentEl, { scheme, color, background }));
-</script>
+	if (color) setContext('color', color);
+	if (scheme) setContext('scheme', scheme);
+	if (size) setContext('size', size);
 
-{isGroup}
+	let parentEl;
+	onMount(() => utils.setColors(parentEl, { scheme, color }));
+</script>
 
 <ui-button-group class={`lib-ui ${_class}`} bind:this={parentEl} {name}>
 	<slot />
@@ -25,11 +26,22 @@
 
 <style>
 	ui-button-group {
+		position: relative;
 		overflow: hidden;
 		border-radius: var(--ui-border-radius);
 		display: inline-flex;
 		flex-wrap: nowrap;
 		gap: 1px;
-		background-color: #444; /* todo: move this to pseudo element with reduced brightness */
+		box-shadow: var(--ui-button-shadow);
+	}
+	ui-button-group::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--ui-color);
+		filter: brightness(0.8);
 	}
 </style>

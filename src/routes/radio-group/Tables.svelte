@@ -25,7 +25,7 @@
 		<tr>
 			<td><code>scheme</code></td>
 			<td>String: 'info', 'warning', 'success', 'error'</td>
-			<td><code>'brand'</code></td>
+			<td>'brand'</td>
 			<td>Scheme defining color used for checked state of all child Radios</td>
 		</tr>
 		<tr>

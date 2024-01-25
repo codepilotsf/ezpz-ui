@@ -19,7 +19,7 @@
 		<tr>
 			<td><code>size</code></td>
 			<td>String: 'xs', 'sm', 'md', 'lg', 'xl'</td>
-			<td><code>'md'</code></td>
+			<td>'md'</td>
 			<td>Spinner size</td>
 		</tr>
 		<tr>

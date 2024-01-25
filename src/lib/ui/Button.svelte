@@ -5,12 +5,13 @@
 
 	export let type = 'button';
 	export let href = false;
+	export let active = false;
 	export let disabled = false;
 	export let loading = false;
-	export let size = 'md';
 	export let target = false;
-	export let scheme = 'brand';
-	export let color = '';
+	export let scheme = getContext('scheme') || 'brand';
+	export let color = getContext('color') || '';
+	export let size = getContext('size') || 'md';
 	export let background = '';
 
 	const sizes = {
@@ -61,10 +62,12 @@
 
 {#if href}
 	<a
+		on:click
 		bind:this={aEl}
 		class={`lib-ui ${_class}`}
 		{href}
 		{type}
+		{active}
 		{loading}
 		{size}
 		{target}
@@ -75,9 +78,11 @@
 	</a>
 {:else}
 	<button
+		on:click
 		bind:this={buttonEl}
 		class={`lib-ui ${_class}`}
 		{type}
+		{active}
 		{disabled}
 		{loading}
 		{size}
@@ -97,7 +102,12 @@
 		font-weight: 600;
 		letter-spacing: 1px;
 		color: #fff;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+		z-index: 1;
+	}
+
+	button:not([isGroup]),
+	a:not([isGroup]) {
+		box-shadow: var(--ui-button-shadow);
 	}
 
 	a,
@@ -108,7 +118,9 @@
 	}
 
 	button:hover,
-	a:hover {
+	button[active='true'],
+	a:hover,
+	a[active='true'] {
 		filter: brightness(1.3);
 	}
 

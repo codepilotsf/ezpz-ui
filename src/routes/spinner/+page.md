@@ -90,7 +90,7 @@ Color schemes defined in `theme.css` can be used to set the color of the spinner
 
 ### Custom Color
 
-Set an arbitrary color to use for the spinner (only `color` will used).
+Set an arbitrary color to use for the spinner.
   
 ```svelte
 <Spinner color="#999" />

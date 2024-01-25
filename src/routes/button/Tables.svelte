@@ -13,7 +13,7 @@
 		<tr>
 			<td><code>scheme</code></td>
 			<td>String: 'info', 'warning', 'success', 'error'</td>
-			<td><code>'brand'</code></td>
+			<td>'brand'</td>
 			<td>Color scheme to use as button color with white text</td>
 		</tr>
 		<tr>
@@ -45,6 +45,12 @@
 			<td>(todo)</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><code>active</code></td>
+			<td>Boolean</td>
+			<td>false</td>
+			<td>Display as active button (brighter)</td>
 		</tr>
 		<tr>
 			<td><code>loading</code></td>

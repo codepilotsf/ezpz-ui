@@ -3,7 +3,7 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let toppings = ['olives', 'tomatoes'];
+  let toppings = [];
 </script>
 
 # CheckboxGroup
