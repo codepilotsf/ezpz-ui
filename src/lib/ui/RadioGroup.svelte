@@ -4,8 +4,8 @@
 	import { onMount, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
+	export let selected;
 	export let legend = '';
-	export let selected = null;
 	export let color = '';
 	export let scheme = 'brand';
 

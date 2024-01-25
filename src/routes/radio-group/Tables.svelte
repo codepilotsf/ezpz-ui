@@ -1,5 +1,5 @@
 <!-- Properties Table -->
-<h3>CheckboxGroup Properties</h3>
+<h3>RadioGroup Properties</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -12,9 +12,9 @@
 	<tbody>
 		<tr>
 			<td><code>bind:selected</code></td>
-			<td>Array</td>
-			<td><code>[]</code></td>
-			<td>Array of selected values</td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td>Two-way binded value of selected Radio</td>
 		</tr>
 		<tr>
 			<td><code>legend</code></td>
@@ -26,19 +26,19 @@
 			<td><code>scheme</code></td>
 			<td>String: 'info', 'warning', 'success', 'error'</td>
 			<td><code>'brand'</code></td>
-			<td>Scheme defining color used for checked state of all child Checkboxes</td>
+			<td>Scheme defining color used for checked state of all child Radios</td>
 		</tr>
 		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td>Color used for checked state of all child Checkboxes</td>
+			<td>Color used for checked state of all child Radios</td>
 		</tr>
 	</tbody>
 </table>
 
 <!-- Named Slots Table -->
-<h3>CheckboxGroup Named Slots</h3>
+<h3>RadioGroup Named Slots</h3>
 <table class="w-full">
 	<thead class="text-left">
 		<tr>
@@ -50,7 +50,7 @@
 		<tr>
 			<td><code>legend</code></td>
 			<td
-				>Content to be used for legend before CheckboxGroup (supercedes <code>legend</code> property)</td
+				>Content to be used for legend before RadioGroup (supercedes <code>legend</code> property)</td
 			>
 		</tr>
 	</tbody>

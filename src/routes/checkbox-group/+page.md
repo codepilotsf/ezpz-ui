@@ -61,7 +61,7 @@ styled like the `label` elements on other form components.
 
 ---
 
-### Scheme
+### Color Scheme
 
 If all of the Checkbox components in a CheckboxGroup should have the same color scheme, use the `scheme` prop on the
 CheckboxGroup instead of on each individual Checkbox.
@@ -81,7 +81,7 @@ CheckboxGroup instead of on each individual Checkbox.
 
 ---
 
-### Color
+### Custom Color
 
 If all of the Checkbox components in a CheckboxGroup should have the same color, use the `color` prop on the
 CheckboxGroup instead of on each individual Checkbox.

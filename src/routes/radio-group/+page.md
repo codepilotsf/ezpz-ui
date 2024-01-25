@@ -3,7 +3,7 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let make = "";
+  let make, hand, level, color, cocktail;
 </script>
 
 # RadioGroup
@@ -47,54 +47,52 @@ Use the `legend` prop to set a legend for the RadioGroup. This will be rendered 
 styled like the `label` elements on other form components.
 
 ```svelte
-<RadioGroup legend="Beer Options">
-  <Radio label="Pilsner" />
-  <Radio label="India Pale Ale" />
-  <Radio label="Stout" />
+<RadioGroup bind:selected={hand} legend="Dominant Hand">
+  <Radio label="Left" value="left" />
+  <Radio label="Right" value="right" />
 </RadioGroup>
 ```
-<RadioGroup legend="Beer Options">
-  <Radio label="Pilsner" />
-  <Radio label="India Pale Ale" />
-  <Radio label="Stout" />
+<RadioGroup bind:selected={hand} legend="Dominant Hand">
+  <Radio label="Left" value="left" />
+  <Radio label="Right" value="right" />
 </RadioGroup>
 
 ---
 
-### Scheme
+### Color Scheme
 
 If all of the Radio components in a RadioGroup should have the same color scheme, use the `scheme` prop on the
 RadioGroup instead of on each individual Radio.
 
 ```svelte
-<RadioGroup scheme="error">
-  <Radio label="Delete Database" checked />
-  <Radio label="Launch Missiles" checked />
-  <Radio label="Call Mother In Law" checked />
+<RadioGroup bind:selection={level} scheme="error">
+  <Radio label="Hazardous" value="1" checked />
+  <Radio label="Dangerous" value="2" />
+  <Radio label="Perilous" value="3" />
 </RadioGroup>
 ```
 <RadioGroup scheme="error">
-  <Radio label="Delete Database" checked />
-  <Radio label="Launch Missiles" checked />
-  <Radio label="Call Mother In Law" checked />
+  <Radio label="Hazardous" value="1" checked />
+  <Radio label="Dangerous" value="2" />
+  <Radio label="Perilous" value="3" />
 </RadioGroup>
 
 ---
 
-### Color
+### Custom Color
 
 If all of the Radio components in a RadioGroup should have the same color, use the `color` prop on the
 RadioGroup instead of on each individual Radio.
 
 ```svelte
-<RadioGroup color="#777">
-  <Radio label="Boring" />
-  <Radio label="Equally Boring" checked />
+<RadioGroup bind:selection={color} color="#777">
+  <Radio label="Boring" checked />
+  <Radio label="Equally Boring" />
 </RadioGroup>
 ```
-<RadioGroup color="#777">
-  <Radio label="Boring" />
-  <Radio label="Equally Boring" checked />
+<RadioGroup bind:selection={color} color="#777">
+  <Radio label="Boring" value="gray" checked />
+  <Radio label="Equally Boring" value="alsoGray" />
 </RadioGroup>
 
 ---
@@ -105,16 +103,16 @@ Instead of using the `legend` prop which can only be a String, a `legend` named 
 complex content.
 
 ```svelte
-<RadioGroup>
+<RadioGroup bind:selected={cocktail}>
   <legend slot="legend"><CocktailIcon /> Cocktails</legend>
-  <Radio label="Martini" />
-  <Radio label="Gimlet" />
+  <Radio label="Martini" value="m" />
+  <Radio label="Gimlet" value="g" />
 </RadioGroup>
 ```
-<RadioGroup>
+<RadioGroup bind:selected={cocktail}>
   <legend slot="legend" class="flex items-center pb-2"><Martini size={20} /> Cocktails</legend>
-  <Radio label="Martini" />
-  <Radio label="Gimlet" />
+  <Radio label="Martini" value="m" />
+  <Radio label="Gimlet" value="g" />
 </RadioGroup>
 
 ---

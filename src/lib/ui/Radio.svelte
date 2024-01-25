@@ -7,7 +7,7 @@
 	export let leadingLabel = '';
 	export let disabled = null;
 	export let checked = null;
-	export let value = null;
+	export let value;
 
 	export let color = getContext('color') || '';
 	export let scheme = getContext('scheme') || 'brand';
@@ -21,7 +21,7 @@
 	const selected = getContext('selected');
 
 	function handleClick() {
-		$selected = value;
+		if (selected) $selected = value;
 	}
 </script>
 
@@ -39,7 +39,7 @@
 		on:click={handleClick}
 		{disabled}
 		{value}
-		checked={$selected === value || (!$selected && checked)}
+		checked={(value && value === $selected) || (!$selected && checked)}
 	/>
 
 	{#if $$slots.label}
@@ -87,8 +87,8 @@
 	}
 
 	input:checked {
-		border-color: var(--ui-brand-color);
-		background-color: var(--ui-brand-color);
+		border-color: var(--ui-color);
+		background-color: var(--ui-color);
 		background-position: 50% 50%;
 		background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Ccircle fill='white' cx='5' cy='5' r='4'/%3E%3C/svg%3E%0A");
 	}
