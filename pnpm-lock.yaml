@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@fontsource-variable/open-sans':
-    specifier: ^5.0.23
-    version: 5.0.23
+  '@fontsource-variable/red-hat-text':
+    specifier: ^5.0.17
+    version: 5.0.17
   lucide-svelte:
     specifier: ^0.309.0
     version: 0.309.0(svelte@4.2.8)
@@ -328,8 +328,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource-variable/open-sans@5.0.23:
-    resolution: {integrity: sha512-fIvxjvdqyl53Nw2ostM94pNAXtqpJPKWUlNqZo2NGzOERz/TK4HL+Lgxy5XCNVw2yPdeGt01xb0Qr5aa9fZ9gA==}
+  /@fontsource-variable/red-hat-text@5.0.17:
+    resolution: {integrity: sha512-vzf63r64Qw8n/Rm7XXvNQn5RpILdV22PIgI62a+wz01eM5nF0kL0S6GC0ykN3PLtGWmO2FPC/L9HKQEWhh5vdA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:

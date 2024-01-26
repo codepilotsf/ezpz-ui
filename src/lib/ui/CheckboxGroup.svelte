@@ -41,6 +41,9 @@
 	}
 
 	legend {
-		margin-bottom: 0.5rem;
+		display: block;
+		margin: --ui-form-label-margin;
+		font-size: var(--ui-form-label-font-size);
+		color: var(--ui-dark-color);
 	}
 </style>

@@ -1,8 +1,8 @@
 <script>
-	import { afterNavigate } from '$app/navigation';
-	import '@fontsource-variable/open-sans';
+	import '@fontsource-variable/red-hat-text';
 	import '../style/app.pcss';
 	import '../style/code.css';
+	import { afterNavigate } from '$app/navigation';
 	import { FolderOpenDot, DownloadCloud } from 'lucide-svelte';
 	import GitHubIcon from '$lib/components/GitHubIcon.svelte';
 	import MenuItem from '$lib/components/MenuItem.svelte';
@@ -49,8 +49,7 @@
 			<MenuItem href="/checkbox-group" label="CheckboxGroup" />
 			<MenuItem href="/file-picker" label="FilePicker" disabled />
 			<MenuItem href="/form-row" label="FormRow" disabled />
-			<MenuItem href="/input" label="Input" disabled />
-			<MenuItem href="/label" label="Label" disabled />
+			<MenuItem href="/input" label="Input" />
 			<MenuItem href="/modal" label="Modal" disabled />
 			<MenuItem href="/radio" label="Radio" />
 			<MenuItem href="/radio-group" label="RadioGroup" />

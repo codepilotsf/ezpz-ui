@@ -19,7 +19,9 @@
 	onMount(() => utils.setColors(checkboxEl, { scheme, color }));
 
 	const selected = getContext('selected');
-	checked = selected ? $selected.includes(value) : checked;
+	if (!checked && checked !== false && selected) {
+		checked = $selected.includes(value);
+	}
 
 	function handleClick() {
 		if (checkboxEl.checked) {
@@ -46,7 +48,6 @@
 		{disabled}
 		{value}
 	/>
-	{checked}
 
 	{#if $$slots.label}
 		<slot name="label" />

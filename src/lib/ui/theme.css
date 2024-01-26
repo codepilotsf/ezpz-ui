@@ -26,7 +26,7 @@
 
 	/* Neutral text color for things like form labels */
 	--ui-light-color: #f1f5f9;
-	--ui-midtone-color: #94a3b8;
+	--ui-midtone-color: #cbd5e1;
 	--ui-dark-color: #0f172a;
 
 	/* Borders
@@ -48,17 +48,17 @@
   -------------------
   The label for a form element
   --------------------- */
-	--ui-form-label-font-size: 1rem;
-	--ui-form-label-font-size-small: 14px;
-	--ui-form-label-font-weight: 600;
 	--ui-form-label-margin: 0.5rem 0;
+	--ui-form-label-font-weight: 600;
+	--ui-form-label-font-size: 1rem;
+	--ui-form-label-font-size-small: 14px; /* checkbox/radios */
 
 	/* Form Elements
   -------------------
   The form element itself, like an input or select
   --------------------- */
-	--ui-form-element-padding: 6px;
-	--ui-form-element-font-size: 1.1rem;
+	--ui-form-element-padding: 4px 6px;
+	--ui-form-element-font-size: 1rem;
 	--ui-form-element-line-height: 1.6;
 	--ui-form-element-placeholder-color: #94a3b8;
 
