@@ -24,7 +24,7 @@
 		class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-white px-3 text-sky-600 shadow"
 	>
 		<!-- Logo -->
-		<a href="/" class="flex items-end gap-1 text-2xl font-semibold hover:no-underline">
+		<a href="/" class="flex items-end gap-1 text-2xl font-bold hover:no-underline">
 			<FolderOpenDot size={34} strokeWidth={2.3} />
 			<span>LIB<span class="mx-1">/</span><span class="font-light">UI</span></span>
 		</a>
@@ -40,7 +40,7 @@
 
 	<scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
 		<!-- Menu -->
-		<menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-2 pt-2">
+		<menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-2 pt-2 font-semibold">
 			<MenuItem href="/alert" label="Alert" />
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />

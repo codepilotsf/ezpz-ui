@@ -5,7 +5,7 @@
   Colors to be used for text, foregrounds and backgrounds across the UI
   ------------------- */
 	/* Brand: Components with "scheme" property set to "brand" – (default for buttons, etc.) */
-	--ui-brand-color: #7e22ce;
+	--ui-brand-color: #7c3aed;
 	--ui-brand-background: #e9d5ff;
 
 	/* Info: Components with "scheme" property set to "info"  */
