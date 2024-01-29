@@ -40,7 +40,7 @@
 
 	<scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
 		<!-- Menu -->
-		<menu class="block h-full min-w-48 overflow-y-auto bg-sky-50 px-2 pt-2 font-semibold">
+		<menu class="block h-full min-w-[10rem] overflow-y-auto bg-sky-50 px-2 pt-2">
 			<MenuItem href="/alert" label="Alert" />
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />

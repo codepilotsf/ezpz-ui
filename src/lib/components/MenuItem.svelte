@@ -18,7 +18,7 @@
 	</span>
 {:else}
 	<a
-		class="block p-3 text-sm text-sky-700"
+		class="duration-400 block p-3 text-sm text-sky-700 transition ease-in-out"
 		class:hover:bg-sky-100={!isActive}
 		class:rounded={isActive}
 		class:bg-sky-600={isActive}
