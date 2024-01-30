@@ -54,7 +54,7 @@
 			<MenuItem href="/radio" label="Radio" />
 			<MenuItem href="/radio-group" label="RadioGroup" />
 			<MenuItem href="/rating" label="Rating" disabled />
-			<MenuItem href="/select" label="Select" disabled />
+			<MenuItem href="/select" label="Select" />
 			<MenuItem href="/spinner" label="Spinner" />
 			<MenuItem href="/textarea" label="Textarea" disabled />
 			<MenuItem href="/toast" label="Toast" disabled />
