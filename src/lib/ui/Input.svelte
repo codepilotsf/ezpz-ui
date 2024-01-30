@@ -9,6 +9,7 @@
 	export let disabled = false;
 	export let note = '';
 	export let error = '';
+	export let required = false;
 	export let id = name;
 
 	let _class = '';
@@ -33,6 +34,7 @@
 		{placeholder}
 		{disabled}
 		{value}
+		{required}
 		on:input={handleInput}
 	/>
 
@@ -60,10 +62,10 @@
 	}
 
 	input.error {
-		outline: 1px solid var(--error);
-		border: 1px solid var(--error);
-		box-shadow: 0 0 1px 1px var(--error);
-		color: var(--error);
+		outline: 1px solid var(--ui-error-background);
+		border: 1px solid var(--ui-error-background);
+		box-shadow: 0 0 1px 1px var(--ui-error-background);
+		color: var(--ui-error-color);
 	}
 
 	input:disabled {
@@ -83,5 +85,12 @@
 		font-weight: var(--ui-form-label-font-weight);
 		font-variation-settings: 'wght' var(--ui-form-label-font-weight);
 		color: var(--ui-dark-color);
+	}
+
+	ui-form-error {
+		color: var(--ui-error-color)
+	}
+	ui-form-note {
+		color: var(--ui-lighter-color);
 	}
 </style>
