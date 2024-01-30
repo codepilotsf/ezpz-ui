@@ -20,12 +20,8 @@
         value = e.target.value;
         // Push multiple selected values to array and bind to value
         if (multiple) {
-            value = [];
-            for (var i = 1; i < e.target.options.length; i++) {
-                if (e.target.options[i].selected) {
-                    value.push(e.target.options[i].value);
-                }
-            }
+			const selectedOptions = e.target.selectedOptions;
+            value = Array.from(selectedOptions).map(({ value }) => value);
         }		
 	};
 
