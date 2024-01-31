@@ -40,7 +40,7 @@
         {multiple}
         on:change={handleSelect}
     >
-        <option value="">{placeholder}</option>
+        <option value="" disabled selected>{placeholder}</option>
         {#each options as { value, label }}
             <option value={value}>{label}</option>
         {/each}
