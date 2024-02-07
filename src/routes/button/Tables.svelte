@@ -12,7 +12,7 @@
 	<tbody>
 		<tr>
 			<td><code>scheme</code></td>
-			<td>String: 'info', 'warning', 'success', 'error'</td>
+			<td>String: 'neutral', 'info', 'success', 'warning', 'danger'</td>
 			<td>'brand'</td>
 			<td>Color scheme to use as button color with white text</td>
 		</tr>

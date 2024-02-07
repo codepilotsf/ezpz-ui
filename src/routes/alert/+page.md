@@ -8,7 +8,7 @@
 
 Alerts can be used to provide user feedback for things like successful operations and errors. By default, alerts are
 displayed at full-width. Use `bind:active` two-way binding so that the parent template can trigger an alert and the
-alert's close button can also close it. When using a scheme, an appropriate icon will be included by default.
+alert's close button can also close it. When using a scheme, an appropriate icon will be included when appropriate.
 
 ### Example
 
@@ -20,10 +20,10 @@ The brand scheme will be used by default if no scheme or color is provided.
 </script>
 
 <Alert>
-  A default alert using the brand scheme.
+  A default alert using the neutral scheme DEBUG.
 </Alert>
 ```
-<Alert>A default alert using the brand scheme.</Alert>
+<Alert>A default alert using the neutral scheme.</Alert>
 
 ---
 
@@ -31,16 +31,6 @@ The brand scheme will be used by default if no scheme or color is provided.
 
 Color schemes defined in `theme.css` can be used to set the color and icon used for the alert. The icons used can also
 be changed in `utils.js` if desired.
-
-
-```svelte
-<Alert scheme="brand">
-  A nicely branded alert.
-</Alert>
-```
-<Alert scheme="brand">A nicely branded alert.</Alert>
-
----
 
 ```svelte
 <Alert scheme="info">
@@ -52,14 +42,6 @@ be changed in `utils.js` if desired.
 ---
 
 ```svelte
-<Alert scheme="warning">
-  Warning! This alert is slightly scary.
-</Alert>
-```
-<Alert scheme="warning">Warning! This alert is slightly scary.</Alert>
-
----
-```svelte
 <Alert scheme="success">
   You have been alerted successfully.
 </Alert>
@@ -69,11 +51,20 @@ be changed in `utils.js` if desired.
 ---
 
 ```svelte
-<Alert scheme="error">
+<Alert scheme="warning">
+  Warning! This alert is slightly scary.
+</Alert>
+```
+<Alert scheme="warning">Warning! This alert is slightly scary.</Alert>
+
+---
+
+```svelte
+<Alert scheme="danger">
   Something bad happened.
 </Alert>
 ```
-<Alert scheme="error">Something bad happened.</Alert>
+<Alert scheme="danger">Something bad happened.</Alert>
 
 ---
 
@@ -92,14 +83,14 @@ Custom colors can be used by providing `color` and `background` props.
 
 ### No Icon
 
-Icons can be disabled by setting the `icon` prop to `false`.
+Icons can be disabled by setting the `icon` prop to "false" or a falsey Boolean value.
 
 ```svelte
-<Alert scheme="info" icon={false}>
+<Alert scheme="info" icon="false">
   Keepin' it simple.
 </Alert>
 ```
-<Alert scheme="info" icon={false}>Keepin' it simple.</Alert>
+<Alert scheme="info" icon="false">Keepin' it simple.</Alert>
 
 ---
 

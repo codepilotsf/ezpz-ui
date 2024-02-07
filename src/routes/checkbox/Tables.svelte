@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td><code>scheme</code></td>
-			<td>String: 'info', 'warning', 'success', 'error'</td>
+			<td>String: 'neutral', 'info', 'success', 'warning', 'danger'</td>
 			<td><code>'brand'</code></td>
 			<td>Scheme defining color used for checked state</td>
 		</tr>

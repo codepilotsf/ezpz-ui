@@ -1,17 +1,19 @@
 <script>
-	import { onMount } from 'svelte';
-	import './theme.css';
-	import { utils } from './utils.js';
+	import { onMount } from 'svelte'
+	import './theme.css'
+	import { utils } from './utils.js'
 
-	export let src = '';
-	export let initials = '';
-	export let name = '';
-	export let size = 'md';
-	export let scheme = 'brand';
-	export let color = '';
-	export let background = '';
-	let _class = '';
-	export { _class as class };
+	// prettier-ignore
+	let { 
+    src = '',
+  	initials = '',
+  	name = '',
+  	size = 'md',
+  	color = '',
+  	background = '',
+    class: _class = '',
+    ...restProps
+  } = $props();
 
 	const sizes = {
 		xs: '32px',
@@ -19,29 +21,30 @@
 		md: '84px',
 		lg: '136px',
 		xl: '220px'
-	};
+	}
 
 	const style = `
     width: ${sizes[size]}; 
     font-size: calc(${sizes[size]} / 2);
-  `;
+  `
 
-	let parentEl;
-	onMount(() => utils.setColors(parentEl, { scheme, color, background }));
+	let parentEl
+	let scheme = 'neutral'
+	onMount(() => utils.setColors(parentEl, { scheme, color, background }))
 
 	// Format initials or get from name
 	if (initials) {
-		initials = initials.toUpperCase().slice(0, 2);
+		initials = initials.toUpperCase().slice(0, 2)
 	} else if (name) {
 		initials = name
 			.split(' ')
 			.map((word) => word[0].toUpperCase())
 			.slice(0, 2)
-			.join('');
+			.join('')
 	}
 </script>
 
-<ui-avatar class={`lib-ui ${_class}`} {scheme} bind:this={parentEl} {style}>
+<ui-avatar class={`lib-ui ${_class}`} {scheme} bind:this={parentEl} {style} {...restProps}>
 	{#if src}
 		<img {src} alt={name || initials || 'Avatar'} />
 	{:else if initials}

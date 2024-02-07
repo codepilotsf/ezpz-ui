@@ -60,11 +60,11 @@ Color schemes defined in `theme.css` can be used to set the button color. Text w
 ---
 
 ```svelte
-<Button scheme="error">
+<Button scheme="danger">
   Click Me
 </Button>
 ```
-<Button scheme="error">Click Me</Button>
+<Button scheme="danger">Click Me</Button>
 
 ---
 

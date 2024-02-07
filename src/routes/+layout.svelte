@@ -1,17 +1,17 @@
 <script>
-	import '@fontsource-variable/red-hat-text';
-	import '../style/app.pcss';
-	import '../style/code.css';
-	import { afterNavigate } from '$app/navigation';
-	import { FolderOpenDot, DownloadCloud } from 'lucide-svelte';
-	import GitHubIcon from '$lib/components/GitHubIcon.svelte';
-	import MenuItem from '$lib/components/MenuItem.svelte';
+	import '@fontsource-variable/red-hat-text'
+	import '../style/app.pcss'
+	import '../style/code.css'
+	import { afterNavigate } from '$app/navigation'
+	import { FolderOpenDot, DownloadCloud } from 'lucide-svelte'
+	import GitHubIcon from '$lib/components/GitHubIcon.svelte'
+	import MenuItem from '$lib/components/MenuItem.svelte'
 
-	let contentEl;
+	let contentEl
 
 	afterNavigate(() => {
-		contentEl.scrollTo(0, 0);
-	});
+		contentEl.scrollTo(0, 0)
+	})
 </script>
 
 <svelte:head>

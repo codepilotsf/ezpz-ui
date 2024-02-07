@@ -21,14 +21,14 @@
 		</tr>
 		<tr>
 			<td><code>icon</code></td>
-			<td>Boolean</td>
+			<td>String | Boolean</td>
 			<td><code>true</code></td>
 			<td>Sets whether an icon is displayed for scheme which includes a default icon.</td>
 		</tr>
 		<tr>
 			<td><code>scheme</code></td>
-			<td>String: 'info', 'warning', 'success', 'error', or 'brand'</td>
-			<td>'info'</td>
+			<td>String: 'neutral', 'info', 'success', 'warning', 'danger'</td>
+			<td>'neutral'</td>
 			<td>Color/Icon scheme of alert to be displayed</td>
 		</tr>
 		<tr>

@@ -43,12 +43,6 @@
 			>
 		</tr>
 		<tr>
-			<td><code>theme</code></td>
-			<td>String: 'info', 'warning', 'success', 'error', or 'brand'</td>
-			<td>'brand'</td>
-			<td>Color theme of avatar to be displayed (when no image is present)</td>
-		</tr>
-		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>

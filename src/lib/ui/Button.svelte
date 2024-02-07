@@ -9,7 +9,7 @@
 	export let disabled = false;
 	export let loading = false;
 	export let target = false;
-	export let scheme = getContext('scheme') || 'brand';
+	export let scheme = getContext('scheme') || 'neutral';
 	export let color = getContext('color') || '';
 	export let size = getContext('size') || 'md';
 	export let background = '';

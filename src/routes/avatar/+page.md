@@ -81,26 +81,6 @@ If present, the `name` property is also used as the value of the image element's
 
 ---
 
-### Color Schemes
-
-The `scheme` property can be used to set the color avatar's initials and background if no image `src` is provided. The
-default scheme is `brand`.
-
-```svelte
-<Avatar initials="KL" scheme="brand" />
-<Avatar initials="CD" scheme="info" />
-<Avatar initials="EF" scheme="warning" />
-<Avatar initials="GH" scheme="success" />
-<Avatar initials="IJ" scheme="error" />
-```
-<Avatar initials="KL" scheme="brand" />
-<Avatar initials="CD" scheme="info" />
-<Avatar initials="EF" scheme="warning" />
-<Avatar initials="GH" scheme="success" />
-<Avatar initials="IJ" scheme="error" />
-
----
-
 ### Custom Colors
 
 Custom colors can be used by providing `color` and `background` props.
@@ -108,11 +88,11 @@ Custom colors can be used by providing `color` and `background` props.
 ```svelte
 <Avatar 
   initials="JG" 
-  color="white" 
-  background="cornflowerblue" 
+  color="yellow" 
+  background="green" 
 />
 ```
-<Avatar initials="JG" color="white" background="cornflowerblue" />
+<Avatar initials="JG" color="yellow" background="green" />
 
 ---
 

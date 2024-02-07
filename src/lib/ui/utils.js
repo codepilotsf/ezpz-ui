@@ -2,8 +2,8 @@ export const utils = {
   setColors(el, { scheme, background, color }) {
     // Set colors based on scheme colors if present but prefer color, background if explicitly set. This is done by
     // setting scoped CSS variables on the component's parent element.
-    el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-color)`);
-    el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-background)`);
+    el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`);
+    el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`);
     return { color, background };
   },
 

@@ -2,32 +2,39 @@
 .lib-ui * {
 	/* Colors
   -------------------
-  Colors to be used for text, foregrounds and backgrounds across the UI
+  Primary brand and neutral colors
   ------------------- */
-	/* Brand: Components with "scheme" property set to "brand" – (default for buttons, etc.) */
-	--ui-brand-color: #7c3aed;
-	--ui-brand-background: #e9d5ff;
+	/* Brand Color: Used as accent for buttons, checked checkmarks, etc */
+	--ui-brand: #7c3aed;
 
-	/* Info: Components with "scheme" property set to "info"  */
-	--ui-info-color: #075985;
-	--ui-info-background: #e0f2fe;
+	/* Neutral Colors: Used for Text, borders, etc */
+	--ui-light: #f1f5f9;
+	--ui-midtone: #cbd5e1;
+	--ui-dark: #0f172a;
 
-	/* Success: Components with "scheme" property set to "success"  */
-	--ui-success-color: #15803d;
-	--ui-success-background: #bbf7d0;
+	/* Schemes
+  -------------------
+  Info, Success, Warning, Error, and Neutral color schemes
+  ------------------- */
+	/* Info */
+	--ui-info-light: #e0f2fe;
+	--ui-info-dark: #075985;
 
-	/* Warning: Components with "scheme" property set to "warning"  */
-	--ui-warning-color: #ea580c;
-	--ui-warning-background: #fef08a;
+	/* Success  */
+	--ui-success-light: #bbf7d0;
+	--ui-success-dark: #15803d;
 
-	/* Error: Components with "scheme" property set to "error"  */
-	--ui-error-color: #b91c1c;
-	--ui-error-background: #fecaca;
+	/* Warning */
+	--ui-warning-light: #fef08a;
+	--ui-warning-dark: #ea580c;
 
-	/* Neutral text color for things like form labels */
-	--ui-light-color: #f1f5f9;
-	--ui-midtone-color: #cbd5e1;
-	--ui-dark-color: #0f172a;
+	/* Error */
+	--ui-danger-light: #fecaca;
+	--ui-danger-dark: #b91c1c;
+
+	/* Neutral */
+	--ui-neutral-light: var(--ui-light);
+	--ui-neutral-dark: var(--ui-dark);
 
 	/* Borders
   -------------------
@@ -35,6 +42,7 @@
   ------------------- */
 	--ui-border-width: 1px;
 	--ui-border-radius: 3px;
+	--ui-border-color: var(--ui-neutral-midtone);
 
 	/* Form Items
   -------------------
@@ -61,7 +69,6 @@
 	--ui-form-element-font-size: 1rem;
 	--ui-form-element-line-height: 1.6;
 	--ui-form-element-placeholder-color: #94a3b8;
-
 	--ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 
 	/* Form Elements: :focus */
