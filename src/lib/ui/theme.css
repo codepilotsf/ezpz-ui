@@ -28,13 +28,11 @@
 	--ui-warning-light: #fef08a;
 	--ui-warning-dark: #ea580c;
 
-	/* Error */
-	--ui-danger-light: #fecaca;
-	--ui-danger-dark: #b91c1c;
-
-	/* Neutral */
-	--ui-neutral-light: var(--ui-light);
-	--ui-neutral-dark: var(--ui-dark);
+	/* Neutral text color for things like form labels */
+	--ui-light-color: #f1f5f9;
+	--ui-midtone-color: #cbd5e1;
+	--ui-dark-color: #0f172a;
+	--ui-lighter-color: #808080;
 
 	/* Borders
   -------------------

@@ -1,52 +1,61 @@
 <script>
 	import './theme.css';
 
-	export let name = '';
-	export let value = '';
-	export let label = 'Input';
-	export let type = 'text';
-	export let placeholder = '';
-	export let disabled = false;
-	export let note = '';
+    export let name = '';
+    export let value = '';
+    export let options;
+	export let label = 'Select';
+    export let placeholder = 'Please Select a value';
+    export let disabled = false;
+    export let required = false;
+    export let note = '';
 	export let error = '';
-	export let required = false;
+    export let multiple = false;
 	export let id = name;
 
 	let _class = '';
 	export { _class as class };
 
-	const handleInput = (e) => {
-		// This is a Rich Harris trick to allow dynamic `type` attribute
-		// while still binding the value to the input.
-		value = type.match(/^(number|range)$/) ? +e.target.value : e.target.value;
+    const handleSelect = (e) => {
+        value = e.target.value;
+        // Push multiple selected values to array and bind to value
+        if (multiple) {
+			const selectedOptions = e.target.selectedOptions;
+            value = Array.from(selectedOptions).map(({ value }) => value);
+        }		
 	};
+
 </script>
 
-<ui-input class="lib-ui">
+<ui-select class="lib-ui">
 	<label for={id}>{label}</label>
 
-	<input
-		class={_class}
-		class:error
-		{type}
-		{id}
-		{name}
-		{placeholder}
-		{disabled}
-		{value}
-		{required}
-		on:input={handleInput}
-	/>
+    <select
+        class={_class}
+        class:error 
+        {disabled}
+        {required}
+        {name}
+        {id}
+        {multiple}
+        on:change={handleSelect}
+    >
+        <option value="" disabled selected>{placeholder}</option>
+        {#each options as { value, label }}
+            <option value={value}>{label}</option>
+        {/each}
+    </select>
 
-	{#if error}
+    {#if error}
 		<ui-form-error>{error}</ui-form-error>
 	{:else if note}
 		<ui-form-note>{note}</ui-form-note>
 	{/if}
-</ui-input>
+
+</ui-select>
 
 <style>
-	input {
+	select {
 		outline: none;
 		width: 100%;
 		font-size: var(--ui-form-element-font-size);
@@ -56,29 +65,20 @@
 		padding: var(--ui-form-element-padding);
 	}
 
-	input:focus {
-		outline: 2px solid var(--link);
-		box-shadow: 0 0 2px 1px var(--link);
-	}
-
-	input.error {
+    select.error {
 		outline: 1px solid var(--ui-error-background);
 		border: 1px solid var(--ui-error-background);
 		box-shadow: 0 0 1px 1px var(--ui-error-background);
 		color: var(--ui-error-color);
 	}
 
-	input:disabled {
+	select:disabled {
 		cursor: not-allowed;
 		opacity: 0.5;
 		background: var(--lighter);
 	}
 
-	input::placeholder {
-		color: --ui-form-element-placeholder-color;
-	}
-
-	label {
+    label {
 		display: block;
 		margin: --ui-form-label-margin;
 		font-size: var(--ui-form-label-font-size);
@@ -87,7 +87,7 @@
 		color: var(--ui-dark-color);
 	}
 
-	ui-form-error {
+    ui-form-error {
 		color: var(--ui-error-color)
 	}
 	ui-form-note {

@@ -17,3 +17,4 @@ export { default as RadioGroup } from './RadioGroup.svelte';
 export { default as Spinner } from './Spinner.svelte';
 // export { default as Toast } from './Toast.svelte';
 // export { default as Tooltip } from './Tooltip.svelte';
+export { default as Select } from './Select.svelte';
