@@ -1,26 +1,31 @@
 <script>
-	import './theme.css';
-	import { utils } from './utils.js';
-	import { onMount, setContext } from 'svelte';
+	import './theme.css'
+	import { setContext } from 'svelte'
 
-	export let color = '';
-	export let scheme = 'brand';
-	export let name = '';
-	export let size = '';
+	// prettier-ignore
+	let {
+    color = '',
+    scheme = '',
+    name = '',
+    size = '',
+    class: _class = '',
+    ...restProps
+  } = $props();
 
-	let _class = '';
-	export { _class as class };
+	setContext('isGroup', true)
+	if (color) setContext('color', color)
+	if (scheme) setContext('scheme', scheme)
+	if (size) setContext('size', size)
 
-	setContext('isGroup', true);
-	if (color) setContext('color', color);
-	if (scheme) setContext('scheme', scheme);
-	if (size) setContext('size', size);
-
-	let parentEl;
-	onMount(() => utils.setColors(parentEl, { scheme, color }));
+	function setCssVars(el) {
+		el.style.setProperty(
+			'--ui-color',
+			color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+		)
+	}
 </script>
 
-<ui-button-group class={`lib-ui ${_class}`} bind:this={parentEl} {name}>
+<ui-button-group use:setCssVars class={['lib-ui', _class].join(' ')} {name} {...restProps}>
 	<slot />
 </ui-button-group>
 

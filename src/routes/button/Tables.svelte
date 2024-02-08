@@ -66,7 +66,7 @@
 		</tr>
 		<tr>
 			<td><code>...</code></td>
-			<td>any</td>
+			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td
 				>Additional props will be passed through to the parent element enabling support for things

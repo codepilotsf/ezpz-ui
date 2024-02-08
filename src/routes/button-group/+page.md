@@ -81,13 +81,13 @@ If all of the Button components in a ButtonGroup should have the same color sche
 ButtonGroup instead of on each individual Button.
 
 ```svelte
-<ButtonGroup scheme="error">
+<ButtonGroup scheme="danger">
   <Button>Dangerous</Button>
   <Button>Hazardous</Button>
   <Button>Perilous</Button>
 </ButtonGroup>
 ```
-<ButtonGroup scheme="error">
+<ButtonGroup scheme="danger">
   <Button>Dangerous</Button>
   <Button>Hazardous</Button>
   <Button>Perilous</Button>

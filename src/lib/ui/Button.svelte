@@ -1,14 +1,13 @@
 <script>
 	import './theme.css'
-	import { utils } from './utils.js'
 	import { getContext } from 'svelte'
 
 	let {
 		type = 'button',
-		href = false,
-		active = false,
-		loading = false,
-		scheme = getContext('scheme') || 'neutral',
+		href = null,
+		active = null,
+		loading = null,
+		scheme = getContext('scheme') || '',
 		color = getContext('color') || '',
 		size = getContext('size') || 'md',
 		background = '',
@@ -44,15 +43,16 @@
 		}
 	}
 
-	const style = [
-		`font-size: ${sizes[size]['font-size']}px;`,
-		`padding: ${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px;`
-	].join(' ')
-
 	function setCssVars(el) {
-		el.style.setProperty('--ui-color', color || '#ffffff')
-		el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-dark)`)
-		utils.setColors(el, { scheme, color, background })
+		el.style.setProperty(
+			'--ui-color',
+			color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+		)
+		el.style.setProperty('--ui-button-font-size', `${sizes[size]['font-size']}px`)
+		el.style.setProperty(
+			'--ui-button-padding',
+			`${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px`
+		)
 	}
 
 	const isGroup = getContext('isGroup')
@@ -67,7 +67,6 @@
 		{active}
 		{loading}
 		{size}
-		{style}
 		{isGroup}
 		{...restProps}
 	>
@@ -81,8 +80,8 @@
 		{active}
 		{loading}
 		{size}
-		{style}
 		{isGroup}
+		{...restProps}
 	>
 		<slot />
 	</button>
@@ -92,12 +91,14 @@
 	button,
 	a {
 		background-color: var(--ui-color);
-		transition: all 0.15s ease-in-out;
+		transition: all 0.12s ease-in-out;
 		border-radius: var(--ui-border-radius);
+		padding: var(--ui-button-padding);
+		font-size: var(--ui-button-font-size);
 		font-weight: 600;
 		letter-spacing: 1px;
 		color: #fff;
-		z-index: 1;
+		z-index: 1; /* Needed for ButtonGroup */
 	}
 
 	button:not([isGroup]),
@@ -119,9 +120,17 @@
 		filter: brightness(1.3);
 	}
 
+	button:hover:not([isGroup]),
+	button[active='true']:not([isGroup]),
+	a:hover:not([isGroup]),
+	a[active='true']:not([isGroup]) {
+		outline: 1px solid var(--ui-color);
+	}
+
 	button:active,
 	a:active {
 		filter: brightness(1);
+		outline: none;
 	}
 
 	button[isGroup],
