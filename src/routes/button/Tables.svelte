@@ -41,12 +41,6 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><code>disabled</code></td>
-			<td>(todo)</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
 			<td><code>active</code></td>
 			<td>Boolean</td>
 			<td>false</td>
@@ -63,6 +57,22 @@
 			<td>(todo)</td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><code>class</code></td>
+			<td>String</td>
+			<td>&nbsp;</td>
+			<td>CSS classes to be passed through to the parent element</td>
+		</tr>
+		<tr>
+			<td><code>...</code></td>
+			<td>any</td>
+			<td>&nbsp;</td>
+			<td
+				>Additional props will be passed through to the parent element enabling support for things
+				like
+				<code>disabled</code>, <code>on:click</code>, <code>target="_blank"</code>, etc</td
+			>
 		</tr>
 	</tbody>
 </table>

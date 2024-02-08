@@ -9,7 +9,7 @@
 	  color = '',
 	  background = '',
 	  scheme = 'neutral',
-    class: _class = '',
+    class: classProp = '',
     ...restProps
 	} = $props()
 
@@ -29,16 +29,15 @@
 
 	// Set CSS custom properties --ui-color and --ui-background to main wrapper element
 	function setColors(el) {
-		if (color || scheme) el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`)
-		if (background || scheme)
-			el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`)
+		el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`)
+		el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`)
 	}
 </script>
 
 {#if active}
 	<ui-alert
 		use:setColors
-		class={['lib-ui', _class].join(' ')}
+		class={['lib-ui', classProp].join(' ')}
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
 		{...restProps}

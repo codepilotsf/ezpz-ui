@@ -1,18 +1,20 @@
 <script>
-	import './theme.css';
-	import { utils } from './utils.js';
-	import { onMount, getContext } from 'svelte';
+	import './theme.css'
+	import { utils } from './utils.js'
+	import { getContext } from 'svelte'
 
-	export let type = 'button';
-	export let href = false;
-	export let active = false;
-	export let disabled = false;
-	export let loading = false;
-	export let target = false;
-	export let scheme = getContext('scheme') || 'neutral';
-	export let color = getContext('color') || '';
-	export let size = getContext('size') || 'md';
-	export let background = '';
+	let {
+		type = 'button',
+		href = false,
+		active = false,
+		loading = false,
+		scheme = getContext('scheme') || 'neutral',
+		color = getContext('color') || '',
+		size = getContext('size') || 'md',
+		background = '',
+		class: _class = '',
+		...restProps
+	} = $props()
 
 	const sizes = {
 		xs: {
@@ -40,50 +42,43 @@
 			'x-padding': 24,
 			'y-padding': 12
 		}
-	};
+	}
 
 	const style = [
 		`font-size: ${sizes[size]['font-size']}px;`,
 		`padding: ${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px;`
-	].join(' ');
+	].join(' ')
 
-	let aEl;
-	let buttonEl;
-	onMount(() => {
-		const parentEl = aEl || buttonEl;
-		utils.setColors(parentEl, { scheme, color, background });
-	});
+	function setCssVars(el) {
+		el.style.setProperty('--ui-color', color || '#ffffff')
+		el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-dark)`)
+		utils.setColors(el, { scheme, color, background })
+	}
 
-	let _class = '';
-	export { _class as class };
-
-	const isGroup = getContext('isGroup');
+	const isGroup = getContext('isGroup')
 </script>
 
 {#if href}
 	<a
-		on:click
-		bind:this={aEl}
-		class={`lib-ui ${_class}`}
+		use:setCssVars
+		class={['lib-ui', _class].join(' ')}
 		{href}
 		{type}
 		{active}
 		{loading}
 		{size}
-		{target}
 		{style}
 		{isGroup}
+		{...restProps}
 	>
 		<slot />
 	</a>
 {:else}
 	<button
-		on:click
-		bind:this={buttonEl}
-		class={`lib-ui ${_class}`}
+		use:setCssVars
+		class={['lib-ui', _class].join(' ')}
 		{type}
 		{active}
-		{disabled}
 		{loading}
 		{size}
 		{style}

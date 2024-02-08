@@ -10,7 +10,7 @@ be used as the value of the image element's `alt` attribute and as the backup di
 `src` is passed. Alternatively, a `name` attribute can be passed from which initials will be
 derived automatically. 
 
-<!-- The image for
+<!-- Todo: The image for
 an avatar may be supplied as a url supplied to the <code>src</code> property or as a named
 <code>image</code>slot which makes it possible for example to use
 <a href="https://kit.svelte.dev/docs/images" target="_blank"

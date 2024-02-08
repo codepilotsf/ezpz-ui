@@ -1,19 +1,16 @@
 <script>
-	import { onMount } from 'svelte'
 	import './theme.css'
-	import { utils } from './utils.js'
 
-	// prettier-ignore
-	let { 
-    src = '',
-  	initials = '',
-  	name = '',
-  	size = 'md',
-  	color = '',
-  	background = '',
-    class: _class = '',
-    ...restProps
-  } = $props();
+	let {
+		src = '',
+		initials = '',
+		name = '',
+		size = 'md',
+		color = '',
+		background = '',
+		class: _class = '',
+		...restProps
+	} = $props()
 
 	const sizes = {
 		xs: '32px',
@@ -23,16 +20,9 @@
 		xl: '220px'
 	}
 
-	const style = `
-    width: ${sizes[size]}; 
-    font-size: calc(${sizes[size]} / 2);
-  `
+	const scheme = 'neutral'
 
-	let parentEl
-	let scheme = 'neutral'
-	onMount(() => utils.setColors(parentEl, { scheme, color, background }))
-
-	// Format initials or get from name
+	// Format initials or get them from name
 	if (initials) {
 		initials = initials.toUpperCase().slice(0, 2)
 	} else if (name) {
@@ -42,9 +32,15 @@
 			.slice(0, 2)
 			.join('')
 	}
+
+	function setCssVars(el) {
+		el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`)
+		el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`)
+		el.style.setProperty('--ui-avatar-size', sizes[size])
+	}
 </script>
 
-<ui-avatar class={`lib-ui ${_class}`} {scheme} bind:this={parentEl} {style} {...restProps}>
+<ui-avatar use:setCssVars class={['lib-ui', _class].join(' ')} {...restProps}>
 	{#if src}
 		<img {src} alt={name || initials || 'Avatar'} />
 	{:else if initials}
@@ -58,10 +54,11 @@
 		display: inline-flex;
 		align-items: center;
 		height: auto;
+		width: var(--ui-avatar-size);
 		justify-content: center;
 		border-radius: 50%;
 		font-weight: 600;
-		font-size: 1.25rem;
+		font-size: calc(var(--ui-avatar-size) / 2.2);
 		overflow: hidden;
 		aspect-ratio: 1;
 		background: var(--ui-background);

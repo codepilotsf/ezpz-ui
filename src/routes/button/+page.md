@@ -7,7 +7,7 @@
 
 Button components are rendered as a `button` element by default or if an `href` property is passed, it will be rendered
 as a regular `a` anchor link element. Styling will be the same in either case. By default, buttons are `md` size and use
-the `ui-brand-color` with white text.
+the `ui-brand` with white text.
 
 ### Example
 
