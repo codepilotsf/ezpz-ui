@@ -1,31 +1,38 @@
 <script>
-	import './theme.css';
-	import { utils } from './utils.js';
-	import { onMount, setContext } from 'svelte';
-	import { writable } from 'svelte/store';
+	import './theme.css'
+	import { setContext } from 'svelte'
 
-	export let selected;
-	export let legend = '';
-	export let color = '';
-	export let scheme = 'brand';
+	let {
+		selected,
+		legend = '',
+		color = '',
+		scheme = 'neutral',
+		class: _class = '',
+		...restProps
+	} = $props()
 
-	let _class = '';
-	export { _class as class };
+	if (color) setContext('color', color)
+	if (scheme) setContext('scheme', scheme)
 
-	let selectedStore = writable(selected);
+	/* 
+  When $state is set to context and the value is not a custom object, 
+  it becomes a static (non-reactive) value. The solution is to take that
+  static object from context and set it to a reactive variable by creating
+  a custom object and recasting it to a $state object.
+  */
+	let selectedState = $state({ value: selected || [] })
+	setContext('selectedState', selectedState)
 
-	setContext('selected', selectedStore);
-
-	if (color) setContext('color', color);
-	if (scheme) setContext('scheme', scheme);
-
-	$: selected = $selectedStore;
-
-	let fieldsetEl;
-	onMount(() => utils.setColors(fieldsetEl, { scheme, color }));
+	/*
+  Whenever selectedState object is updated in the child component, we need to 
+  update the binded value to match.
+  */
+	$effect(() => {
+		selected = selectedState.value
+	})
 </script>
 
-<fieldset class={`lib-ui ${_class}`} bind:this={fieldsetEl}>
+<fieldset class={`lib-ui ${_class}`}>
 	{#if legend}
 		<legend>{legend}</legend>
 	{:else if $$slots.legend}

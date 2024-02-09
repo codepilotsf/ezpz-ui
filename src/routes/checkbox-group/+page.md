@@ -3,7 +3,7 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let toppings = $state({ value: ['pepperoni'] });
+  let toppings = $state(['pepperoni']);
 </script>
 
 # CheckboxGroup
@@ -12,18 +12,14 @@ Use a CheckboxGroup to group multiple Checkbox components for a predictable layo
 `selected` array value coupled to which radio button is selected. Additionally, you can  set a `scheme` or `color` as a single
 property to be inherited by all child Checkboxs.
 
-IMPORTANT: Svelte 5 handles two-way binding of `$state` objects in such a way that you *must create an object* with a `value` property rather than directly assigning an array.
-
-```svelte
-
 ### Example
 
-Use `bind:selected` to bind a `$state` object of selected items.
+Use `bind:selected` to two-way bind a reactive array of selected items.
 
 ```svelte
 <script>
   import { CheckboxGroup, Checkbox } from '$lib/ui';
-  let toppings = $state({ value: ['pepperoni'] });
+  let toppings = $state(['pepperoni']);
 </script>
 
 <CheckboxGroup bind:selected={toppings}>
@@ -32,7 +28,7 @@ Use `bind:selected` to bind a `$state` object of selected items.
   <Checkbox label="Tomatoes" value="tomatoes" />
 </CheckboxGroup>
 
-<p>Toppings: {toppings.value}</p>
+<p>Toppings: {toppings}</p>
 ```
 <CheckboxGroup bind:selected={toppings}>
   <Checkbox label="Pepperoni" value="pepperoni" />
@@ -40,7 +36,7 @@ Use `bind:selected` to bind a `$state` object of selected items.
   <Checkbox label="Tomatoes" value="tomatoes" />
 </CheckboxGroup>
 
-<p>Toppings: {toppings.value}</p>
+<p>Toppings: {toppings}</p>
 
 ---
 

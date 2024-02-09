@@ -12,7 +12,24 @@
 	} = $props()
 
 	setContext('isGroup', true)
-	setContext('selected', selected)
+
+	/* 
+  When $state is set to context and the value is not a custom object, 
+  it becomes a static (non-reactive) value. The solution is to take that
+  static object from context and set it to a reactive variable by creating
+  a custom object and recasting it to a $state object.
+  */
+
+	let selectedState = $state({ value: selected || [] })
+	setContext('selectedState', selectedState)
+
+	/*
+  Whenever selectedState object is updated in the child component, we need to 
+  update the binded value to match.
+  */
+	$effect(() => {
+		selected = selectedState.value
+	})
 
 	if (color) setContext('color', color)
 	if (scheme) setContext('scheme', scheme)

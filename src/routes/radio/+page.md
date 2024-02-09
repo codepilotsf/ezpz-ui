@@ -62,12 +62,12 @@ Labels normally appear to the right of the radio. Use the `leadingLabel` prop in
 ### Color Scheme
 
 Individual radios can be styled with a `scheme` prop. More often, you'll want to set the scheme for all radios in a group
-by setting the `scheme` prop on the [RadioGroup](/radio-group) wrapper component. The default scheme is `brand`.
+by setting the `scheme` prop on the [RadioGroup](/radio-group) wrapper component.
 
 ```svelte
-<Radio scheme="brand" label="Brand" checked />
+<Radio scheme="neutral" label="Neutral" checked />
 ```
-<Radio scheme="brand" label="Brand" checked />
+<Radio scheme="neutral" label="Neutral" checked />
 
 ---
 
@@ -93,9 +93,9 @@ by setting the `scheme` prop on the [RadioGroup](/radio-group) wrapper component
 ---
 
 ```svelte
-<Radio scheme="error" label="Error" checked />
+<Radio scheme="danger" label="Danger" checked />
 ```
-<Radio scheme="error" label="Error" checked />
+<Radio scheme="danger" label="Danger" checked />
 
 ---
 

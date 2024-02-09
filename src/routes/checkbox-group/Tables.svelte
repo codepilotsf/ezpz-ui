@@ -14,10 +14,7 @@
 			<td><code>bind:selected</code></td>
 			<td>Array</td>
 			<td>&nbsp;</td>
-			<td
-				><code>$state</code> object with a <code>value</code> property which contains an array of selected
-				items</td
-			>
+			<td>Two-way binded array of selected items</td>
 		</tr>
 		<tr>
 			<td><code>legend</code></td>
@@ -27,14 +24,14 @@
 		</tr>
 		<tr>
 			<td><code>scheme</code></td>
-			<td>String: 'info', 'warning', 'success', 'error'</td>
-			<td><code>'brand'</code></td>
+			<td>String: 'neutral', 'warning', 'info', 'success', 'danger'</td>
+			<td>&nbsp;</td>
 			<td>Scheme defining color used for checked state of all child Checkboxes</td>
 		</tr>
 		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
-			<td>&nbsp;</td>
+			<td>'brand'</td>
 			<td>Color used for checked state of all child Checkboxes</td>
 		</tr>
 	</tbody>

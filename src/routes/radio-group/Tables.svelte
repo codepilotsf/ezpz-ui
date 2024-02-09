@@ -14,7 +14,7 @@
 			<td><code>bind:selected</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td>Two-way binded value of selected Radio</td>
+			<td>Two-way binded value of selected item</td>
 		</tr>
 		<tr>
 			<td><code>legend</code></td>

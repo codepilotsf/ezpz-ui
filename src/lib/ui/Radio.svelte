@@ -1,27 +1,29 @@
 <script>
-	import './theme.css';
-	import { utils } from './utils.js';
-	import { onMount, getContext } from 'svelte';
+	import './theme.css'
+	import { getContext } from 'svelte'
 
-	export let label = '';
-	export let leadingLabel = '';
-	export let disabled = null;
-	export let checked = null;
-	export let value;
+	let {
+		label = '',
+		leadingLabel = '',
+		disabled = null,
+		checked = null,
+		value,
+		color = getContext('color'),
+		scheme = getContext('scheme'),
+		class: _class = ''
+	} = $props()
 
-	export let color = getContext('color') || '';
-	export let scheme = getContext('scheme') || 'brand';
+	function setCssVars(el) {
+		el.style.setProperty(
+			'--ui-color',
+			color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+		)
+	}
 
-	let _class = '';
-	export { _class as class };
+	const selectedState = getContext('selectedState')
 
-	let radioEl;
-	onMount(() => utils.setColors(radioEl, { scheme, color }));
-
-	const selected = getContext('selected');
-
-	function handleClick() {
-		if (selected) $selected = value;
+	function handleChange() {
+		if (selectedState) selectedState.value = value
 	}
 </script>
 
@@ -33,13 +35,14 @@
 	{/if}
 
 	<input
+		use:setCssVars
 		type="radio"
 		class={`lib-ui ${_class}`}
-		bind:this={radioEl}
-		on:click={handleClick}
+		on:change={handleChange}
 		{disabled}
 		{value}
-		checked={(value && value === $selected) || (!$selected && checked)}
+		checked={(value && value === selectedState?.value) ||
+			(!selectedState?.value?.length && checked)}
 	/>
 
 	{#if $$slots.label}
@@ -61,7 +64,7 @@
 		padding: 2px;
 	}
 	input {
-		border: 1px solid var(--ui-midtone-color);
+		border: 1px solid var(--ui-border-color);
 		border-radius: 3px;
 		appearance: none;
 		width: 18px;
@@ -83,7 +86,7 @@
 		cursor: not-allowed;
 	}
 	input:disabled {
-		background: var(--ui-midtone-color);
+		background: var(--ui-midtone);
 	}
 
 	input:checked {

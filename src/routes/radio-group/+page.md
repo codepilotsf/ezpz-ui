@@ -3,7 +3,11 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let make, hand, level, color, cocktail;
+  let make = $state(null);
+  let hand = $state(null);
+  let level = $state(null);
+  let color = $state(null);
+  let cocktail = $state(null);
 </script>
 
 # RadioGroup
@@ -14,13 +18,12 @@ property to be inherited by all child Radios.
 
 ### Example
 
-Use `bind:selected` to bind an array of selected values to the RadioGroup. This eliminates the need to use
-`bind:checked` or `bind:group` on each individual Radio.
+Use `bind:selected` to two-bind the reactive value of the selected item.
 
 ```svelte
 <script>
   import { RadioGroup, Radio } from '$lib/ui';
-  let make = null;
+  let make = $state(null);
 </script>
 
 <RadioGroup bind:selected={make}>
@@ -47,12 +50,12 @@ Use the `legend` prop to set a legend for the RadioGroup. This will be rendered 
 styled like the `label` elements on other form components.
 
 ```svelte
-<RadioGroup bind:selected={hand} legend="Dominant Hand">
+<RadioGroup legend="Dominant Hand">
   <Radio label="Left" value="left" />
   <Radio label="Right" value="right" />
 </RadioGroup>
 ```
-<RadioGroup bind:selected={hand} legend="Dominant Hand">
+<RadioGroup legend="Dominant Hand">
   <Radio label="Left" value="left" />
   <Radio label="Right" value="right" />
 </RadioGroup>
@@ -65,13 +68,13 @@ If all of the Radio components in a RadioGroup should have the same color scheme
 RadioGroup instead of on each individual Radio.
 
 ```svelte
-<RadioGroup bind:selection={level} scheme="error">
+<RadioGroup scheme="danger">
   <Radio label="Hazardous" value="1" checked />
   <Radio label="Dangerous" value="2" />
   <Radio label="Perilous" value="3" />
 </RadioGroup>
 ```
-<RadioGroup scheme="error">
+<RadioGroup scheme="danger">
   <Radio label="Hazardous" value="1" checked />
   <Radio label="Dangerous" value="2" />
   <Radio label="Perilous" value="3" />
@@ -85,14 +88,14 @@ If all of the Radio components in a RadioGroup should have the same color, use t
 RadioGroup instead of on each individual Radio.
 
 ```svelte
-<RadioGroup bind:selection={color} color="#777">
-  <Radio label="Boring" checked />
-  <Radio label="Equally Boring" />
+<RadioGroup color="#777">
+  <Radio label="Boring" value="gray" />
+  <Radio label="Equally Boring" value="alsoGray" checked />
 </RadioGroup>
 ```
-<RadioGroup bind:selection={color} color="#777">
-  <Radio label="Boring" value="gray" checked />
-  <Radio label="Equally Boring" value="alsoGray" />
+<RadioGroup color="#777">
+  <Radio label="Boring" value="gray" />
+  <Radio label="Equally Boring" value="alsoGray" checked />
 </RadioGroup>
 
 ---

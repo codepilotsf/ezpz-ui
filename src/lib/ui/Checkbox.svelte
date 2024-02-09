@@ -21,18 +21,18 @@
 		)
 	}
 
-	let selected = getContext('selected')
+	let selectedState = getContext('selectedState')
 
-	if (selected?.value && !checked && checked !== false) {
-		checked = selected.value.includes(value)
+	if (selectedState?.value && !checked && checked !== false) {
+		checked = selectedState.value.includes(value)
 	}
 
-	function handleClick(e) {
-		if (!selected) return
-		if (e.target.checked) {
-			selected.value = [...selected.value, value]
+	function handleChange({ target }) {
+		if (!selectedState) return
+		if (target.checked) {
+			selectedState.value = [...selectedState.value, value]
 		} else {
-			selected.value = selected.value.filter((v) => v != value)
+			selectedState.value = selectedState.value.filter((v) => v != value)
 		}
 	}
 </script>
@@ -49,7 +49,7 @@
 		type="checkbox"
 		class={`lib-ui ${_class}`}
 		bind:checked
-		on:click={handleClick}
+		on:change={handleChange}
 		{disabled}
 		{value}
 		{...restProps}
