@@ -61,7 +61,7 @@
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td
-				>Additional props will be passed through to the parent element enabling support for things
+				>Additional props will be passed through to the HTML element enabling support for things
 				like <code>on:click</code>, etc</td
 			>
 		</tr>

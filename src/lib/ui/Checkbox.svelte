@@ -1,33 +1,38 @@
 <script>
-	import './theme.css';
-	import { utils } from './utils.js';
-	import { onMount, getContext } from 'svelte';
+	import { getContext } from 'svelte'
+	import './theme.css'
 
-	export let label = '';
-	export let leadingLabel = '';
-	export let checked = false;
-	export let disabled = false;
-	export let value = null;
+	let {
+		label = '',
+		leadingLabel = '',
+		checked,
+		disabled = false,
+		value = null,
+		color = getContext('color') || '',
+		scheme = getContext('scheme') || '',
+		_class: _class = '',
+		...restProps
+	} = $props()
 
-	export let color = getContext('color') || '';
-	export let scheme = getContext('scheme') || 'brand';
-
-	let _class = '';
-	export { _class as class };
-
-	let checkboxEl;
-	onMount(() => utils.setColors(checkboxEl, { scheme, color }));
-
-	const selected = getContext('selected');
-	if (!checked && checked !== false && selected) {
-		checked = $selected.includes(value);
+	function setCssVars(el) {
+		el.style.setProperty(
+			'--ui-color',
+			color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+		)
 	}
 
-	function handleClick() {
-		if (checkboxEl.checked) {
-			$selected = [...$selected, value];
+	let selected = getContext('selected')
+
+	if (selected?.value && !checked && checked !== false) {
+		checked = selected.value.includes(value)
+	}
+
+	function handleClick(e) {
+		if (!selected) return
+		if (e.target.checked) {
+			selected.value = [...selected.value, value]
 		} else {
-			$selected = $selected.filter((v) => v != value);
+			selected.value = selected.value.filter((v) => v != value)
 		}
 	}
 </script>
@@ -40,13 +45,14 @@
 	{/if}
 
 	<input
+		use:setCssVars
 		type="checkbox"
 		class={`lib-ui ${_class}`}
-		bind:this={checkboxEl}
 		bind:checked
 		on:click={handleClick}
 		{disabled}
 		{value}
+		{...restProps}
 	/>
 
 	{#if $$slots.label}
@@ -68,7 +74,7 @@
 		padding: 2px;
 	}
 	input {
-		border: 1px solid var(--ui-midtone-color);
+		border: 1px solid var(--ui-border-color);
 		border-radius: 3px;
 		appearance: none;
 		width: 18px;
@@ -76,7 +82,7 @@
 		margin: 0;
 		vertical-align: top;
 		background: #fff no-repeat center center;
-		transition: all 0.1s ease-in-out;
+		transition: all 0.12s ease-in-out;
 	}
 
 	input:where(:active:not(:disabled), :focus) {
@@ -89,7 +95,7 @@
 		cursor: not-allowed;
 	}
 	input:disabled {
-		background: var(--ui-midtone-color);
+		background: var(--ui-midtone);
 	}
 
 	input:checked {

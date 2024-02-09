@@ -13,8 +13,11 @@
 		<tr>
 			<td><code>bind:selected</code></td>
 			<td>Array</td>
-			<td><code>[]</code></td>
-			<td>Array of selected values</td>
+			<td>&nbsp;</td>
+			<td
+				><code>$state</code> object with a <code>value</code> property which contains an array of selected
+				items</td
+			>
 		</tr>
 		<tr>
 			<td><code>legend</code></td>

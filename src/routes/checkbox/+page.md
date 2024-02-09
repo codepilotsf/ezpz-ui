@@ -4,7 +4,8 @@
   import { Heart } from 'lucide-svelte';
 
   let name = '';
-  let wantsSpam = false;
+  let isChecked = $state(false);
+  let wantsSpam = $state(false);
 </script>
 
 # Checkbox
@@ -21,22 +22,18 @@ Check the checkbox to see the value change.
 ```svelte
 <script>
   import { Checkbox } from '$lib/ui';
-  let wantsSpam = false;
+  let isChecked = $state(false);
 </script>
 
-<Checkbox 
-  label="Spam me"
-  bind:checked={wantsSpam} 
-/>
+<Checkbox bind:checked={isChecked} />
 
-<p>Wants spam: {wantsSpam}</p>
+<p>Checked: {isChecked}</p>
 ```
 <Checkbox 
-  label="Spam me"
-  bind:checked={wantsSpam}
+  bind:checked={isChecked}
 />
 
-<p>Wants spam: {wantsSpam}</p>
+<p>Checked: {isChecked}</p>
 
 
 ---
@@ -68,18 +65,18 @@ Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop
 Color schemes defined in `theme.css` can be used to set the color of the checkbox when checked.
 
 ```svelte
-<Checkbox scheme="brand" label="Brand" checked/>
+<Checkbox scheme="neutral" label="Neutral" checked/>
 <Checkbox scheme="info" label="Info" checked/>
 <Checkbox scheme="warning" label="Warning" checked/>
 <Checkbox scheme="success" label="Success" checked/>
-<Checkbox scheme="error" label="Error" checked/>
+<Checkbox scheme="danger" label="Danger" checked/>
 ```
 <div class="flex flex-col gap-2">
-  <Checkbox scheme="brand" label="Brand" checked/>
+  <Checkbox scheme="neutral" label="Neutral" checked/>
   <Checkbox scheme="info" label="Info" checked/>
   <Checkbox scheme="warning" label="Warning" checked/>
   <Checkbox scheme="success" label="Success" checked/>
-  <Checkbox scheme="error" label="Error" checked/>
+  <Checkbox scheme="danger" label="Danger" checked/>
 </div>
 
 ---
@@ -122,7 +119,7 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 ### Value
 
 When used within a [CheckboxGroup](/checkbox-group), this is the value that will be assigned to the CheckboxGroup's
-`selected` array when checked.
+`selected.value` array when checked.
 
 ```svelte
 <Checkbox label="Spam me" value="spamMe" />

@@ -62,14 +62,14 @@
 			<td><code>class</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
-			<td>CSS classes to be passed through to the parent element</td>
+			<td>CSS classes to be passed through to the HTML element</td>
 		</tr>
 		<tr>
 			<td><code>...</code></td>
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td
-				>Additional props will be passed through to the parent element enabling support for things
+				>Additional props will be passed through to the HTML element enabling support for things
 				like
 				<code>disabled</code>, <code>on:click</code>, <code>target="_blank"</code>, etc</td
 			>

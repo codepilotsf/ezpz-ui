@@ -27,7 +27,7 @@
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td
-				>Additional props will be passed through to the parent element enabling support for things
+				>Additional props will be passed through to the HTML element enabling support for things
 				like
 				<code>disabled</code>, <code>on:click</code>, <code>target="_blank"</code>, etc</td
 			>

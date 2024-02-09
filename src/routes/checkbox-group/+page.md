@@ -3,7 +3,7 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let toppings = [];
+  let toppings = $state({ value: ['pepperoni'] });
 </script>
 
 # CheckboxGroup
@@ -12,15 +12,18 @@ Use a CheckboxGroup to group multiple Checkbox components for a predictable layo
 `selected` array value coupled to which radio button is selected. Additionally, you can  set a `scheme` or `color` as a single
 property to be inherited by all child Checkboxs.
 
+IMPORTANT: Svelte 5 handles two-way binding of `$state` objects in such a way that you *must create an object* with a `value` property rather than directly assigning an array.
+
+```svelte
+
 ### Example
 
-Use `bind:selected` to bind an array of selected values to the CheckboxGroup. This eliminates the need to use
-`bind:checked` or `bind:group` on each individual Checkbox.
+Use `bind:selected` to bind a `$state` object of selected items.
 
 ```svelte
 <script>
   import { CheckboxGroup, Checkbox } from '$lib/ui';
-  let toppings = [];
+  let toppings = $state({ value: ['pepperoni'] });
 </script>
 
 <CheckboxGroup bind:selected={toppings}>
@@ -29,7 +32,7 @@ Use `bind:selected` to bind an array of selected values to the CheckboxGroup. Th
   <Checkbox label="Tomatoes" value="tomatoes" />
 </CheckboxGroup>
 
-<p>Toppings: {toppings}</p>
+<p>Toppings: {toppings.value}</p>
 ```
 <CheckboxGroup bind:selected={toppings}>
   <Checkbox label="Pepperoni" value="pepperoni" />
@@ -37,7 +40,7 @@ Use `bind:selected` to bind an array of selected values to the CheckboxGroup. Th
   <Checkbox label="Tomatoes" value="tomatoes" />
 </CheckboxGroup>
 
-<p>Toppings: {toppings}</p>
+<p>Toppings: {toppings.value}</p>
 
 ---
 
@@ -67,13 +70,13 @@ If all of the Checkbox components in a CheckboxGroup should have the same color 
 CheckboxGroup instead of on each individual Checkbox.
 
 ```svelte
-<CheckboxGroup scheme="error">
+<CheckboxGroup scheme="danger">
   <Checkbox label="Delete Database" checked />
   <Checkbox label="Launch Missiles" checked />
   <Checkbox label="Call Mother In Law" checked />
 </CheckboxGroup>
 ```
-<CheckboxGroup scheme="error">
+<CheckboxGroup scheme="danger">
   <Checkbox label="Delete Database" checked />
   <Checkbox label="Launch Missiles" checked />
   <Checkbox label="Call Mother In Law" checked />

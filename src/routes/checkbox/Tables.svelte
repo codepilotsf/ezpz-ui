@@ -25,13 +25,13 @@
 		<tr>
 			<td><code>scheme</code></td>
 			<td>String: 'neutral', 'info', 'success', 'warning', 'danger'</td>
-			<td><code>'brand'</code></td>
+			<td>&nbsp;</td>
 			<td>Scheme defining color used for checked state</td>
 		</tr>
 		<tr>
 			<td><code>color</code></td>
 			<td>String</td>
-			<td>&nbsp;</td>
+			<td>'brand'</td>
 			<td>Color used for checked state</td>
 		</tr>
 		<tr>
@@ -47,13 +47,14 @@
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><code>value</code></td>
-			<td>String</td>
+			<td><code>...</code></td>
 			<td>&nbsp;</td>
-			<td>
-				When within a CheckboxGroup, sets the array item name if checked (see
-				<a href="/checkbox-group">CheckboxGroup</a>)
-			</td>
+			<td>&nbsp;</td>
+			<td
+				>Additional props will be passed through to the HTML element enabling support for things
+				like
+				<code>on:click</code>, etc</td
+			>
 		</tr>
 	</tbody>
 </table>

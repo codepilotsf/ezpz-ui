@@ -42,7 +42,7 @@
   ------------------- */
 	--ui-border-width: 1px;
 	--ui-border-radius: 3px;
-	--ui-border-color: var(--ui-neutral-midtone);
+	--ui-border-color: var(--ui-midtone);
 
 	/* Form Items
   -------------------
