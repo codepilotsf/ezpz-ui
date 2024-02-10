@@ -6,7 +6,7 @@
 		selected,
 		legend = '',
 		color = '',
-		scheme = 'neutral',
+		scheme = '',
 		class: _class = '',
 		...restProps
 	} = $props()
