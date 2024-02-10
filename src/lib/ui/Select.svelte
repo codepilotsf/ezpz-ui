@@ -1,71 +1,59 @@
 <script>
-	import './theme.css';
+	// import { setContext } from 'svelte'
+	import './theme.css'
 
-    export let name = '';
-    export let value = '';
-    export let options;
-	export let label = 'Select';
-    export let placeholder = 'Please Select a value';
-    export let disabled = false;
-    export let required = false;
-    export let note = '';
-	export let error = '';
-    export let multiple = false;
-	export let id = name;
+	let {
+		name = '',
+		id = name,
+		selected,
+		label = '',
+		placeholder = 'Select one',
+		note = '',
+		error = '',
+		multiple = false,
+		class: _class = '',
+		...restProps
+	} = $props()
 
-	let _class = '';
-	export { _class as class };
-
-    const handleSelect = (e) => {
-        value = e.target.value;
-        // Push multiple selected values to array and bind to value
-        if (multiple) {
-			const selectedOptions = e.target.selectedOptions;
-            value = Array.from(selectedOptions).map(({ value }) => value);
-        }		
-	};
-
+	const handleChange = ({ target }) => {
+		selected = target.value
+	}
 </script>
 
-<ui-select class="lib-ui">
+<ui-select class="lib-ui" {...restProps}>
 	<label for={id}>{label}</label>
 
-    <select
-        class={_class}
-        class:error 
-        {disabled}
-        {required}
-        {name}
-        {id}
-        {multiple}
-        on:change={handleSelect}
-    >
-        <option value="" disabled selected>{placeholder}</option>
-        {#each options as { value, label }}
-            <option value={value}>{label}</option>
-        {/each}
-    </select>
+	<select class={_class} class:error {name} {id} {multiple} on:change={handleChange}>
+		{#if placeholder}
+			<option value="" disabled selected hidden class="placeholder">{placeholder}</option>
+		{/if}
+		<slot />
+	</select>
 
-    {#if error}
+	{#if error}
 		<ui-form-error>{error}</ui-form-error>
 	{:else if note}
 		<ui-form-note>{note}</ui-form-note>
 	{/if}
-
 </ui-select>
 
 <style>
 	select {
-		outline: none;
+		display: block;
 		width: 100%;
+		padding: var(--ui-form-element-padding);
 		font-size: var(--ui-form-element-font-size);
 		color: var(--ui-dark-color);
-		border: var(--ui-border-width) solid var(--ui-midtone-color);
+		border: var(--ui-border-width) solid var(--ui-border-color);
 		border-radius: var(--ui-border-radius);
-		padding: var(--ui-form-element-padding);
+		outline: none;
+		appearance: none;
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right 0.5rem center;
 	}
 
-    select.error {
+	select.error {
 		outline: 1px solid var(--ui-error-background);
 		border: 1px solid var(--ui-error-background);
 		box-shadow: 0 0 1px 1px var(--ui-error-background);
@@ -78,7 +66,7 @@
 		background: var(--lighter);
 	}
 
-    label {
+	label {
 		display: block;
 		margin: --ui-form-label-margin;
 		font-size: var(--ui-form-label-font-size);
@@ -87,8 +75,8 @@
 		color: var(--ui-dark-color);
 	}
 
-    ui-form-error {
-		color: var(--ui-error-color)
+	ui-form-error {
+		color: var(--ui-error-color);
 	}
 	ui-form-note {
 		color: var(--ui-lighter-color);

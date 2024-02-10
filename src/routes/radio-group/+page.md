@@ -3,11 +3,11 @@
   import Tables from './Tables.svelte';
   import { Martini } from 'lucide-svelte';
 
-  let make = $state(null);
-  let hand = $state(null);
-  let level = $state(null);
-  let color = $state(null);
-  let cocktail = $state(null);
+  let make = $state();
+  let hand = $state();
+  let level = $state();
+  let color = $state();
+  let cocktail = $state();
 </script>
 
 # RadioGroup
@@ -23,7 +23,7 @@ Use `bind:selected` to two-bind the reactive value of the selected item.
 ```svelte
 <script>
   import { RadioGroup, Radio } from '$lib/ui';
-  let make = $state(null);
+  let make = $state();
 </script>
 
 <RadioGroup bind:selected={make}>
