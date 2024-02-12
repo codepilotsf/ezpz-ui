@@ -40,7 +40,7 @@
 
 	<scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
 		<!-- Menu -->
-		<menu class="block h-full min-w-[10rem] overflow-y-auto bg-sky-50 px-2 pt-2">
+		<menu class="block h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2">
 			<MenuItem href="/alert" label="Alert" />
 			<MenuItem href="/avatar" label="Avatar" />
 			<MenuItem href="/button" label="Button" />
@@ -51,6 +51,7 @@
 			<MenuItem href="/form-row" label="FormRow" disabled />
 			<MenuItem href="/input" label="Input" />
 			<MenuItem href="/modal" label="Modal" disabled />
+			<MenuItem href="/option" label="Option" />
 			<MenuItem href="/radio" label="Radio" />
 			<MenuItem href="/radio-group" label="RadioGroup" />
 			<MenuItem href="/rating" label="Rating" disabled />

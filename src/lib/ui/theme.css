@@ -101,10 +101,7 @@
 	--ui-form-checkradio-inverse-checked-background: var(--brand-1); */
 
 	/* Form errors and notes */
-	/* --ui-form-error-note-font-size: var(--fluid-text-sm);
+	--ui-form-error-note-font-size: 0.9rem;
 	--ui-form-error-note-line-height: 1;
-	--ui-form-error-note-margin-top: 4px;
-	--ui-form-error-color: var(--error);
-	--ui-form-note-color: var(--dark);
-	--ui-form-note-inverse-color: var(--light); */
+	--ui-form-error-note-margin-top: 8px;
 }
