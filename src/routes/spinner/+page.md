@@ -25,9 +25,9 @@ A default Spinner will render a `dots-circle` variant with the `brand` color sch
 
 ---
 
-### Dots Circle Variant
+### Bars Circle Variant
 
-The default variant is `dots-circle`.
+The default variant is `bars-circle`.
 
 ```svelte
 <Spinner size="xs" />
@@ -46,23 +46,23 @@ The default variant is `dots-circle`.
 
 ---
 
-### Dots Row Variant
+### Strip Circle Variant
 
-The `dots-row` variant is a horizontal row of dots.
+The `strip-circle` variant is circlular strip.
 
 ```svelte
-<Spinner variant="dots-row" size="xs" />
-<Spinner variant="dots-row" size="sm" />
-<Spinner variant="dots-row" size="md" />
-<Spinner variant="dots-row" size="lg" />
-<Spinner variant="dots-row" size="xl" />
+<Spinner variant="strip-circle" size="xs" />
+<Spinner variant="strip-circle" size="sm" />
+<Spinner variant="strip-circle" size="md" />
+<Spinner variant="strip-circle" size="lg" />
+<Spinner variant="strip-circle" size="xl" />
 ```
-<div class="flex flex-col items-start">
-	<Spinner variant="dots-row" size="xs" />
-	<Spinner variant="dots-row" size="sm" />
-	<Spinner variant="dots-row" size="md" />
-	<Spinner variant="dots-row" size="lg" />
-	<Spinner variant="dots-row" size="xl" />
+<div class="flex items-center gap-6">
+	<Spinner variant="strip-circle" size="xs" />
+	<Spinner variant="strip-circle" size="sm" />
+	<Spinner variant="strip-circle" size="md" />
+	<Spinner variant="strip-circle" size="lg" />
+	<Spinner variant="strip-circle" size="xl" />
 </div>
 
 ---

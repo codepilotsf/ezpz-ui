@@ -69,39 +69,25 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 
 ---
 
-### Required
-
-A `required` prop allows you to check if the input value is entered
-
-```svelte
-<Input label="Name" required />
-```
-<form on:submit|preventDefault={() => console.log("form submitted")} class="space-y-4">
-  <Input label="Name" required />
-  <Button size="sm" type="submit">Submit</Button>
-</form>
-
----
-
-### Note
-
-A `note` prop let's you define a simple String which is displayed below the field.
-
-```svelte
-<Input note="This is a note" />
-```
-<Input note="This is a note" />
-
----
-
 ### Error
 
-A `error` prop let's you define a simple Error String which will be displayed below the field.
+Display error message below the field. Also adds error styles.
 
 ```svelte
 <Input error="Email is not valid" />
 ```
 <Input value="jane@doe" error="Email is not valid" />
+
+---
+
+### Note
+
+A `note` prop let's you define a note displayed below the field.
+
+```svelte
+<Input note="This is a note" />
+```
+<Input note="This is a note" />
 
 ---
 

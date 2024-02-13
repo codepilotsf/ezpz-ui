@@ -133,7 +133,7 @@ Display error message below the select element. Also adds error styles to the se
 
 ### Note
 
-Display error message below the select element. Also adds error styles to the select element.
+Display note message below the select element.
 
 ```svelte
 <Select note="We'd like to know">

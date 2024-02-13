@@ -1,16 +1,13 @@
 <script>
-	import { onMount } from 'svelte';
-	import './theme.css';
-	import { utils } from './utils.js';
+	import { onMount } from 'svelte'
+	import './theme.css'
 
-	let _class = '';
-	export { _class as class };
-
-	export let variant = 'dots-circle';
-	export let size = 'md';
-	export let scheme = 'brand';
-	export let color = '';
-	export let background = '';
+	let {
+		variant = 'bars-circle',
+		size = 'md',
+		color = 'var(--ui-brand)',
+		class: _class = ''
+	} = $props()
 
 	const sizes = {
 		xs: '16px',
@@ -18,244 +15,136 @@
 		md: '42px',
 		lg: '68px',
 		xl: '110px'
-	};
-
-	let parentEl;
-	onMount(() => {
-		utils.setColors(parentEl, { scheme, color, background });
-		parentEl.style.setProperty('--size', sizes[size]);
-	});
+	}
 </script>
 
-<ui-spinner bind:this={parentEl} class={`lib-ui ${_class}`} {variant} {size}>
-	{#if variant === 'dots-circle'}
-		<div class="dots-circle-part1 dots-circle-part"></div>
-		<div class="dots-circle-part2 dots-circle-part"></div>
-		<div class="dots-circle-part3 dots-circle-part"></div>
-		<div class="dots-circle-part4 dots-circle-part"></div>
-		<div class="dots-circle-part5 dots-circle-part"></div>
-		<div class="dots-circle-part6 dots-circle-part"></div>
-		<div class="dots-circle-part7 dots-circle-part"></div>
-		<div class="dots-circle-part8 dots-circle-part"></div>
-		<div class="dots-circle-part9 dots-circle-part"></div>
-		<div class="dots-circle-part10 dots-circle-part"></div>
-		<div class="dots-circle-part11 dots-circle-part"></div>
-		<div class="dots-circle-part12 dots-circle-part"></div>
+<!-- https://github.com/n3r4zzurr0/svg-spinners -->
+
+<ui-spinner class={`lib-ui ${_class}`} style={`color: ${color}`}>
+	{#if variant === 'bars-circle'}
+		<svg
+			width={sizes[size]}
+			height={sizes[size]}
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+		>
+			<style>
+				.spinner_OSmW {
+					transform-origin: center;
+					animation: spinner_T6mA 0.75s step-end infinite;
+				}
+				@keyframes spinner_T6mA {
+					8.3% {
+						transform: rotate(30deg);
+					}
+					16.6% {
+						transform: rotate(60deg);
+					}
+					25% {
+						transform: rotate(90deg);
+					}
+					33.3% {
+						transform: rotate(120deg);
+					}
+					41.6% {
+						transform: rotate(150deg);
+					}
+					50% {
+						transform: rotate(180deg);
+					}
+					58.3% {
+						transform: rotate(210deg);
+					}
+					66.6% {
+						transform: rotate(240deg);
+					}
+					75% {
+						transform: rotate(270deg);
+					}
+					83.3% {
+						transform: rotate(300deg);
+					}
+					91.6% {
+						transform: rotate(330deg);
+					}
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+			</style><g class="spinner_OSmW"
+				><rect x="11" y="1" width="2" height="5" opacity=".14" /><rect
+					x="11"
+					y="1"
+					width="2"
+					height="5"
+					transform="rotate(30 12 12)"
+					opacity=".29"
+				/><rect x="11" y="1" width="2" height="5" transform="rotate(60 12 12)" opacity=".43" /><rect
+					x="11"
+					y="1"
+					width="2"
+					height="5"
+					transform="rotate(90 12 12)"
+					opacity=".57"
+				/><rect
+					x="11"
+					y="1"
+					width="2"
+					height="5"
+					transform="rotate(120 12 12)"
+					opacity=".71"
+				/><rect
+					x="11"
+					y="1"
+					width="2"
+					height="5"
+					transform="rotate(150 12 12)"
+					opacity=".86"
+				/><rect x="11" y="1" width="2" height="5" transform="rotate(180 12 12)" /></g
+			></svg
+		>
 	{/if}
+
+	{#if variant === 'strip-circle'}
+		<svg
+			width={sizes[size]}
+			height={sizes[size]}
+			viewBox="0 0 24 24"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+			><style>
+				.spinner-strip-circle {
+					transform-origin: center;
+					animation: spinner_StKS 0.75s infinite linear;
+				}
+				@keyframes spinner_StKS {
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+			</style><path
+				d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+				opacity=".25"
+			/><path
+				d="M12,4a8,8,0,0,1,7.89,6.7A1.53,1.53,0,0,0,21.38,12h0a1.5,1.5,0,0,0,1.48-1.75,11,11,0,0,0-21.72,0A1.5,1.5,0,0,0,2.62,12h0a1.53,1.53,0,0,0,1.49-1.3A8,8,0,0,1,12,4Z"
+				class="spinner-strip-circle"
+			/></svg
+		>
+	{/if}
+
+	{#if variant === 'dots-circle'}
+		<!-- todo -->
+	{/if}
+
 	{#if variant === 'dots-row'}
-		<div class="bounce1"></div>
-		<div class="bounce2"></div>
-		<div class="bounce3"></div>
+		<!-- todo -->
 	{/if}
 </ui-spinner>
 
 <style>
 	ui-spinner {
 		display: inline-block;
-	}
-
-	/* Dots Circle 
-  ------------------------------------*/
-	ui-spinner[variant='dots-circle'] {
-		display: inline-block;
-		position: relative;
-		width: var(--size);
-		height: var(--size);
-	}
-
-	ui-spinner[variant='dots-circle'] .dots-circle-part {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		left: 0;
-		top: 0;
-	}
-
-	ui-spinner[variant='dots-circle'] .dots-circle-part:before {
-		content: '';
-		display: block;
-		margin: 0 auto;
-		width: 15%;
-		height: 15%;
-		background-color: var(--ui-color);
-		border-radius: 100%;
-		-webkit-animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
-		animation: dots-circle-partFadeDelay 1.2s infinite ease-in-out both;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part2 {
-		-webkit-transform: rotate(30deg);
-		-ms-transform: rotate(30deg);
-		transform: rotate(30deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part3 {
-		-webkit-transform: rotate(60deg);
-		-ms-transform: rotate(60deg);
-		transform: rotate(60deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part4 {
-		-webkit-transform: rotate(90deg);
-		-ms-transform: rotate(90deg);
-		transform: rotate(90deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part5 {
-		-webkit-transform: rotate(120deg);
-		-ms-transform: rotate(120deg);
-		transform: rotate(120deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part6 {
-		-webkit-transform: rotate(150deg);
-		-ms-transform: rotate(150deg);
-		transform: rotate(150deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part7 {
-		-webkit-transform: rotate(180deg);
-		-ms-transform: rotate(180deg);
-		transform: rotate(180deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part8 {
-		-webkit-transform: rotate(210deg);
-		-ms-transform: rotate(210deg);
-		transform: rotate(210deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part9 {
-		-webkit-transform: rotate(240deg);
-		-ms-transform: rotate(240deg);
-		transform: rotate(240deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part10 {
-		-webkit-transform: rotate(270deg);
-		-ms-transform: rotate(270deg);
-		transform: rotate(270deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part11 {
-		-webkit-transform: rotate(300deg);
-		-ms-transform: rotate(300deg);
-		transform: rotate(300deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part12 {
-		-webkit-transform: rotate(330deg);
-		-ms-transform: rotate(330deg);
-		transform: rotate(330deg);
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part2:before {
-		-webkit-animation-delay: -1.1s;
-		animation-delay: -1.1s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part3:before {
-		-webkit-animation-delay: -1s;
-		animation-delay: -1s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part4:before {
-		-webkit-animation-delay: -0.9s;
-		animation-delay: -0.9s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part5:before {
-		-webkit-animation-delay: -0.8s;
-		animation-delay: -0.8s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part6:before {
-		-webkit-animation-delay: -0.7s;
-		animation-delay: -0.7s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part7:before {
-		-webkit-animation-delay: -0.6s;
-		animation-delay: -0.6s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part8:before {
-		-webkit-animation-delay: -0.5s;
-		animation-delay: -0.5s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part9:before {
-		-webkit-animation-delay: -0.4s;
-		animation-delay: -0.4s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part10:before {
-		-webkit-animation-delay: -0.3s;
-		animation-delay: -0.3s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part11:before {
-		-webkit-animation-delay: -0.2s;
-		animation-delay: -0.2s;
-	}
-	ui-spinner[variant='dots-circle'] .dots-circle-part12:before {
-		-webkit-animation-delay: -0.1s;
-		animation-delay: -0.1s;
-	}
-
-	@-webkit-keyframes dots-circle-partFadeDelay {
-		0%,
-		39%,
-		100% {
-			opacity: 0;
-		}
-		40% {
-			opacity: 1;
-		}
-	}
-
-	@keyframes dots-circle-partFadeDelay {
-		0%,
-		39%,
-		100% {
-			opacity: 0;
-		}
-		40% {
-			opacity: 1;
-		}
-	}
-
-	/* Dots Row 
-  ------------------------------------*/
-	ui-spinner[variant='dots-row'] {
-		width: calc(1.5 * var(--size));
-		height: calc(1.5 * var(--size));
-		text-align: center;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	ui-spinner[variant='dots-row'] > div {
-		width: calc(0.35 * var(--size));
-		height: calc(0.35 * var(--size));
-		background-color: var(--ui-color);
-		border-radius: 100%;
-		display: inline-block;
-		-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-		animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-	}
-
-	ui-spinner[variant='dots-row'] .bounce1 {
-		-webkit-animation-delay: -0.32s;
-		animation-delay: -0.32s;
-	}
-
-	ui-spinner[variant='dots-row'] .bounce2 {
-		-webkit-animation-delay: -0.16s;
-		animation-delay: -0.16s;
-	}
-
-	@-webkit-keyframes sk-bouncedelay {
-		0%,
-		80%,
-		100% {
-			-webkit-transform: scale(0);
-		}
-		40% {
-			-webkit-transform: scale(1);
-		}
-	}
-
-	@keyframes sk-bouncedelay {
-		0%,
-		80%,
-		100% {
-			-webkit-transform: scale(0);
-			transform: scale(0);
-		}
-		40% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-		}
+		color: var(--ui-color);
 	}
 </style>
