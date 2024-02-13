@@ -42,16 +42,47 @@ So basically, we validate against a schema on the backend, and pass a superform 
 
 ```svelte
 <script>
+  import { Form, Input } from '$lib/ui';
   let { data } = $props();
-  import { superForm } from 'sveltekit-superforms';
-  const superform = superForm(data.form);
 </script>
 
-<Form {superform} action="?/foo">
+<Form superform={data.form} action="?/foo">
   <Input label="Name" name="name" />
   <Input label="Email" name="email" />
   <Button label="Submit" />
 </Form>
 ```
 
-The idea is to let the `<Form>` component set `superform` to context. Then any child form elements can check to see if `superform` is available as context and if so, it will look for its own `name` value as properties of `$form`, `$errors`, and `$constraints` and will user those values by default.
+The idea is to let the `<Form>` component use `data.form` to set `superform` to context. Then any child form elements can check to see if `superform` is available as context and if so, it will look for its own `name` value as properties of `$form`, `$errors`, and `$constraints` and will user those values by default.
+
+The backend `+page.server.js` would look like this:
+
+```js
+import { superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
+import { z } from 'zod';
+import { fail } from '@sveltejs/kit';
+
+const schema = z.object({
+  name: z.string(),
+  email: z.string().email()
+});
+
+export const load = async () => {
+  const form = await superValidate(zod(schema));
+  return { form };
+};
+
+export const actions = {
+  default: async ({ request }) => {
+    const form = await superValidate(request, zod(schema));
+
+    if (!form.valid) {
+      return fail(400, { form });
+    }
+
+    return { form };
+  }
+};
+```
+

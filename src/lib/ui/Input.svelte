@@ -1,5 +1,6 @@
 <script>
 	import './style.css'
+	import { Label, Note } from '$lib/ui'
 
 	let {
 		name = '',
@@ -15,8 +16,11 @@
 		class: _class = ''
 	} = $props()
 
+	// Convert "false" string to boolean
 	error = error === 'false' ? false : error
 	disabled = disabled === 'false' ? false : disabled
+
+	const isError = Boolean(error)
 
 	const handleInput = (e) => {
 		// This is a Rich Harris trick to allow dynamic `type` attribute
@@ -25,11 +29,12 @@
 	}
 </script>
 
-<ui-input class="lib-ui" class:error>
-	<label for={id}>{label}</label>
+<ui-input class="lib-ui">
+	<Label forId={id} {isError}>{label}</Label>
 
 	<input
 		class={_class}
+		class:isError
 		{type}
 		{id}
 		{name}
@@ -40,10 +45,8 @@
 		on:input={handleInput}
 	/>
 
-	{#if error}
-		<ui-error>{error}</ui-error>
-	{:else if note}
-		<ui-note>{note}</ui-note>
+	{#if error || note}
+		<Note {isError}>{error || note}</Note>
 	{/if}
 </ui-input>
 
@@ -63,14 +66,10 @@
 		box-shadow: 0 0 2px 1px var(--brand);
 	}
 
-	.error > input {
+	input.isError {
 		outline: 1px solid var(--ui-danger-dark);
 		border: 1px solid var(--ui-danger-dark);
 		box-shadow: 0 0 1px 1px var(--ui-danger-dark);
-		color: var(--ui-danger-dark);
-	}
-
-	.error > label {
 		color: var(--ui-danger-dark);
 	}
 
@@ -82,29 +81,5 @@
 
 	input::placeholder {
 		color: --ui-form-element-placeholder-color;
-	}
-
-	label {
-		display: block;
-		margin: --ui-form-label-margin;
-		font-size: var(--ui-form-label-font-size);
-		font-weight: var(--ui-form-label-font-weight);
-		font-variation-settings: 'wght' var(--ui-form-label-font-weight);
-		color: var(--ui-dark);
-	}
-
-	ui-error,
-	ui-note {
-		display: block;
-		font-size: var(--ui-form-error-note-font-size);
-		line-height: var(--ui-form-error-note-line-height);
-		margin-top: var(--ui-form-error-note-margin-top);
-	}
-
-	ui-error {
-		color: var(--ui-danger-dark);
-	}
-	ui-note {
-		color: var(--ui-lighter-color);
 	}
 </style>

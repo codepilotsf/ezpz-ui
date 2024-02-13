@@ -4,7 +4,7 @@
   let name = '';
 </script>
 
-# Input
+# Textarea
 
 Use Input for form inputs including text, password, email, url, and search.
 
@@ -74,9 +74,9 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 Display error message below the field. Also adds error styles.
 
 ```svelte
-<Input label="Email" error="Email is not valid" />
+<Input error="Email is not valid" />
 ```
-<Input label="Email" value="jane@doe" error="Email is not valid" />
+<Input value="jane@doe" error="Email is not valid" />
 
 ---
 

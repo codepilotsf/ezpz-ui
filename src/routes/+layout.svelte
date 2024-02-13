@@ -57,7 +57,7 @@
 			<MenuItem href="/rating" label="Rating" disabled />
 			<MenuItem href="/select" label="Select" />
 			<MenuItem href="/spinner" label="Spinner" />
-			<MenuItem href="/textarea" label="Textarea" disabled />
+			<MenuItem href="/textarea" label="Textarea" />
 			<MenuItem href="/toast" label="Toast" disabled />
 			<MenuItem href="/tooltip" label="Tooltip" disabled />
 			<MenuItem href="/toggle" label="Toggle" disabled />
