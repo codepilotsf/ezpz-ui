@@ -29,7 +29,7 @@
 			<td>Set this option to selected by default</td>
 		</tr>
 		<tr>
-			<td><code>Value</code></td>
+			<td><code>value</code></td>
 			<td>String</td>
 			<td>&nbsp;</td>
 			<td>The value for this option</td>

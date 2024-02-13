@@ -13,7 +13,7 @@ Radio components are used to select one of multiple options. Because they have n
 
 ### Example
 
-As mentioned above, a single radio button isn't very useful – but here's one anyway. The default color scheme is `brand`.
+As mentioned above, a single radio button isn't very useful – but here's one anyway. The default color is `--ui-brand`.
 
 ```svelte
 <script>
@@ -39,7 +39,7 @@ Not normally used because the RadioGroup `selected` prop will set which Radio is
 
 ### Label
 
-A `label` prop let's you define a simple String to be used as the radio label.
+A `label` prop let's you define a string to be used as the radio label.
 
 ```svelte
 <Radio label="Choose wisely" />

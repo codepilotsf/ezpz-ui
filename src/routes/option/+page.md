@@ -6,7 +6,7 @@
 
 # Option
 
-Option components for use with the `<Select>` component.
+Option component for use with the `<Select>` component.
 
 ### Example
 
@@ -38,7 +38,7 @@ Disable this option in the select menu.
 
 ### Selected
 
-The pre-selected option.
+The preselected option.
 
 ```svelte
 <Option label="Bananas" selected />
