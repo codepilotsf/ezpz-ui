@@ -30,7 +30,7 @@ styled the same way.
 	label,
 	legend {
 		display: block;
-		margin: --ui-form-label-margin;
+		margin: var(--ui-form-label-margin);
 		font-size: var(--ui-form-label-font-size);
 		font-weight: var(--ui-form-label-font-weight);
 		font-variation-settings: 'wght' var(--ui-form-label-font-weight);

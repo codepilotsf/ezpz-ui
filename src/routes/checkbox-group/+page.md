@@ -98,6 +98,44 @@ CheckboxGroup instead of on each individual Checkbox.
 
 ---
 
+### Error
+
+Display error message below the checkboxes. Also adds error styles.
+
+```svelte
+<CheckboxGroup error="You must select at least two">
+  <Checkbox label="Bauhaus" />
+  <Checkbox label="The Cure" />
+  <Checkbox label="The Smiths" />
+</CheckboxGroup>
+```
+<CheckboxGroup error="You must select at least two">
+  <Checkbox label="Bauhaus" />
+  <Checkbox label="The Cure" />
+  <Checkbox label="The Smiths" />
+</CheckboxGroup>
+
+---
+
+### Note
+
+A `note` prop let's you define a note displayed below the field.
+
+```svelte
+<CheckboxGroup legend="Favorite Band" note="Choose as many as you like">
+  <Checkbox label="Bauhaus" />
+  <Checkbox label="The Cure" />
+  <Checkbox label="The Smiths" />
+</CheckboxGroup>
+```
+<CheckboxGroup legend="Favorite Band" note="Choose as many as you like">
+  <Checkbox label="Bauhaus" />
+  <Checkbox label="The Cure" />
+  <Checkbox label="The Smiths" />
+</CheckboxGroup>
+
+---
+
 ### Legend Named Slot
 
 Instead of using the `legend` prop which can only be a String, a `legend` named slot can be used for a legend with more

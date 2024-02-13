@@ -1,6 +1,6 @@
 <script>
 	import './style.css'
-	import { Label } from '$lib/ui'
+	import { Label, Note } from '$lib/ui'
 	import { setContext } from 'svelte'
 
 	let {
@@ -40,22 +40,18 @@
 
 <fieldset class={['lib-ui', _class].join(' ')} {...restProps}>
 	{#if legend}
-		<Label isError={Boolean(error)}>{legend}</Label>
+		<Label isLegend="true" isError={Boolean(error)}>{legend}</Label>
 	{:else if $$slots.legend}
 		<slot name="legend" />
 	{/if}
 	<slot />
+	{#if error || note}
+		<Note isError={Boolean(error)}>{error || note}</Note>
+	{/if}
 </fieldset>
 
 <style>
 	fieldset {
 		display: block;
-	}
-
-	legend {
-		display: block;
-		margin: --ui-form-label-margin;
-		font-size: var(--ui-form-label-font-size);
-		color: var(--ui-dark-color);
 	}
 </style>

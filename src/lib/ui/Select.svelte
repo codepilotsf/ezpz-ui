@@ -1,5 +1,6 @@
 <script>
 	import './style.css'
+	import { Label, Note } from '$lib/ui'
 
 	let {
 		name = '',
@@ -14,28 +15,29 @@
 		...restProps
 	} = $props()
 
+	// Convert string to boolean
 	error = error === 'false' ? false : error
 	placeholder = placeholder === 'false' ? false : placeholder
+
+	const isError = Boolean(error)
 
 	const handleChange = ({ target }) => {
 		selected = target.value
 	}
 </script>
 
-<ui-select class="lib-ui" class:error {...restProps}>
-	<label for={id}>{label}</label>
+<ui-select class="lib-ui" {...restProps}>
+	<Label forId={id} {isError}>{label}</Label>
 
-	<select class={_class} {id} {name} on:change={handleChange} {disabled}>
+	<select class={_class} class:error {id} {name} on:change={handleChange} {disabled}>
 		{#if placeholder}
 			<option class="placeholder" value="" disabled selected hidden>{placeholder}</option>
 		{/if}
 		<slot />
 	</select>
 
-	{#if error}
-		<ui-error>{error}</ui-error>
-	{:else if note}
-		<ui-note>{note}</ui-note>
+	{#if error || note}
+		<Note {isError}>{error || note}</Note>
 	{/if}
 </ui-select>
 
@@ -56,44 +58,10 @@
 		background-position: right 0.5rem center;
 	}
 
-	.error > select {
+	select.error {
 		outline: 1px solid var(--ui-danger-dark);
 		border: 1px solid var(--ui-danger-dark);
 		box-shadow: 0 0 1px 1px var(--ui-danger-light);
 		color: var(--ui-danger-dark);
-	}
-
-	.error > label {
-		color: var(--ui-danger-dark);
-	}
-
-	select:disabled {
-		cursor: not-allowed;
-		opacity: 0.5;
-		background-color: var(--ui-light);
-	}
-
-	label {
-		display: block;
-		margin: --ui-form-label-margin;
-		font-size: var(--ui-form-label-font-size);
-		font-weight: var(--ui-form-label-font-weight);
-		font-variation-settings: 'wght' var(--ui-form-label-font-weight);
-		color: var(--ui-dark-color);
-	}
-
-	ui-error,
-	ui-note {
-		display: block;
-		font-size: var(--ui-form-error-note-font-size);
-		line-height: var(--ui-form-error-note-line-height);
-		margin-top: var(--ui-form-error-note-margin-top);
-	}
-
-	ui-error {
-		color: var(--ui-danger-dark);
-	}
-	ui-note {
-		color: var(--ui-dark);
 	}
 </style>

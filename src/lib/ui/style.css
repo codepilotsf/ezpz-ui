@@ -56,7 +56,7 @@
   -------------------
   The label for a form element
   --------------------- */
-	--ui-form-label-margin: 0.5rem 0;
+	--ui-form-label-margin: 4px 0;
 	--ui-form-label-font-weight: 600;
 	--ui-form-label-font-size: 1rem;
 	--ui-form-label-font-size-small: 14px; /* checkbox/radios */

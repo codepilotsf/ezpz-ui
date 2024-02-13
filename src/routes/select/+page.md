@@ -114,7 +114,7 @@ Disable the select element.
 Display error message below the select element. Also adds error styles to the select element.
 
 ```svelte
-<Select error="Must select a color">
+<Select label="Color" error="Must select a color">
   <Option label="Blue" value="blue" />
   <Option label="Red" value="red" />
   <Option label="Green" value="green" />
@@ -122,7 +122,7 @@ Display error message below the select element. Also adds error styles to the se
 </Select>
 
 ```
-<Select error="Must select a color">
+<Select label="Color" error="Must select a color">
   <Option label="Blue" value="blue" />
   <Option label="Red" value="red" />
   <Option label="Green" value="green" />
