@@ -1,5 +1,5 @@
 <script>
-	import './theme.css'
+	import './style.css'
 
 	let {
 		src = '',

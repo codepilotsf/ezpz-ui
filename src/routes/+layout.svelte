@@ -30,7 +30,7 @@
 		</a>
 		<div class="flex items-center gap-3">
 			<!-- Download Link -->
-			<a class="p-2" href="libui.codepilot.com/latest.zip" target="_blank"
+			<a class="p-2" href="lib-ui.vercel.app/latest.zip" target="_blank"
 				><DownloadCloud size={24} strokeWidth={3} /></a
 			>
 			<!-- Github Link -->

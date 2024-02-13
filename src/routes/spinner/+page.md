@@ -7,11 +7,11 @@
 
 Spinners are used to indicate to the user that the interface is waiting for an action to complete such as a server-side
 operation that is taking a long time. There options for different variants of spinners and sizes. This component is also
-used within other components such as `Button` to indicate `loading` state.
+used with the `Button` component to indicate `loading` state.
 
 ### Example
 
-A default Spinner will render a `dots-circle` variant with the `brand` color scheme.
+A default Spinner will render a `circle-bars` variant with the `brand` color scheme.
 
 ```svelte
 <script>
@@ -25,9 +25,7 @@ A default Spinner will render a `dots-circle` variant with the `brand` color sch
 
 ---
 
-### Bars Circle Variant
-
-The default variant is `bars-circle`.
+### Circle Bars Variant
 
 ```svelte
 <Spinner size="xs" />
@@ -46,44 +44,116 @@ The default variant is `bars-circle`.
 
 ---
 
-### Strip Circle Variant
-
-The `strip-circle` variant is circlular strip.
+### Circle Strip Variant
 
 ```svelte
-<Spinner variant="strip-circle" size="xs" />
-<Spinner variant="strip-circle" size="sm" />
-<Spinner variant="strip-circle" size="md" />
-<Spinner variant="strip-circle" size="lg" />
-<Spinner variant="strip-circle" size="xl" />
+<Spinner variant="circle-strip" size="xs" />
+<Spinner variant="circle-strip" size="sm" />
+<Spinner variant="circle-strip" size="md" />
+<Spinner variant="circle-strip" size="lg" />
+<Spinner variant="circle-strip" size="xl" />
 ```
 <div class="flex items-center gap-6">
-	<Spinner variant="strip-circle" size="xs" />
-	<Spinner variant="strip-circle" size="sm" />
-	<Spinner variant="strip-circle" size="md" />
-	<Spinner variant="strip-circle" size="lg" />
-	<Spinner variant="strip-circle" size="xl" />
+	<Spinner variant="circle-strip" size="xs" />
+	<Spinner variant="circle-strip" size="sm" />
+	<Spinner variant="circle-strip" size="md" />
+	<Spinner variant="circle-strip" size="lg" />
+	<Spinner variant="circle-strip" size="xl" />
 </div>
 
 ---
 
-### Color Schemes
-
-Color schemes defined in `theme.css` can be used to set the color of the spinner.
+### Circle Dots Variant
 
 ```svelte
-<Spinner scheme="brand" />
-<Spinner scheme="info" />
-<Spinner scheme="warning" />
-<Spinner scheme="success" />
-<Spinner scheme="error" />
+<Spinner variant="circle-dots" size="xs" />
+<Spinner variant="circle-dots" size="sm" />
+<Spinner variant="circle-dots" size="md" />
+<Spinner variant="circle-dots" size="lg" />
+<Spinner variant="circle-dots" size="xl" />
 ```
-<div class="flex items-center gap-5">
-	<Spinner scheme="brand" />
-	<Spinner scheme="info" />
-	<Spinner scheme="warning" />
-	<Spinner scheme="success" />
-	<Spinner scheme="error" />
+<div class="flex items-center gap-6">
+	<Spinner variant="circle-dots" size="xs" />
+	<Spinner variant="circle-dots" size="sm" />
+	<Spinner variant="circle-dots" size="md" />
+	<Spinner variant="circle-dots" size="lg" />
+	<Spinner variant="circle-dots" size="xl" />
+</div>
+
+---
+
+### Dots Bounce Variant
+
+```svelte
+<Spinner variant="dots-bounce" size="xs" />
+<Spinner variant="dots-bounce" size="sm" />
+<Spinner variant="dots-bounce" size="md" />
+<Spinner variant="dots-bounce" size="lg" />
+<Spinner variant="dots-bounce" size="xl" />
+```
+<div class="flex items-center gap-6">
+	<Spinner variant="dots-bounce" size="xs" />
+	<Spinner variant="dots-bounce" size="sm" />
+	<Spinner variant="dots-bounce" size="md" />
+	<Spinner variant="dots-bounce" size="lg" />
+	<Spinner variant="dots-bounce" size="xl" />
+</div>
+
+---
+
+### Dots Fade Variant
+
+```svelte
+<Spinner variant="dots-fade" size="xs" />
+<Spinner variant="dots-fade" size="sm" />
+<Spinner variant="dots-fade" size="md" />
+<Spinner variant="dots-fade" size="lg" />
+<Spinner variant="dots-fade" size="xl" />
+```
+<div class="flex items-center gap-6">
+	<Spinner variant="dots-fade" size="xs" />
+	<Spinner variant="dots-fade" size="sm" />
+	<Spinner variant="dots-fade" size="md" />
+	<Spinner variant="dots-fade" size="lg" />
+	<Spinner variant="dots-fade" size="xl" />
+</div>
+
+---
+
+### Dots Scale Variant
+
+```svelte
+<Spinner variant="dots-scale" size="xs" />
+<Spinner variant="dots-scale" size="sm" />
+<Spinner variant="dots-scale" size="md" />
+<Spinner variant="dots-scale" size="lg" />
+<Spinner variant="dots-scale" size="xl" />
+```
+<div class="flex items-center gap-6">
+	<Spinner variant="dots-scale" size="xs" />
+	<Spinner variant="dots-scale" size="sm" />
+	<Spinner variant="dots-scale" size="md" />
+	<Spinner variant="dots-scale" size="lg" />
+	<Spinner variant="dots-scale" size="xl" />
+</div>
+
+---
+
+### Dots Shuffle Variant
+
+```svelte
+<Spinner variant="dots-shuffle" size="xs" />
+<Spinner variant="dots-shuffle" size="sm" />
+<Spinner variant="dots-shuffle" size="md" />
+<Spinner variant="dots-shuffle" size="lg" />
+<Spinner variant="dots-shuffle" size="xl" />
+```
+<div class="flex items-center gap-6">
+	<Spinner variant="dots-shuffle" size="xs" />
+	<Spinner variant="dots-shuffle" size="sm" />
+	<Spinner variant="dots-shuffle" size="md" />
+	<Spinner variant="dots-shuffle" size="lg" />
+	<Spinner variant="dots-shuffle" size="xl" />
 </div>
 
 ---
@@ -93,9 +163,9 @@ Color schemes defined in `theme.css` can be used to set the color of the spinner
 Set an arbitrary color to use for the spinner.
   
 ```svelte
-<Spinner color="#999" />
+<Spinner color="orange" />
 ```
-<Spinner color="#999" />
+<Spinner color="orange" />
 
 ---
 

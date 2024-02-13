@@ -62,7 +62,7 @@ Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop
 
 ### Color Scheme
 
-Color schemes defined in `theme.css` can be used to set the color of the checkbox when checked.
+Color schemes defined in `style.css` can be used to set the color of the checkbox when checked.
 
 ```svelte
 <Checkbox scheme="neutral" label="Neutral" checked/>

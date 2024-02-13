@@ -29,7 +29,7 @@ The brand scheme will be used by default if no scheme or color is provided.
 
 ### Color Schemes
 
-Color schemes defined in `theme.css` can be used to set the color and icon used for the alert. The icons used can also
+Color schemes defined in `style.css` can be used to set the color and icon used for the alert. The icons used can also
 be changed in `utils.js` if desired.
 
 ```svelte

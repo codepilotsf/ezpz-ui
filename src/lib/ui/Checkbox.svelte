@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte'
-	import './theme.css'
+	import './style.css'
 
 	let {
 		label = '',

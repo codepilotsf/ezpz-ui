@@ -1,6 +1,6 @@
 <script>
 	import { slide } from 'svelte/transition'
-	import './theme.css'
+	import './style.css'
 
 	// prettier-ignore
 	let {
@@ -9,7 +9,7 @@
 	  color = '',
 	  background = '',
 	  scheme = 'neutral',
-    class: classProp = '',
+    class: _class = '',
     ...restProps
 	} = $props()
 
@@ -37,7 +37,7 @@
 {#if active}
 	<ui-alert
 		use:setColors
-		class={['lib-ui', classProp].join(' ')}
+		class={['lib-ui', _class].join(' ')}
 		in:slide={{ duration: 200 }}
 		out:slide={{ duration: 200 }}
 		{...restProps}

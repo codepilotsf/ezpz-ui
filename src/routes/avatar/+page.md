@@ -38,7 +38,7 @@ be clipped to a circle automatically.
 ### Sizes
 
 The default size is `md` (medium) as shown above. The `size` property can be used to set the size as defined in
-`theme.css`.
+`style.css`.
 
 ```svelte
 <Avatar src="./bob.jpg" size="xs" />

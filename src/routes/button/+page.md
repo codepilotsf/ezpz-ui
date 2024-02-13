@@ -30,7 +30,7 @@ The default button uses the `brand` scheme for color and `md` size.
 
 ### Color Schemes
 
-Color schemes defined in `theme.css` can be used to set the button color. Text will be white by default.
+Color schemes defined in `style.css` can be used to set the button color. Text will be white by default.
 
 ```svelte
 <Button scheme="info">

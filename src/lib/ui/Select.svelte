@@ -1,6 +1,5 @@
 <script>
-	// import { setContext } from 'svelte'
-	import './theme.css'
+	import './style.css'
 
 	let {
 		name = '',
