@@ -7,12 +7,12 @@
     value,
     id = name,
     label = '',
-    type = 'text',
+    height,
     placeholder = '',
     disabled = false,
+    fixed = false,
     note = '',
     error = '',
-    required = false,
     class: _class = '',
   } = $props()
 
@@ -22,27 +22,31 @@
 
   const isError = Boolean(error)
 
-  const handleInput = (e) => {
-    // This is a Rich Harris trick to allow dynamic `type` attribute
-    // while still binding the value to the input.
-    value = type.match(/^(number|range)$/) ? +e.target.value : e.target.value
+  function init(target) {
+    if (height) target.style.setProperty('min-height', height)
+    resize({ target })
+  }
+
+  function resize({ target }) {
+    if (fixed) return
+    target.style.height = '5px'
+    target.style.height = target.scrollHeight + 2 + 'px'
   }
 </script>
 
 <ui-input class="lib-ui">
   <Label forId={id} {isError} {label}></Label>
 
-  <input
+  <textarea
+    use:init
+    on:input={resize}
     class={_class}
     class:isError
-    {type}
     {id}
     {name}
     {placeholder}
     {disabled}
-    {value}
-    {required}
-    on:input={handleInput}
+    bind:value
   />
 
   {#if error || note}
@@ -51,7 +55,7 @@
 </ui-input>
 
 <style>
-  input {
+  textarea {
     outline: none;
     width: 100%;
     font-size: var(--ui-form-element-font-size);
@@ -59,27 +63,30 @@
     border: var(--ui-border-width) solid var(--ui-border-color);
     border-radius: var(--ui-border-radius);
     padding: var(--ui-form-element-padding);
+    line-height: var(--ui-form-element-line-height);
+    min-height: 4rem;
+    margin-bottom: -5px;
   }
 
-  input:focus {
-    outline: 2px solid var(--ui-brand);
-    box-shadow: 0 0 2px 1px var(--brand);
+  textarea::placeholder {
+    color: var(--ui-form-element-placeholder-color);
   }
 
-  input.isError {
+  textarea:focus {
+    outline: var(--ui-form-element-focus-outline);
+    box-shadow: var(--ui-form-element-focus-box-shadow);
+  }
+
+  textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: var(--ui-light);
+  }
+
+  textarea:not(:focus).isError {
     outline: 1px solid var(--ui-danger-dark);
     border: var(--ui-border-width) 1px solid var(--ui-danger-dark);
     box-shadow: 0 0 1px 1px var(--ui-danger-dark);
     color: var(--ui-danger-dark);
-  }
-
-  input:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-    background: var(--ui-light);
-  }
-
-  input::placeholder {
-    color: --ui-form-element-placeholder-color;
   }
 </style>

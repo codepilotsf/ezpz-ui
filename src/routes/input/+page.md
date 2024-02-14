@@ -20,18 +20,18 @@ Type in the field to see the value change.
   let name = '';
 </script>
 
-<Input 
-  name="name" 
-  label="Name" 
+<Input
+  name="name"
+  label="Name"
   placeholder="Jane Doe"
-  bind:value={name} 
+  bind:value={name}
 />
 ```
-<Input 
-  name="name" 
-  label="Name" 
+<Input
+  name="name"
+  label="Name"
   placeholder="Jane Doe"
-  bind:value={name} 
+  bind:value={name}
 />
 
 ---

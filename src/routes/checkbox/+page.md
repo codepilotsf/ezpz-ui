@@ -1,5 +1,5 @@
 <script>
-	import { Checkbox } from '$lib/ui';
+  import { Checkbox } from '$lib/ui';
   import Tables from './Tables.svelte';
   import { Heart } from 'lucide-svelte';
 
@@ -29,7 +29,7 @@ Check the checkbox to see the value change.
 
 <p>Checked: {isChecked}</p>
 ```
-<Checkbox 
+<Checkbox
   bind:checked={isChecked}
 />
 

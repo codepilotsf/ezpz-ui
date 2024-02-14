@@ -1,94 +1,94 @@
 .lib-ui,
 .lib-ui * {
-	/* Colors
+  /* Colors
   -------------------
   Primary brand and neutral colors
   ------------------- */
-	/* Brand Color: Used as accent for buttons, checked checkmarks, etc */
-	--ui-brand: #7c3aed;
+  /* Brand Color: Used as accent for buttons, checked checkmarks, etc */
+  --ui-brand: #7c3aed;
 
-	/* Neutral Colors: Used for Text, borders, etc */
-	--ui-light: #f1f5f9;
-	--ui-midtone: #cbd5e1;
-	--ui-dark: #0f172a;
+  /* Neutral Colors: Used for Text, borders, etc */
+  --ui-light: #f1f5f9;
+  --ui-midtone: #cbd5e1;
+  --ui-dark: #0f172a;
 
-	/* Schemes
+  /* Schemes
   -------------------
   Info, Success, Warning, Error, and Neutral color schemes
   ------------------- */
-	/* Info */
-	--ui-info-light: #e0f2fe;
-	--ui-info-dark: #075985;
+  /* Info */
+  --ui-info-light: #e0f2fe;
+  --ui-info-dark: #075985;
 
-	/* Success  */
-	--ui-success-light: #bbf7d0;
-	--ui-success-dark: #15803d;
+  /* Success  */
+  --ui-success-light: #bbf7d0;
+  --ui-success-dark: #15803d;
 
-	/* Warning */
-	--ui-warning-light: #fef08a;
-	--ui-warning-dark: #ea580c;
+  /* Warning */
+  --ui-warning-light: #fef08a;
+  --ui-warning-dark: #ea580c;
 
-	/* Danger */
-	--ui-danger-light: #fecaca;
-	--ui-danger-dark: #b91c1c;
+  /* Danger */
+  --ui-danger-light: #fecaca;
+  --ui-danger-dark: #b91c1c;
 
-	/* Neutral */
-	--ui-neutral-light: var(--ui-light);
-	--ui-neutral-dark: var(--ui-dark);
+  /* Neutral */
+  --ui-neutral-light: var(--ui-light);
+  --ui-neutral-dark: var(--ui-dark);
 
-	/* Borders
+  /* Borders
   -------------------
   Border styles for things like form elements
   ------------------- */
-	--ui-border-width: 1px;
-	--ui-border-radius: 3px;
-	--ui-border-color: var(--ui-midtone);
+  --ui-border-width: 1px;
+  --ui-border-radius: 3px;
+  --ui-border-color: var(--ui-midtone);
 
-	/* Form Items
+  /* Form Items
   -------------------
   The container around a form element, label, and messages
   ------------------- */
-	--ui-form-item-margin-top: 1rem;
-	--ui-form-item-column-gap: 0.5rem;
-	--ui-form-item-row-gap: 0.5rem;
+  --ui-form-item-margin-top: 1rem;
+  --ui-form-item-column-gap: 0.5rem;
+  --ui-form-item-row-gap: 0.5rem;
 
-	/* Form Labels
+  /* Form Labels
   -------------------
   The label for a form element
   --------------------- */
-	--ui-form-label-margin: 4px 0;
-	--ui-form-label-font-weight: 600;
-	--ui-form-label-font-size: 1rem;
-	--ui-form-label-font-size-small: 14px; /* checkbox/radios */
+  --ui-form-label-margin: 4px 0;
+  --ui-form-label-font-weight: 600;
+  --ui-form-label-font-size: 1rem;
+  --ui-form-label-font-size-small: 14px; /* checkbox/radios */
 
-	/* Form Elements
+  /* Form Elements
   -------------------
   The form element itself, like an input or select
   --------------------- */
-	--ui-form-element-padding: 4px 6px;
-	--ui-form-element-font-size: 1rem;
-	--ui-form-element-line-height: 1.6;
-	--ui-form-element-placeholder-color: #94a3b8;
-	--ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --ui-form-element-padding: 4px 6px;
+  --ui-form-element-font-size: 1rem;
+  --ui-form-element-line-height: 1.6;
+  --ui-form-element-placeholder-color: #94a3b8;
+  --ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 
-	/* Form Elements: :focus */
-	/* --ui-form-element-focus-border: 2px solid #3b82f6;
+  /* Form Elements: :focus */
+  /* --ui-form-element-focus-border: 2px solid #3b82f6;
 	--ui-form-element-focus-outline: 2px solid #3b82f6;
 	--ui-form-element-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
 
-	/* Form elements :disabled */
-	/* --ui-form-element-disabled-opacity: 0.5;
+  /* Form elements :disabled */
+  /* --ui-form-element-disabled-opacity: 0.5;
 	--ui-form-element-disabled-background: #ddd;
 	--ui-form-element-inverse-disabled-background: var(--midtone); */
 
-	/* Form elements .error */
-	/* --ui-form-element-error-outline: 1px solid var(--error);
+  /* Form elements .error */
+  /* --ui-form-element-error-outline: 1px solid var(--error);
 	--ui-form-element-error-border: 1px solid var(--error);
 	--ui-form-element-error-box-shadow: 0 0 1px 1px var(--error);
 	--ui-form-element-error-color: var(--error); */
 
-	/* Form checkboxes and radios */
-	/* --ui-form-checkradio-border: 1px solid var(--lighter);
+  /* Form checkboxes and radios */
+  /* --ui-form-checkradio-border: 1px solid var(--lighter);
 	--ui-form-checkradio-border-focus: 1px solid var(--brand-1);
 	--ui-form-checkradio-gap: var(--fluid-space-2xs);
 	--ui-form-checkradio-label-gap: 7px;
@@ -100,8 +100,8 @@
 	--ui-form-checkradio-inverse-background: var(--lighter);
 	--ui-form-checkradio-inverse-checked-background: var(--brand-1); */
 
-	/* Form errors and notes */
-	--ui-form-error-note-font-size: 0.9rem;
-	--ui-form-error-note-line-height: 1;
-	--ui-form-error-note-margin-top: 8px;
+  /* Form errors and notes */
+  --ui-form-error-note-font-size: 0.9rem;
+  --ui-form-error-note-line-height: 1;
+  --ui-form-error-note-margin-top: 6px;
 }

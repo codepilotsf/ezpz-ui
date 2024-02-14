@@ -27,7 +27,7 @@
 </script>
 
 <ui-select class="lib-ui" {...restProps}>
-	<Label forId={id} {isError}>{label}</Label>
+	<Label forId={id} {isError} {label}></Label>
 
 	<select class={_class} class:error {id} {name} on:change={handleChange} {disabled}>
 		{#if placeholder}
