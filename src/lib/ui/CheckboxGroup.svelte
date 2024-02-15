@@ -5,16 +5,18 @@
 
   let {
     label = '',
-    selected,
+    name = '',
+    value,
     color = '',
     scheme = '',
     error = '',
     note = '',
     class: _class = '',
-    ...restProps
+    ...other
   } = $props()
 
   setContext('isGroup', true)
+  if (name) setContext('name', name)
 
   /* 
   When $state is set to context and the value is not a custom object, 
@@ -23,22 +25,22 @@
   a custom object and recasting it to a $state object.
   */
 
-  let selectedState = $state({ value: selected || [] })
-  setContext('selectedState', selectedState)
+  let valueState = $state({ value: value || [] })
+  setContext('valueState', valueState)
 
   /*
-  Whenever selectedState object is updated in the child component, we need to 
+  Whenever valueState object is updated in the child component, we need to 
   update the binded value to match.
   */
   $effect(() => {
-    selected = selectedState.value
+    value = valueState.value
   })
 
   if (color) setContext('color', color)
   if (scheme) setContext('scheme', scheme)
 </script>
 
-<fieldset class={['lib-ui', _class].join(' ')} {...restProps}>
+<fieldset class={['lib-ui', _class].join(' ')} {...other}>
   {#if label}
     <Label isLegend="true" isError={Boolean(error)}>{label}</Label>
   {:else if $$slots.label}

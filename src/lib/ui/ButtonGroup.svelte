@@ -9,7 +9,7 @@
     name = '',
     size = '',
     class: _class = '',
-    ...restProps
+    ...other
   } = $props();
 
   setContext('isGroup', true)
@@ -25,7 +25,7 @@
   }
 </script>
 
-<ui-button-group use:setCssVars class={['lib-ui', _class].join(' ')} {name} {...restProps}>
+<ui-button-group use:setCssVars class={['lib-ui', _class].join(' ')} {name} {...other}>
   <slot />
 </ui-button-group>
 

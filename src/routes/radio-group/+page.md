@@ -13,12 +13,12 @@
 # RadioGroup
 
 Use a RadioGroup to group multiple Radio components for a predictable layout and the ability to two-way bind a
-`selected` value coupled to which radio button is selected. Additionally, you can  set a `scheme` or `color` as a single
+`value` value coupled to which radio button is value. Additionally, you can  set a `scheme` or `color` as a single
 property to be inherited by all child Radios.
 
 ### Example
 
-Use `bind:selected` to two-bind the reactive value of the selected item.
+Use `bind:value` to two-bind the reactive value of the value item.
 
 ```svelte
 <script>
@@ -26,7 +26,7 @@ Use `bind:selected` to two-bind the reactive value of the selected item.
   let make = $state();
 </script>
 
-<RadioGroup bind:selected={make}>
+<RadioGroup bind:value={make}>
   <Radio label="Ford" value="ford" />
   <Radio label="Dodge" value="dodge" />
   <Radio label="Tesla" value="tesla" />
@@ -34,7 +34,7 @@ Use `bind:selected` to two-bind the reactive value of the selected item.
 
 <p>Make: {make}</p>
 ```
-<RadioGroup bind:selected={make}>
+<RadioGroup bind:value={make}>
   <Radio label="Ford" value="ford" />
   <Radio label="Dodge" value="dodge" />
   <Radio label="Tesla" value="tesla" />
@@ -56,6 +56,24 @@ styled like the `label` elements on other form components.
 </RadioGroup>
 ```
 <RadioGroup label="Dominant Hand">
+  <Radio label="Left" value="left" />
+  <Radio label="Right" value="right" />
+</RadioGroup>
+
+---
+
+### Name
+
+If a `name` prop is set on the RadioGroup, it will be inherited by all child Radio components. This
+is useful for grouping Radio components together in a form.
+
+```svelte
+<RadioGroup label="Dominant Hand" name="hand">
+  <Radio label="Left" value="left" />
+  <Radio label="Right" value="right" />
+</RadioGroup>
+```
+<RadioGroup label="Dominant Hand" name="hand">
   <Radio label="Left" value="left" />
   <Radio label="Right" value="right" />
 </RadioGroup>
@@ -106,13 +124,13 @@ Instead of using the `label` prop which can only be a String, a `label` named sl
 complex content.
 
 ```svelte
-<RadioGroup bind:selected={cocktail}>
+<RadioGroup bind:value={cocktail}>
   <label slot="label"><CocktailIcon /> Cocktails</label>
   <Radio label="Martini" value="m" />
   <Radio label="Gimlet" value="g" />
 </RadioGroup>
 ```
-<RadioGroup bind:selected={cocktail}>
+<RadioGroup bind:value={cocktail}>
   <label slot="label" class="flex items-center pb-2"><Martini size={20} /> Cocktails</label>
   <Radio label="Martini" value="m" />
   <Radio label="Gimlet" value="g" />

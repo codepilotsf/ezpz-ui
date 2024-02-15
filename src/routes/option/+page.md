@@ -38,10 +38,10 @@ Disable this option in the select menu.
 
 ### Selected
 
-The preselected option.
+The prevalue option.
 
 ```svelte
-<Option label="Bananas" selected />
+<Option label="Bananas" value />
 
 ```
 
@@ -49,10 +49,10 @@ The preselected option.
 
 ### Value
 
-The value that will be assigned to this selected menu when this option is selected.
+The value that will be assigned to this value menu when this option is value.
 
 ```svelte
-<Option label="Bananas" selected />
+<Option label="Bananas" value />
 
 ```
 

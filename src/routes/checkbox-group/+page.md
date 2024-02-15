@@ -9,12 +9,12 @@
 # CheckboxGroup
 
 Use a CheckboxGroup to group multiple Checkbox components for a predictable layout and the ability to two-way bind a
-`selected` array value coupled to which radio button is selected. Additionally, you can  set a `scheme` or `color` as a single
+`value` array value coupled to which radio button is value. Additionally, you can  set a `scheme` or `color` as a single
 property to be inherited by all child Checkboxs.
 
 ### Example
 
-Use `bind:selected` to two-way bind a reactive array of selected items.
+Use `bind:value` to two-way bind a reactive array of value items.
 
 ```svelte
 <script>
@@ -22,7 +22,7 @@ Use `bind:selected` to two-way bind a reactive array of selected items.
   let toppings = $state(['pepperoni']);
 </script>
 
-<CheckboxGroup bind:selected={toppings}>
+<CheckboxGroup bind:value={toppings}>
   <Checkbox label="Pepperoni" value="pepperoni" />
   <Checkbox label="Olives" value="olives" />
   <Checkbox label="Tomatoes" value="tomatoes" />
@@ -30,7 +30,7 @@ Use `bind:selected` to two-way bind a reactive array of selected items.
 
 <p>Toppings: {toppings}</p>
 ```
-<CheckboxGroup bind:selected={toppings}>
+<CheckboxGroup bind:value={toppings}>
   <Checkbox label="Pepperoni" value="pepperoni" />
   <Checkbox label="Olives" value="olives" />
   <Checkbox label="Tomatoes" value="tomatoes" />
@@ -56,6 +56,25 @@ styled like the `label` elements on other form components.
   <Checkbox label="Pilsner" />
   <Checkbox label="India Pale Ale" />
   <Checkbox label="Stout" />
+</CheckboxGroup>
+
+---
+
+### Name
+
+If a `name` prop is set, it will be applied to all child Checkbox components for proper form submission.
+
+```svelte
+<CheckboxGroup name="beer">
+  <Checkbox label="Pilsner" value="pilsner" />
+  <Checkbox label="India Pale Ale" value="ipa" />
+  <Checkbox label="Stout" value="stout" />
+</CheckboxGroup>
+```
+<CheckboxGroup name="beer">
+  <Checkbox label="Pilsner" value="pilsner" />
+  <Checkbox label="India Pale Ale" value="ipa" />
+  <Checkbox label="Stout" value="stout" />
 </CheckboxGroup>
 
 ---

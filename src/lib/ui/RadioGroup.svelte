@@ -2,8 +2,18 @@
   import './style.css'
   import { setContext } from 'svelte'
 
-  let { selected, label = '', color = '', scheme = '', class: _class = '', ...restProps } = $props()
+  // prettier-ignore
+  let { 
+    value, 
+    name = '',
+    label = '', 
+    color = '', 
+    scheme = '', 
+    class: _class = '', 
+    ...other 
+  } = $props()
 
+  if (name) setContext('name', name)
   if (color) setContext('color', color)
   if (scheme) setContext('scheme', scheme)
 
@@ -13,21 +23,21 @@
   static object from context and set it to a reactive variable by creating
   a custom object and recasting it to a $state object.
   */
-  let selectedState = $state({ value: selected || [] })
-  setContext('selectedState', selectedState)
+  let valueState = $state({ value: value || [] })
+  setContext('valueState', valueState)
 
   /*
-  Whenever selectedState object is updated in the child component, we need to 
+  Whenever valueState object is updated in the child component, we need to 
   update the binded value to match.
   */
   $effect(() => {
-    selected = selectedState.value
+    value = valueState.value
   })
 </script>
 
-<fieldset class={`lib-ui ${_class}`}>
+<fieldset class={['lib-ui', _class].join(' ')} {...other}>
   {#if label}
-    <label>{label}</label>
+    <legend>{label}</legend>
   {:else if $$slots.label}
     <slot name="label" />
   {/if}

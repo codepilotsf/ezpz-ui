@@ -23,17 +23,17 @@ tag is used instead of `label` but styled the same way.
 </script>
 
 {#if isLegend}
-  <label {isError}><slot /></label>
+  <legend class="lib-ui" {isError}><slot /></legend>
 {:else}
   <slot />
-  <label for={forId} {isError}>
+  <label class="lib-ui" for={forId} {isError}>
     {label}
   </label>
 {/if}
 
 <style>
   label,
-  label {
+  legend {
     display: block;
     margin: var(--ui-form-label-margin);
     font-size: var(--ui-form-label-font-size);
@@ -43,7 +43,7 @@ tag is used instead of `label` but styled the same way.
   }
 
   label[isError],
-  label[isError] {
+  legend[isError] {
     color: var(--ui-danger-dark);
   }
 </style>

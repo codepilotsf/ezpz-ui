@@ -3,7 +3,7 @@
   import Tables from './Tables.svelte';
 
   let name = '';
-  let align = undefined;
+  let align = $state();
 
   function handleClick(val) {
     align = val;
@@ -20,7 +20,7 @@ segmented control for plain buttons with an `on:click` directive.
 ```svelte
 <script>
   import { ButtonGroup, Button } from '$lib/ui';
-  let align = '';
+  let align = $state();
 
   function handleClick(val) {
     align = val;

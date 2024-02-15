@@ -7,11 +7,13 @@
     leadingLabel = '',
     checked,
     disabled = false,
+    name = getContext('name') || null,
+    id = name || null,
     value = null,
     color = getContext('color') || '',
     scheme = getContext('scheme') || '',
     _class: _class = '',
-    ...restProps
+    ...other
   } = $props()
 
   function setCssVars(el) {
@@ -21,23 +23,23 @@
     )
   }
 
-  let selectedState = getContext('selectedState')
+  let valueState = getContext('valueState')
 
-  if (selectedState?.value && !checked && checked !== false) {
-    checked = selectedState.value.includes(value)
+  if (valueState?.value && !checked && checked !== false) {
+    checked = valueState.value.includes(value)
   }
 
   function handleChange({ target }) {
-    if (!selectedState) return
+    if (!valueState) return
     if (target.checked) {
-      selectedState.value = [...selectedState.value, value]
+      valueState.value = [...valueState.value, value]
     } else {
-      selectedState.value = selectedState.value.filter((v) => v != value)
+      valueState.value = valueState.value.filter((v) => v != value)
     }
   }
 </script>
 
-<label class={`lib-ui ${_class}`} {disabled}>
+<label {disabled} forId={id}>
   {#if $$slots.leadingLabel}
     <slot name="leadingLabel" />
   {:else if leadingLabel}
@@ -45,14 +47,17 @@
   {/if}
 
   <input
+    class={['lib-ui', _class].join(' ')}
     use:setCssVars
     type="checkbox"
-    class={`lib-ui ${_class}`}
     bind:checked
     on:change={handleChange}
+    {id}
+    {name}
     {disabled}
     {value}
-    {...restProps}
+    {...other}
+    aria-checked={checked}
   />
 
   {#if $$slots.label}

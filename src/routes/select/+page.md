@@ -10,7 +10,7 @@ Standard select menu which expects child `<Option>` components.
 
 ### Example
 
-Select option from the list of options
+Select option from the list of options. Use `bind:value` to bind the selected value to a variable.
 
 ```svelte
 <script>
@@ -18,7 +18,7 @@ Select option from the list of options
   let pet = $state();
 </script>
 
-<Select label="Pet" name="pet" bind:selected={pet}>
+<Select label="Pet" name="pet" bind:value={pet}>
   <Option label="Dog" value="dog" />
   <Option label="Hamster" value="hamster" />
   <Option label="Parrot" value="parrot" />
@@ -27,7 +27,7 @@ Select option from the list of options
 <p>Pet: {pet}</p>
 
 ```
-<Select label="Pet" bind:selected={pet}>
+<Select label="Pet" bind:value={pet}>
   <Option label="Dog" value="dog" />
   <Option label="Hamster" value="hamster" />
   <Option label="Parrot" value="parrot" />

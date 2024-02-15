@@ -1,10 +1,10 @@
 <script>
   import './style.css'
 
-  let { children, class: _class = '' } = $props()
+  let { children, class: _class = '', ...other } = $props()
 </script>
 
-<form-row class={['lib-ui', _class].join(' ')}>
+<form-row class={['lib-ui', _class].join(' ')} {...other}>
   <slot />
 </form-row>
 

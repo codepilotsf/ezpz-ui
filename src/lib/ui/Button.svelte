@@ -12,7 +12,7 @@
     size = getContext('size') || 'md',
     background = '',
     class: _class = '',
-    ...restProps
+    ...other
   } = $props()
 
   const sizes = {
@@ -68,7 +68,8 @@
     {loading}
     {size}
     {isGroup}
-    {...restProps}
+    {...other}
+    on:click
   >
     <slot />
   </a>
@@ -81,7 +82,8 @@
     {loading}
     {size}
     {isGroup}
-    {...restProps}
+    {...other}
+    on:click
   >
     <slot />
   </button>

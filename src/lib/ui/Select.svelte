@@ -6,30 +6,38 @@
     name = '',
     disabled = null,
     id = name,
-    selected,
+    value,
     label = '',
     placeholder = 'Select',
     note = '',
     error = '',
     class: _class = '',
-    ...restProps
+    ...other
   } = $props()
 
   // Convert string to boolean
   error = error === 'false' ? false : error
-  placeholder = placeholder === 'false' ? false : placeholder
+  disabled = disabled === 'false' ? false : disabled
 
-  const isError = Boolean(error)
+  const isError = Boolean(error) || null
 
   const handleChange = ({ target }) => {
-    selected = target.value
+    value = target.value
   }
 </script>
 
-<ui-select class="lib-ui" {...restProps}>
+<ui-select class={['lib-ui', _class].join(' ')} {...other}>
   <Label forId={id} {isError} {label}></Label>
 
-  <select class={_class} class:error {id} {name} on:change={handleChange} {disabled}>
+  <select
+    {id}
+    {name}
+    {isError}
+    {disabled}
+    aria-disabled={disabled}
+    aria-invalid={Boolean(error) || null}
+    on:change={handleChange}
+  >
     {#if placeholder}
       <option class="placeholder" value="" disabled selected hidden>{placeholder}</option>
     {/if}
@@ -63,7 +71,7 @@
     background-position: right 0.5rem center;
   }
 
-  select.error {
+  select[isError] {
     outline: 1px solid var(--ui-danger-dark);
     border: 1px solid var(--ui-danger-dark);
     box-shadow: 0 0 1px 1px var(--ui-danger-light);

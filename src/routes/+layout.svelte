@@ -48,7 +48,7 @@
       <MenuItem href="/checkbox" label="Checkbox" />
       <MenuItem href="/checkbox-group" label="CheckboxGroup" />
       <MenuItem href="/file-picker" label="FilePicker" disabled />
-      <MenuItem href="/form-row" label="FormRow" disabled />
+      <MenuItem href="/form-row" label="FormRow" />
       <MenuItem href="/input" label="Input" />
       <MenuItem href="/modal" label="Modal" disabled />
       <MenuItem href="/option" label="Option" />

@@ -40,6 +40,17 @@ Label for the textarea element.
 
 ---
 
+### Name
+
+Name of the textarea for form submission.
+
+```svelte
+<Textarea name="message" label="Message" />
+```
+<Textarea name="message" label="Message" />
+
+---
+
 ### Height
 
 Use `height` to set the initial height of the textarea. If using CSS utility classes (like

@@ -5,7 +5,7 @@
   let {
     name = '',
     value,
-    id = name,
+    id = name || null,
     label = '',
     type = 'text',
     placeholder = '',
@@ -14,6 +14,7 @@
     error = '',
     required = false,
     class: _class = '',
+    ...other
   } = $props()
 
   // Convert "false" string to boolean
@@ -35,6 +36,7 @@
   <input
     class={_class}
     class:isError
+    aria-invalid={Boolean(error) || null}
     {type}
     {id}
     {name}
@@ -43,6 +45,7 @@
     {value}
     {required}
     on:input={handleInput}
+    {...other}
   />
 
   {#if error || note}

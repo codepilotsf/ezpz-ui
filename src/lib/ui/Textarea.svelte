@@ -14,6 +14,7 @@
     note = '',
     error = '',
     class: _class = '',
+    ...other
   } = $props()
 
   // Convert "false" string to boolean
@@ -34,18 +35,19 @@
   }
 </script>
 
-<ui-input class="lib-ui">
+<ui-input class={['lib-ui', _class].join(' ')} {...other}>
   <Label forId={id} {isError} {label}></Label>
 
   <textarea
     use:init
     on:input={resize}
-    class={_class}
     class:isError
     {id}
     {name}
     {placeholder}
     {disabled}
+    aria-disabled={disabled}
+    aria-invalid={Boolean(error) || null}
     bind:value
   />
 

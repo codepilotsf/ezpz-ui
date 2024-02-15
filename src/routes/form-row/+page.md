@@ -1,5 +1,6 @@
 <script>
   import { Checkbox, CheckboxGroup, FormRow, Textarea, Input } from '$lib/ui';
+  import Tables from './Tables.svelte';
 </script>
 
 # FormRow
@@ -45,5 +46,8 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
   </CheckboxGroup>
 </FormRow>
 
+---
+
+<Tables />
 
 

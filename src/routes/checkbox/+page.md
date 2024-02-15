@@ -94,7 +94,7 @@ Set an arbitrary color to use for the checkbox when checked.
 
 ### Checked
 
-Not normally used because the CheckboxGroup `selected` prop will set which Checkboxes are checked (and overrides this
+Not normally used because the CheckboxGroup `value` prop will set which Checkboxes are checked (and overrides this
 property). If using outside of a CheckboxGroup, then use with the `bind:checked` directive as shown in the example at
 the top of this page. The `checked` prop can also be assigned a Boolean value like `checked={user.wantsSpam}`.
 
@@ -119,7 +119,7 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 ### Value
 
 When used within a [CheckboxGroup](/checkbox-group), this is the value that will be assigned to the CheckboxGroup's
-`selected.value` array when checked.
+`value.value` array when checked.
 
 ```svelte
 <Checkbox label="Spam me" value="spamMe" />

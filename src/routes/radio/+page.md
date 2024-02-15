@@ -28,7 +28,7 @@ As mentioned above, a single radio button isn't very useful – but here's one a
 
 ### Checked
 
-Not normally used because the RadioGroup `selected` prop will set which Radio is checked (and overrides this property).
+Not normally used because the RadioGroup `value` prop will set which Radio is checked (and overrides this property).
 
 ```svelte
 <Radio label="Your choice is made" checked />
@@ -124,7 +124,7 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 ### Value
 
 This is the value that will be assigned to the [RadioGroup](/radio-group)'s
-`selected` value when checked.
+`value` value when checked.
 
 ```svelte
 <Radio label="Spam me" value="spamMe" />
