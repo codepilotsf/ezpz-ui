@@ -46,16 +46,16 @@ Use `bind:selected` to two-bind the reactive value of the selected item.
 
 ### Legend
 
-Use the `legend` prop to set a legend for the RadioGroup. This will be rendered as a `<legend>` element and will be
+Use the `label` prop to set a label for the RadioGroup. This will be rendered as a `<label>` element and will be
 styled like the `label` elements on other form components.
 
 ```svelte
-<RadioGroup legend="Dominant Hand">
+<RadioGroup label="Dominant Hand">
   <Radio label="Left" value="left" />
   <Radio label="Right" value="right" />
 </RadioGroup>
 ```
-<RadioGroup legend="Dominant Hand">
+<RadioGroup label="Dominant Hand">
   <Radio label="Left" value="left" />
   <Radio label="Right" value="right" />
 </RadioGroup>
@@ -102,18 +102,18 @@ RadioGroup instead of on each individual Radio.
 
 ### Legend Named Slot
 
-Instead of using the `legend` prop which can only be a String, a `legend` named slot can be used for a legend with more
+Instead of using the `label` prop which can only be a String, a `label` named slot can be used for a label with more
 complex content.
 
 ```svelte
 <RadioGroup bind:selected={cocktail}>
-  <legend slot="legend"><CocktailIcon /> Cocktails</legend>
+  <label slot="label"><CocktailIcon /> Cocktails</label>
   <Radio label="Martini" value="m" />
   <Radio label="Gimlet" value="g" />
 </RadioGroup>
 ```
 <RadioGroup bind:selected={cocktail}>
-  <legend slot="legend" class="flex items-center pb-2"><Martini size={20} /> Cocktails</legend>
+  <label slot="label" class="flex items-center pb-2"><Martini size={20} /> Cocktails</label>
   <Radio label="Martini" value="m" />
   <Radio label="Gimlet" value="g" />
 </RadioGroup>

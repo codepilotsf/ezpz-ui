@@ -55,26 +55,31 @@
 </ui-input>
 
 <style>
+  .lib-ui {
+    flex: 1;
+    margin-top: var(--ui-form-item-margin-top);
+  }
+
   textarea {
     outline: none;
     width: 100%;
-    font-size: var(--ui-form-element-font-size);
+    font-size: var(--ui-form-item-font-size);
     color: var(--ui-dark);
     border: var(--ui-border-width) solid var(--ui-border-color);
     border-radius: var(--ui-border-radius);
-    padding: var(--ui-form-element-padding);
-    line-height: var(--ui-form-element-line-height);
+    padding: var(--ui-form-item-padding);
+    line-height: var(--ui-form-item-line-height);
     min-height: 4rem;
     margin-bottom: -5px;
   }
 
   textarea::placeholder {
-    color: var(--ui-form-element-placeholder-color);
+    color: var(--ui-form-item-placeholder-color);
   }
 
   textarea:focus {
-    outline: var(--ui-form-element-focus-outline);
-    box-shadow: var(--ui-form-element-focus-box-shadow);
+    outline: var(--ui-form-item-focus-outline);
+    box-shadow: var(--ui-form-item-focus-box-shadow);
   }
 
   textarea:disabled {

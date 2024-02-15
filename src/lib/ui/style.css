@@ -65,27 +65,27 @@
   -------------------
   The form element itself, like an input or select
   --------------------- */
-  --ui-form-element-padding: 4px 6px;
-  --ui-form-element-font-size: 1rem;
-  --ui-form-element-line-height: 1.6;
-  --ui-form-element-placeholder-color: #94a3b8;
+  --ui-form-item-padding: 4px 6px;
+  --ui-form-item-font-size: 1rem;
+  --ui-form-item-line-height: 1.6;
+  --ui-form-item-placeholder-color: #94a3b8;
   --ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 
   /* Form Elements: :focus */
-  /* --ui-form-element-focus-border: 2px solid #3b82f6;
-	--ui-form-element-focus-outline: 2px solid #3b82f6;
-	--ui-form-element-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
+  /* --ui-form-item-focus-border: 2px solid #3b82f6;
+	--ui-form-item-focus-outline: 2px solid #3b82f6;
+	--ui-form-item-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
 
   /* Form elements :disabled */
-  /* --ui-form-element-disabled-opacity: 0.5;
-	--ui-form-element-disabled-background: #ddd;
-	--ui-form-element-inverse-disabled-background: var(--midtone); */
+  /* --ui-form-item-disabled-opacity: 0.5;
+	--ui-form-item-disabled-background: #ddd;
+	--ui-form-item-inverse-disabled-background: var(--midtone); */
 
   /* Form elements .error */
-  /* --ui-form-element-error-outline: 1px solid var(--error);
-	--ui-form-element-error-border: 1px solid var(--error);
-	--ui-form-element-error-box-shadow: 0 0 1px 1px var(--error);
-	--ui-form-element-error-color: var(--error); */
+  /* --ui-form-item-error-outline: 1px solid var(--error);
+	--ui-form-item-error-border: 1px solid var(--error);
+	--ui-form-item-error-box-shadow: 0 0 1px 1px var(--error);
+	--ui-form-item-error-color: var(--error); */
 
   /* Form checkboxes and radios */
   /* --ui-form-checkradio-border: 1px solid var(--lighter);

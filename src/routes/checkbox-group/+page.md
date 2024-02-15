@@ -42,17 +42,17 @@ Use `bind:selected` to two-way bind a reactive array of selected items.
 
 ### Legend
 
-Use the `legend` prop to set a legend for the CheckboxGroup. This will be rendered as a `<legend>` element and will be
+Use the `label` prop to set a label for the CheckboxGroup. This will be rendered as a `<label>` element and will be
 styled like the `label` elements on other form components.
 
 ```svelte
-<CheckboxGroup legend="Beer Options">
+<CheckboxGroup label="Beer Options">
   <Checkbox label="Pilsner" />
   <Checkbox label="India Pale Ale" />
   <Checkbox label="Stout" />
 </CheckboxGroup>
 ```
-<CheckboxGroup legend="Beer Options">
+<CheckboxGroup label="Beer Options">
   <Checkbox label="Pilsner" />
   <Checkbox label="India Pale Ale" />
   <Checkbox label="Stout" />
@@ -122,13 +122,13 @@ Display error message below the checkboxes. Also adds error styles.
 A `note` prop let's you define a note displayed below the field.
 
 ```svelte
-<CheckboxGroup legend="Favorite Band" note="Choose as many as you like">
+<CheckboxGroup label="Favorite Band" note="Choose as many as you like">
   <Checkbox label="Bauhaus" />
   <Checkbox label="The Cure" />
   <Checkbox label="The Smiths" />
 </CheckboxGroup>
 ```
-<CheckboxGroup legend="Favorite Band" note="Choose as many as you like">
+<CheckboxGroup label="Favorite Band" note="Choose as many as you like">
   <Checkbox label="Bauhaus" />
   <Checkbox label="The Cure" />
   <Checkbox label="The Smiths" />
@@ -138,18 +138,18 @@ A `note` prop let's you define a note displayed below the field.
 
 ### Legend Named Slot
 
-Instead of using the `legend` prop which can only be a String, a `legend` named slot can be used for a legend with more
+Instead of using the `label` prop which can only be a String, a `label` named slot can be used for a label with more
 complex content.
 
 ```svelte
 <CheckboxGroup>
-  <legend slot="legend"><CocktailIcon /> Cocktails</legend>
+  <label slot="label"><CocktailIcon /> Cocktails</label>
   <Checkbox label="Martini" />
   <Checkbox label="Gimlet" />
 </CheckboxGroup>
 ```
 <CheckboxGroup>
-  <legend slot="legend" class="flex items-center pb-2"><Martini size={20} /> Cocktails</legend>
+  <label slot="label" class="flex items-center pb-2"><Martini size={20} /> Cocktails</label>
   <Checkbox label="Martini" />
   <Checkbox label="Gimlet" />
 </CheckboxGroup>

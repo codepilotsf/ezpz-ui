@@ -51,14 +51,19 @@
 </ui-input>
 
 <style>
+  .lib-ui {
+    flex: 1;
+    margin-top: var(--ui-form-item-margin-top);
+  }
+
   input {
     outline: none;
     width: 100%;
-    font-size: var(--ui-form-element-font-size);
+    font-size: var(--ui-form-item-font-size);
     color: var(--ui-dark);
     border: var(--ui-border-width) solid var(--ui-border-color);
     border-radius: var(--ui-border-radius);
-    padding: var(--ui-form-element-padding);
+    padding: var(--ui-form-item-padding);
   }
 
   input:focus {
@@ -80,6 +85,6 @@
   }
 
   input::placeholder {
-    color: --ui-form-element-placeholder-color;
+    color: --ui-form-item-placeholder-color;
   }
 </style>

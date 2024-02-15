@@ -2,7 +2,7 @@
 Label is imported by form field components such as Input and CheckboxGroup
 and is *not* generally used directly. It is broken out into a separate component
 so that it can beœ styled consistently across all form field components while
-keeping the code DRY. In the case of CheckboxGroup and RadioGroup, the `legend`
+keeping the code DRY. In the case of CheckboxGroup and RadioGroup, the `label`
 tag is used instead of `label` but styled the same way.
 -->
 
@@ -23,7 +23,7 @@ tag is used instead of `label` but styled the same way.
 </script>
 
 {#if isLegend}
-  <legend {isError}><slot /></legend>
+  <label {isError}><slot /></label>
 {:else}
   <slot />
   <label for={forId} {isError}>
@@ -33,7 +33,7 @@ tag is used instead of `label` but styled the same way.
 
 <style>
   label,
-  legend {
+  label {
     display: block;
     margin: var(--ui-form-label-margin);
     font-size: var(--ui-form-label-font-size);
@@ -43,7 +43,7 @@ tag is used instead of `label` but styled the same way.
   }
 
   label[isError],
-  legend[isError] {
+  label[isError] {
     color: var(--ui-danger-dark);
   }
 </style>

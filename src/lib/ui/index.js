@@ -5,7 +5,7 @@ export { default as ButtonGroup } from './ButtonGroup.svelte';
 export { default as Checkbox } from './Checkbox.svelte';
 export { default as CheckboxGroup } from './CheckboxGroup.svelte';
 // export { default as FilePicker } from './FilePicker.svelte';
-// export { default as FormRow } from './FormRow.svelte';
+export { default as FormRow } from './FormRow.svelte';
 export { default as Input } from './Input.svelte';
 export { default as Label } from './Label.svelte';
 // export { default as Modal } from './Modal.svelte';

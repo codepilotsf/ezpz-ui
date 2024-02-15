@@ -26,6 +26,8 @@ Type in the field to see the value change.
   placeholder="Jane Doe"
   bind:value={name}
 />
+
+<p>Name: {name}</p>
 ```
 <Input
   name="name"
@@ -33,6 +35,8 @@ Type in the field to see the value change.
   placeholder="Jane Doe"
   bind:value={name}
 />
+
+<p>Name: {name}</p>
 
 ---
 
