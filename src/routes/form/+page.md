@@ -137,8 +137,8 @@ const schema = z.object({
 });
 
 // Export a load function to supply initial form data.
-export const load = async () => {
-  const form = await superValidate(zod(schema));
+export const load = async ({ request }) => {
+  const form = await superValidate(request, zod(schema));
   return { form };
 };
 
@@ -162,8 +162,16 @@ export const actions = {
 
 ### Example Form with Failed SuperForms Validation
 
-```svelte
+Here's how it looks in action. With the `+page.server.js` from above, if we submit the form with
+invalid data, we'll get the form data, errors, and constraints automatically applied to the form
+elements.
 
+```svelte
+<Form superform={data.form}>
+  <Input label="Name" name="name" />
+  <Input label="Email" name="email" />
+  <Button>Submit</Button>
+</Form>
 ```
 
 <Form superform={data.form}>

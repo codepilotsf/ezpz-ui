@@ -28,16 +28,8 @@
   let constraints = getContext('constraints') || writable({})
   let isError = $state(null)
   $effect(() => {
-    isError = $errors[name] || Boolean(error) || null
-    console.log('isError:', isError)
-    console.log('$errors[name]:', $errors[name])
-    console.log('$errors:', $errors)
+    isError = Boolean($errors[name]) || Boolean(error) || null
   })
-  // $effect(() => {
-  //   value = (form && $form[name]) || value
-  //   error = (errors && $errors[name]) || error
-  //   constraints = (constraints && $constraints[name]) || {}
-  // })
 
   const handleInput = (e) => {
     // This is a Rich Harris trick to allow dynamic `type` attribute
@@ -61,7 +53,7 @@
     {value}
     {required}
     on:input={handleInput}
-    {...$constraints}
+    {...$constraints[name]}
     {...other}
   />
 
