@@ -3,7 +3,7 @@
   import { getContext } from 'svelte'
 
   let {
-    type = 'button',
+    type = null,
     href = null,
     active = null,
     loading = null,

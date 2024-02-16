@@ -1,5 +1,7 @@
 <script>
   import './style.css'
+  import { getContext } from 'svelte'
+  import { writable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
 
   let {
@@ -21,7 +23,21 @@
   error = error === 'false' ? false : error
   disabled = disabled === 'false' ? false : disabled
 
-  const isError = Boolean(error)
+  let form = getContext('form') || writable({})
+  let errors = getContext('errors') || writable({})
+  let constraints = getContext('constraints') || writable({})
+  let isError = $state(null)
+  $effect(() => {
+    isError = $errors[name] || Boolean(error) || null
+    console.log('isError:', isError)
+    console.log('$errors[name]:', $errors[name])
+    console.log('$errors:', $errors)
+  })
+  // $effect(() => {
+  //   value = (form && $form[name]) || value
+  //   error = (errors && $errors[name]) || error
+  //   constraints = (constraints && $constraints[name]) || {}
+  // })
 
   const handleInput = (e) => {
     // This is a Rich Harris trick to allow dynamic `type` attribute
@@ -45,11 +61,12 @@
     {value}
     {required}
     on:input={handleInput}
+    {...$constraints}
     {...other}
   />
 
-  {#if error || note}
-    <Note {isError}>{error || note}</Note>
+  {#if isError || note}
+    <Note {isError}>{(errors && $errors[name]) || error || note}</Note>
   {/if}
 </ui-input>
 

@@ -18,7 +18,7 @@ I just went through the basic tutorial and I feel like I have a good understandi
 3. `$form`, `$errors`, and `$constraints` are stores which can be passed into form fields
 4. `enhance` is the SuperForms modified version of the Svelte version
 
-So basically, we validate against a schema on the backend, and pass a superform object to the front-end either on load or on a form submission (action). This object gets destructured and tells us whether our data is valid against the schema, and gives us all our form data and errors as separate objects.
+So basically, we validate against a schema on the back-end, and pass a superform object to the front-end either on load or on a form submission (action). This object gets destructured and tells us whether our data is valid against the schema, and gives us all our form data and errors as separate objects.
 
 
 
@@ -39,7 +39,7 @@ So basically, we validate against a schema on the backend, and pass a superform 
 
 The idea is to let the `<Form>` component use `data.form` to set `superform` to context. Then any child form elements can check to see if `superform` is available as context and if so, it will look for its own `name` value as properties of `$form`, `$errors`, and `$constraints` and will user those values by default.
 
-The backend `+page.server.js` would look like this:
+The back-end `+page.server.js` would look like this:
 
 ```js
 import { superValidate } from 'sveltekit-superforms';
