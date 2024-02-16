@@ -15,7 +15,7 @@ I just went through the basic tutorial and I feel like I have a good understandi
 1. `export let data` to get the loader or actions data
 2. Pass `form.data` into `superForm()` and destructure the result into:
    `{ form, errors, constraints, enhance }` 
-3. `$form`, `$errors`, and `$contraints` are stores which can be passed into form fields
+3. `$form`, `$errors`, and `$constraints` are stores which can be passed into form fields
 4. `enhance` is the SuperForms modified version of the Svelte version
 
 So basically, we validate against a schema on the backend, and pass a superform object to the front-end either on load or on a form submission (action). This object gets destructured and tells us whether our data is valid against the schema, and gives us all our form data and errors as separate objects.

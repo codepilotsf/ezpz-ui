@@ -55,7 +55,7 @@
     )
   }
 
-  const isGroup = getContext('isGroup')
+  const isGroup = getContext('isGroup') || null
 </script>
 
 {#if href}
@@ -97,7 +97,7 @@
   button,
   a {
     background-color: var(--ui-color);
-    transition: all 0.12s ease-in-out;
+    transition: filter 0.12s ease-in-out;
     border-radius: var(--ui-border-radius);
     padding: var(--ui-button-padding);
     font-size: var(--ui-button-font-size);
