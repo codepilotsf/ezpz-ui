@@ -1,8 +1,8 @@
 <!--
 Label is imported by form field components such as Input and CheckboxGroup
 and is *not* generally used directly. It is broken out into a separate component
-so that it can beœ styled consistently across all form field components while
-keeping the code DRY. In the case of CheckboxGroup and RadioGroup, the `label`
+so that it can be styled consistently across all form field components while
+keeping the code DRY. In the case of CheckboxGroup and RadioGroup, the `legend`
 tag is used instead of `label` but styled the same way.
 -->
 
@@ -13,20 +13,19 @@ tag is used instead of `label` but styled the same way.
   let {
     label = '',
     isLegend = false,
-    forId,
+    forId = null,
     isError,
   } = $props()
 
-  // Remove falsey values from the props
-  forId = forId || null
-  isError = isError || null
+  // Convert "false" string to boolean
+  isError = isError === 'false' ? false : isError
 </script>
 
 {#if isLegend}
-  <legend class="lib-ui" {isError}><slot /></legend>
+  <legend class="lib-ui" class:error={isError}><slot /></legend>
 {:else}
   <slot />
-  <label class="lib-ui" for={forId} {isError}>
+  <label class="lib-ui" for={forId} class:error={isError}>
     {label}
   </label>
 {/if}
@@ -42,8 +41,8 @@ tag is used instead of `label` but styled the same way.
     color: var(--ui-dark);
   }
 
-  label[isError],
-  legend[isError] {
+  label.error,
+  legend.error {
     color: var(--ui-danger-dark);
   }
 </style>

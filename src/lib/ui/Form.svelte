@@ -6,24 +6,24 @@
 
   let {
     method = 'POST',
-    superform = null,
+    superform,
     enhance: useEnhance = true,
     class: _class = '',
     ...other
   } = $props()
 
-  const superFormStores = superform ? superForm(superform) : null
-  if (superFormStores) {
-    const { form, errors, constraints } = superFormStores
+  let superEnhance
+  if (superform) {
+    const { form, errors, constraints, enhance } = superForm(superform)
     setContext('form', form)
     setContext('errors', errors)
     setContext('constraints', constraints)
+    superEnhance = enhance
   }
-  useEnhance = useEnhance === 'false' ? false : useEnhance
 
   let enhanceFunction
-  if (useEnhance === true || useEnhance === 'true') {
-    enhanceFunction = superFormStores?.enhance || svelteEnhance
+  if (useEnhance && useEnhance !== 'false') {
+    enhanceFunction = superEnhance || svelteEnhance
   }
 </script>
 

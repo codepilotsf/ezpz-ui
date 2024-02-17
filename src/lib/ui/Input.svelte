@@ -1,20 +1,19 @@
 <script>
   import './style.css'
   import { getContext } from 'svelte'
-  import { writable } from 'svelte/store'
+  import { readable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
 
   let {
     name = '',
-    value,
+    value = null,
     id = name || null,
     label = '',
     type = 'text',
-    placeholder = '',
+    placeholder = null,
     disabled = false,
     note = '',
     error = '',
-    required = false,
     class: _class = '',
     ...other
   } = $props()
@@ -23,12 +22,12 @@
   error = error === 'false' ? false : error
   disabled = disabled === 'false' ? false : disabled
 
-  let form = getContext('form') || writable({})
-  let errors = getContext('errors') || writable({})
-  let constraints = getContext('constraints') || writable({})
-  let isError = $state(null)
+  let form = getContext('form') || readable({})
+  let errors = getContext('errors') || readable({})
+  let constraints = getContext('constraints') || readable({})
+
   $effect(() => {
-    isError = Boolean($errors[name]) || Boolean(error) || null
+    error = errors ? $errors[name] : error
   })
 
   const handleInput = (e) => {
@@ -39,26 +38,25 @@
 </script>
 
 <ui-input class="lib-ui">
-  <Label forId={id} {isError} {label}></Label>
+  <Label forId={id} {label} isError={Boolean(error)}></Label>
 
   <input
     class={_class}
-    class:isError
+    class:error={Boolean(error)}
     aria-invalid={Boolean(error) || null}
     {type}
     {id}
     {name}
     {placeholder}
     {disabled}
-    {value}
-    {required}
-    on:input={handleInput}
+    value={$form[name] || value}
     {...$constraints[name]}
     {...other}
+    on:input={handleInput}
   />
 
-  {#if isError || note}
-    <Note {isError}>{(errors && $errors[name]) || error || note}</Note>
+  {#if error || note}
+    <Note isError={Boolean(error)}>{error || note}</Note>
   {/if}
 </ui-input>
 
