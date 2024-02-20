@@ -58,8 +58,9 @@
 
 <style>
   .lib-ui {
-    flex: 1;
+    display: block;
     margin-top: var(--ui-form-item-margin-top);
+    flex: 1;
   }
 
   textarea {

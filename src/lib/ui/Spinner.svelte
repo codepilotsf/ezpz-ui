@@ -14,7 +14,7 @@
     sm: '26px',
     md: '42px',
     lg: '68px',
-    xl: '110px',
+    xl: '110px'
   }
 </script>
 

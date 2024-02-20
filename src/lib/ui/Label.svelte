@@ -38,7 +38,7 @@ tag is used instead of `label` but styled the same way.
     font-size: var(--ui-form-label-font-size);
     font-weight: var(--ui-form-label-font-weight);
     font-variation-settings: 'wght' var(--ui-form-label-font-weight);
-    color: var(--ui-dark);
+    color: inherit;
   }
 
   label.error,

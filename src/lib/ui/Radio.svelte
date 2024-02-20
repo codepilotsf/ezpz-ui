@@ -19,7 +19,7 @@
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)',
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
     )
   }
 

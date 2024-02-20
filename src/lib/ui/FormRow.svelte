@@ -9,10 +9,6 @@
 </form-row>
 
 <style>
-  .lib-ui {
-    margin-top: var(--ui-form-item-margin-top);
-  }
-
   form-row {
     display: flex;
     gap: var(--ui-form-item-row-gap);

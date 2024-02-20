@@ -9,6 +9,7 @@
     loading = null,
     scheme = getContext('scheme') || '',
     color = getContext('color') || '',
+    textColor = '#fff',
     size = getContext('size') || 'md',
     background = '',
     class: _class = '',
@@ -19,39 +20,42 @@
     xs: {
       'font-size': 9,
       'x-padding': 6,
-      'y-padding': 4,
+      'y-padding': 4
     },
     sm: {
       'font-size': 12,
       'x-padding': 10,
-      'y-padding': 5,
+      'y-padding': 5
     },
     md: {
       'font-size': 14,
       'x-padding': 15,
-      'y-padding': 10,
+      'y-padding': 10
     },
     lg: {
       'font-size': 18,
       'x-padding': 20,
-      'y-padding': 12,
+      'y-padding': 12
     },
     xl: {
       'font-size': 20,
       'x-padding': 24,
-      'y-padding': 12,
-    },
+      'y-padding': 12
+    }
   }
 
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)',
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
     )
+
+    el.style.setProperty('--ui-text', textColor)
+
     el.style.setProperty('--ui-button-font-size', `${sizes[size]['font-size']}px`)
     el.style.setProperty(
       '--ui-button-padding',
-      `${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px`,
+      `${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px`
     )
   }
 
@@ -103,7 +107,7 @@
     font-size: var(--ui-button-font-size);
     font-weight: 600;
     letter-spacing: 1px;
-    color: #fff;
+    color: var(--ui-text);
     z-index: 1; /* Needed for ButtonGroup */
   }
 
@@ -115,7 +119,6 @@
 
   a,
   a:hover {
-    color: #fff;
     text-decoration: none;
     text-align: center;
   }

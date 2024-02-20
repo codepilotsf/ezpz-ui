@@ -17,7 +17,7 @@
     sm: '52px',
     md: '84px',
     lg: '136px',
-    xl: '220px',
+    xl: '220px'
   }
 
   const scheme = 'neutral'
