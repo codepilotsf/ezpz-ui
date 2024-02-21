@@ -42,6 +42,7 @@ so the button ends up in the correct position.
   hamburger-button {
     --button-width: 24px;
     --button-height: 18px;
+
     --line-thickness: 2px;
     --line-color: var(--ui-dark);
     --line-radius: 2px;
