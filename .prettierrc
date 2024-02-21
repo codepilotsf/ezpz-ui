@@ -1,9 +1,6 @@
 {
-  "useTabs": false,
-  "singleQuote": true,
   "semi": false,
-  "printWidth": 100,
-  "proseWrap": "always",
+  "singleQuote": true,
   "plugins": [
     "prettier-plugin-svelte",
     "prettier-plugin-tailwindcss"

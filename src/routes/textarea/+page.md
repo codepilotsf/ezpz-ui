@@ -102,9 +102,9 @@ Use `fixed` to disable the auto-expanding feature and show regular scrollbars as
 Display error message below the field. Also adds error styles.
 
 ```svelte
-<Textarea error="Email is not valid" />
+<Textarea error="Must be at least 40 million characters" />
 ```
-<Textarea value="jane@doe" error="Email is not valid" />
+<Textarea value="Herp derp." error="Must be at least 40 million characters" />
 
 ---
 

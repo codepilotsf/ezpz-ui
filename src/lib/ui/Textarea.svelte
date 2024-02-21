@@ -1,5 +1,7 @@
 <script>
   import './style.css'
+  import { getContext } from 'svelte'
+  import { readable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
 
   let {
@@ -21,7 +23,13 @@
   error = error === 'false' ? false : error
   disabled = disabled === 'false' ? false : disabled
 
-  const isError = Boolean(error)
+  let form = getContext('form') || readable({})
+  let errors = getContext('errors') || readable({})
+  let constraints = getContext('constraints') || readable({})
+
+  $effect(() => {
+    error = error || $errors[name] || ''
+  })
 
   function init(target) {
     if (height) target.style.setProperty('min-height', height)
@@ -36,12 +44,12 @@
 </script>
 
 <ui-input class={['lib-ui', _class].join(' ')} {...other}>
-  <Label forId={id} {isError} {label}></Label>
+  <Label forId={id} isError={Boolean(error)} {label}></Label>
 
   <textarea
     use:init
     on:input={resize}
-    class:isError
+    class:error
     {id}
     {name}
     {placeholder}
@@ -52,7 +60,7 @@
   />
 
   {#if error || note}
-    <Note {isError}>{error || note}</Note>
+    <Note isError={Boolean(error)}>{error || note}</Note>
   {/if}
 </ui-input>
 
@@ -91,7 +99,7 @@
     background-color: var(--ui-light);
   }
 
-  textarea:not(:focus).isError {
+  textarea.error {
     outline: 1px solid var(--ui-danger-dark);
     border: var(--ui-border-width) 1px solid var(--ui-danger-dark);
     box-shadow: 0 0 1px 1px var(--ui-danger-dark);

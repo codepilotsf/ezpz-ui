@@ -21,13 +21,19 @@
     superEnhance = enhance
   }
 
-  let enhanceFunction
-  if (useEnhance && useEnhance !== 'false') {
-    enhanceFunction = superEnhance || svelteEnhance
+  function getEnhanceFunction() {
+    if (!useEnhance || useEnhance === 'false') return () => {}
+    return superform ? superEnhance : svelteEnhance
   }
 </script>
 
-<form class={['lib-ui', _class].join(' ')} {method} {superform} {...other} use:enhanceFunction>
+<form
+  class={['lib-ui', _class].join(' ')}
+  {method}
+  {superform}
+  {...other}
+  use:getEnhanceFunction()
+>
   <slot />
 </form>
 

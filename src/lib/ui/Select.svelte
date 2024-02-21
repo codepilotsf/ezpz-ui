@@ -1,5 +1,7 @@
 <script>
   import './style.css'
+  import { getContext } from 'svelte'
+  import { readable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
 
   let {
@@ -19,7 +21,13 @@
   error = error === 'false' ? false : error
   disabled = disabled === 'false' ? false : disabled
 
-  const isError = Boolean(error) || null
+  let form = getContext('form') || readable({})
+  let errors = getContext('errors') || readable({})
+  let constraints = getContext('constraints') || readable({})
+
+  $effect(() => {
+    error = error || $errors[name] || ''
+  })
 
   const handleChange = ({ target }) => {
     value = target.value
@@ -27,25 +35,30 @@
 </script>
 
 <ui-select class={['lib-ui', _class].join(' ')} {...other}>
-  <Label forId={id} {isError} {label}></Label>
+  <Label forId={id} {label} isError={Boolean(error)}></Label>
 
   <select
     {id}
     {name}
-    {isError}
     {disabled}
-    aria-disabled={disabled}
+    value={$form[name] || value}
+    class:error={Boolean(error)}
     aria-invalid={Boolean(error) || null}
+    aria-disabled={disabled}
+    {...$constraints[name]}
+    {...other}
     on:change={handleChange}
   >
     {#if placeholder}
-      <option class="placeholder" value="" disabled selected hidden>{placeholder}</option>
+      <option class="placeholder" value="" disabled selected hidden
+        >{placeholder}</option
+      >
     {/if}
     <slot />
   </select>
 
   {#if error || note}
-    <Note {isError}>{error || note}</Note>
+    <Note isError={Boolean(error)}>{error || note}</Note>
   {/if}
 </ui-select>
 
@@ -72,9 +85,9 @@
     background-position: right 0.5rem center;
   }
 
-  select[isError] {
-    outline: 1px solid var(--ui-danger-dark);
-    border: 1px solid var(--ui-danger-dark);
+  select.error {
+    outline: var(--ui-border-width) solid var(--ui-danger-dark);
+    border: var(--ui-border-width) solid var(--ui-danger-dark);
     box-shadow: 0 0 1px 1px var(--ui-danger-light);
     color: var(--ui-danger-dark);
   }

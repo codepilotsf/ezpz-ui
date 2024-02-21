@@ -27,7 +27,7 @@
   let constraints = getContext('constraints') || readable({})
 
   $effect(() => {
-    error = errors ? $errors[name] : error
+    error = error || $errors[name] || ''
   })
 
   const handleInput = (e) => {
@@ -82,9 +82,9 @@
     box-shadow: 0 0 2px 1px var(--brand);
   }
 
-  input.isError {
-    outline: 1px solid var(--ui-danger-dark);
-    border: var(--ui-border-width) 1px solid var(--ui-danger-dark);
+  input.error {
+    outline: var(--ui-border-width) solid var(--ui-danger-dark);
+    border: var(--ui-border-width) solid var(--ui-danger-dark);
     box-shadow: 0 0 1px 1px var(--ui-danger-dark);
     color: var(--ui-danger-dark);
   }

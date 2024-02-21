@@ -24,9 +24,14 @@
     class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-white px-3 text-sky-600 shadow"
   >
     <!-- Logo -->
-    <a href="/" class="flex items-end gap-1 text-2xl font-bold hover:no-underline">
+    <a
+      href="/"
+      class="flex items-end gap-1 text-2xl font-bold hover:no-underline"
+    >
       <FolderOpenDot size={34} strokeWidth={2.3} />
-      <span>LIB<span class="mx-1">/</span><span class="font-light">UI</span></span>
+      <span
+        >LIB<span class="mx-1">/</span><span class="font-light">UI</span></span
+      >
     </a>
     <div class="flex items-center gap-3">
       <!-- Download Link -->
@@ -34,13 +39,19 @@
         ><DownloadCloud size={24} strokeWidth={3} /></a
       >
       <!-- Github Link -->
-      <a class="p-2" href="https://github.com/codepilotsf/lib-ui" target="_blank"><GitHubIcon /></a>
+      <a
+        class="p-2"
+        href="https://github.com/codepilotsf/lib-ui"
+        target="_blank"><GitHubIcon /></a
+      >
     </div>
   </header>
 
   <scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
     <!-- Menu -->
-    <menu class="block h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2">
+    <menu
+      class="block h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2"
+    >
       <MenuItem href="/alert" label="Alert" class="h-52" />
       <MenuItem href="/avatar" label="Avatar" />
       <MenuItem href="/button" label="Button" />
@@ -50,6 +61,7 @@
       <MenuItem href="/file-picker" label="FilePicker" disabled />
       <MenuItem href="/form" label="Form" />
       <MenuItem href="/form-row" label="FormRow" />
+      <MenuItem href="/hamburger" label="Hamburger" />
       <MenuItem href="/input" label="Input" />
       <MenuItem href="/modal" label="Modal" disabled />
       <MenuItem href="/option" label="Option" />
