@@ -69,7 +69,7 @@ So let's first look at how that works.
 <script>
   import { Form, Input, Button } from '$lib/ui';
   import { superForm } from 'sveltekit-superforms';
-  export { data } = $props();
+  let { data } = $props();
   const { form, errors, constraints } = superForm(data.form);
 </script>
 
@@ -103,7 +103,7 @@ how we can use the `Form` component to make this a bit easier.
 ```svelte
 <script>
   import { Form, Input, Button } from '$lib/ui';
-  export { data } = $props();
+  let { data } = $props();
 </script>
 
 <Form superform={data.form}>
