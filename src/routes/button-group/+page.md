@@ -12,8 +12,8 @@
 
 # ButtonGroup
 
-A ButtonGroup is used to group child Button components together as a single element. They can be used to create a
-segmented control for plain buttons with an `on:click` directive.
+A ButtonGroup is used to group child Button components together as a single element. They can be
+used to create a segmented control for plain buttons with an `on:click` directive.
 
 ### Example
 
@@ -77,8 +77,8 @@ segmented control for plain buttons with an `on:click` directive.
 
 ### Color Scheme
 
-If all of the Button components in a ButtonGroup should have the same color scheme, use the `scheme` prop on the
-ButtonGroup instead of on each individual Button.
+If all of the Button components in a ButtonGroup should have the same color scheme, use the `scheme`
+prop on the ButtonGroup instead of on each individual Button.
 
 ```svelte
 <ButtonGroup scheme="danger">
@@ -95,19 +95,19 @@ ButtonGroup instead of on each individual Button.
 
 ---
 
-### Custom Color
+### Custom Colors
 
-If all of the Button components in a ButtonGroup should have the same color, use the `color` prop on the
-ButtonGroup instead of on each individual Button.
+If all of the Button components in a ButtonGroup should have the same color or background, use the
+`color` or `background` prop on the ButtonGroup instead of on each individual Button.
 
 
 ```svelte
-<ButtonGroup color="sienna">
+<ButtonGroup color="yellow" background="sienna">
   <Button>Herp</Button>
   <Button>Derp</Button>
 </ButtonGroup>
 ```
-<ButtonGroup color="sienna">
+<ButtonGroup color="yellow" background="sienna">
   <Button>Herp</Button>
   <Button>Derp</Button>
 </ButtonGroup>
@@ -120,13 +120,13 @@ If all of the Button components in a ButtonGroup should have the same size, use 
 ButtonGroup instead of on each individual Button.
 
 ```svelte
-<ButtonGroup size="sm" color="gray">
+<ButtonGroup size="sm" background="gray">
   <Button>A</Button>
   <Button>B</Button>
   <Button>C</Button>
 </ButtonGroup>
 ```
-<ButtonGroup size="sm" color="gray">
+<ButtonGroup size="sm" background="gray">
   <Button>A</Button>
   <Button>B</Button>
   <Button>C</Button>
