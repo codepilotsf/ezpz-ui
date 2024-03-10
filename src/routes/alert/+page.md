@@ -1,14 +1,15 @@
 <script>
 	import { Alert } from '$lib/ui';
 	import { IceCream } from 'lucide-svelte';
-	import Tables from './Tables.svelte';
+	import Table from '$lib/components/Table.svelte';
 </script>
 
 # Alert
 
-Alerts can be used to provide user feedback for things like successful operations and errors. By default, alerts are
-displayed at full-width. Use `bind:active` two-way binding so that the parent template can trigger an alert and the
-alert's close button can also close it. When using a scheme, an appropriate icon will be included when appropriate.
+Alerts can be used to provide user feedback for things like successful operations and errors. By
+default, alerts are displayed at full-width. Use `bind:active` two-way binding so that the parent
+template can trigger an alert and the alert's close button can also close it. When using a scheme,
+an appropriate icon will be included when appropriate.
 
 ### Example
 
@@ -20,17 +21,17 @@ The brand scheme will be used by default if no scheme or color is provided.
 </script>
 
 <Alert>
-  A default alert using the neutral scheme DEBUG.
+  A default alert using neutral colors.
 </Alert>
 ```
-<Alert>A default alert using the neutral scheme.</Alert>
+<Alert>A default alert using neutral colors.</Alert>
 
 ---
 
 ### Color Schemes
 
-Color schemes defined in `style.css` can be used to set the color and icon used for the alert. The icons used can also
-be changed in `utils.js` if desired.
+Color schemes defined in `style.css` can be used to set the color and icon used for the alert. The
+icons used can also be changed in `utils.js` if desired.
 
 ```svelte
 <Alert scheme="info">
@@ -128,4 +129,76 @@ An icon can be added by using the `icon` named slot.
 
 ---
 
-<Tables />
+<Table name="Alert" type="props">
+  <tr>
+    <td><code>active</code></td>
+    <td>Boolean</td>
+    <td><code>true</code></td>
+    <td
+      >Use with <code>bind:active</code> two-way binding so that the parent template
+      can trigger an alert and the Alert's close button can also close it.</td
+    >
+  </tr>
+  <tr>
+    <td><code>icon</code></td>
+    <td>String | Boolean</td>
+    <td><code>true</code></td>
+    <td
+      >Sets whether an icon is displayed for scheme which includes a default
+      icon.</td
+    >
+  </tr>
+  <tr>
+    <td><code>scheme</code></td>
+    <td>String: 'info', 'success', 'warning', 'danger'</td>
+    <td>&nbsp;</td>
+    <td>Color/Icon scheme of alert to be displayed</td>
+  </tr>
+  <tr>
+    <td><code>color</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >Color used for text and icons (overrides <code>scheme</code> if present)</td
+    >
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >Color or CSS background value used for background (overrides <code
+        >scheme</code
+      > if present)</td
+    >
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >CSS classes declared in global scope can be applied to the outermost
+      element</td
+    >
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling
+      support for things like <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Alert" type="slots">
+  <tr>
+    <td><code>title</code></td>
+    <td>Content to be used as a title</td>
+  </tr>
+  <tr>
+    <td><code>icon</code></td>
+    <td>An icon component to replace the default icon </td>
+  </tr>
+</Table>

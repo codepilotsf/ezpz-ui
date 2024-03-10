@@ -1,6 +1,5 @@
 <script>
   import { getContext } from 'svelte'
-  import './style.css'
 
   let {
     label = '',
@@ -19,7 +18,7 @@
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-accent)',
     )
   }
 

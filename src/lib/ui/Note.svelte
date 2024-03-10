@@ -5,8 +5,6 @@ code DRY. Note can be styled as a helpful note or as an error message.
 -->
 
 <script>
-  import './style.css'
-
   let { isError } = $props()
 
   // Remove falsey values from the props

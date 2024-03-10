@@ -1,13 +1,13 @@
 <script>
 	import { Button } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
 </script>
 
 # Button
 
-Button components are rendered as a `button` element by default or if an `href` property is passed, it will be rendered
-as a regular `a` anchor link element. Styling will be the same in either case. By default, buttons are `md` size and use
-the `ui-brand` with white text.
+Button components are rendered as a `button` element by default or if an `href` property is passed,
+it will be rendered as a regular `a` anchor link element. Styling will be the same in either case.
+By default, buttons are `md` size and use the `ui-brand` with white text.
 
 ### Example
 
@@ -30,7 +30,8 @@ The default button uses the `brand` scheme for color and `md` size.
 
 ### Color Schemes
 
-Color schemes defined in `style.css` can be used to set the button color. Text will be white by default.
+Color schemes defined in `style.css` can be used to set the button color. Text will be white by
+default.
 
 ```svelte
 <Button scheme="info">
@@ -119,8 +120,8 @@ The `size` property can be used to select other button sizes. The default size i
 
 ### Anchor Tag
 
-If an `href` property is passed, the button will be rendered as a regular `a` anchor link element. All other props can
-still be used and styling will be the same in either case.
+If an `href` property is passed, the button will be rendered as a regular `a` anchor link element.
+All other props can still be used and styling will be the same in either case.
 
 ```svelte
 <Button href="https://svelte.dev">
@@ -131,4 +132,103 @@ still be used and styling will be the same in either case.
 
 ---
 
-<Tables />
+<Table name="Button" type="props">
+  <tr>
+    <td><code>scheme</code></td>
+    <td>String: 'info', 'success', 'warning', 'danger'</td>
+    <td>&nbsp;</td>
+    <td>Color scheme to use as button color with white text</td>
+  </tr>
+  <tr>
+    <td><code>color</code></td>
+    <td>String</td>
+    <td>'#ffffff'</td>
+    <td>Color to be used for button text</td>
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>String</td>
+    <td class="text-nowrap">'var(--ui-accent)'</td>
+    <td>Color to be used for button background</td>
+  </tr>
+  <tr>
+    <td><code>size</code></td>
+    <td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
+    <td>'md'</td>
+    <td>Size of button</td>
+  </tr>
+  <tr>
+    <td><code>href</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >If present, <code>a</code> (anchor tag) is used to style a link as a button</td
+    >
+  </tr>
+  <tr>
+    <td><code>target</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >Used with <code>href</code> to set the anchor tag's <code>target</code>
+      attribute</td
+    >
+  </tr>
+  <tr>
+    <td><code>type</code></td>
+    <td>(todo)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>active</code></td>
+    <td>Boolean</td>
+    <td>false</td>
+    <td>Display as active button (brighter)</td>
+  </tr>
+  <tr>
+    <td><code>loading</code></td>
+    <td>(todo)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>variant</code></td>
+    <td>(todo)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td
+      >CSS classes declared in global scope can be applied to the outermost
+      element</td
+    >
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling
+      support for things like
+      <code>disabled</code>, <code>on:click</code>,
+      <code>target="_blank"</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Button" type="slots">
+  <tr>
+    <td><code>icon</code></td>
+    <td>(todo)</td>
+  </tr>
+  <tr>
+    <td><code>iconTrailing</code></td>
+    <td>(todo)</td>
+  </tr>
+</Table>
+
+

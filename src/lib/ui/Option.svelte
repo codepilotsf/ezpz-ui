@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { getContext } from 'svelte'
 
   // prettier-ignore

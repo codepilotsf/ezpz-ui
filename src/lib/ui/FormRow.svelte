@@ -1,6 +1,4 @@
 <script>
-  import './style.css'
-
   let { children, class: _class = '', ...other } = $props()
 </script>
 

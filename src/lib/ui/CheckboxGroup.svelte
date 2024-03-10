@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { Label, Note } from '$lib/ui'
   import { setContext } from 'svelte'
 

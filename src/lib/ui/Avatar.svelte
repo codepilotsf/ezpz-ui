@@ -1,26 +1,15 @@
 <script>
-  import './style.css'
-
   let {
     src = '',
     initials = '',
     name = '',
+    alt = '',
     size = 'md',
-    color = '',
-    background = '',
+    color,
+    background,
     class: _class = '',
     ...other
   } = $props()
-
-  const sizes = {
-    xs: '32px',
-    sm: '52px',
-    md: '84px',
-    lg: '136px',
-    xl: '220px'
-  }
-
-  const scheme = 'neutral'
 
   // Format initials or get them from name
   if (initials) {
@@ -32,17 +21,17 @@
       .slice(0, 2)
       .join('')
   }
-
-  function setCssVars(el) {
-    el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`)
-    el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`)
-    el.style.setProperty('--ui-avatar-size', sizes[size])
-  }
 </script>
 
-<ui-avatar use:setCssVars class={['lib-ui', _class].join(' ')} {...other}>
+<ui-avatar
+  class={['lib-ui', _class].join(' ')}
+  style:color
+  style:background
+  {size}
+  {...other}
+>
   {#if src}
-    <img {src} alt={name || initials || 'Avatar'} />
+    <img {src} alt={alt || name || initials || 'Avatar'} />
   {:else if initials}
     <span>{initials}</span>
   {/if}
@@ -53,16 +42,36 @@
   ui-avatar {
     display: inline-flex;
     align-items: center;
-    height: auto;
-    width: var(--ui-avatar-size);
     justify-content: center;
     border-radius: 50%;
     font-weight: 600;
-    font-size: calc(var(--ui-avatar-size) / 2.2);
+    height: auto;
     overflow: hidden;
     aspect-ratio: 1;
-    background: var(--ui-background);
-    color: var(--ui-color);
+    color: var(--ui-light, #0f172a);
+    background-color: var(--ui-dark, #cbd5e1);
+    width: var(--ui-avatar-size);
+    font-size: calc(var(--ui-avatar-size) / 2.2);
+  }
+
+  [size='xs'] {
+    --ui-avatar-size: 32px;
+  }
+
+  [size='sm'] {
+    --ui-avatar-size: 52px;
+  }
+
+  [size='md'] {
+    --ui-avatar-size: 84px;
+  }
+
+  [size='lg'] {
+    --ui-avatar-size: 136px;
+  }
+
+  [size='xl'] {
+    --ui-avatar-size: 220px;
   }
 
   ui-avatar img {

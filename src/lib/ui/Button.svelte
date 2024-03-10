@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { getContext } from 'svelte'
 
   let {
@@ -7,67 +6,23 @@
     href = null,
     active = null,
     loading = null,
-    scheme = getContext('scheme') || '',
-    color = getContext('color') || '',
-    background = getContext('background') || '',
+    scheme = getContext('scheme'),
+    color = getContext('color'),
+    background = getContext('background'),
     size = getContext('size') || 'md',
     class: _class = '',
     ...other
   } = $props()
-
-  const sizes = {
-    xs: {
-      'font-size': 9,
-      'x-padding': 6,
-      'y-padding': 4,
-    },
-    sm: {
-      'font-size': 12,
-      'x-padding': 10,
-      'y-padding': 5,
-    },
-    md: {
-      'font-size': 14,
-      'x-padding': 15,
-      'y-padding': 10,
-    },
-    lg: {
-      'font-size': 18,
-      'x-padding': 20,
-      'y-padding': 12,
-    },
-    xl: {
-      'font-size': 20,
-      'x-padding': 24,
-      'y-padding': 12,
-    },
-  }
-
-  function setCssVars(el) {
-    el.style.setProperty('--ui-color', color || '#ffffff')
-
-    el.style.setProperty(
-      '--ui-background',
-      background || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)',
-    )
-
-    el.style.setProperty(
-      '--ui-button-font-size',
-      `${sizes[size]['font-size']}px`,
-    )
-    el.style.setProperty(
-      '--ui-button-padding',
-      `${sizes[size]['y-padding']}px ${sizes[size]['x-padding']}px`,
-    )
-  }
 
   const isGroup = getContext('isGroup') || null
 </script>
 
 {#if href}
   <a
-    use:setCssVars
     class={['lib-ui', _class].join(' ')}
+    style:color
+    style:background
+    {scheme}
     {href}
     {type}
     {active}
@@ -81,8 +36,10 @@
   </a>
 {:else}
   <button
-    use:setCssVars
     class={['lib-ui', _class].join(' ')}
+    style:color
+    style:background
+    {scheme}
     {type}
     {active}
     {loading}
@@ -96,53 +53,82 @@
 {/if}
 
 <style>
-  button.lib-ui,
-  a.lib-ui {
-    color: var(--ui-color);
-    background-color: var(--ui-background);
+  .lib-ui {
     transition: filter 0.12s ease-in-out;
-    border-radius: var(--ui-border-radius);
-    padding: var(--ui-button-padding);
-    font-size: var(--ui-button-font-size);
+    border-radius: var(--ui-border-radius, 3px);
     font-weight: 600;
     letter-spacing: 1px;
     z-index: 1; /* Needed for ButtonGroup */
+    color: #fff;
+    background-color: var(--ui-accent, #0f172a);
   }
 
-  button:not([isGroup]),
-  a:not([isGroup]) {
-    box-shadow: var(--ui-button-shadow);
-    margin-top: var(--ui-form-item-margin-top);
+  [size='xs'] {
+    font-size: 9px;
+    padding: 4px 6px;
   }
 
-  a,
-  a:hover {
+  [size='sm'] {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  [size='md'] {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  [size='lg'] {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  [size='xl'] {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+
+  [scheme='info'] {
+    background-color: var(--ui-info-dark, #075985);
+  }
+  [scheme='success'] {
+    background-color: var(--ui-success-dark, #15803d);
+  }
+  [scheme='warning'] {
+    background-color: var(--ui-warning-dark, #ea580c);
+  }
+
+  [scheme='danger'] {
+    background-color: var(--ui-danger-dark, #b91c1c);
+  }
+
+  .lib-ui:not([isGroup]) {
+    box-shadow: var(--ui-button-shadow, 0 1px 2px rgba(0, 0, 0, 0.35));
+    margin-top: var(--ui-form-item-margin-top, 1rem);
+  }
+
+  a.lib-ui,
+  a.lib-ui:hover {
+    display: inline-block;
     text-decoration: none;
     text-align: center;
   }
 
-  button:hover,
-  button[active='true'],
+  button.lib-ui:hover,
+  button.lib-ui[active='true'],
   a:hover,
   a[active='true'] {
     filter: brightness(1.3);
   }
 
-  button:hover:not([isGroup]),
-  button[active='true']:not([isGroup]),
-  a:hover:not([isGroup]),
-  a[active='true']:not([isGroup]) {
-    outline: 1px solid var(--ui-color);
-  }
-
-  button:active,
-  a:active {
+  button.lib-ui:active,
+  a.lib-ui:active {
     filter: brightness(1);
     outline: none;
   }
 
-  button[isGroup],
-  a[isGroup] {
+  button.lib-ui[isGroup],
+  a.lib-ui[isGroup] {
     border-radius: 0;
   }
 </style>

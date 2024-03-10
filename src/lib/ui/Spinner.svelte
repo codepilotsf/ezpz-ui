@@ -1,10 +1,8 @@
 <script>
-  import './style.css'
-
   let {
     variant = 'circle-bars',
     size = 'md',
-    color = 'var(--ui-brand)',
+    color = 'var(--ui-accent)',
     class: _class = '',
     ...other
   } = $props()
@@ -14,13 +12,17 @@
     sm: '26px',
     md: '42px',
     lg: '68px',
-    xl: '110px'
+    xl: '110px',
   }
 </script>
 
 <!-- https://github.com/n3r4zzurr0/svg-spinners -->
 
-<ui-spinner class={['lib-ui', _class].join(' ')} style={`color: ${color}`} {...other}>
+<ui-spinner
+  class={['lib-ui', _class].join(' ')}
+  style={`color: ${color}`}
+  {...other}
+>
   {#if variant === 'circle-bars'}
     <svg
       width={sizes[size]}
@@ -80,7 +82,14 @@
           height="5"
           transform="rotate(30 12 12)"
           opacity=".29"
-        /><rect x="11" y="1" width="2" height="5" transform="rotate(60 12 12)" opacity=".43" /><rect
+        /><rect
+          x="11"
+          y="1"
+          width="2"
+          height="5"
+          transform="rotate(60 12 12)"
+          opacity=".43"
+        /><rect
           x="11"
           y="1"
           width="2"
@@ -101,7 +110,13 @@
           height="5"
           transform="rotate(150 12 12)"
           opacity=".86"
-        /><rect x="11" y="1" width="2" height="5" transform="rotate(180 12 12)" /></g
+        /><rect
+          x="11"
+          y="1"
+          width="2"
+          height="5"
+          transform="rotate(180 12 12)"
+        /></g
       ></svg
     >
   {/if}
@@ -166,32 +181,52 @@
         cx="16.50"
         cy="4.21"
         r="0"
-      /><circle class="spinner_DupU spinner_n0Yb" cx="7.50" cy="4.21" r="0" /><circle
+      /><circle
+        class="spinner_DupU spinner_n0Yb"
+        cx="7.50"
+        cy="4.21"
+        r="0"
+      /><circle
         class="spinner_DupU spinner_dwN6"
         cx="19.79"
         cy="7.50"
         r="0"
-      /><circle class="spinner_DupU spinner_GIL4" cx="4.21" cy="7.50" r="0" /><circle
+      /><circle
+        class="spinner_DupU spinner_GIL4"
+        cx="4.21"
+        cy="7.50"
+        r="0"
+      /><circle
         class="spinner_DupU spinner_46QP"
         cx="21.00"
         cy="12.00"
         r="0"
-      /><circle class="spinner_DupU spinner_DQhX" cx="3.00" cy="12.00" r="0" /><circle
+      /><circle
+        class="spinner_DupU spinner_DQhX"
+        cx="3.00"
+        cy="12.00"
+        r="0"
+      /><circle
         class="spinner_DupU spinner_PD82"
         cx="19.79"
         cy="16.50"
         r="0"
-      /><circle class="spinner_DupU spinner_tVmX" cx="4.21" cy="16.50" r="0" /><circle
+      /><circle
+        class="spinner_DupU spinner_tVmX"
+        cx="4.21"
+        cy="16.50"
+        r="0"
+      /><circle
         class="spinner_DupU spinner_eUgh"
         cx="16.50"
         cy="19.79"
         r="0"
-      /><circle class="spinner_DupU spinner_j38H" cx="7.50" cy="19.79" r="0" /><circle
-        class="spinner_DupU spinner_eUaP"
-        cx="12"
-        cy="21"
+      /><circle
+        class="spinner_DupU spinner_j38H"
+        cx="7.50"
+        cy="19.79"
         r="0"
-      /></svg
+      /><circle class="spinner_DupU spinner_eUaP" cx="12" cy="21" r="0" /></svg
     >
   {/if}
 

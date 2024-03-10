@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { getContext } from 'svelte'
   import { readable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
@@ -78,7 +77,7 @@
   }
 
   input:focus {
-    outline: 2px solid var(--ui-brand);
+    outline: 2px solid var(--ui-accent);
     box-shadow: 0 0 2px 1px var(--brand);
   }
 

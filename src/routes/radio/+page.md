@@ -13,7 +13,7 @@ Radio components are used to select one of multiple options. Because they have n
 
 ### Example
 
-As mentioned above, a single radio button isn't very useful – but here's one anyway. The default color is `--ui-brand`.
+As mentioned above, a single radio button isn't very useful – but here's one anyway. The default color is `--ui-accent`.
 
 ```svelte
 <script>

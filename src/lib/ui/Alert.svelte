@@ -1,54 +1,99 @@
 <script>
   import { slide } from 'svelte/transition'
-  import './style.css'
 
-  // prettier-ignore
   let {
-	  active = true,
-	  icon = true,
-	  color = '',
-	  background = '',
-	  scheme = 'neutral',
+    active = true,
+    icon = true,
+    color,
+    background,
+    scheme,
     class: _class = '',
     ...other
-	} = $props()
-
-  // Include our own icons so we don't need any dependencies
-  const xIcon =
-    '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
-
-  const schemeIcons = {
-    info: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-badge-info"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><line x1="12" x2="12" y1="16" y2="12"/><line x1="12" x2="12.01" y1="8" y2="8"/></svg>',
-    warning:
-      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alert-triangle"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
-    success:
-      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>',
-    danger:
-      '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-circle"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>'
-  }
-
-  // Set CSS custom properties --ui-color and --ui-background to main wrapper element
-  function setColors(el) {
-    el.style.setProperty('--ui-color', color || `var(--ui-${scheme}-dark)`)
-    el.style.setProperty('--ui-background', background || `var(--ui-${scheme}-light)`)
-  }
+  } = $props()
 </script>
 
 {#if active}
   <ui-alert
-    use:setColors
     class={['lib-ui', _class].join(' ')}
+    style:color
+    style:background
     in:slide={{ duration: 200 }}
     out:slide={{ duration: 200 }}
+    {scheme}
     {...other}
   >
     {#if icon && icon !== 'false'}
       <div class="ui-icon">
-        <!-- Custom or scheme icon -->
         {#if $$slots.icon}
+          <!-- Custom Icon (slot) -->
           <slot name="icon" />
-        {:else if schemeIcons[scheme]}
-          {@html schemeIcons[scheme]}
+        {:else if scheme === 'info'}
+          <!-- Info Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"
+            /><line x1="12" x2="12" y1="16" y2="12" /><line
+              x1="12"
+              x2="12.01"
+              y1="8"
+              y2="8"
+            /></svg
+          >
+        {:else if scheme === 'warning'}
+          <!-- Warning Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path
+              d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"
+            /><path d="M12 9v4" /><path d="M12 17h.01" /></svg
+          >
+        {:else if scheme === 'success'}
+          <!-- Success Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M18 6 7 17l-5-5" /><path d="m22 10-7.5 7.5L13 16" /></svg
+          >
+        {:else if scheme === 'danger'}
+          <!-- Danger Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><circle cx="12" cy="12" r="10" /><path d="m15 9-6 6" /><path
+              d="m9 9 6 6"
+            /></svg
+          >
         {/if}
       </div>
     {/if}
@@ -69,7 +114,18 @@
 
     <!-- Close Button -->
     <button on:click={() => (active = false)}>
-      {@html xIcon}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+      >
     </button>
   </ui-alert>
 {/if}
@@ -78,10 +134,27 @@
   ui-alert {
     display: flex;
     gap: 8px;
-    border-radius: var(--ui-border-radius);
+    border-radius: var(--ui-border-radius, 3px);
     padding: 12px;
-    color: var(--ui-color);
-    background-color: var(--ui-background);
+    color: var(--ui-light, #0f172a);
+    background-color: var(--ui-dark, #cbd5e1);
+  }
+  [scheme='info'] {
+    color: var(--ui-info-dark, #075985);
+    background-color: var(--ui-info-light, #e0f2fe);
+  }
+  [scheme='success'] {
+    color: var(--ui-success-dark, #15803d);
+    background-color: var(--ui-success-light, #bbf7d0);
+  }
+  [scheme='warning'] {
+    color: var(--ui-warning-dark, #ea580c);
+    background-color: var(--ui-warning-light, #fef08a);
+  }
+
+  [scheme='danger'] {
+    color: var(--ui-danger-dark, #b91c1c);
+    background-color: var(--ui-danger-light, #fecaca);
   }
   button {
     margin-left: auto;

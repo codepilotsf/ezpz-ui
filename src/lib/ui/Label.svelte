@@ -7,8 +7,6 @@ tag is used instead of `label` but styled the same way.
 -->
 
 <script>
-  import './style.css'
-
   // prettier-ignore
   let {
     label = '',

@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { setContext } from 'svelte'
 
   // prettier-ignore
@@ -20,12 +19,17 @@
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-accent)',
     )
   }
 </script>
 
-<ui-button-group use:setCssVars class={['lib-ui', _class].join(' ')} {name} {...other}>
+<ui-button-group
+  use:setCssVars
+  class={['lib-ui', _class].join(' ')}
+  {name}
+  {...other}
+>
   <slot />
 </ui-button-group>
 

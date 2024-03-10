@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { getContext } from 'svelte'
 
   let {
@@ -19,7 +18,7 @@
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-brand)'
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-accent)',
     )
   }
 
@@ -44,7 +43,8 @@
     {name}
     {value}
     {disabled}
-    checked={(value && value === valueState?.value) || (!valueState?.value?.length && checked)}
+    checked={(value && value === valueState?.value) ||
+      (!valueState?.value?.length && checked)}
     {...other}
     aria-checked={checked}
     on:change={handleChange}

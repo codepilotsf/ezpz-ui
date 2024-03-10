@@ -1,5 +1,4 @@
 <script>
-  import './style.css'
   import { setContext } from 'svelte'
   import { enhance as svelteEnhance } from '$app/forms'
   import { superForm } from 'sveltekit-superforms'
