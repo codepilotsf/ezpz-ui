@@ -21,15 +21,15 @@ code DRY. Note can be styled as a helpful note or as an error message.
   ui-error,
   ui-note {
     display: block;
-    font-size: var(--ui-form-error-note-font-size);
-    line-height: var(--ui-form-error-note-line-height);
-    margin-top: var(--ui-form-error-note-margin-top);
+    font-size: var(--ui-form-error-note-font-size, 0.9rem);
+    line-height: var(--ui-form-error-note-line-height, 1);
+    margin-top: var(--ui-form-error-note-margin-top, 6px);
   }
 
   ui-error {
-    color: var(--ui-danger-dark);
+    color: var(--ui-danger-dark, red);
   }
   ui-note {
-    color: var(--ui-lighter-color);
+    color: var(--ui-dark, #222);
   }
 </style>

@@ -7,11 +7,10 @@
 
 Button components are rendered as a `button` element by default or if an `href` property is passed,
 it will be rendered as a regular `a` anchor link element. Styling will be the same in either case.
-By default, buttons are `md` size and use the `ui-brand` with white text.
 
 ### Example
 
-The default button uses the `brand` scheme for color and `md` size.
+The default button uses `--ui-accent` value or `royalblue` for color and `md` size.
 
 ```svelte
 <script>
@@ -28,10 +27,25 @@ The default button uses the `brand` scheme for color and `md` size.
 
 ---
 
+### Color and Background
+
+Pass in arbitrary color and background values to change the button's appearance.
+
+```svelte
+<Button background="mistyrose" color="darkviolet">
+  Click Me
+</Button>
+```
+<Button background="mistyrose" color="darkviolet">
+  Click Me
+</Button>
+
+---
+
 ### Color Schemes
 
-Color schemes defined in `style.css` can be used to set the button color. Text will be white by
-default.
+Color schemes defined in `style.css` can be used to set the button background color to the dark
+color defined for that scheme (or default colors will be used). Text will be white by default.
 
 ```svelte
 <Button scheme="info">

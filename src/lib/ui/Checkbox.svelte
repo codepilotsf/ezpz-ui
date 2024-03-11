@@ -9,17 +9,18 @@
     name = getContext('name') || null,
     id = name || null,
     value = null,
-    color = getContext('color') || '',
+    background = getContext('background') || '',
     scheme = getContext('scheme') || '',
     _class: _class = '',
     ...other
   } = $props()
 
-  function setCssVars(el) {
-    el.style.setProperty(
-      '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-accent)',
-    )
+  function setBackground(el) {
+    // This must be set as a local CSS variable in order to use it in the pseudo-element for the
+    // background color of the button group (which is a darkened version of the background color)
+    if (background) {
+      el.style.setProperty('--ui-checkbox-background', background)
+    }
   }
 
   let valueState = getContext('valueState')
@@ -47,7 +48,7 @@
 
   <input
     class={['lib-ui', _class].join(' ')}
-    use:setCssVars
+    use:setBackground
     type="checkbox"
     bind:checked
     on:change={handleChange}
@@ -55,6 +56,7 @@
     {name}
     {disabled}
     {value}
+    {scheme}
     {...other}
     aria-checked={checked}
   />
@@ -79,8 +81,10 @@
   }
 
   input {
-    border: 1px solid var(--ui-border-color);
-    border-radius: 3px;
+    border-style: solid;
+    border-width: var(--ui-border-width, 1px);
+    border-radius: var(--ui-border-radius, 3px);
+    border-color: var(--ui-border-color, var(--ui-midtone, #aaa));
     appearance: none;
     width: 18px;
     height: 18px;
@@ -100,13 +104,32 @@
     cursor: not-allowed;
   }
   input:disabled {
-    background: var(--ui-midtone);
+    background: var(--ui-light, #ccc);
   }
 
   input:checked {
-    border-color: var(--ui-color);
-    background-color: var(--ui-color);
+    border-color: var(--ui-checkbox-background, var(--ui-accent, royalblue));
+    background-color: var(
+      --ui-checkbox-background,
+      var(--ui-accent, royalblue)
+    );
     background-position: 40% 40%;
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' %3E%3Cpath fill='white' d='M0,8 5,13 14,4 12,2 5,9 2,6z'/%3E%3C/svg%3E%0A");
+  }
+
+  input:checked[scheme='info'] {
+    --ui-checkbox-background: var(--ui-info-dark, dodgerblue);
+  }
+
+  [scheme='warning'] {
+    --ui-checkbox-background: var(--ui-warning-dark, darkorange);
+  }
+
+  [scheme='success'] {
+    --ui-checkbox-background: var(--ui-success-dark, green);
+  }
+
+  [scheme='danger'] {
+    --ui-checkbox-background: var(--ui-danger-dark, red);
   }
 </style>

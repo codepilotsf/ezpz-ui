@@ -1,6 +1,6 @@
 <script>
   import { Checkbox } from '$lib/ui';
-  import Tables from './Tables.svelte';
+    import Table from '$lib/components/Table.svelte';
   import { Heart } from 'lucide-svelte';
 
   let name = '';
@@ -65,14 +65,12 @@ Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop
 Color schemes defined in `style.css` can be used to set the color of the checkbox when checked.
 
 ```svelte
-<Checkbox scheme="neutral" label="Neutral" checked/>
 <Checkbox scheme="info" label="Info" checked/>
 <Checkbox scheme="warning" label="Warning" checked/>
 <Checkbox scheme="success" label="Success" checked/>
 <Checkbox scheme="danger" label="Danger" checked/>
 ```
 <div class="flex flex-col gap-2">
-  <Checkbox scheme="neutral" label="Neutral" checked/>
   <Checkbox scheme="info" label="Info" checked/>
   <Checkbox scheme="warning" label="Warning" checked/>
   <Checkbox scheme="success" label="Success" checked/>
@@ -81,14 +79,14 @@ Color schemes defined in `style.css` can be used to set the color of the checkbo
 
 ---
 
-### Custom Color
+### Custom Background Color
 
-Set an arbitrary color to use for the checkbox when checked.
+Set an arbitrary background color to use for the checkbox when checked.
 
 ```svelte
-<Checkbox label="Spam me" color="deeppink" checked />
+<Checkbox label="Spam me" background="deeppink" checked />
 ```
-<Checkbox label="Spam me" color="deeppink" checked />
+<Checkbox label="Spam me" background="deeppink" checked />
 
 ---
 
@@ -145,9 +143,6 @@ Since the `label` prop can only be a String, you can use the `label` slot instea
 
 ---
 
-
----
-
 ### Leading Label Named Slot
 
 Since the `leadingLabel` prop can only be a String, you can use the `leadingLabel` slot instead to pass in a more
@@ -166,4 +161,70 @@ complex leading label.
 
 ---
 
-<Tables />
+<Table name="Checkbox" type="props">
+  <tr>
+    <td><code>label</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears trailing the checkmark</td>
+  </tr>
+  <tr>
+    <td><code>leadingLabel</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears leading the checkmark</td>
+  </tr>
+  <tr>
+    <td><code>scheme</code></td>
+    <td>String: 'info', 'success', 'warning', 'danger'</td>
+    <td>&nbsp;</td>
+    <td>Scheme defining background color used for checked state</td>
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>String</td>
+    <td>'--ui-accent' or '#0f172a'</td>
+    <td>Background color used for checked state</td>
+  </tr>
+  <tr>
+    <td><code>checked</code></td>
+    <td>Boolean</td>
+    <td><code>false</code></td>
+    <td>Normally used with `bind:checked` directive. Not needed within a CheckboxGroup</td>
+  </tr>
+  <tr>
+    <td><code>disabled</code></td>
+    <td>Boolean</td>
+    <td><code>false</code></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Checkbox" type="slots">
+  <tr>
+    <td><code>label</code></td>
+    <td>Content to be used for label after checkbox (supercedes <code>label</code> property)</td>
+  </tr>
+  <tr>
+    <td><code>labelLeading</code></td>
+    <td
+      >Content to be used for label preceding checkbox (supercedes <code>leadingLabel</code> property)</td
+    >
+  </tr>
+</Table>

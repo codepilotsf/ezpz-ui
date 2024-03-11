@@ -62,39 +62,42 @@
 <style>
   .lib-ui {
     display: block;
-    margin-top: var(--ui-form-item-margin-top);
+    margin-top: var(--ui-form-item-margin-top, 1rem);
     flex: 1;
   }
 
   input {
     outline: none;
     width: 100%;
-    font-size: var(--ui-form-item-font-size);
-    color: var(--ui-dark);
-    border: var(--ui-border-width) solid var(--ui-border-color);
-    border-radius: var(--ui-border-radius);
-    padding: var(--ui-form-item-padding);
+    font-size: var(--ui-form-item-font-size, 1rem);
+    color: var(--ui-dark, #222);
+    border-width: var(--ui-border-width, 1px);
+    border-style: solid;
+    border-color: var(--ui-border-color, var(--ui-midtone, #aaa));
+    border-radius: var(--ui-border-radius, 3px);
+    padding: var(--ui-form-item-padding, 4px 6px);
   }
 
   input:focus {
-    outline: 2px solid var(--ui-accent);
-    box-shadow: 0 0 2px 1px var(--brand);
+    outline: 1px solid var(--ui-accent, dodgerblue);
+    border-color: var(--ui-accent, dodgerblue);
+    box-shadow: 0 0 1px 1px var(--ui-accent, dodgerblue);
   }
 
   input.error {
-    outline: var(--ui-border-width) solid var(--ui-danger-dark);
-    border: var(--ui-border-width) solid var(--ui-danger-dark);
-    box-shadow: 0 0 1px 1px var(--ui-danger-dark);
-    color: var(--ui-danger-dark);
+    outline: 1px solid var(--ui-danger-dark, red);
+    border-color: var(--ui-danger-dark, red);
+    box-shadow: 0 0 1px 1px var(--ui-danger-dark, red);
+    color: var(--ui-danger-dark, red);
   }
 
   input:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    background: var(--ui-light);
+    background: var(--ui-light, #ccc);
   }
 
   input::placeholder {
-    color: --ui-form-item-placeholder-color;
+    color: var(--ui-form-item-placeholder-color, var(--ui-midtone, #aaa));
   }
 </style>

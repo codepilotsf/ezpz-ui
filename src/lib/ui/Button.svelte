@@ -60,7 +60,7 @@
     letter-spacing: 1px;
     z-index: 1; /* Needed for ButtonGroup */
     color: #fff;
-    background-color: var(--ui-accent, #0f172a);
+    background-color: var(--ui-accent, royalblue);
   }
 
   [size='xs'] {
@@ -89,17 +89,17 @@
   }
 
   [scheme='info'] {
-    background-color: var(--ui-info-dark, #075985);
+    background-color: var(--ui-info-dark, dodgerblue);
   }
   [scheme='success'] {
-    background-color: var(--ui-success-dark, #15803d);
+    background-color: var(--ui-success-dark, green);
   }
   [scheme='warning'] {
-    background-color: var(--ui-warning-dark, #ea580c);
+    background-color: var(--ui-warning-dark, darkorange);
   }
 
   [scheme='danger'] {
-    background-color: var(--ui-danger-dark, #b91c1c);
+    background-color: var(--ui-danger-dark, red);
   }
 
   .lib-ui:not([isGroup]) {

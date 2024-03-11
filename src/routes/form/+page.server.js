@@ -16,7 +16,7 @@ export const load = async () => {
   return { form };
 };
 
-// Export a default action (or named actions if needed) 
+// Export a default action (or named actions if more than one form on the page) 
 // to handle form submissions.
 export const actions = {
   default: async ({ request }) => {

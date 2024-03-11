@@ -50,19 +50,19 @@
   }
 
   [scheme='info'] {
-    --ui-button-group-scheme-background: var(--ui-info-dark, #075985);
+    --ui-button-group-scheme-background: var(--ui-info-dark, dodgerblue);
   }
 
   [scheme='warning'] {
-    --ui-button-group-scheme-background: var(--ui-warning-dark, #ea580c);
+    --ui-button-group-scheme-background: var(--ui-warning-dark, darkorange);
   }
 
   [scheme='success'] {
-    --ui-button-group-scheme-background: var(--ui-success-dark, #15803d);
+    --ui-button-group-scheme-background: var(--ui-success-dark, green);
   }
 
   [scheme='danger'] {
-    --ui-button-group-scheme-background: var(--ui-danger-dark, #b91c1c);
+    --ui-button-group-scheme-background: var(--ui-danger-dark, red);
   }
 
   ui-button-group::before {
@@ -74,8 +74,8 @@
     height: 100%;
     background-color: var(
       --ui-button-group-background,
-      var(--ui-button-group-scheme-background, #000)
+      var(--ui-button-group-scheme-background, var(--ui-accent, royalblue))
     );
-    filter: brightness(0.7);
+    filter: brightness(0.8);
   }
 </style>

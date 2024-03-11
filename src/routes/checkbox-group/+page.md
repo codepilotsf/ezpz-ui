@@ -1,6 +1,6 @@
 <script>
 	import { Checkbox, CheckboxGroup } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
   import { Martini } from 'lucide-svelte';
 
   let toppings = $state(['pepperoni']);
@@ -99,18 +99,18 @@ CheckboxGroup instead of on each individual Checkbox.
 
 ---
 
-### Custom Color
+### Custom Background Color
 
-If all of the Checkbox components in a CheckboxGroup should have the same color, use the `color` prop on the
-CheckboxGroup instead of on each individual Checkbox.
+If all of the Checkbox components in a CheckboxGroup should have the same background color, use the
+`background` prop on the CheckboxGroup instead of on each individual Checkbox.
 
 ```svelte
-<CheckboxGroup color="#777">
+<CheckboxGroup background="#777">
   <Checkbox label="Boring" />
   <Checkbox label="Equally Boring" checked />
 </CheckboxGroup>
 ```
-<CheckboxGroup color="#777">
+<CheckboxGroup background="#777">
   <Checkbox label="Boring" />
   <Checkbox label="Equally Boring" checked />
 </CheckboxGroup>
@@ -174,4 +174,64 @@ complex content.
 </CheckboxGroup>
 
 ---
-<Tables />
+
+<!-- Properties Table -->
+<Table name="CheckboxGroup" type="props">
+  <tr>
+    <td><code>bind:value</code></td>
+    <td>Array</td>
+    <td>&nbsp;</td>
+    <td>Two-way binded array of value items</td>
+  </tr>
+  <tr>
+    <td><code>label</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears before CheckmarkGroup</td>
+  </tr>
+  <tr>
+    <td><code>name</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The <code>name</code> property to be inherited by all child Checkbox components</td>
+  </tr>
+  <tr>
+    <td><code>scheme</code></td>
+    <td>String: 'neutral', 'warning', 'info', 'success', 'danger'</td>
+    <td>&nbsp;</td>
+    <td>Scheme defining color used for checked state of all child Checkboxes</td>
+  </tr>
+  <tr>
+    <td><code>background</code></td>
+    <td>String</td>
+    <td>'brand'</td>
+    <td>Background color used for checked state of all child Checkboxes</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<!-- Named Slots Table -->
+<Table name="CheckboxGroup" type="slots">
+  <tr>
+    <td><code>label</code></td>
+    <td
+      >Content to be used for label before CheckboxGroup (supercedes <code>label</code> property)</td
+    >
+  </tr>
+</Table>
+

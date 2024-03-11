@@ -48,9 +48,9 @@
     height: auto;
     overflow: hidden;
     aspect-ratio: 1;
-    color: var(--ui-light, #0f172a);
-    background-color: var(--ui-dark, #cbd5e1);
-    width: var(--ui-avatar-size);
+    background-color: var(--ui-light, #ccc);
+    color: var(--ui-dark, #222);
+    width: var(--ui-avatar-size); /* This gets set below according to size */
     font-size: calc(var(--ui-avatar-size) / 2.2);
   }
 

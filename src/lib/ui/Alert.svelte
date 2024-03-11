@@ -136,25 +136,28 @@
     gap: 8px;
     border-radius: var(--ui-border-radius, 3px);
     padding: 12px;
-    color: var(--ui-light, #0f172a);
-    background-color: var(--ui-dark, #cbd5e1);
+    color: var(--ui-light, #222);
+    background-color: var(--ui-light, #ccc);
   }
+
   [scheme='info'] {
-    color: var(--ui-info-dark, #075985);
-    background-color: var(--ui-info-light, #e0f2fe);
+    color: var(--ui-info-dark, dodgerblue);
+    background-color: var(--ui-info-light, lightcyan);
   }
-  [scheme='success'] {
-    color: var(--ui-success-dark, #15803d);
-    background-color: var(--ui-success-light, #bbf7d0);
-  }
+
   [scheme='warning'] {
     color: var(--ui-warning-dark, #ea580c);
-    background-color: var(--ui-warning-light, #fef08a);
+    background-color: var(--ui-warning-light, orange);
+  }
+
+  [scheme='success'] {
+    color: var(--ui-success-dark, green);
+    background-color: var(--ui-success-light, lightgreen);
   }
 
   [scheme='danger'] {
     color: var(--ui-danger-dark, #b91c1c);
-    background-color: var(--ui-danger-light, #fecaca);
+    background-color: var(--ui-danger-light, pink);
   }
   button {
     margin-left: auto;
