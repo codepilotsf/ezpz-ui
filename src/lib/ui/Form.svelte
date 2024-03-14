@@ -2,7 +2,7 @@
   import { setContext } from 'svelte'
   import { superForm } from 'sveltekit-superforms'
 
-  let { method = 'POST', superform, class: _class = '', ...other } = $props()
+  let { method = 'POST', superform, class: _class = '' } = $props()
 
   if (!superform || !Object.keys(superform).length) {
     throw new Error('LIB/UI Form component requires a superform prop.')
@@ -15,12 +15,6 @@
   setContext('constraints', constraints)
 </script>
 
-<form
-  class={['lib-ui', _class].join(' ')}
-  {method}
-  {superform}
-  {...other}
-  use:enhance
->
+<form class={['lib-ui', _class].join(' ')} {method} {superform} use:enhance>
   <slot />
 </form>

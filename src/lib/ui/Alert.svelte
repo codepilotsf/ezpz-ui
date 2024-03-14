@@ -131,10 +131,7 @@
   -----------------------------*/
   ui-alert {
     --ui-this-color: var(--ui-alert-color, var(--ui-dark, #1e293b));
-    --ui-this-background: var(
-      --ui-alert-background,
-      var(--ui-background, var(--ui-light, #e2e8f0))
-    );
+    --ui-this-background: var(--ui-alert-background, var(--ui-light, #e2e8f0));
     --ui-this-padding: var(--ui-alert-padding, 12px);
     --ui-this-gap: var(--ui-alert-gap, 8px);
     --ui-this-border: var(--ui-alert-border, none);

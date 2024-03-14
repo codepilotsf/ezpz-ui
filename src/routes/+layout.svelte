@@ -21,7 +21,7 @@
 <page-wrapper class="flex h-full flex-col">
   <!-- Header -->
   <header
-    class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-sky-800 px-3 text-white shadow"
+    class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-slate-800 px-3 text-white shadow"
   >
     <!-- Logo -->
     <a
