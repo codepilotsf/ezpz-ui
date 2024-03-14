@@ -140,3 +140,118 @@ export const actions = {
 };
 ```
 
+
+
+---
+
+
+
+### Major revelation --- Override with Svelte Style Props!!
+
+Svelte supports a shorthand for wrapping a component in a div with style props set like this:
+```Svelte
+<Form --ui-border-color="#fff">
+  ...
+</Form>
+```
+
+This will output the following:
+
+```svelte
+<div style="--ui-border-color=#fff">
+  <Form>
+    ...
+  </Form>
+</div>
+```
+
+...and that means that everything inside that form will use the new value. 
+
+This opens a lot of doors! Instead of using props like `color` or `background` or targeting inner things like `labelColor`, etc – these can all just be CSS variables which can be set globally or overridden locally. 
+
+For example, to set the text color of an avatar, instead of `<Avatar color="blue">`, we can just override the CSS variable with `<Avatar --ui-avatar-color="blue">` .  Even though it's slightly more verbose, the tradeoff is that the overall system is much simpler and more flexible. For example, if I have a bunch of buttons and I want all of them to have a purple background and yellow text, instead of sending those as props to every button individually, I can just set the CSS vars on a parent:
+
+```Svelte
+<div style="--ui-button-background: purple; --ui-button-color: yellow;">
+	<Button label="1" />
+  <Button label="2" />
+  <Button label="3" />
+  <Button label="4" />
+  <Button label="5" />
+</div>
+```
+
+...this also means you could define global styles to be applied to LIB/UI components. For example, your default forms might be light. But there may be a couple instances of dark forms with light color labels, borders, etc.
+
+```css
+// app.pcss
+form.dark {
+  --ui-border-color: white;
+  --ui-label-color: white;
+  --ui-error-color: orange;
+  --ui-note-color: white;
+  --ui-input-background: darkgray;
+  --ui-input-color: white;
+}
+```
+
+
+
+Then wheneven you want a dark form...
+
+```svelte
+<Form class="dark">
+  ...
+</Form>
+```
+
+
+
+### This is so good!
+
+Okay so let's make a hard and fast rule: **All style modifications are declared with CSS variables – not props!** 
+
+The only sort of exception to this rule is alert types which will by default use for example `ui-info-light` and `ui-info-dark` for `type="info"`. But actually, this still doesn't really break the rule because those too are set as CSS variables which could be overridden ad hoc.
+
+The main change to the current implementation is totally getting rid of all `color` and `background` props. 
+
+### But there's a problem
+
+I *really* want to use a standard set of CSS props which can be overridden with specificity. 
+
+So instead of:
+
+```css
+--ui-button-background: blue;
+```
+
+I'd rather just use CSS to set that as:
+
+```css
+.lib-ui.button {
+  --ui-background: blue;
+}
+```
+
+Oh crap!!!
+
+But then my editor thing is no longer editing pure CSS variables – it has to write CSS too. Maybe that's okay? Definitely not as simple. Hmm....
+
+### The compromise...
+
+Okay so most of the time, we'll just want to set globals and component level stuff. For that, let's go with the longer names which can be declared at the `:root` level. For custom classes, I think we just need to document that due to the nature of how Svelte style-props work, they won't override class-level specificity – but this should be pretty rare anyway. I think it's unlikely that you'll create a special class for example for your own custom button, then override one instance of your special class. You could instead just make another special class.
+
+1. Set global level like `:root { --ui-radius: 3px }`
+2. Set component level like `:root { --ui-alert-radius: 10px }`
+3. Set class level like `.lib-ui.alert.square { --ui-alert-radius: 0 }`
+4. Set one-off styles like `<Alert --ui-alert-radius="1px" />`
+5. ...but remember that class-level declarations will override one-offs due to the nature of Svelte style-props. So the above example is guaranteed to work. But if you had already declared a `square` class like in #3, then `<Alert class="square" --ui-alert-radius="100%" />` – In this case, the class declartion beats out the style-prop.
+
+For docs, I think this can be handled pretty simply.
+
+- Global level
+- Component level
+- Instance level
+
+I can also highlight the ability to create custom classes with the important caveat that these have higher specificity than inline style-props.
+

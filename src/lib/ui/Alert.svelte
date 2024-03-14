@@ -1,11 +1,9 @@
 <script>
-  import { slide } from 'svelte/transition'
+  import { fade } from 'svelte/transition'
 
   let {
     active = true,
     icon = true,
-    color,
-    background,
     scheme,
     class: _class = '',
     ...other
@@ -14,11 +12,9 @@
 
 {#if active}
   <ui-alert
-    class={['lib-ui', _class].join(' ')}
-    style:color
-    style:background
-    in:slide={{ duration: 200 }}
-    out:slide={{ duration: 200 }}
+    class="lib-ui alert {_class}"
+    in:fade={{ duration: 200 }}
+    out:fade={{ duration: 200 }}
     {scheme}
     {...other}
   >
@@ -101,7 +97,7 @@
     <div>
       <!-- Title -->
       {#if $$slots.title}
-        <div class="font-semibold">
+        <div class="title">
           <slot name="title" />
         </div>
       {/if}
@@ -131,40 +127,61 @@
 {/if}
 
 <style>
+  /* Instance Styles
+  -----------------------------*/
+  ui-alert {
+    --ui-this-color: var(--ui-alert-color, var(--ui-dark, #1e293b));
+    --ui-this-background: var(
+      --ui-alert-background,
+      var(--ui-background, var(--ui-light, #e2e8f0))
+    );
+    --ui-this-padding: var(--ui-alert-padding, 12px);
+    --ui-this-gap: var(--ui-alert-gap, 8px);
+    --ui-this-border: var(--ui-alert-border, none);
+    --ui-this-radius: var(--ui-alert-radius, var(--ui-radius, 3px));
+  }
+
   ui-alert {
     display: flex;
-    gap: 8px;
-    border-radius: var(--ui-border-radius, 3px);
-    padding: 12px;
-    color: var(--ui-light, #222);
-    background-color: var(--ui-light, #ccc);
+    gap: var(--ui-this-gap);
+    border: var(--ui-this-border);
+    border-radius: var(--ui-this-radius);
+    padding: var(--ui-this-padding);
+    color: var(--ui-this-color);
+    background-color: var(--ui-this-background);
   }
 
   [scheme='info'] {
-    color: var(--ui-info-dark, dodgerblue);
-    background-color: var(--ui-info-light, lightcyan);
+    color: var(--ui-info-dark, #1e40af);
+    background-color: var(--ui-info-light, #dbeafe);
   }
 
   [scheme='warning'] {
-    color: var(--ui-warning-dark, #ea580c);
-    background-color: var(--ui-warning-light, orange);
+    color: var(--ui-warning-dark, #9a3412);
+    background-color: var(--ui-warning-light, #fef08a);
   }
 
   [scheme='success'] {
-    color: var(--ui-success-dark, green);
-    background-color: var(--ui-success-light, lightgreen);
+    color: var(--ui-success-dark, #166534);
+    background-color: var(--ui-success-light, #bbf7d0);
   }
 
   [scheme='danger'] {
     color: var(--ui-danger-dark, #b91c1c);
-    background-color: var(--ui-danger-light, pink);
+    background-color: var(--ui-danger-light, #fee2e2);
   }
+
+  .title {
+    font-weight: 600;
+  }
+
   button {
     margin-left: auto;
     margin-top: 2px;
     height: fit-content;
     padding: 2px;
   }
+
   .ui-icon {
     margin-top: -2px;
     padding: 2px;

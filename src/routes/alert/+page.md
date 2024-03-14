@@ -43,15 +43,6 @@ icons used can also be changed in `utils.js` if desired.
 ---
 
 ```svelte
-<Alert scheme="success">
-  You have been alerted successfully.
-</Alert>
-```
-<Alert scheme="success">You have been alerted successfully.</Alert>
-
----
-
-```svelte
 <Alert scheme="warning">
   Warning! This alert is slightly scary.
 </Alert>
@@ -61,24 +52,20 @@ icons used can also be changed in `utils.js` if desired.
 ---
 
 ```svelte
+<Alert scheme="success">
+  You have been alerted successfully.
+</Alert>
+```
+<Alert scheme="success">You have been alerted successfully.</Alert>
+
+---
+
+```svelte
 <Alert scheme="danger">
   Something bad happened.
 </Alert>
 ```
 <Alert scheme="danger">Something bad happened.</Alert>
-
----
-
-### Custom Colors
-
-Custom colors can be used by providing `color` and `background` props.
-
-```svelte
-<Alert color="#ec4899" background="#fce7f3">
-  Pink alert!
-</Alert>
-```
-<Alert color="#ec4899" background="#fce7f3">Pink alert!</Alert>
 
 ---
 
@@ -155,24 +142,6 @@ An icon can be added by using the `icon` named slot.
     <td>Color/Icon scheme of alert to be displayed</td>
   </tr>
   <tr>
-    <td><code>color</code></td>
-    <td>String</td>
-    <td>&nbsp;</td>
-    <td
-      >Color used for text and icons (overrides <code>scheme</code> if present)</td
-    >
-  </tr>
-  <tr>
-    <td><code>background</code></td>
-    <td>String</td>
-    <td>&nbsp;</td>
-    <td
-      >Color or CSS background value used for background (overrides <code
-        >scheme</code
-      > if present)</td
-    >
-  </tr>
-  <tr>
     <td><code>class</code></td>
     <td>String</td>
     <td>&nbsp;</td>
@@ -191,6 +160,40 @@ An icon can be added by using the `icon` named slot.
     >
   </tr>
 </Table>
+
+<Table name="Alert" type="css">
+  <tr>
+    <td><code>--ui-alert-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-dark</code> or <code>#1e293b</code></td>
+    <td>Color used for text and icons</td>
+  </tr>
+  <tr>
+    <td><code>--ui-alert-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-light</code> or <code>#e2e8f0</code></td>
+    <td>Color used for Alert background</td>
+  </tr>
+  <tr>
+    <td><code>--ui-alert-padding</code></td>
+    <td>Padding shorthand</td>
+    <td><code>12px</code></td>
+    <td>Alert component padding shorthand value</td>
+  </tr>
+  <tr>
+    <td><code>--ui-alert-border</code></td>
+    <td>Border shorthand</td>
+    <td><code>none</code></td>
+    <td>Alert component border shorthand value</td>
+  </tr>
+  <tr>
+    <td><code>--ui-alert-border-radius</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-border-radius</code> or <code>3px</code></td>
+    <td>Alert component border radius</td>
+  </tr>
+</Table>
+
 
 <Table name="Alert" type="slots">
   <tr>

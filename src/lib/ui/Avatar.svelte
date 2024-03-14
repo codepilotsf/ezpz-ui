@@ -4,9 +4,7 @@
     initials = '',
     name = '',
     alt = '',
-    size = 'md',
-    color,
-    background,
+    size,
     class: _class = '',
     ...other
   } = $props()
@@ -23,13 +21,7 @@
   }
 </script>
 
-<ui-avatar
-  class={['lib-ui', _class].join(' ')}
-  style:color
-  style:background
-  {size}
-  {...other}
->
+<ui-avatar class="lib-ui alert {_class}" {size} {...other}>
   {#if src}
     <img {src} alt={alt || name || initials || 'Avatar'} />
   {:else if initials}
@@ -39,6 +31,14 @@
 </ui-avatar>
 
 <style>
+  /* Instance Styles
+  -----------------------------*/
+  ui-avatar {
+    --ui-this-size: var(--ui-avatar-size, 84px);
+    --ui-this-color: var(--ui-avatar-color, var(--ui-dark, #1e293b));
+    --ui-this-background: var(--ui-avatar-background, var(--ui-light, #e2e8f0));
+    --ui-this-border: var(--ui-avatar-border, none);
+  }
   ui-avatar {
     display: inline-flex;
     align-items: center;
@@ -48,30 +48,30 @@
     height: auto;
     overflow: hidden;
     aspect-ratio: 1;
-    background-color: var(--ui-light, #ccc);
-    color: var(--ui-dark, #222);
-    width: var(--ui-avatar-size); /* This gets set below according to size */
-    font-size: calc(var(--ui-avatar-size) / 2.2);
+    color: var(--ui-this-color);
+    background-color: var(--ui-this-background);
+    width: var(--ui-this-size);
+    font-size: calc(var(--ui-this-size) / 2.2);
   }
 
   [size='xs'] {
-    --ui-avatar-size: 32px;
+    --ui-this-size: 32px;
   }
 
   [size='sm'] {
-    --ui-avatar-size: 52px;
+    --ui-this-size: 52px;
   }
 
   [size='md'] {
-    --ui-avatar-size: 84px;
+    --ui-this-size: 84px;
   }
 
   [size='lg'] {
-    --ui-avatar-size: 136px;
+    --ui-this-size: 136px;
   }
 
   [size='xl'] {
-    --ui-avatar-size: 220px;
+    --ui-this-size: 220px;
   }
 
   ui-avatar img {

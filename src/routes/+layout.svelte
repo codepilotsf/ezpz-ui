@@ -21,26 +21,28 @@
 <page-wrapper class="flex h-full flex-col">
   <!-- Header -->
   <header
-    class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-white px-3 text-sky-600 shadow"
+    class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-sky-800 px-3 text-white shadow"
   >
     <!-- Logo -->
     <a
       href="/"
-      class="flex items-end gap-1 text-2xl font-bold hover:no-underline"
+      class="flex items-end gap-1 text-2xl font-bold !text-white hover:no-underline"
     >
       <FolderOpenDot size={34} strokeWidth={2.3} />
       <span
-        >LIB<span class="mx-1">/</span><span class="font-light">UI</span></span
+        >LIB<span class="mx-.5">/</span><span class="font-light">UI</span></span
       >
     </a>
     <div class="flex items-center gap-3">
       <!-- Download Link -->
-      <a class="p-2" href="lib-ui.vercel.app/latest.zip" target="_blank"
-        ><DownloadCloud size={24} strokeWidth={3} /></a
+      <a
+        class="p-2 !text-white"
+        href="lib-ui.vercel.app/latest.zip"
+        target="_blank"><DownloadCloud size={24} strokeWidth={3} /></a
       >
       <!-- Github Link -->
       <a
-        class="p-2"
+        class="p-2 !text-white"
         href="https://github.com/codepilotsf/lib-ui"
         target="_blank"><GitHubIcon /></a
       >
@@ -54,6 +56,7 @@
     >
       <MenuItem href="/alert" label="Alert" class="h-52" />
       <MenuItem href="/avatar" label="Avatar" />
+      <MenuItem href="/avatar-group" label="AvatarGroup" disabled />
       <MenuItem href="/button" label="Button" />
       <MenuItem href="/button-group" label="ButtonGroup" />
       <MenuItem href="/checkbox" label="Checkbox" />

@@ -54,7 +54,7 @@
 
 <style>
   .lib-ui {
-    transition: filter 0.12s ease-in-out;
+    transition: filter 100ms ease-in-out;
     border-radius: var(--ui-border-radius, 3px);
     font-weight: 600;
     letter-spacing: 1px;
@@ -92,7 +92,7 @@
     background-color: var(--ui-info-dark, dodgerblue);
   }
   [scheme='success'] {
-    background-color: var(--ui-success-dark, green);
+    background-color: var(--ui-success-dark, darkgreen);
   }
   [scheme='warning'] {
     background-color: var(--ui-warning-dark, darkorange);
@@ -104,7 +104,7 @@
 
   .lib-ui:not([isGroup]) {
     box-shadow: var(--ui-button-shadow, 0 1px 2px rgba(0, 0, 0, 0.35));
-    margin-top: var(--ui-form-item-margin-top, 1rem);
+    margin-top: calc(var(--ui-form-item-margin-top, 1rem) * 1.8);
   }
 
   a.lib-ui,

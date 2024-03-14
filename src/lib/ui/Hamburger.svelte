@@ -21,78 +21,102 @@ so the button ends up in the correct position.
   }
 </script>
 
-<hamburger-button
-  class={`lib-ui cursor-pointer md:hidden ${_class}`}
+<ui-hamburger
+  class={`lib-ui hamburger cursor-pointer ${_class}`}
   class:active
   on:click={toggleActive}
   role="button"
   tabindex="0"
+  on:click
   on:keydown|preventDefault={(e) => {
     if (e.key === 'Enter' || e.key === ' ') toggleActive()
   }}
 >
-  <line-1 />
-  <line-2 />
-  <line-3 />
-</hamburger-button>
+  <ui-hamburger-inner>
+    <line-1 />
+    <line-2 />
+    <line-3 />
+  </ui-hamburger-inner>
+</ui-hamburger>
 
 <style>
-  /* Variables 
+  /* Instance Styles
   -----------------------------*/
-  hamburger-button {
-    --button-width: 24px;
-    --button-height: 18px;
-
-    --line-thickness: 2px;
-    --line-color: var(--ui-dark);
-    --line-radius: 2px;
-    --number-of-spins: 5;
-    --duration: 0.15s;
+  ui-hamburger {
+    --ui-this-width: var(--ui-hamburger-width, 30px);
+    --ui-this-height: var(
+      --ui-hamburger-height,
+      calc(var(--ui-this-width) * 0.75)
+    );
+    --ui-this-padding: var(
+      --ui-hamburger-padding,
+      calc(var(--ui-this-width) * 0.3)
+    );
+    --ui-this-background: var(--ui-hamburger-background, transparent);
+    --ui-this-border-radius: var(
+      --ui-hamburger-border-radius,
+      var(--ui-border-radius, 3px)
+    );
+    --ui-this-border: var(--ui-hamburger-border, none);
+    --ui-this-line-color: var(--ui-hamburger-line-color, var(--ui-dark, #222));
+    --ui-this-line-thickness: var(--ui-hamburger-line-thickness, 2px);
+    --ui-this-line-radius: var(--ui-hamburger-line-radius, 2px);
+    --ui-this-spins-number: var(--ui-hamburger-spins-number, 5);
+    --ui-this-spins-duration: var(--ui-hamburger-spins-duration, 150ms);
   }
-  /* ------------------------- */
 
-  hamburger-button {
+  ui-hamburger {
+    display: inline-block;
+    padding: var(--ui-this-padding);
+    margin: calc(var(--ui-this-padding) * -1);
+    background-color: var(--ui-this-background);
+    border-radius: var(--ui-this-border-radius);
+  }
+
+  ui-hamburger-inner {
     position: relative;
     display: block;
-    width: var(--button-width);
-    height: var(--button-height);
+    width: var(--ui-this-width);
+    height: var(--ui-this-height);
   }
 
-  hamburger-button > line-1,
-  hamburger-button > line-2,
-  hamburger-button > line-3 {
+  line-1,
+  line-2,
+  line-3 {
     position: absolute;
     display: block;
     width: 100%;
-    height: var(--line-thickness);
-    background-color: var(--line-color);
-    border-radius: var(--line-radius);
-    transition: all var(--duration) ease-in-out;
+    height: var(--ui-this-line-thickness);
+    background-color: var(--ui-this-line-color);
+    border-radius: var(--ui-this-line-radius);
+    transition: all var(--ui-this-spins-duration) ease-in-out;
   }
 
-  hamburger-button > line-2 {
-    top: calc(50% - var(--line-thickness) / 2);
+  line-2 {
+    top: calc(50% - var(--ui-this-line-thickness) / 2);
   }
 
-  hamburger-button > line-3 {
+  line-3 {
     bottom: 0;
   }
 
-  hamburger-button.active > line-1 {
+  .active line-1 {
     transform: translateY(
-        calc(var(--button-height) / 2 - var(--line-thickness) / 2)
+        calc(var(--ui-this-height) / 2 - var(--ui-this-line-thickness) / 2)
       )
-      rotate(calc(-1 * 45deg * var(--number-of-spins)));
+      rotate(calc(-1 * 45deg * var(--ui-this-spins-number)));
   }
 
-  hamburger-button.active > line-2 {
+  .active line-2 {
     opacity: 0;
   }
 
-  hamburger-button.active > line-3 {
+  .active line-3 {
     transform: translateY(
-        calc(-1 * (var(--button-height) / 2 - var(--line-thickness) / 2))
+        calc(
+          -1 * (var(--ui-this-height) / 2 - var(--ui-this-line-thickness) / 2)
+        )
       )
-      rotate(calc(45deg * var(--number-of-spins)));
+      rotate(calc(45deg * var(--ui-this-spins-number)));
   }
 </style>

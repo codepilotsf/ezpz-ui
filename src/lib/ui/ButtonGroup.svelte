@@ -58,7 +58,7 @@
   }
 
   [scheme='success'] {
-    --ui-button-group-scheme-background: var(--ui-success-dark, green);
+    --ui-button-group-scheme-background: var(--ui-success-dark, darkgreen);
   }
 
   [scheme='danger'] {

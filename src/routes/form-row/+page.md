@@ -1,6 +1,6 @@
 <script>
   import { Checkbox, CheckboxGroup, FormRow, Textarea, Input } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
 </script>
 
 # FormRow
@@ -48,6 +48,25 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
 
 ---
 
-<Tables />
+<!-- Properties Table -->
+<Table name="FormRow" type="props">
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
 
 

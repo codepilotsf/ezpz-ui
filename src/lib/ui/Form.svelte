@@ -2,20 +2,17 @@
   import { setContext } from 'svelte'
   import { superForm } from 'sveltekit-superforms'
 
-  // prettier-ignore
-  let {
-    method = 'POST',
-    superform,
-    class: _class = '',
-    ...other
-  } = $props()
+  let { method = 'POST', superform, class: _class = '', ...other } = $props()
 
-  if (superform) {
-    const { form, errors, constraints, enhance } = superForm(superform)
-    setContext('form', form)
-    setContext('errors', errors)
-    setContext('constraints', constraints)
+  if (!superform || !Object.keys(superform).length) {
+    throw new Error('LIB/UI Form component requires a superform prop.')
   }
+
+  // Set SuperForm context for child form elements
+  const { form, errors, constraints, enhance } = superForm(superform)
+  setContext('form', form)
+  setContext('errors', errors)
+  setContext('constraints', constraints)
 </script>
 
 <form
@@ -23,10 +20,7 @@
   {method}
   {superform}
   {...other}
-  use:enhance()
+  use:enhance
 >
   <slot />
 </form>
-
-<style>
-</style>

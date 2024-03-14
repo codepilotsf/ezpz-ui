@@ -9,7 +9,7 @@
 <style>
   form-row {
     display: flex;
-    gap: var(--ui-form-item-row-gap);
+    gap: var(--ui-form-item-row-gap, 0.5rem);
     width: 100%;
   }
 </style>

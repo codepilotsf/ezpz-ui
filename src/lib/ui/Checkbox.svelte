@@ -126,7 +126,7 @@
   }
 
   [scheme='success'] {
-    --ui-checkbox-background: var(--ui-success-dark, green);
+    --ui-checkbox-background: var(--ui-success-dark, darkgreen);
   }
 
   [scheme='danger'] {

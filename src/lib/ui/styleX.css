@@ -38,16 +38,15 @@
   Border styles for things like form elements
   ------------------- */
   --ui-border-width: 1px;
-  --ui-border-radius: 3px;
   --ui-border-color: var(--ui-midtone);
+  --ui-border-radius: 3px;
 
   /* Form Items
   -------------------
   The container around a form which holds the label, element, and messages
   ------------------- */
-  --ui-form-item-margin-top: 1rem;
-  --ui-form-item-column-gap: 0.5rem;
-  --ui-form-item-row-gap: 0.5rem;
+  --ui-form-margin: 1rem;
+  --ui-form-gap: 0.5rem;
 
   /* Form Labels
   -------------------
@@ -74,7 +73,6 @@
   --------------------- */
   --ui-form-error-note-margin-top: 6px;
   --ui-form-error-note-font-size: 0.9rem;
-  --ui-form-error-note-line-height: 1;
 
   /* Form Elements: :focus */
   /* --ui-form-item-focus-border: 2px solid #3b82f6;

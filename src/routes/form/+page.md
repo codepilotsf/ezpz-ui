@@ -1,16 +1,16 @@
 <script>
   import { Form, Input, Button } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
 
   let { data } = $props();  
 </script>
 
 # Form
 
-Use `Form` as a convenient shorthand for creating a form with a `form` tag and useful defaults. By
-default, the form will be submitted using the `POST` method and `use:enhance` to prevent the default
-form submission. The `Form` component also accepts a `superform` prop to which you can pass form
-data to be validated and shared through context with child form elements.
+Use `Form` to create a `<form>` element which expects a `superform` object. By default, the form
+will be submitted using the `POST` method and SuperForm's custom `use:enhance` to prevent the
+default form submission. The `superform` prop makes it easy to get form data, errors, and
+constraints which are shared through context with child form elements.
 
 ### Example
 
@@ -40,7 +40,7 @@ Söderlund. It provides a simple and flexible way to validate form data in a ver
 way without getting involved at all in the *rendering* of the form. Instead, SuperForms validates
 your form *data* against a schema using a standard validation library like Zod and returns store
 objects including `$form` (the form data), `$errors` (validation errors), and `$constraints` (HTML5
-constraints such as `required`). Each of these stores is an object with key value pairs for each
+constraints such as `required`). Each of these stores is an object with key/value pairs for each
 form field. For example, if you have a form field named `email`, you can access the value of that
 field with `$form.email`, the errors with `$errors.email`, and the constraints with
 `$constraints.email`.
@@ -51,7 +51,7 @@ superform object returned from the SvelteKit loader or form action to the `super
 `Form` component will take care of getting all the form data, errors, and constraints into context
 for you.
 
-#### Understanding SuperForms Backend and Frontend Integration
+#### Understanding SuperForms Back-end and Front-end Integration
 
 Starting on the back-end, for example a `+page.server.js` file, you can use the `superValidate`
 function to validate your form data against a Zod schema. The `superValidate` function returns a
@@ -63,13 +63,18 @@ before using it with the `Form` component.
 
 So let's first look at how that works.
 
-#### `+page.svelte` (using standard SuperForms)
+#### `+page.svelte` (using SuperForms with a plain `<form>` element)
   
 ```svelte
 <script>
+  // First, import your form widgets and the superForm function
   import { Form, Input, Button } from '$lib/ui';
   import { superForm } from 'sveltekit-superforms';
+
+  // Then, get the form data from +page.server.js
   let { data } = $props();
+
+  // Now, use the superForm function to get the form, errors, and constraints
   const { form, errors, constraints } = superForm(data.form);
 </script>
 
@@ -93,9 +98,9 @@ So let's first look at how that works.
 ```
 As we can see, we're expecting the `data` prop to contain a `form` object which we pass to the
 `superForm` function. This function returns an object with `$form`, `$errors`, and `$constraints` as
-stores. We can then use these stores to bind the form data to the input fields, display errors, and
-apply constraints. And that works just fine. But it's a bit verbose and repetitive. So let's see
-how we can use the `Form` component to make this a bit easier.
+Svelte stores. We can then use these stores to bind the form data to values, display errors, and
+apply constraints. And that works just fine. But it's a bit verbose and repetitive. So let's see how
+we can use the `Form` component to make this a bit simpler.
 
 
 #### `+page.svelte` (using the Form component)
@@ -114,10 +119,11 @@ how we can use the `Form` component to make this a bit easier.
 
 ```
 
-By simply passing the `superform` object to the `Form` component, the values, errors, and
-constraints are set to context and automatically applied to the child form elements. This means that
-on failed validation for example, your LIB/UI form elements will automatically be bound to their 
-respective form data, errors, and constraints.
+By simply passing the `superform` object to the `Form` component, the `$values`, `$errors`, and
+`$constraints` are set to context, making them available to child components. LIB/UI form elements
+such as `Input`, `Select`, and so on will look for these values in context and apply them to the
+element if present. This means that on failed validation for example, your LIB/UI form elements will
+automatically be bound to their respective form data, errors, and constraints.
 
 So how does this work on the back-end? Let's take a look at that.
 
@@ -137,16 +143,16 @@ const schema = z.object({
 });
 
 // Export a load function to supply initial form data.
-export const load = async ({ request }) => {
-  const form = await superValidate(request, zod(schema));
+export const load = async () => {
+  const form = await superValidate(zod(schema));
   return { form };
 };
 
 // Export a default action (or named actions if needed) 
 // to handle form submissions.
 export const actions = {
-  default: async () => {
-    const form = await superValidate(zod(schema));
+  default: async ({ request }) => {
+    const form = await superValidate(request, zod(schema));
     // If the form is not valid, return a 400 error with the form data.
     if (!form.valid) {
       return fail(400, { form });
@@ -174,7 +180,7 @@ elements.
 </Form>
 ```
 
-<Form superform={data.form}>
+<Form superform={data.form} --ui-border-color="yellow";>
   <Input label="Name" name="name" />
   <Input label="Email" name="email" />
   <Button>Submit</Button>
@@ -182,6 +188,31 @@ elements.
 
 ---
 
-<Tables />
+<!-- Properties Table -->
+<h3>Form Properties</h3>
+<Table name="Form" type="props">
+  <tr>
+    <td><code>superform</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>A SuperForm object typically passed from `+page.server.js`</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
 
 
