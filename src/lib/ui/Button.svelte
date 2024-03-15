@@ -7,9 +7,7 @@
     active = null,
     loading = null,
     scheme = getContext('scheme'),
-    color = getContext('color'),
-    background = getContext('background'),
-    size = getContext('size') || 'md',
+    size = getContext('size') || null,
     class: _class = '',
     ...other
   } = $props()
@@ -19,9 +17,7 @@
 
 {#if href}
   <a
-    class={['lib-ui', _class].join(' ')}
-    style:color
-    style:background
+    class="lib-ui button {_class}"
     {scheme}
     {href}
     {type}
@@ -31,14 +27,13 @@
     {isGroup}
     {...other}
     on:click
+    on:hover
   >
     <slot />
   </a>
 {:else}
   <button
     class={['lib-ui', _class].join(' ')}
-    style:color
-    style:background
     {scheme}
     {type}
     {active}
@@ -47,6 +42,7 @@
     {isGroup}
     {...other}
     on:click
+    on:hover
   >
     <slot />
   </button>
@@ -54,13 +50,32 @@
 
 <style>
   .lib-ui {
+    --ui-this-color: var(--ui-button-color, #fff);
+    --ui-this-background: var(
+      --ui-button-background,
+      var(--ui-accent, #3b82f6)
+    );
+    --ui-this-width: var(--ui-button-width, auto);
+    --ui-this-height: var(--ui-button-height, auto);
+    --ui-this-padding: var(--ui-button-padding, 10px 15px);
+    --ui-this-font-size: var(--ui-button-font-size, 14px);
+    --ui-this-border: var(--ui-button-border, none);
+    --ui-this-radius: var(--ui-button-radius, var(--ui-radius, 3px));
+  }
+
+  .lib-ui {
+    color: var(--ui-this-color);
+    background-color: var(--ui-this-background);
+    width: var(--ui-this-width);
+    height: var(--ui-this-height);
+    padding: var(--ui-this-padding);
+    font-size: var(--ui-this-font-size);
+    border: var(--ui-this-border);
+    border-radius: var(--ui-this-radius);
     transition: filter 100ms ease-in-out;
-    border-radius: var(--ui-border-radius, 3px);
     font-weight: 600;
     letter-spacing: 1px;
     z-index: 1; /* Needed for ButtonGroup */
-    color: #fff;
-    background-color: var(--ui-accent, royalblue);
   }
 
   [size='xs'] {
@@ -86,20 +101,6 @@
   [size='xl'] {
     font-size: 20px;
     padding: 12px 24px;
-  }
-
-  [scheme='info'] {
-    background-color: var(--ui-info-dark, dodgerblue);
-  }
-  [scheme='success'] {
-    background-color: var(--ui-success-dark, darkgreen);
-  }
-  [scheme='warning'] {
-    background-color: var(--ui-warning-dark, darkorange);
-  }
-
-  [scheme='danger'] {
-    background-color: var(--ui-danger-dark, red);
   }
 
   .lib-ui:not([isGroup]) {

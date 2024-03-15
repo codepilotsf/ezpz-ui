@@ -79,21 +79,6 @@ If present, the `name` property is also used as the value of the image element's
 
 ---
 
-### Custom Colors
-
-Custom colors can be used by providing `color` and `background` props.
-
-```svelte
-<Avatar 
-  initials="JG" 
-  color="yellow" 
-  background="green" 
-/>
-```
-<Avatar initials="JG" color="yellow" background="green" />
-
----
-
 <Table name="Avatar" type="props">
   <tr>
     <td><code>src</code></td>
@@ -136,20 +121,6 @@ Custom colors can be used by providing `color` and `background` props.
     >
   </tr>
   <tr>
-    <td><code>color</code></td>
-    <td>String</td>
-    <td>&nbsp;</td>
-    <td>Color used for initials</td>
-  </tr>
-  <tr>
-    <td><code>background</code></td>
-    <td>String</td>
-    <td>&nbsp;</td>
-    <td
-      >Color for background</td
-    >
-  </tr>
-  <tr>
     <td><code>class</code></td>
     <td>String</td>
     <td>&nbsp;</td>
@@ -165,3 +136,30 @@ Custom colors can be used by providing `color` and `background` props.
     >
   </tr>
 </Table>
+
+<Table name="Avatar" type="css">
+  <tr>
+    <td><code>--ui-avatar-size</code></td>
+    <td>Numeric</td>
+    <td><code>84px</code></td>
+    <td>Arbitrary size of Avatar (use instead of <code>size</code> prop)</td>
+  </tr>
+  <tr>
+    <td><code>--ui-avatar-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-dark</code> or <code>#1e293b</code></td>
+    <td>Color used for initials</td>
+  </tr>
+  <tr>
+    <td><code>--ui-avatar-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-light</code> or <code>#e2e8f0</code></td>
+    <td>Color used for initials background</td>
+  </tr>
+  <tr>
+    <td><code>--ui-avatar-border</code></td>
+    <td>Border shorthand</td>
+    <td><code>none</code></td>
+    <td>Avatar component border shorthand value</td>
+  </tr>
+ </Table>

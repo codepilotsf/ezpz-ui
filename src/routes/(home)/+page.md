@@ -20,10 +20,14 @@ simple and transparent.
 
 LIB/UI isn't a Node package so it isn't installed. Just [download the zip
 file](https://libui.codepilot.com/latest.zip) to your SvelteKit project's `src/lib/` and extract it.
-It requires no dependencies other than Svelte itself.
+The only dependency requirement besides SvelteKit is SuperForms which is used for form validation in
+the `<Form>` component.
+
+```bash
+npm install sveltekit-superforms
+```
 
 ### How To Use
-
 LIB/UI components are imported and instantiated like any other Svelte component.
 
 ```svelte
@@ -35,8 +39,9 @@ LIB/UI components are imported and instantiated like any other Svelte component.
 ```
 <Spinner />
 
-### Properties
+---
 
+### Properties
 Properties are used to pass options to the component. For example, the `Alert` component takes an
 optional `scheme` property which can be used to set the color/icon theme of the alert.
 
@@ -45,8 +50,9 @@ optional `scheme` property which can be used to set the color/icon theme of the 
 ```
 <Alert scheme="danger">Something assploded.</Alert>
 
-### Named Slots
+---
 
+### Named Slots
 Slots are used to pass default content as seen in the above example. However, many LIB/UI components
 also use <em>named</em> slots to pass additional content to specific areas of the component. For
 example, the `Alert` component accepts an optional `title` slot which can be used to set a title to
@@ -65,6 +71,8 @@ be displayed at the top of the alert.
 
 <HeadsUp> See component docs for a full list of available properties and named slots and their usage
   for each component. </HeadsUp>
+
+---
 
 ### CSS Custom Properties
 CSS custom properties are used to set colors, spacing, and other values used by LIB/UI components.
@@ -271,6 +279,11 @@ components. They are all optional and will fall back to default values if not se
   </tr>
 </Table>
 
+<HeadsUp>Note that component level classes such as <code>--ui-alert-radius</code> are documented in each
+component's documentation.</HeadsUp>
+
+---
+
 ### CSS Classes
 You can also pass a `class` property to any LIB/UI component to add additional classes to the
 component's outermost element. This can be especially powerful when used with Tailwind utility
@@ -289,17 +302,15 @@ this:
   Item added to cart.
 </Alert>
 
-### Modifying Components
+---
 
+### Modifying or Creating Components
 Component files are well organized and commented to make it easy to understand what's going on. You
 can modify the components as much or as little as you like. You can also delete the ones you don't
 need. Be sure to also remove the reference from `lib/ui/index.js`.
 
-### Custom Components
-
-LIB/UI components can also be extended to add new functionality. Using one of the existing
-components as a template, you can create your own components that reference the same styles set in
-`lib/ui/style.css` and add them to the `lib/ui` directory. Remember to also add a line to export
-your custom component from `lib/ui/index.js`. 
+Using one of the existing components as a template, you can also create your own components and add
+them to the `lib/ui` directory. Remember to also add a line to export your custom component from
+`lib/ui/index.js`. 
 
 <Footer />

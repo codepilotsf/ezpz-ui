@@ -181,15 +181,21 @@ An icon can be added by using the `icon` named slot.
     <td>Alert component padding shorthand value</td>
   </tr>
   <tr>
+    <td><code>--ui-alert-gap</code></td>
+    <td>Numeric</td>
+    <td><code>8px</code></td>
+    <td>Gap between icon and text</td>
+  </tr>
+  <tr>
     <td><code>--ui-alert-border</code></td>
     <td>Border shorthand</td>
     <td><code>none</code></td>
     <td>Alert component border shorthand value</td>
   </tr>
   <tr>
-    <td><code>--ui-alert-border-radius</code></td>
+    <td><code>--ui-alert-radius</code></td>
     <td>Numeric</td>
-    <td><code>--ui-border-radius</code> or <code>3px</code></td>
+    <td><code>--ui-radius</code> or <code>3px</code></td>
     <td>Alert component border radius</td>
   </tr>
 </Table>

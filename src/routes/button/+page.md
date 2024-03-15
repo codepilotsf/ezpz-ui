@@ -10,7 +10,7 @@ it will be rendered as a regular `a` anchor link element. Styling will be the sa
 
 ### Example
 
-The default button uses `--ui-accent` value or `royalblue` for color and `md` size.
+The default button uses `--ui-accent` value or `#3b82f6` for color and `md` size.
 
 ```svelte
 <script>
@@ -24,62 +24,6 @@ The default button uses `--ui-accent` value or `royalblue` for color and `md` si
 <Button>
   Click Me
 </Button>
-
----
-
-### Color and Background
-
-Pass in arbitrary color and background values to change the button's appearance.
-
-```svelte
-<Button background="mistyrose" color="darkviolet">
-  Click Me
-</Button>
-```
-<Button background="mistyrose" color="darkviolet">
-  Click Me
-</Button>
-
----
-
-### Color Schemes
-
-Color schemes defined in `style.css` can be used to set the button background color to the dark
-color defined for that scheme (or default colors will be used). Text will be white by default.
-
-```svelte
-<Button scheme="info">
-  Click Me
-</Button>
-```
-<Button scheme="info">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="warning">
-  Click Me
-</Button>
-```
-<Button scheme="warning">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="success">
-  Click Me
-</Button>
-```
-<Button scheme="success">Click Me</Button>
-
----
-
-```svelte
-<Button scheme="danger">
-  Click Me
-</Button>
-```
-<Button scheme="danger">Click Me</Button>
 
 ---
 
@@ -148,24 +92,6 @@ All other props can still be used and styling will be the same in either case.
 
 <Table name="Button" type="props">
   <tr>
-    <td><code>scheme</code></td>
-    <td>String: 'info', 'success', 'warning', 'danger'</td>
-    <td>&nbsp;</td>
-    <td>Color scheme to use as button color with white text</td>
-  </tr>
-  <tr>
-    <td><code>color</code></td>
-    <td>String</td>
-    <td>'#ffffff'</td>
-    <td>Color to be used for button text</td>
-  </tr>
-  <tr>
-    <td><code>background</code></td>
-    <td>String</td>
-    <td class="text-nowrap">'var(--ui-accent)'</td>
-    <td>Color to be used for button background</td>
-  </tr>
-  <tr>
     <td><code>size</code></td>
     <td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
     <td>'md'</td>
@@ -190,9 +116,9 @@ All other props can still be used and styling will be the same in either case.
   </tr>
   <tr>
     <td><code>type</code></td>
-    <td>(todo)</td>
+    <td>String: 'button', 'submit', 'reset</td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>Sets the button <code>type</code> attribute</td>
   </tr>
   <tr>
     <td><code>active</code></td>
@@ -232,6 +158,58 @@ All other props can still be used and styling will be the same in either case.
       <code>target="_blank"</code>, etc</td
     >
   </tr>
+</Table>
+
+<Table name="Button" type="css">
+  <tr>
+    <td><code>--ui-button-color</code></td>
+    <td>Color</td>
+    <td><code>#fff</code></td>
+    <td>Color used for text and icons</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-background</code></td>
+    <td>Color</td>
+    <td><code>#3b82f6</code></td>
+    <td>Color used for Button background color</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-width</code></td>
+    <td>Numeric</td>
+    <td><code>auto</code></td>
+    <td>Button component width</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-height</code></td>
+    <td>Numeric</td>
+    <td><code>auto</code></td>
+    <td>Button component height</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-padding</code></td>
+    <td>Padding shorthand</td>
+    <td>&nbsp;</td>
+    <td>CSS padding shorthand</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-font-size</code></td>
+    <td>Numeric</td>
+    <td><code>14px</code></td>
+    <td>Font size of Button text</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-border</code></td>
+    <td>Border shorthand</td>
+    <td><code>none</code></td>
+    <td>CSS border shorthand</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-radius</code></td>
+    <td>Numeric</td>
+    <td><code>ui-radius</code> or <code>3px</code></td>
+    <td>Button border radius</td>
+  </tr>
+  
 </Table>
 
 <Table name="Button" type="slots">

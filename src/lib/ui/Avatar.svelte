@@ -21,7 +21,7 @@
   }
 </script>
 
-<ui-avatar class="lib-ui alert {_class}" {size} {...other}>
+<ui-avatar class="lib-ui avatar {_class}" {size} {...other}>
   {#if src}
     <img {src} alt={alt || name || initials || 'Avatar'} />
   {:else if initials}
@@ -33,7 +33,7 @@
 <style>
   /* Instance Styles
   -----------------------------*/
-  ui-avatar {
+  .lib-ui {
     --ui-this-size: var(--ui-avatar-size, 84px);
     --ui-this-color: var(--ui-avatar-color, var(--ui-dark, #1e293b));
     --ui-this-background: var(--ui-avatar-background, var(--ui-light, #e2e8f0));
@@ -43,6 +43,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: var(--ui-this-border);
     border-radius: 50%;
     font-weight: 600;
     height: auto;
