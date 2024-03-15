@@ -129,7 +129,7 @@
 <style>
   /* Instance Styles
   -----------------------------*/
-  ui-alert {
+  .lib-ui {
     --ui-this-color: var(--ui-alert-color, var(--ui-dark, #1e293b));
     --ui-this-background: var(--ui-alert-background, var(--ui-light, #e2e8f0));
     --ui-this-padding: var(--ui-alert-padding, 12px);

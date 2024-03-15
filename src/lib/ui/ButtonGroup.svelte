@@ -1,68 +1,40 @@
 <script>
   import { setContext } from 'svelte'
 
-  let {
-    color,
-    background,
-    scheme,
-    size,
-    name = '',
-    class: _class = '',
-    ...other
-  } = $props()
+  let { size, name = '', class: _class = '', ...other } = $props()
 
   setContext('isGroup', true)
-  if (color) setContext('color', color)
-  if (background) setContext('background', background)
-  if (scheme) setContext('scheme', scheme)
   if (size) setContext('size', size)
-
-  function setBackground(el) {
-    // This must be set as a local CSS variable in order to use it in the pseudo-element for the
-    // background color of the button group (which is a darkened version of the background color)
-    if (background) {
-      el.style.setProperty('--ui-button-group-background', background)
-    }
-  }
 </script>
 
-<ui-button-group
-  use:setBackground
-  class={['lib-ui', _class].join(' ')}
-  {name}
-  {scheme}
-  {...other}
->
+<ui-button-group class={['lib-ui', _class].join(' ')} {name} {...other}>
   <slot />
 </ui-button-group>
 
 <style>
   .lib-ui {
+    --ui-this-border: var(--ui-button-group-border, none);
+    --ui-this-radius: var(
+      --ui-button-group-radius,
+      var(--ui-button-radius, var(--ui-radius, 3px))
+    );
+    --ui-this-shadow: var(
+      --ui-button-group-shadow,
+      var(--ui-button-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.2))
+    );
+  }
+
+  ui-button-group {
     flex: 1;
     margin-top: var(--ui-form-item-margin-top, 1rem);
     position: relative;
     overflow: hidden;
-    border-radius: var(--ui-border-radius, 3px);
+    border: var(--ui-this-border);
+    border-radius: var(--ui-this-radius);
     display: inline-flex;
     flex-wrap: nowrap;
     gap: 1px;
-    box-shadow: var(--ui-button-shadow, 0 1px 2px rgba(0, 0, 0, 0.35));
-  }
-
-  [scheme='info'] {
-    --ui-button-group-scheme-background: var(--ui-info-dark, dodgerblue);
-  }
-
-  [scheme='warning'] {
-    --ui-button-group-scheme-background: var(--ui-warning-dark, darkorange);
-  }
-
-  [scheme='success'] {
-    --ui-button-group-scheme-background: var(--ui-success-dark, darkgreen);
-  }
-
-  [scheme='danger'] {
-    --ui-button-group-scheme-background: var(--ui-danger-dark, red);
+    box-shadow: var(--ui-this-shadow);
   }
 
   ui-button-group::before {
@@ -72,10 +44,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(
-      --ui-button-group-background,
-      var(--ui-button-group-scheme-background, var(--ui-accent, royalblue))
-    );
+    background-color: var(--ui-button-background, var(--ui-accent, #3b82f6));
     filter: brightness(0.8);
   }
 </style>

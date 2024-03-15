@@ -1,12 +1,12 @@
 <script>
 	import { ButtonGroup, Button } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
 
   let name = '';
-  let align = $state();
+  let whichway = $state();
 
   function handleClick(val) {
-    align = val;
+    whichway = val;
   }
 </script>
 
@@ -20,97 +20,58 @@ used to create a segmented control for plain buttons with an `on:click` directiv
 ```svelte
 <script>
   import { ButtonGroup, Button } from '$lib/ui';
-  let align = $state();
+  let whichway = $state();
 
   function handleClick(val) {
-    align = val;
+    whichway = val;
   }
 </script>
 
 <ButtonGroup>
   <Button
     on:click={() => handleClick('left')}
-    active={align === 'left'}
+    active={whichway === 'left'}
   >
     Left
   </Button>
   <Button
     on:click={() => handleClick('middle')}
-    active={align === 'middle'}
+    active={whichway === 'middle'}
   >
     Middle
   </Button>
   <Button
     on:click={() => handleClick('right')}
-    active={align === 'right'}
+    active={whichway === 'right'}
   >
     Right
   </Button>
 </ButtonGroup>
 
-<p>Alignment: {align}</p>
+<p>whichway: {whichway}</p>
 ```
 <ButtonGroup>
   <Button
     on:click={() => handleClick('left')}
-    active={align === 'left'}
+    active={whichway === 'left'}
   >
     Left
   </Button>
   <Button
     on:click={() => handleClick('middle')}
-    active={align === 'middle'}
+    active={whichway === 'middle'}
   >
     Middle
   </Button>
   <Button
     on:click={() => handleClick('right')}
-    active={align === 'right'}
+    active={whichway === 'right'}
   >
     Right
   </Button>
 </ButtonGroup>
 
-<p>Alignment: {align}</p>
-
----
-
-### Color Scheme
-
-If all of the Button components in a ButtonGroup should have the same color scheme, use the `scheme`
-prop on the ButtonGroup instead of on each individual Button.
-
-```svelte
-<ButtonGroup scheme="danger">
-  <Button>Dangerous</Button>
-  <Button>Hazardous</Button>
-  <Button>Perilous</Button>
-</ButtonGroup>
-```
-<ButtonGroup scheme="danger">
-  <Button>Dangerous</Button>
-  <Button>Hazardous</Button>
-  <Button>Perilous</Button>
-</ButtonGroup>
-
----
-
-### Custom Colors
-
-If all of the Button components in a ButtonGroup should have the same color or background, use the
-`color` or `background` prop on the ButtonGroup instead of on each individual Button.
-
-
-```svelte
-<ButtonGroup color="yellow" background="sienna">
-  <Button>Herp</Button>
-  <Button>Derp</Button>
-</ButtonGroup>
-```
-<ButtonGroup color="yellow" background="sienna">
-  <Button>Herp</Button>
-  <Button>Derp</Button>
-</ButtonGroup>
+<p>whichway: {whichway}</p>
 
 ---
 
@@ -120,13 +81,13 @@ If all of the Button components in a ButtonGroup should have the same size, use 
 ButtonGroup instead of on each individual Button.
 
 ```svelte
-<ButtonGroup size="sm" background="gray">
+<ButtonGroup size="sm">
   <Button>A</Button>
   <Button>B</Button>
   <Button>C</Button>
 </ButtonGroup>
 ```
-<ButtonGroup size="sm" background="gray">
+<ButtonGroup size="sm">
   <Button>A</Button>
   <Button>B</Button>
   <Button>C</Button>
@@ -134,4 +95,48 @@ ButtonGroup instead of on each individual Button.
 
 ---
 
-<Tables />
+<Table name="ButtonGroup" type="props">
+  <tr>
+    <td><code>size</code></td>
+    <td>String: 'xs', 'sm', 'md', 'lg', or 'xl'</td>
+    <td>'md'</td>
+    <td>Size to be used for all child Button components</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>disabled</code>, <code>on:click</code>, <code>target="_blank"</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="ButtonGroup" type="css">
+  <tr>
+    <td><code>--ui-button-group-border</code></td>
+    <td>Border shorthand</td>
+    <td><code>none</code></td>
+    <td>CSS border shorthand</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-group-radius</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-button-radius</code>, <code>--ui-radius</code>, <code>3px</code></td>
+    <td>CSS border shorthand</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-group-shadow</code></td>
+    <td>Box shadow shorthand</td>
+    <td><code>--ui-button-shadow</code>,<br><code>0 2px 2px 0 rgba(0, 0, 0, 0.2)</code></td>
+    <td>CSS box shadow shorthand</td>
+  </tr>
+</Table>

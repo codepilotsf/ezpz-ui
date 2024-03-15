@@ -6,7 +6,6 @@
     href = null,
     active = null,
     loading = null,
-    scheme = getContext('scheme'),
     size = getContext('size') || null,
     class: _class = '',
     ...other
@@ -18,7 +17,6 @@
 {#if href}
   <a
     class="lib-ui button {_class}"
-    {scheme}
     {href}
     {type}
     {active}
@@ -33,8 +31,7 @@
   </a>
 {:else}
   <button
-    class={['lib-ui', _class].join(' ')}
-    {scheme}
+    class="lib-ui button {_class}"
     {type}
     {active}
     {loading}
@@ -63,7 +60,8 @@
     --ui-this-radius: var(--ui-button-radius, var(--ui-radius, 3px));
   }
 
-  .lib-ui {
+  button,
+  a {
     color: var(--ui-this-color);
     background-color: var(--ui-this-background);
     width: var(--ui-this-width);
