@@ -35,8 +35,9 @@ will be clipped to a circle automatically.
 
 ### Sizes
 
-The default size is `md` (medium) as shown above. The `size` property can be used to set the size as defined in
-`style.css`.
+The default size is `md` (medium) as shown above. The `size` property can be used to set the size as
+defined in `style.css`. Note that the size of the avatar can also be set using the
+`--ui-avatar-size` CSS Style Prop.
 
 ```svelte
 <Avatar src="./bob.jpg" size="xs" />
@@ -57,8 +58,9 @@ The default size is `md` (medium) as shown above. The `size` property can be use
 
 ### Initials
 
-Supplied initials will be used as the value of the image element's `alt` attribute and as the backup display in case no
-`src` image is passed. Initials are automatically uppercased and only the first two letters are used.
+Supplied initials will be used as the value of the image element's `alt` attribute and as the backup
+display in case no `src` image is passed. Initials are automatically uppercased and only the first
+two letters are used.
 
 ```svelte
 <Avatar initials="ck" />
@@ -69,8 +71,9 @@ Supplied initials will be used as the value of the image element's `alt` attribu
 
 ### Name
 
-Instead of passing `initials`, a `name` property can be passed from which initials can be derived for backup display.
-If present, the `name` property is also used as the value of the image element's `alt` attribute.
+Instead of passing `initials`, a `name` property can be passed from which initials can be derived
+for backup display. If present, the `name` property is also used as the value of the image element's
+`alt` attribute.
 
 ```svelte
 <Avatar name="Michael Jackson" />
@@ -142,7 +145,13 @@ If present, the `name` property is also used as the value of the image element's
     <td><code>--ui-avatar-size</code></td>
     <td>Numeric</td>
     <td><code>84px</code></td>
-    <td>Arbitrary size of Avatar (use instead of <code>size</code> prop)</td>
+    <td>Arbitrary size of Avatar (overrides <code>size</code> prop)</td>
+  </tr>
+  <tr>
+    <td><code>--ui-avatar-font-size</code></td>
+    <td>Numeric</td>
+    <td><code>calc(--ui-avatar-size/2.2)</code></td>
+    <td>Size used for initials</td>
   </tr>
   <tr>
     <td><code>--ui-avatar-color</code></td>
@@ -157,9 +166,15 @@ If present, the `name` property is also used as the value of the image element's
     <td>Color used for initials background</td>
   </tr>
   <tr>
-    <td><code>--ui-avatar-border</code></td>
-    <td>Border shorthand</td>
+    <td><code>--ui-avatar-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>0</code></td>
+    <td>Avatar border width</td>
+  </tr>
+  <tr>
+    <td><code>--ui-avatar-border-color</code></td>
+    <td>Color</td>
     <td><code>none</code></td>
-    <td>Avatar component border shorthand value</td>
+    <td>Avatar border color</td>
   </tr>
  </Table>

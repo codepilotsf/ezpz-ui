@@ -7,16 +7,12 @@
   import GitHubIcon from '$lib/components/GitHubIcon.svelte'
   import MenuItem from '$lib/components/MenuItem.svelte'
 
-  let contentEl
+  let contentEl = $state()
 
   afterNavigate(() => {
     contentEl.scrollTo(0, 0)
   })
 </script>
-
-<svelte:head>
-  <title>LIB/UI</title>
-</svelte:head>
 
 <page-wrapper class="flex h-full flex-col">
   <!-- Header -->

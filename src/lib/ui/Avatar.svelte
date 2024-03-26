@@ -4,7 +4,7 @@
     initials = '',
     name = '',
     alt = '',
-    size,
+    size = 'md',
     class: _class = '',
     ...other
   } = $props()
@@ -19,9 +19,27 @@
       .slice(0, 2)
       .join('')
   }
+
+  // Set size to named or explicit value
+  const sizes = {
+    xs: '32px',
+    sm: '52px',
+    md: '84px',
+    lg: '136px',
+    xl: '220px',
+  }
 </script>
 
-<ui-avatar class="lib-ui Avatar {_class}" {size} {...other}>
+<svelte:head>
+  <title>LIB/UI Avatar</title>
+</svelte:head>
+
+<ui-avatar
+  class="lib-ui Avatar {_class}"
+  style="--ui-this-size: {sizes[size]}"
+  {size}
+  {...other}
+>
   {#if src}
     <img {src} alt={alt || name || initials || 'Avatar'} />
   {:else if initials}
@@ -31,48 +49,20 @@
 </ui-avatar>
 
 <style>
-  /* Instance Styles
-  -----------------------------*/
-  .lib-ui {
-    --ui-this-size: var(--ui-avatar-size, 84px);
-    --ui-this-color: var(--ui-avatar-color, var(--ui-dark, #1e293b));
-    --ui-this-background: var(--ui-avatar-background, var(--ui-light, #e2e8f0));
-    --ui-this-border: var(--ui-avatar-border, none);
-  }
   ui-avatar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: var(--ui-this-border);
+    border: var(--ui-avatar-border, none);
     border-radius: 50%;
     font-weight: 600;
     height: auto;
+    width: var(--ui-avatar-size, var(--ui-this-size, 84px));
+    font-size: var(--ui-avatar-font-size, calc(var(--ui-this-size) / 2.2));
     overflow: hidden;
     aspect-ratio: 1;
-    color: var(--ui-this-color);
-    background-color: var(--ui-this-background);
-    width: var(--ui-this-size);
-    font-size: calc(var(--ui-this-size) / 2.2);
-  }
-
-  [size='xs'] {
-    --ui-this-size: 32px;
-  }
-
-  [size='sm'] {
-    --ui-this-size: 52px;
-  }
-
-  [size='md'] {
-    --ui-this-size: 84px;
-  }
-
-  [size='lg'] {
-    --ui-this-size: 136px;
-  }
-
-  [size='xl'] {
-    --ui-this-size: 220px;
+    color: var(--ui-avatar-color, var(--ui-dark, #1e293b));
+    background-color: var(--ui-avatar-background, var(--ui-light, #e2e8f0));
   }
 
   ui-avatar img {

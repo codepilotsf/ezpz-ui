@@ -287,7 +287,7 @@ components. They are all optional and will fall back to default values if not se
   </tr> -->
 </Table>
 
-<HeadsUp>Note that component level classes such as <code>--ui-alert-radius</code> are documented in each
+<HeadsUp>Note that component level classes such as <code>--ui-alert-color</code> are documented in each
 component's documentation.</HeadsUp>
 
 ---

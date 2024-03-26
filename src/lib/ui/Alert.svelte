@@ -2,7 +2,7 @@
   import { fade } from 'svelte/transition'
 
   let {
-    active = true,
+    active = $bindable(true),
     icon = true,
     scheme,
     class: _class = '',
@@ -127,25 +127,16 @@
 {/if}
 
 <style>
-  /* Instance Styles
-  -----------------------------*/
-  .lib-ui {
-    --ui-this-color: var(--ui-alert-color, var(--ui-dark, #1e293b));
-    --ui-this-background: var(--ui-alert-background, var(--ui-light, #e2e8f0));
-    --ui-this-padding: var(--ui-alert-padding, 12px);
-    --ui-this-gap: var(--ui-alert-gap, 8px);
-    --ui-this-border: var(--ui-alert-border, none);
-    --ui-this-radius: var(--ui-alert-radius, var(--ui-border-radius, 3px));
-  }
-
   ui-alert {
     display: flex;
-    gap: var(--ui-this-gap);
-    border: var(--ui-this-border);
-    border-radius: var(--ui-this-radius);
-    padding: var(--ui-this-padding);
-    color: var(--ui-this-color);
-    background-color: var(--ui-this-background);
+    gap: var(--ui-alert-gap, 8px);
+    border-style: solid;
+    border-width: var(--ui-alert-border-width, 0);
+    border-color: var(--ui-alert-border-color, none);
+    border-radius: var(--ui-alert-border-radius, var(--ui-border-radius, 3px));
+    padding: var(--ui-alert-padding, 12px);
+    color: var(--ui-alert-color, var(--ui-dark, #1e293b));
+    background-color: var(--ui-alert-background, var(--ui-light, #e2e8f0));
   }
 
   [scheme='info'] {

@@ -78,8 +78,7 @@ used to create a segmented control for plain buttons with an `on:click` directiv
 
 ### Size
 
-If all of the Button components in a ButtonGroup should have the same size, use the `size` prop on the
-ButtonGroup instead of on each individual Button.
+Use the `size` prop on the ButtonGroup to set the size for all child Buttons.
 
 ```svelte
 <ButtonGroup size="sm">

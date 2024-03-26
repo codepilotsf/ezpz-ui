@@ -4,6 +4,11 @@
 	import Table from '$lib/components/Table.svelte';
 </script>
 
+<svelte:head>
+  <title>LIB/UI Alert</title>
+</svelte:head>
+
+
 # Alert
 
 Alerts can be used to provide user feedback for things like successful operations and errors. By
@@ -30,8 +35,7 @@ The brand scheme will be used by default if no scheme or color is provided.
 
 ### Color Schemes
 
-Color schemes defined in `style.css` can be used to set the color and icon used for the alert. The
-icons used can also be changed in `utils.js` if desired.
+Color schemes defined in `style.css` can be used to set the color and icon used for the alert.
 
 ```svelte
 <Alert scheme="info">
@@ -71,7 +75,7 @@ icons used can also be changed in `utils.js` if desired.
 
 ### No Icon
 
-Icons can be disabled by setting the `icon` prop to "false" or a falsey Boolean value.
+Icons can be disabled by setting the `icon` prop to "false" or any falsey value.
 
 ```svelte
 <Alert scheme="info" icon="false">
@@ -187,13 +191,19 @@ An icon can be added by using the `icon` named slot.
     <td>Gap between icon and text</td>
   </tr>
   <tr>
-    <td><code>--ui-alert-border</code></td>
-    <td>Border shorthand</td>
-    <td><code>none</code></td>
-    <td>Alert component border shorthand value</td>
+    <td><code>--ui-alert-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>0</code></td>
+    <td>Alert component border width value</td>
   </tr>
   <tr>
-    <td><code>--ui-alert-radius</code></td>
+    <td><code>--ui-alert-border-color</code></td>
+    <td>Color</td>
+    <td><code>none</code></td>
+    <td>Alert component border width value</td>
+  </tr>
+  <tr>
+    <td><code>--ui-alert-border-radius</code></td>
     <td>Numeric</td>
     <td><code>--ui-border-radius</code> or <code>3px</code></td>
     <td>Alert component border radius</td>

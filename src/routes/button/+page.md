@@ -209,7 +209,12 @@ All other props can still be used and styling will be the same in either case.
     <td><code>--ui-border-radius</code> or <code>3px</code></td>
     <td>Button border radius</td>
   </tr>
-  
+  <tr>
+    <td><code>--ui-button-shadow</code></td>
+    <td>Box shadow shorthand</td>
+    <td><code>0 2px 2px 0 rgba(0, 0, 0, 0.2)</code></td>
+    <td>CSS box shadow shorthand</td>
+  </tr>
 </Table>
 
 <Table name="Button" type="slots">

@@ -6,10 +6,26 @@
     href = null,
     active = null,
     loading = null,
-    size = getContext('size') || null,
+    size = getContext('size') || 'md',
     class: _class = '',
     ...other
   } = $props()
+
+  const padding = {
+    xs: '4px 6px',
+    sm: '5px 10px',
+    md: '10px 15px',
+    lg: '12px 20px',
+    xl: '12px 24px',
+  }
+
+  const fontSize = {
+    xs: '9px',
+    sm: '12px',
+    md: '14px',
+    lg: '18px',
+    xl: '20px',
+  }
 
   const isGroup = getContext('isGroup') || null
 </script>
@@ -17,6 +33,9 @@
 {#if href}
   <a
     class="lib-ui Button {_class}"
+    style="--ui-this-font-size: {fontSize[size]}; --ui-this-padding: {padding[
+      size
+    ]}"
     {href}
     {type}
     {active}
@@ -32,6 +51,9 @@
 {:else}
   <button
     class="lib-ui Button {_class}"
+    style="--ui-this-font-size:{fontSize[size]}; --ui-this-padding:{padding[
+      size
+    ]}"
     {type}
     {active}
     {loading}
@@ -47,11 +69,6 @@
 
 <style>
   .lib-ui {
-    --ui-this-color: var(--ui-button-color, #fff);
-    --ui-this-background: var(--ui-button-background, var(--ui-focus, #3b82f6));
-    --ui-this-width: var(--ui-button-width, auto);
-    --ui-this-height: var(--ui-button-height, auto);
-    --ui-this-padding: var(--ui-button-padding, 10px 15px);
     --ui-this-font-size: var(--ui-button-font-size, 14px);
     --ui-this-border: var(--ui-button-border, none);
     --ui-this-radius: var(--ui-button-radius, var(--ui-border-radius, 3px));
@@ -59,43 +76,18 @@
 
   button.lib-ui,
   a.lib-ui {
-    color: var(--ui-this-color);
-    background-color: var(--ui-this-background);
-    width: var(--ui-this-width);
-    height: var(--ui-this-height);
-    padding: var(--ui-this-padding);
-    font-size: var(--ui-this-font-size);
+    color: var(--ui-button-color, #fff);
+    background-color: var(--ui-button-background, var(--ui-focus, #3b82f6));
+    width: var(--ui-button-width, auto);
+    height: var(--ui-button-height, auto);
+    padding: var(--ui-button-padding, var(--ui-this-padding));
+    font-size: var(--ui-button-font-size, var(--ui-this-font-size));
     border: var(--ui-this-border);
     border-radius: var(--ui-this-radius);
     transition: filter 100ms ease-in-out;
     font-weight: 600;
     letter-spacing: 1px;
     z-index: 1; /* Needed for ButtonGroup */
-  }
-
-  [size='xs'] {
-    font-size: 9px;
-    padding: 4px 6px;
-  }
-
-  [size='sm'] {
-    font-size: 12px;
-    padding: 5px 10px;
-  }
-
-  [size='md'] {
-    font-size: 14px;
-    padding: 10px 15px;
-  }
-
-  [size='lg'] {
-    font-size: 18px;
-    padding: 12px 20px;
-  }
-
-  [size='xl'] {
-    font-size: 20px;
-    padding: 12px 24px;
   }
 
   .lib-ui:not([isGroup]) {
