@@ -12,7 +12,7 @@
 
 {#if active}
   <ui-alert
-    class="lib-ui alert {_class}"
+    class="lib-ui Alert {_class}"
     in:fade={{ duration: 200 }}
     out:fade={{ duration: 200 }}
     {scheme}
@@ -135,7 +135,7 @@
     --ui-this-padding: var(--ui-alert-padding, 12px);
     --ui-this-gap: var(--ui-alert-gap, 8px);
     --ui-this-border: var(--ui-alert-border, none);
-    --ui-this-radius: var(--ui-alert-radius, var(--ui-radius, 3px));
+    --ui-this-radius: var(--ui-alert-radius, var(--ui-border-radius, 3px));
   }
 
   ui-alert {
@@ -149,23 +149,23 @@
   }
 
   [scheme='info'] {
-    color: var(--ui-info-dark, #1e40af);
-    background-color: var(--ui-info-light, #dbeafe);
+    color: var(--ui-info, #1e40af);
+    background-color: var(--ui-info-bg, #dbeafe);
   }
 
   [scheme='warning'] {
-    color: var(--ui-warning-dark, #9a3412);
-    background-color: var(--ui-warning-light, #fef08a);
+    color: var(--ui-warning, #9a3412);
+    background-color: var(--ui-warning-bg, #fef08a);
   }
 
   [scheme='success'] {
-    color: var(--ui-success-dark, #166534);
-    background-color: var(--ui-success-light, #bbf7d0);
+    color: var(--ui-success, #166534);
+    background-color: var(--ui-success-bg, #bbf7d0);
   }
 
   [scheme='danger'] {
-    color: var(--ui-danger-dark, #b91c1c);
-    background-color: var(--ui-danger-light, #fee2e2);
+    color: var(--ui-error, #b91c1c);
+    background-color: var(--ui-error-bg, #fee2e2);
   }
 
   .title {

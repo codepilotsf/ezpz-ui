@@ -21,7 +21,7 @@
   }
 </script>
 
-<ui-avatar class="lib-ui avatar {_class}" {size} {...other}>
+<ui-avatar class="lib-ui Avatar {_class}" {size} {...other}>
   {#if src}
     <img {src} alt={alt || name || initials || 'Avatar'} />
   {:else if initials}

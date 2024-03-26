@@ -7,7 +7,7 @@
   if (size) setContext('size', size)
 </script>
 
-<ui-button-group class={['lib-ui', _class].join(' ')} {name} {...other}>
+<ui-button-group class="lib-ui ButtonGroup {_class}" {name} {...other}>
   <slot />
 </ui-button-group>
 
@@ -16,7 +16,7 @@
     --ui-this-border: var(--ui-button-group-border, none);
     --ui-this-radius: var(
       --ui-button-group-radius,
-      var(--ui-button-radius, var(--ui-radius, 3px))
+      var(--ui-button-radius, var(--ui-border-radius, 3px))
     );
     --ui-this-shadow: var(
       --ui-button-group-shadow,
@@ -26,7 +26,7 @@
 
   ui-button-group {
     flex: 1;
-    margin-top: var(--ui-form-item-margin-top, 1rem);
+    margin-top: var(--ui-margin-top, 1rem);
     position: relative;
     overflow: hidden;
     border: var(--ui-this-border);
@@ -44,7 +44,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--ui-button-background, var(--ui-accent, #3b82f6));
+    background-color: var(--ui-button-background, var(--ui-focus, #3b82f6));
     filter: brightness(0.8);
   }
 </style>

@@ -81,7 +81,7 @@ could add this to your project's CSS:
 
 ```css
 :root {
-  --ui-radius: 4px;
+  --ui-border-radius: 4px;
 }
 ```
 
@@ -91,7 +91,7 @@ elements, but then override it for a specific form element if needed. Or you can
 for your own alternate versions of LIB/UI components that are styled differently from the rest.
 
 There are also CSS custom properties available for individual components. For example, the Alert
-component will use the global `--ui-radius` value by default. But you can change the default border
+component will use the global `--ui-border-radius` value by default. But you can change the default border
 radius for only Alert components like this:
 
 ```css
@@ -152,7 +152,7 @@ components. They are all optional and will fall back to default values if not se
     <td colspan="4" class="pt-4">GLOBAL COLORS</td>
   </tr>
   <tr>
-    <td><code>--ui-accent</code></td>
+    <td><code>--ui-focus</code></td>
     <td>Color</td>
     <td><code>#3b82f6</code></td>
     <td>Accent color used for things like buttons and links</td>
@@ -176,90 +176,98 @@ components. They are all optional and will fall back to default values if not se
     <td>Light color used for things like disabled form element background</td>
   </tr>
   <tr>
-    <td><code>--ui-info-dark</code></td>
+    <td><code>--ui-info</code></td>
     <td>Color</td>
     <td><code>#1e40af</code></td>
     <td>Dark color used for things like text in components with scheme value 'info'</td>
   </tr>
   <tr>
-    <td><code>--ui-info-light</code></td>
-    <td>Color</td>
-    <td><code>#1e40af</code></td>
-    <td>Light color used for things like Alert background scheme value 'info'</td>
-  </tr>
-    <tr>
-    <td><code>--ui-info-dark</code></td>
-    <td>Color</td>
-    <td><code>#1e40af</code></td>
-    <td>Dark color used for things like text in components with scheme value 'info'</td>
-  </tr>
-  <tr>
-    <td><code>--ui-info-light</code></td>
-    <td>Color</td>
-    <td><code>#dbeafe</code></td>
-    <td>Light color used for things like Alert background scheme value 'info'</td>
-  </tr>
-  <tr>
-    <td><code>--ui-warning-dark</code></td>
+    <td><code>--ui-warning</code></td>
     <td>Color</td>
     <td><code>#9a3412</code></td>
     <td>Dark color used for things like text in components with scheme value 'warning'</td>
   </tr>
   <tr>
-    <td><code>--ui-warning-light</code></td>
-    <td>Color</td>
-    <td><code>#fef08a</code></td>
-    <td>Light color used for things like text in components with scheme value 'warning'</td>
-  </tr>
-  <tr>
-    <td><code>--ui-success-dark</code></td>
+    <td><code>--ui-success</code></td>
     <td>Color</td>
     <td><code>#166534</code></td>
     <td>Dark color used for things like text in components with scheme value 'success'</td>
   </tr>
   <tr>
-    <td><code>--ui-success-light</code></td>
-    <td>Color</td>
-    <td><code>#bbf7d0</code></td>
-    <td>Light color used for things like text in components with scheme value 'success'</td>
-  </tr>
-  <tr>
-    <td><code>--ui-danger-dark</code></td>
+    <td><code>--ui-error</code></td>
     <td>Color</td>
     <td><code>#b91c1c</code></td>
     <td>Dark color used for things like text in components with scheme value 'danger'</td>
   </tr>
   <tr>
-    <td><code>--ui-danger-light</code></td>
+    <td><code>--ui-info-bg</code></td>
+    <td>Color</td>
+    <td><code>#dbeafe</code></td>
+    <td>Light color used for things like Alert background scheme value 'info'</td>
+  </tr>
+  <tr>
+    <td><code>--ui-warning-bg</code></td>
+    <td>Color</td>
+    <td><code>#fef08a</code></td>
+    <td>Light color used for things like text in components with scheme value 'warning'</td>
+  </tr>
+  <tr>
+    <td><code>--ui-success-bg</code></td>
+    <td>Color</td>
+    <td><code>#bbf7d0</code></td>
+    <td>Light color used for things like text in components with scheme value 'success'</td>
+  </tr>
+  <tr>
+    <td><code>--ui-error-bg</code></td>
     <td>Color</td>
     <td><code>#fee2e2</code></td>
     <td>Light color used for things like text in components with scheme value 'danger'</td>
   </tr>
+
   <tr>
-    <td colspan="4" class="pt-8">GLOBAL BORDERS</td>
+    <td colspan="4" class="pt-8">GLOBAL BORDERS AND OUTLINES</td>
   </tr>
   <tr>
-    <td><code>--ui-border</code></td>
-    <td>Border shorthand</td>
-    <td><code>1px solid var(--ui-midtone)</code></td>
-    <td>CSS border shorthand value for border style on things like form elements</td>
+    <td><code>--ui-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>3px</code></td>
+    <td>Border width for things like form elements</td>
   </tr>
   <tr>
-    <td><code>--ui-radius</code></td>
+    <td><code>--ui-border-radius</code></td>
     <td>Numeric</td>
     <td><code>3px</code></td>
     <td>Border radius for things like form elements</td>
   </tr>
   <tr>
+    <td><code>--ui-border-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-midtone</code>, <code>#94a3b8</code></td>
+    <td>Border color for things like form elements</td>
+  </tr>
+  <tr>
+    <td><code>--ui-outline-width</code></td>
+    <td>Numeric</td>
+    <td><code>1px</code></td>
+    <td>Outline width for things like focused or error form elements</td>
+  </tr>
+  <tr>
+    <td><code>--ui-outline-offset</code></td>
+    <td>Numeric</td>
+    <td><code>3px</code></td>
+    <td>Outline offset for things like focused or error form elements</td>
+  </tr>
+
+  <tr>
     <td colspan="4" class="pt-8">GLOBAL FORM ITEMS</td>
   </tr>
   <tr>
-    <td><code>--ui-item-margin</code></td>
+    <td><code>--ui-margin</code></td>
     <td>Numeric</td>
     <td><code>1rem</code></td>
     <td>Sets margin-top on form elements within a form</td>
   </tr>
-  <tr>
+  <!-- <tr>
     <td><code>--ui-form-row-gap</code></td>
     <td>Numeric</td>
     <td><code>.5rem</code></td>
@@ -276,7 +284,7 @@ components. They are all optional and will fall back to default values if not se
     <td>Numeric</td>
     <td><code>.9rem</code></td>
     <td>Sets sets font-size on notes and errors below form elements</td>
-  </tr>
+  </tr> -->
 </Table>
 
 <HeadsUp>Note that component level classes such as <code>--ui-alert-radius</code> are documented in each

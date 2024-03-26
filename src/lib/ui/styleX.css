@@ -4,35 +4,30 @@
   -------------------
   Accent and neutral colors
   ------------------- */
-  /* Accent Color: Used as accent for buttons, checked checkmarks, etc */
-  --ui-accent: #7c3aed;
+
+  /* Focus Color: Used as accent color for focused fields, buttons, etc */
+  --ui-focus: #7c3aed;
 
   /* Neutral Colors: Used for Text, borders, etc */
   --ui-light: #f1f5f9;
   --ui-midtone: #cbd5e1;
-  --ui-dark: #0f172a;
+  --ui-dark: #1e293b;
 
   /* Schemes
   -------------------
-  Info, Success, Warning, Error, and Neutral color schemes
+  Info, Success, Warning, and Error colors
   ------------------- */
-  /* Info */
-  --ui-info-dark: #075985;
-  --ui-info-light: #e0f2fe;
+  --ui-info: #075985;
+  --ui-warning: #ea580c;
+  --ui-success: #15803d;
+  --ui-error: #b91c1c;
 
-  /* Warning */
-  --ui-warning-dark: #ea580c;
-  --ui-warning-light: #fef08a;
-
-  /* Success  */
-  --ui-success-dark: #15803d;
-  --ui-success-light: #bbf7d0;
-
-
-  /* Danger */
-  --ui-danger-dark: #b91c1c;
-  --ui-danger-light: #fecaca;
-
+  /* Backgrounds for alerts */
+  --ui-info-bg: #e0f2fe;
+  --ui-warning-bg: #fef08a;
+  --ui-success-bg: #bbf7d0;
+  --ui-error-bg: #fecaca;
+  
   /* Borders
   -------------------
   Border styles for things like form elements
@@ -61,10 +56,10 @@
   -------------------
   The form element itself (like an input or select element)
   --------------------- */
-  --ui-form-item-padding: 4px 6px;
-  --ui-form-item-font-size: 1rem;
-  --ui-form-item-line-height: 1.6;
-  --ui-form-item-placeholder-color: #cbd5e1;
+  --ui-padding: 4px 6px;
+  --ui-font-size: 1rem;
+  --ui-line-height: 1.6;
+  --ui-placeholder-color: #cbd5e1;
   --ui-button-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 
   /* Form Errors and Notes
@@ -75,20 +70,20 @@
   --ui-form-error-note-font-size: 0.9rem;
 
   /* Form Elements: :focus */
-  /* --ui-form-item-focus-border: 2px solid #3b82f6;
-	--ui-form-item-focus-outline: 2px solid #3b82f6;
-	--ui-form-item-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
+  /* --ui-focus-border: 2px solid #3b82f6;
+	--ui-focus-outline: 2px solid #3b82f6;
+	--ui-focus-box-shadow: box-shadow: 0 0 2px 1px #3b82f6; */
 
   /* Form elements :disabled */
-  /* --ui-form-item-disabled-opacity: 0.5;
-	--ui-form-item-disabled-background: #ddd;
-	--ui-form-item-inverse-disabled-background: var(--midtone); */
+  /* --ui-disabled-opacity: 0.5;
+	--ui-disabled-background: #ddd;
+	--ui-inverse-disabled-background: var(--midtone); */
 
   /* Form elements .error */
-  /* --ui-form-item-error-outline: 1px solid var(--error);
-	--ui-form-item-error-border: 1px solid var(--error);
-	--ui-form-item-error-box-shadow: 0 0 1px 1px var(--error);
-	--ui-form-item-error-color: var(--error); */
+  /* --ui-error-outline: 1px solid var(--error);
+	--ui-error-border: 1px solid var(--error);
+	--ui-error-box-shadow: 0 0 1px 1px var(--error);
+	--ui-error-color: var(--error); */
 
   /* Form checkboxes and radios */
   /* --ui-form-checkradio-border: 1px solid var(--lighter);

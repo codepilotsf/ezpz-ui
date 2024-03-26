@@ -27,7 +27,7 @@ code DRY. Note can be styled as a helpful note or as an error message.
   }
 
   ui-error {
-    color: var(--ui-danger-dark, red);
+    color: var(--ui-error, #b91c1c);
   }
   ui-note {
     color: var(--ui-dark, #222);

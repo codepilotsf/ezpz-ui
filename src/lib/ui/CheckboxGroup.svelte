@@ -6,8 +6,6 @@
     label = '',
     name = '',
     value,
-    background,
-    scheme,
     error = '',
     note = '',
     class: _class = '',
@@ -33,12 +31,9 @@
   $effect(() => {
     value = valueState.value
   })
-
-  if (background) setContext('background', background)
-  if (scheme) setContext('scheme', scheme)
 </script>
 
-<fieldset class={['lib-ui', _class].join(' ')} {scheme} {...other}>
+<fieldset class="lib-ui CheckboxGroup {_class}" {...other}>
   {#if label}
     <Label isLegend="true" isError={Boolean(error)}>{label}</Label>
   {:else if $$slots.label}

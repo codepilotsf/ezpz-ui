@@ -2,7 +2,7 @@
   let {
     variant = 'circle-bars',
     size = 'md',
-    color = 'var(--ui-accent)',
+    color = 'var(--ui-focus)',
     class: _class = '',
     ...other
   } = $props()

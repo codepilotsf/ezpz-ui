@@ -1,11 +1,11 @@
 <script>
   import { getContext } from 'svelte'
-  import { readable } from 'svelte/store'
+  import { readable, writable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
 
   let {
     name = '',
-    value = null,
+    value = $bindable(),
     id = name || null,
     label = '',
     type = 'text',
@@ -22,11 +22,12 @@
   disabled = disabled === 'false' ? false : disabled
 
   let form = getContext('form') || readable({})
-  let errors = getContext('errors') || readable({})
+  let errors = getContext('errors') || writable({})
   let constraints = getContext('constraints') || readable({})
 
+  $errors[name] = error
   $effect(() => {
-    error = error || $errors[name] || ''
+    error = $errors[name] || ''
   })
 
   const handleInput = (e) => {
@@ -36,12 +37,10 @@
   }
 </script>
 
-<ui-input class="lib-ui">
+<ui-input class="lib-ui Input {_class}" class:error={Boolean(error)}>
   <Label forId={id} {label} isError={Boolean(error)}></Label>
 
   <input
-    class={_class}
-    class:error={Boolean(error)}
     aria-invalid={Boolean(error) || null}
     {type}
     {id}
@@ -62,42 +61,55 @@
 <style>
   .lib-ui {
     display: block;
-    margin-top: var(--ui-form-item-margin-top, 1rem);
+    margin-top: var(--ui-margin-top, 1rem);
     flex: 1;
   }
 
   input {
-    outline: none;
     width: 100%;
-    font-size: var(--ui-form-item-font-size, 1rem);
-    color: var(--ui-dark, #222);
-    border-width: var(--ui-border-width, 1px);
+    font-size: var(--ui-input-font-size, var(--ui-font-size, 1rem));
+    color: var(--ui-input-color, var(--ui-dark, #1e293b));
     border-style: solid;
-    border-color: var(--ui-border-color, var(--ui-midtone, #aaa));
-    border-radius: var(--ui-border-radius, 3px);
-    padding: var(--ui-form-item-padding, 4px 6px);
+    border-width: var(--ui-input-border-width, var(--ui-border-width, 1px));
+    border-color: var(--ui-input-border-color, var(--ui-midtone, #94a3b8));
+    border-radius: var(--ui-input-radius, var(--ui-border-radius, 3px));
+    padding: var(--ui-input-padding, var(--ui-padding, 4px 6px));
   }
 
   input:focus {
-    outline: 1px solid var(--ui-accent, dodgerblue);
-    border-color: var(--ui-accent, dodgerblue);
-    box-shadow: 0 0 1px 1px var(--ui-accent, dodgerblue);
+    outline-style: solid;
+    outline-color: var(--ui-input-focus, var(--ui-focus, #3b82f6));
+    outline-width: var(--ui-input-outline-width, var(--ui-outline-width, 2px));
+    outline-offset: var(
+      --ui-input-outline-offset,
+      var(--ui-outline-offset, none)
+    );
+    border-color: var(--ui-input-focus, var(--ui-focus #3b82f6));
   }
 
-  input.error {
-    outline: 1px solid var(--ui-danger-dark, red);
-    border-color: var(--ui-danger-dark, red);
-    box-shadow: 0 0 1px 1px var(--ui-danger-dark, red);
-    color: var(--ui-danger-dark, red);
+  .error input,
+  .error input:focus {
+    outline-style: solid;
+    outline-width: var(--ui-input-outline-width, 2px);
+    outline-color: var(--ui-input-error, var(--ui-error, #b91c1c));
+    outline-offset: var(
+      --ui-input-outline-offset,
+      var(--ui-outline-offset, none)
+    );
+    border-color: var(--ui-input-error, var(--ui-error, #b91c1c));
+    color: var(--ui-select-error, var(--ui-error, #b91c1c));
   }
 
   input:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-    background: var(--ui-light, #ccc);
+    background: var(--ui-light, #f1f5f9);
   }
 
   input::placeholder {
-    color: var(--ui-form-item-placeholder-color, var(--ui-midtone, #aaa));
+    color: var(
+      --ui-input-placeholder-color,
+      var(--ui-placeholder-color, var(--ui-midtone, #cbd5e1))
+    );
   }
 </style>

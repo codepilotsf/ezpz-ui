@@ -66,30 +66,30 @@
 <style>
   .lib-ui {
     display: block;
-    margin-top: var(--ui-form-item-margin-top);
+    margin-top: var(--ui-margin-top);
     flex: 1;
   }
 
   textarea {
     outline: none;
     width: 100%;
-    font-size: var(--ui-form-item-font-size);
+    font-size: var(--ui-font-size);
     color: var(--ui-dark);
     border: var(--ui-border-width) solid var(--ui-border-color);
     border-radius: var(--ui-border-radius);
-    padding: var(--ui-form-item-padding);
-    line-height: var(--ui-form-item-line-height);
+    padding: var(--ui-padding);
+    line-height: var(--ui-line-height);
     min-height: 4rem;
     margin-bottom: -5px;
   }
 
   textarea::placeholder {
-    color: var(--ui-form-item-placeholder-color);
+    color: var(--ui-placeholder-color);
   }
 
   textarea:focus {
-    outline: var(--ui-form-item-focus-outline);
-    box-shadow: var(--ui-form-item-focus-box-shadow);
+    outline: var(--ui-focus-outline);
+    box-shadow: var(--ui-focus-box-shadow);
   }
 
   textarea:disabled {
@@ -99,9 +99,9 @@
   }
 
   textarea.error {
-    outline: 1px solid var(--ui-danger-dark);
-    border: var(--ui-border-width) 1px solid var(--ui-danger-dark);
-    box-shadow: 0 0 1px 1px var(--ui-danger-dark);
-    color: var(--ui-danger-dark);
+    outline: 1px solid var(--ui-error);
+    border: var(--ui-border-width) 1px solid var(--ui-error);
+    box-shadow: 0 0 1px 1px var(--ui-error);
+    color: var(--ui-error);
   }
 </style>

@@ -8,7 +8,7 @@
 # Form
 
 Use `Form` to create a `<form>` element which expects a `superform` object. By default, the form
-will be submitted using the `POST` method and SuperForm's custom `use:enhance` to prevent the
+will be submitted using the `POST` method and SuperForm's custom `use:enhance` action to prevent the
 default form submission. The `superform` prop makes it easy to get form data, errors, and
 constraints which are shared through context with child form elements.
 
@@ -180,7 +180,7 @@ elements.
 </Form>
 ```
 
-<Form superform={data.form} --ui-border-color="yellow";>
+<Form superform={data.form}>
   <Input label="Name" name="name" />
   <Input label="Email" name="email" />
   <Button>Submit</Button>
@@ -188,7 +188,6 @@ elements.
 
 ---
 
-<!-- Properties Table -->
 <h3>Form Properties</h3>
 <Table name="Form" type="props">
   <tr>

@@ -24,7 +24,7 @@ Whoa... maybe the whole schemes concept is literally just CSS with no component-
 
 ```css
 .lib-ui.button[scheme='danger'] {
-  background-color: var(--ui-danger);
+  background-color: var(--ui-error);
   color: #fff;
 }
 ```
@@ -241,7 +241,7 @@ But then my editor thing is no longer editing pure CSS variables – it has to w
 
 Okay so most of the time, we'll just want to set globals and component level stuff. For that, let's go with the longer names which can be declared at the `:root` level. For custom classes, I think we just need to document that due to the nature of how Svelte style-props work, they won't override class-level specificity – but this should be pretty rare anyway. I think it's unlikely that you'll create a special class for example for your own custom button, then override one instance of your special class. You could instead just make another special class.
 
-1. Set global level like `:root { --ui-radius: 3px }`
+1. Set global level like `:root { --ui-border-radius: 3px }`
 2. Set component level like `:root { --ui-alert-radius: 10px }`
 3. Set class level like `.lib-ui.alert.square { --ui-alert-radius: 0 }`
 4. Set one-off styles like `<Alert --ui-alert-radius="1px" />`

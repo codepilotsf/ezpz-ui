@@ -26,7 +26,6 @@ a boolean value to control the button state. Clicking the button will toggle the
 
 ---
 
-<!-- Properties Table -->
 <Table name="Hamburger" type="props">
   <tr>
     <td><code>active</code></td>
@@ -36,7 +35,6 @@ a boolean value to control the button state. Clicking the button will toggle the
   </tr> 
 </Table>
 
-<!-- Styles Table -->
 <Table name="Hamburger" type="css">
   <tr>
     <td><code>--ui-hamburger-width</code></td>

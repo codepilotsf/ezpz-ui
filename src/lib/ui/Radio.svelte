@@ -18,7 +18,7 @@
   function setCssVars(el) {
     el.style.setProperty(
       '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-accent)',
+      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-focus)',
     )
   }
 

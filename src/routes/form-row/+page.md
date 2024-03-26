@@ -37,9 +37,10 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
   <Input label="First Name" />
   <Input label="Last Name" />
 </FormRow>
+
+  <Input label="Last Name" />
 <FormRow>
   <Textarea label="Bio" />
-
   <CheckboxGroup label="Preferences">
     <Checkbox label="Likes Spam" />
     <Checkbox label="Welcomes Telemarketers" />
@@ -48,7 +49,6 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
 
 ---
 
-<!-- Properties Table -->
 <Table name="FormRow" type="props">
   <tr>
     <td><code>class</code></td>
@@ -67,6 +67,17 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
     >
   </tr>
 </Table>
+
+<Table name="FormRow" type="css">
+  <tr>
+    <td><code>--ui-form-row-gap</code></td>
+    <td>Numeric</td>
+    <td><code>3px</code></td>
+    <td>Flex gap between child elements of FormRow</td>
+  </tr>
+</Table>
+
+
 
 
 

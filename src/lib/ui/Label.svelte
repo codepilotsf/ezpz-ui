@@ -13,6 +13,7 @@ tag is used instead of `label` but styled the same way.
     isLegend = false,
     forId = null,
     isError,
+    class: _class = '',
   } = $props()
 
   // Convert "false" string to boolean
@@ -20,10 +21,10 @@ tag is used instead of `label` but styled the same way.
 </script>
 
 {#if isLegend}
-  <legend class="lib-ui" class:error={isError}><slot /></legend>
+  <legend class="lib-ui Label {_class}" class:error={isError}><slot /></legend>
 {:else}
   <slot />
-  <label class="lib-ui" for={forId} class:error={isError}>
+  <label class="lib-ui Label {_class}" for={forId} class:error={isError}>
     {label}
   </label>
 {/if}
@@ -32,15 +33,15 @@ tag is used instead of `label` but styled the same way.
   label,
   legend {
     display: block;
-    margin: var(--ui-form-label-margin);
-    font-size: var(--ui-form-label-font-size);
-    font-weight: var(--ui-form-label-font-weight);
-    font-variation-settings: 'wght' var(--ui-form-label-font-weight);
+    margin: var(--ui-label-margin, 3px 0);
+    font-size: var(--ui-label-font-size, 0.9rem);
+    font-weight: var(--ui-label-font-weight, 600);
+    font-variation-settings: 'wght' var(--ui-label-font-weight, 600);
     color: inherit;
   }
 
   label.error,
   legend.error {
-    color: var(--ui-danger-dark);
+    color: var(--ui-error, #b91c1c);
   }
 </style>

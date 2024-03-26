@@ -16,7 +16,7 @@
 
 {#if href}
   <a
-    class="lib-ui button {_class}"
+    class="lib-ui Button {_class}"
     {href}
     {type}
     {active}
@@ -31,7 +31,7 @@
   </a>
 {:else}
   <button
-    class="lib-ui button {_class}"
+    class="lib-ui Button {_class}"
     {type}
     {active}
     {loading}
@@ -48,20 +48,17 @@
 <style>
   .lib-ui {
     --ui-this-color: var(--ui-button-color, #fff);
-    --ui-this-background: var(
-      --ui-button-background,
-      var(--ui-accent, #3b82f6)
-    );
+    --ui-this-background: var(--ui-button-background, var(--ui-focus, #3b82f6));
     --ui-this-width: var(--ui-button-width, auto);
     --ui-this-height: var(--ui-button-height, auto);
     --ui-this-padding: var(--ui-button-padding, 10px 15px);
     --ui-this-font-size: var(--ui-button-font-size, 14px);
     --ui-this-border: var(--ui-button-border, none);
-    --ui-this-radius: var(--ui-button-radius, var(--ui-radius, 3px));
+    --ui-this-radius: var(--ui-button-radius, var(--ui-border-radius, 3px));
   }
 
-  button,
-  a {
+  button.lib-ui,
+  a.lib-ui {
     color: var(--ui-this-color);
     background-color: var(--ui-this-background);
     width: var(--ui-this-width);
@@ -103,7 +100,7 @@
 
   .lib-ui:not([isGroup]) {
     box-shadow: var(--ui-button-shadow, 0 1px 2px rgba(0, 0, 0, 0.35));
-    margin-top: calc(var(--ui-form-item-margin-top, 1rem) * 1.8);
+    margin-top: calc(var(--ui-margin-top, 1rem) * 1.8);
   }
 
   a.lib-ui,

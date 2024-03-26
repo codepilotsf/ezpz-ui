@@ -8,9 +8,8 @@
 
 # CheckboxGroup
 
-Use a CheckboxGroup to group multiple Checkbox components for a predictable layout and the ability to two-way bind a
-`value` array value coupled to which radio button is value. Additionally, you can  set a `scheme` or `color` as a single
-property to be inherited by all child Checkboxs.
+Use a CheckboxGroup to group multiple Checkbox components for a predictable layout and the ability
+to two-way bind a `value` array value coupled to which radio button is value.
 
 ### Example
 
@@ -40,10 +39,10 @@ Use `bind:value` to two-way bind a reactive array of value items.
 
 ---
 
-### Legend
+### Label
 
-Use the `label` prop to set a label for the CheckboxGroup. This will be rendered as a `<label>` element and will be
-styled like the `label` elements on other form components.
+Use the `label` prop to set a label for the CheckboxGroup. This will be rendered as a `<label>`
+element and will be styled like the `label` elements on other form components.
 
 ```svelte
 <CheckboxGroup label="Beer Options">
@@ -62,7 +61,8 @@ styled like the `label` elements on other form components.
 
 ### Name
 
-If a `name` prop is set, it will be applied to all child Checkbox components for proper form submission.
+If a `name` prop is set, it will be applied to all child Checkbox components for proper form
+submission.
 
 ```svelte
 <CheckboxGroup name="beer">
@@ -75,44 +75,6 @@ If a `name` prop is set, it will be applied to all child Checkbox components for
   <Checkbox label="Pilsner" value="pilsner" />
   <Checkbox label="India Pale Ale" value="ipa" />
   <Checkbox label="Stout" value="stout" />
-</CheckboxGroup>
-
----
-
-### Color Scheme
-
-If all of the Checkbox components in a CheckboxGroup should have the same color scheme, use the `scheme` prop on the
-CheckboxGroup instead of on each individual Checkbox.
-
-```svelte
-<CheckboxGroup scheme="danger">
-  <Checkbox label="Delete Database" checked />
-  <Checkbox label="Launch Missiles" checked />
-  <Checkbox label="Call Mother In Law" checked />
-</CheckboxGroup>
-```
-<CheckboxGroup scheme="danger">
-  <Checkbox label="Delete Database" checked />
-  <Checkbox label="Launch Missiles" checked />
-  <Checkbox label="Call Mother In Law" checked />
-</CheckboxGroup>
-
----
-
-### Custom Background Color
-
-If all of the Checkbox components in a CheckboxGroup should have the same background color, use the
-`background` prop on the CheckboxGroup instead of on each individual Checkbox.
-
-```svelte
-<CheckboxGroup background="#777">
-  <Checkbox label="Boring" />
-  <Checkbox label="Equally Boring" checked />
-</CheckboxGroup>
-```
-<CheckboxGroup background="#777">
-  <Checkbox label="Boring" />
-  <Checkbox label="Equally Boring" checked />
 </CheckboxGroup>
 
 ---
@@ -157,8 +119,8 @@ A `note` prop let's you define a note displayed below the field.
 
 ### Legend Named Slot
 
-Instead of using the `label` prop which can only be a String, a `label` named slot can be used for a label with more
-complex content.
+Instead of using the `label` prop which can only be a String, a `label` named slot can be used for a
+label with more complex content.
 
 ```svelte
 <CheckboxGroup>
@@ -196,18 +158,6 @@ complex content.
     <td>The <code>name</code> property to be inherited by all child Checkbox components</td>
   </tr>
   <tr>
-    <td><code>scheme</code></td>
-    <td>String: 'neutral', 'warning', 'info', 'success', 'danger'</td>
-    <td>&nbsp;</td>
-    <td>Scheme defining color used for checked state of all child Checkboxes</td>
-  </tr>
-  <tr>
-    <td><code>background</code></td>
-    <td>String</td>
-    <td>'brand'</td>
-    <td>Background color used for checked state of all child Checkboxes</td>
-  </tr>
-  <tr>
     <td><code>class</code></td>
     <td>String</td>
     <td>&nbsp;</td>
@@ -222,6 +172,15 @@ complex content.
       like
       <code>on:click</code>, etc</td
     >
+  </tr>
+</Table>
+
+<Table name="Checkbox" type="css">
+  <tr>
+    <td><code>--ui-checkbox-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td>Background color of checked checkbox</td>
   </tr>
 </Table>
 

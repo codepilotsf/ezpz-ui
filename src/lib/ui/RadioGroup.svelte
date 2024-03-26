@@ -46,7 +46,7 @@
 <style>
   .lib-ui {
     flex: 1;
-    margin-top: var(--ui-form-item-margin-top);
+    margin-top: var(--ui-margin-top);
   }
 
   fieldset {

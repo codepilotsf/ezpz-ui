@@ -10,8 +10,8 @@
 
 # Checkbox
 
-Checkbox components are used to toggle a single boolean value. They can also be used within a [CheckboxGroup](/checkbox-group) to toggle
-multiple values.
+Checkbox components are used to toggle a single boolean value. They can also be used within a
+[CheckboxGroup](/checkbox-group) to toggle multiple values.
 
 ---
 
@@ -51,50 +51,22 @@ A `label` prop let's you define a simple String to be used as the checkbox label
 
 ### Leading Label
 
-Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop instead to place it on the left.
+Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop instead to place it
+on the left.
 
 ```svelte
 <Checkbox leadingLabel="I agree to the terms." />
 ```
 <Checkbox leadingLabel="I agree to the terms." />
-
----
-
-### Color Scheme
-
-Color schemes defined in `style.css` can be used to set the color of the checkbox when checked.
-
-```svelte
-<Checkbox scheme="info" label="Info" checked/>
-<Checkbox scheme="warning" label="Warning" checked/>
-<Checkbox scheme="success" label="Success" checked/>
-<Checkbox scheme="danger" label="Danger" checked/>
-```
-<div class="flex flex-col gap-2">
-  <Checkbox scheme="info" label="Info" checked/>
-  <Checkbox scheme="warning" label="Warning" checked/>
-  <Checkbox scheme="success" label="Success" checked/>
-  <Checkbox scheme="danger" label="Danger" checked/>
-</div>
-
----
-
-### Custom Background Color
-
-Set an arbitrary background color to use for the checkbox when checked.
-
-```svelte
-<Checkbox label="Spam me" background="deeppink" checked />
-```
-<Checkbox label="Spam me" background="deeppink" checked />
 
 ---
 
 ### Checked
 
-Not normally used because the CheckboxGroup `value` prop will set which Checkboxes are checked (and overrides this
-property). If using outside of a CheckboxGroup, then use with the `bind:checked` directive as shown in the example at
-the top of this page. The `checked` prop can also be assigned a Boolean value like `checked={user.wantsSpam}`.
+Not normally used because the CheckboxGroup `value` prop will set which Checkboxes are checked (and
+overrides this property). If using outside of a CheckboxGroup, then use with the `bind:checked`
+directive as shown in the example at the top of this page. The `checked` prop can also be assigned a
+Boolean value like `checked={user.wantsSpam}`.
 
 ```svelte
 <Checkbox label="Spam me" checked />
@@ -116,8 +88,8 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 
 ### Value
 
-When used within a [CheckboxGroup](/checkbox-group), this is the value that will be assigned to the CheckboxGroup's
-`value.value` array when checked.
+When used within a [CheckboxGroup](/checkbox-group), this is the value that will be assigned to the
+CheckboxGroup's `value.value` array when checked.
 
 ```svelte
 <Checkbox label="Spam me" value="spamMe" />
@@ -128,7 +100,8 @@ When used within a [CheckboxGroup](/checkbox-group), this is the value that will
 
 ### Label Named Slot
 
-Since the `label` prop can only be a String, you can use the `label` slot instead to pass in a more complex label.
+Since the `label` prop can only be a String, you can use the `label` slot instead to pass in a more
+complex label.
 
 ```svelte
 <Checkbox>
@@ -145,8 +118,8 @@ Since the `label` prop can only be a String, you can use the `label` slot instea
 
 ### Leading Label Named Slot
 
-Since the `leadingLabel` prop can only be a String, you can use the `leadingLabel` slot instead to pass in a more
-complex leading label.
+Since the `leadingLabel` prop can only be a String, you can use the `leadingLabel` slot instead to
+pass in a more complex leading label.
 
 ```svelte
 <Checkbox>
@@ -155,9 +128,8 @@ complex leading label.
   </span>
 </Checkbox>
 ```
-<Checkbox>
-  <span class="flex items-center gap-1" slot="leadingLabel">I hereby confirm that I <Heart size={18} /> spam.</span>
-</Checkbox>
+<Checkbox> <span class="flex items-center gap-1" slot="leadingLabel">I hereby confirm that I <Heart
+  size={18} /> spam.</span> </Checkbox>
 
 ---
 
@@ -175,22 +147,10 @@ complex leading label.
     <td>Text label appears leading the checkmark</td>
   </tr>
   <tr>
-    <td><code>scheme</code></td>
-    <td>String: 'info', 'success', 'warning', 'danger'</td>
-    <td>&nbsp;</td>
-    <td>Scheme defining background color used for checked state</td>
-  </tr>
-  <tr>
-    <td><code>background</code></td>
-    <td>String</td>
-    <td>'--ui-accent' or '#0f172a'</td>
-    <td>Background color used for checked state</td>
-  </tr>
-  <tr>
     <td><code>checked</code></td>
     <td>Boolean</td>
     <td><code>false</code></td>
-    <td>Normally used with `bind:checked` directive. Not needed within a CheckboxGroup</td>
+    <td>Normally used with <code>bind:checked</code> directive. Not needed within a CheckboxGroup</td>
   </tr>
   <tr>
     <td><code>disabled</code></td>
@@ -213,6 +173,15 @@ complex leading label.
       like
       <code>on:click</code>, etc</td
     >
+  </tr>
+</Table>
+
+<Table name="Checkbox" type="css">
+  <tr>
+    <td><code>--ui-checkbox-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td>Background color of checked checkbox</td>
   </tr>
 </Table>
 

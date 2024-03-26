@@ -10,7 +10,6 @@
     id = name || null,
     value = null,
     background = getContext('background') || '',
-    scheme = getContext('scheme') || '',
     _class: _class = '',
     ...other
   } = $props()
@@ -47,7 +46,7 @@
   {/if}
 
   <input
-    class={['lib-ui', _class].join(' ')}
+    class="lib-ui Checkbox {_class}"
     use:setBackground
     type="checkbox"
     bind:checked
@@ -56,7 +55,6 @@
     {name}
     {disabled}
     {value}
-    {scheme}
     {...other}
     aria-checked={checked}
   />
@@ -84,7 +82,7 @@
     border-style: solid;
     border-width: var(--ui-border-width, 1px);
     border-radius: var(--ui-border-radius, 3px);
-    border-color: var(--ui-border-color, var(--ui-midtone, #aaa));
+    border-color: var(--ui-border-color, var(--ui-midtone, 94a3b8));
     appearance: none;
     width: 18px;
     height: 18px;
@@ -104,32 +102,13 @@
     cursor: not-allowed;
   }
   input:disabled {
-    background: var(--ui-light, #ccc);
+    background: var(--ui-light, #f1f5f9);
   }
 
   input:checked {
-    border-color: var(--ui-checkbox-background, var(--ui-accent, royalblue));
-    background-color: var(
-      --ui-checkbox-background,
-      var(--ui-accent, royalblue)
-    );
+    border-color: var(--ui-checkbox-background, var(--ui-focus, #3b82f6));
+    background-color: var(--ui-checkbox-background, var(--ui-focus, #3b82f6));
     background-position: 40% 40%;
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' %3E%3Cpath fill='white' d='M0,8 5,13 14,4 12,2 5,9 2,6z'/%3E%3C/svg%3E%0A");
-  }
-
-  input:checked[scheme='info'] {
-    --ui-checkbox-background: var(--ui-info-dark, dodgerblue);
-  }
-
-  [scheme='warning'] {
-    --ui-checkbox-background: var(--ui-warning-dark, darkorange);
-  }
-
-  [scheme='success'] {
-    --ui-checkbox-background: var(--ui-success-dark, darkgreen);
-  }
-
-  [scheme='danger'] {
-    --ui-checkbox-background: var(--ui-danger-dark, red);
   }
 </style>

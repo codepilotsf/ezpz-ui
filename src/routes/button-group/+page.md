@@ -1,6 +1,7 @@
 <script>
 	import { ButtonGroup, Button } from '$lib/ui';
   import Table from '$lib/components/Table.svelte';
+  import HeadsUp from '$lib/components/HeadsUp.svelte';
 
   let name = '';
   let whichway = $state();
@@ -130,7 +131,7 @@ ButtonGroup instead of on each individual Button.
   <tr>
     <td><code>--ui-button-group-radius</code></td>
     <td>Numeric</td>
-    <td><code>--ui-button-radius</code>, <code>--ui-radius</code>, <code>3px</code></td>
+    <td><code>--ui-button-radius</code>, <code>--ui-border-radius</code>, <code>3px</code></td>
     <td>CSS border shorthand</td>
   </tr>
   <tr>
@@ -140,3 +141,8 @@ ButtonGroup instead of on each individual Button.
     <td>CSS box shadow shorthand</td>
   </tr>
 </Table>
+
+<HeadsUp>Remember that because the ButtonGroup component is a wrapper for Button components, you
+can also set style-props for Buttons like <code>--ui-button-background</code> and the Buttons 
+contained within the group will be styled accordingly.</HeadsUp>
+

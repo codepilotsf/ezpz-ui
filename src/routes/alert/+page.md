@@ -195,11 +195,10 @@ An icon can be added by using the `icon` named slot.
   <tr>
     <td><code>--ui-alert-radius</code></td>
     <td>Numeric</td>
-    <td><code>--ui-radius</code> or <code>3px</code></td>
+    <td><code>--ui-border-radius</code> or <code>3px</code></td>
     <td>Alert component border radius</td>
   </tr>
 </Table>
-
 
 <Table name="Alert" type="slots">
   <tr>

@@ -35,10 +35,7 @@
 </table>
 
 <style>
-  :global(table.api td) {
+  :global(table.api code) {
     white-space: nowrap;
-  }
-  :global(table.api td:last-child) {
-    white-space: normal;
   }
 </style>

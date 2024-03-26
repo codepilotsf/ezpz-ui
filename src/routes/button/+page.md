@@ -10,7 +10,7 @@ it will be rendered as a regular `a` anchor link element. Styling will be the sa
 
 ### Example
 
-The default button uses `--ui-accent` value or `#3b82f6` for color and `md` size.
+The default button uses `--ui-focus` value or `#3b82f6` for color and `md` size.
 
 ```svelte
 <script>
@@ -206,7 +206,7 @@ All other props can still be used and styling will be the same in either case.
   <tr>
     <td><code>--ui-button-radius</code></td>
     <td>Numeric</td>
-    <td><code>ui-radius</code> or <code>3px</code></td>
+    <td><code>--ui-border-radius</code> or <code>3px</code></td>
     <td>Button border radius</td>
   </tr>
   
