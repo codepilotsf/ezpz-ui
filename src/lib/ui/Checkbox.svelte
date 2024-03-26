@@ -4,11 +4,11 @@
   let {
     label = '',
     leadingLabel = '',
-    checked,
+    checked = $bindable(null),
     disabled = false,
     name = getContext('name') || null,
     id = name || null,
-    value = null,
+    value = $bindable(null),
     background = getContext('background') || '',
     _class: _class = '',
     ...other

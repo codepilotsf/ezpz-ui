@@ -1,6 +1,6 @@
 <script>
 	import { RadioGroup, Radio } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
   import { Pizza } from 'lucide-svelte';
 
   let make = 'tesla';
@@ -56,57 +56,6 @@ Labels normally appear to the right of the radio. Use the `leadingLabel` prop in
 <Radio leadingLabel="No going back" />
 ```
 <Radio leadingLabel="No going back" />
-
----
-
-### Color Scheme
-
-Individual radios can be styled with a `scheme` prop. More often, you'll want to set the scheme for all radios in a group
-by setting the `scheme` prop on the [RadioGroup](/radio-group) wrapper component.
-
-```svelte
-<Radio scheme="neutral" label="Neutral" checked />
-```
-<Radio scheme="neutral" label="Neutral" checked />
-
----
-
-```svelte
-<Radio scheme="info" label="Info" checked />
-```
-<Radio scheme="info" label="Info" checked />
-
----
-
-```svelte
-<Radio scheme="warning" label="Warning" checked />
-```
-<Radio scheme="warning" label="Warning" checked />
-
----
-
-```svelte
-<Radio scheme="success" label="Success" checked />
-```
-<Radio scheme="success" label="Success" checked />
-
----
-
-```svelte
-<Radio scheme="danger" label="Danger" checked />
-```
-<Radio scheme="danger" label="Danger" checked />
-
----
-
-### Custom Color
-
-Set an arbitrary color to use for the radio when checked.
-
-```svelte
-<Radio label="Spam me" color="deeppink" checked />
-```
-<Radio label="Spam me" color="deeppink" checked />
 
 ---
 
@@ -171,4 +120,67 @@ Use the `leadingLabel` slot to pass in a more complex leading label that precede
 
 ---
 
-<Tables />
+<Table name="Radio" type="props">
+  <tr>
+    <td><code>label</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears trailing the radio</td>
+  </tr>
+  <tr>
+    <td><code>leadingLabel</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears leading the radio</td>
+  </tr>
+  <tr>
+    <td><code>checked</code></td>
+    <td>Boolean</td>
+    <td><code>false</code></td>
+    <td>Normally used with <code>bind:checked</code> directive. Not needed within a RadioGroup</td>
+  </tr>
+  <tr>
+    <td><code>disabled</code></td>
+    <td>Boolean</td>
+    <td><code>false</code></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Radio" type="css">
+  <tr>
+    <td><code>--ui-radio-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td>Background color of checked radio</td>
+  </tr>
+</Table>
+
+<Table name="Radio" type="slots">
+  <tr>
+    <td><code>label</code></td>
+    <td>Content to be used for label after radio (supercedes <code>label</code> property)</td>
+  </tr>
+  <tr>
+    <td><code>labelLeading</code></td>
+    <td
+      >Content to be used for label preceding radio (supercedes <code>leadingLabel</code> property)</td
+    >
+  </tr>
+</Table>

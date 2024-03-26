@@ -8,19 +8,10 @@
     id = name || null,
     disabled = null,
     checked = null,
-    value,
-    color = getContext('color'),
-    scheme = getContext('scheme'),
+    value = $bindable(),
     class: _class = '',
     ...other
   } = $props()
-
-  function setCssVars(el) {
-    el.style.setProperty(
-      '--ui-color',
-      color || (scheme && `var(--ui-${scheme}-dark)`) || 'var(--ui-focus)',
-    )
-  }
 
   const valueState = getContext('valueState')
 
@@ -37,7 +28,7 @@
   {/if}
 
   <input
-    class={['lib-ui', _class].join(' ')}
+    class="lib-ui Radio {_class}"
     type="radio"
     {id}
     {name}
@@ -48,7 +39,6 @@
     {...other}
     aria-checked={checked}
     on:change={handleChange}
-    use:setCssVars
   />
 
   {#if $$slots.label}
@@ -64,14 +54,17 @@
     flex-direction: row;
     align-items: center;
     margin: 0;
-    font-size: var(--ui-form-label-font-size-small);
-    gap: 0.5rem;
+    font-size: var(--ui-radio-font-size, var(--ui-font-size-small, 0.875rem));
+    gap: var(--ui-radio-gap, 0.5rem);
     width: fit-content;
-    padding: 2px;
+    padding: var(--ui-radio-padding, 2px);
   }
+
   input {
-    border: 1px solid var(--ui-border-color);
-    border-radius: 3px;
+    border-style: solid;
+    border-width: var(--ui-radio-border-width, var(--ui-border-width, 1px));
+    border-color: var(--ui-radio-border-color, var(--ui-midtone, #94a3b8));
+    border-radius: var(--ui-radio-radius, var(--ui-border-radius, 3px));
     appearance: none;
     width: 18px;
     height: 18px;
@@ -88,16 +81,17 @@
 
   input:disabled,
   label[disabled='true'] {
-    opacity: 0.4;
     cursor: not-allowed;
+    opacity: 0.5;
   }
+
   input:disabled {
-    background: var(--ui-midtone);
+    background-color: var(--ui-midtone, #cbd5e1);
   }
 
   input:checked {
-    border-color: var(--ui-color);
-    background-color: var(--ui-color);
+    border-color: var(--ui-radio-color, var(--ui-focus, #3b82f6));
+    background-color: var(--ui-radio-color, var(--ui-focus, #3b82f6));
     background-position: 50% 50%;
     background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Ccircle fill='white' cx='5' cy='5' r='4'/%3E%3C/svg%3E%0A");
   }

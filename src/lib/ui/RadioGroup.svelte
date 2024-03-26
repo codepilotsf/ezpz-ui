@@ -3,18 +3,14 @@
 
   // prettier-ignore
   let { 
-    value, 
+    value = $bindable(), 
     name = '',
-    label = '', 
-    color = '', 
-    scheme = '', 
+    label = '',
     class: _class = '', 
     ...other 
   } = $props()
 
   if (name) setContext('name', name)
-  if (color) setContext('color', color)
-  if (scheme) setContext('scheme', scheme)
 
   /* 
   When $state is set to context and the value is not a custom object, 
@@ -34,7 +30,7 @@
   })
 </script>
 
-<fieldset class={['lib-ui', _class].join(' ')} {...other}>
+<fieldset class="lib-ui RadioGroup {_class}" {...other}>
   {#if label}
     <legend>{label}</legend>
   {:else if $$slots.label}
@@ -46,7 +42,7 @@
 <style>
   .lib-ui {
     flex: 1;
-    margin-top: var(--ui-margin-top);
+    margin-top: var(--ui-radio-margin-top, var(--ui-margin-top, 1rem));
   }
 
   fieldset {

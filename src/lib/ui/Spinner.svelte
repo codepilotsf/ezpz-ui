@@ -2,7 +2,6 @@
   let {
     variant = 'circle-bars',
     size = 'md',
-    color = 'var(--ui-focus)',
     class: _class = '',
     ...other
   } = $props()
@@ -18,11 +17,7 @@
 
 <!-- https://github.com/n3r4zzurr0/svg-spinners -->
 
-<ui-spinner
-  class={['lib-ui', _class].join(' ')}
-  style={`color: ${color}`}
-  {...other}
->
+<ui-spinner class="lib-ui Spinner {_class}" {...other}>
   {#if variant === 'circle-bars'}
     <svg
       width={sizes[size]}
@@ -424,6 +419,6 @@
 <style>
   ui-spinner {
     display: inline-block;
-    color: var(--ui-color);
+    color: var(--ui-spinner-color, var(--ui-focus, #7c3aed));
   }
 </style>

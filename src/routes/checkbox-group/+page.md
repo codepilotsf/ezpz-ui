@@ -137,7 +137,6 @@ label with more complex content.
 
 ---
 
-<!-- Properties Table -->
 <Table name="CheckboxGroup" type="props">
   <tr>
     <td><code>bind:value</code></td>
@@ -149,7 +148,7 @@ label with more complex content.
     <td><code>label</code></td>
     <td>String</td>
     <td>&nbsp;</td>
-    <td>Text label appears before CheckmarkGroup</td>
+    <td>Text label appears before CheckboxGroup</td>
   </tr>
   <tr>
     <td><code>name</code></td>
@@ -184,7 +183,6 @@ label with more complex content.
   </tr>
 </Table>
 
-<!-- Named Slots Table -->
 <Table name="CheckboxGroup" type="slots">
   <tr>
     <td><code>label</code></td>

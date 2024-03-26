@@ -1,13 +1,14 @@
 <script>
 	import { Spinner } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
 </script>
 
 # Spinner
 
-Spinners are used to indicate to the user that the interface is waiting for an action to complete such as a server-side
-operation that is taking a long time. There options for different variants of spinners and sizes. This component is also
-used with the `Button` component to indicate `loading` state.
+Spinners are used to indicate to the user that the interface is waiting for an action to complete
+such as a server-side operation that is taking a long time. There options for different variants of
+spinners and sizes. This component is also used with the `Button` component to indicate `loading`
+state.
 
 ### Example
 
@@ -158,15 +159,45 @@ A default Spinner will render a `circle-bars` variant with the `brand` color sch
 
 ---
 
-### Custom Color
+<Table name="Spinner" type="props">
+  <tr>
+    <td><code>variant</code></td>
+    <td
+      >String: 'circle-bars', 'circle-strip', 'circle-dots', 'dots-bounce', 'dots-fade',
+      'dots-scale', 'dots-shuffle'</td
+    >
+    <td>'circle-bars'</td>
+    <td>Spinner style variant</td>
+  </tr>
+  <tr>
+    <td><code>size</code></td>
+    <td>String: 'xs', 'sm', 'md', 'lg', 'xl'</td>
+    <td>'md'</td>
+    <td>Spinner size</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
 
-Set an arbitrary color to use for the spinner.
-  
-```svelte
-<Spinner color="orange" />
-```
-<Spinner color="orange" />
-
----
-
-<Tables />
+<Table name="Spinner" type="css">
+  <tr>
+    <td><code>--ui-spinner-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td>Color of spinner</td>
+  </tr>
+</Table>

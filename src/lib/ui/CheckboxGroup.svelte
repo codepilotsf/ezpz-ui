@@ -5,7 +5,7 @@
   let {
     label = '',
     name = '',
-    value,
+    value = $bindable(),
     error = '',
     note = '',
     class: _class = '',

@@ -1,9 +1,9 @@
 <script>
   let { name, type } = $props()
   const typeStrings = {
-    props: 'Properties',
+    props: 'Component Props',
     css: 'CSS Custom Properties',
-    slots: 'Slots',
+    slots: 'Named Slots',
   }
 </script>
 

@@ -12,7 +12,7 @@ so the button ends up in the correct position.
 <script>
   // prettier-ignore
   let {
-    active = false,
+    active = $bindable(false),
     class: _class = '',
   } = $props()
 

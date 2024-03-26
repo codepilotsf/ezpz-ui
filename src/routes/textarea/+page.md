@@ -1,12 +1,13 @@
 <script>
 	import { Textarea, Button } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
   let message = $state('');
 </script>
 
 # Textarea
 
-Use Textarea for form text fields. By default, the Textarea will grow to contain the text entered by the user.
+Use Textarea for form text fields. By default, the Textarea will grow to contain the text entered by
+the user.
 
 ---
 
@@ -64,7 +65,7 @@ important flag to override default style).
 
 ---
 
-### PlaceHolder
+### Placeholder
 
 A `placeholder` prop let's you define a simple String to be used as a simple descriptor for the input value.
 
@@ -119,4 +120,126 @@ A `note` prop let's you define a note displayed below the field.
 
 ---
 
-<Tables />
+<Table name="Textarea" type="props">
+  <tr>
+    <td><code>name</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>name of the textarea</td>
+  </tr>
+  <tr>
+    <td><code>placeholder</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Textarea value description</td>
+  </tr>
+  <tr>
+    <td><code>label</code></td>
+    <td>String</td>
+    <td><code>Textarea</code></td>
+    <td>Text label appears above the textarea</td>
+  </tr>
+  <tr>
+    <td><code>type</code></td>
+    <td>String</td>
+    <td><code>text</code></td>
+    <td>Textarea field types</td>
+  </tr>
+  <tr>
+    <td><code>disabled</code></td>
+    <td>Boolean</td>
+    <td><code>false</code></td>
+    <td>Disables the textarea</td>
+  </tr>
+  <tr>
+    <td><code>note</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text appears below textarea</td>
+  </tr>
+  <tr>
+    <td><code>error</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Error message for the textarea</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Textarea" type="css">
+  <tr>
+    <td><code>--ui-textarea-font-size</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-font-size</code>, <code>1rem</code></td>
+    <td>Font size for value of field</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-dark</code>, <code>#1e293b</code></td>
+    <td>Text color for value of field</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-border-width</code>, <code>1px</code></td>
+    <td>Border width</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-border-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-border-color</code>, <code>--ui-midtone</code>, <code>#94a3b8</code></td>
+    <td>Border color</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-border-radius</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-border-radius</code>, <code>3px</code></td>
+    <td>Border radius</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-padding</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-padding</code>, <code>4px 6px</code></td>
+    <td>CSS padding shorthand</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-outline-width</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-outline-width</code>, <code>1px</code></td>
+    <td>Outline width for <code>:focus</code> and <code>.error</code></td>
+  </tr>
+  <tr>
+    <td><code>--ui-textarea-outline-offset</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-outline-offset</code>, <code>none</code></td>
+    <td>Outline offset for <code>:focus</code> and <code>.error</code></td>
+  </tr>
+  <tr>
+    <td><code>--ui-textarea-focus</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code>, <code>#94a3b8</code></td>
+    <td>Focus color applied to border and outline</td>
+  </tr> 
+  <tr>
+    <td><code>--ui-textarea-error</code></td>
+    <td>Color</td>
+    <td><code>--ui-textarea-error</code>, <code>--ui-error</code>, <code>#b91c1c</code></td>
+   <td>Error color for border, text, error note</td>
+  </tr> 
+</Table>

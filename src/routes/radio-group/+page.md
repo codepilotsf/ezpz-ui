@@ -1,6 +1,6 @@
 <script>
 	import { Radio, RadioGroup } from '$lib/ui';
-  import Tables from './Tables.svelte';
+  import Table from '$lib/components/Table.svelte';
   import { Martini } from 'lucide-svelte';
 
   let make = $state();
@@ -80,44 +80,6 @@ is useful for grouping Radio components together in a form.
 
 ---
 
-### Color Scheme
-
-If all of the Radio components in a RadioGroup should have the same color scheme, use the `scheme` prop on the
-RadioGroup instead of on each individual Radio.
-
-```svelte
-<RadioGroup scheme="danger">
-  <Radio label="Hazardous" value="1" checked />
-  <Radio label="Dangerous" value="2" />
-  <Radio label="Perilous" value="3" />
-</RadioGroup>
-```
-<RadioGroup scheme="danger">
-  <Radio label="Hazardous" value="1" checked />
-  <Radio label="Dangerous" value="2" />
-  <Radio label="Perilous" value="3" />
-</RadioGroup>
-
----
-
-### Custom Color
-
-If all of the Radio components in a RadioGroup should have the same color, use the `color` prop on the
-RadioGroup instead of on each individual Radio.
-
-```svelte
-<RadioGroup color="#777">
-  <Radio label="Boring" value="gray" />
-  <Radio label="Equally Boring" value="alsoGray" checked />
-</RadioGroup>
-```
-<RadioGroup color="#777">
-  <Radio label="Boring" value="gray" />
-  <Radio label="Equally Boring" value="alsoGray" checked />
-</RadioGroup>
-
----
-
 ### Legend Named Slot
 
 Instead of using the `label` prop which can only be a String, a `label` named slot can be used for a label with more
@@ -137,4 +99,59 @@ complex content.
 </RadioGroup>
 
 ---
-<Tables />
+
+
+<Table name="RadioGroup" type="props">
+  <tr>
+    <td><code>bind:value</code></td>
+    <td>Array</td>
+    <td>&nbsp;</td>
+    <td>Two-way binded array of value items</td>
+  </tr>
+  <tr>
+    <td><code>label</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>Text label appears before radio</td>
+  </tr>
+  <tr>
+    <td><code>name</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The <code>name</code> property to be inherited by all child radio components</td>
+  </tr>
+  <tr>
+    <td><code>class</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>CSS classes declared in global scope can be applied to the outermost element</td>
+  </tr>
+  <tr>
+    <td><code>...</code></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td
+      >Additional props will be passed through to the HTML element enabling support for things
+      like
+      <code>on:click</code>, etc</td
+    >
+  </tr>
+</Table>
+
+<Table name="Radio" type="css">
+  <tr>
+    <td><code>--ui-checkbox-background</code></td>
+    <td>Color</td>
+    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td>Background color of checked checkbox</td>
+  </tr>
+</Table>
+
+<Table name="RadioGroup" type="slots">
+  <tr>
+    <td><code>label</code></td>
+    <td
+      >Content to be used for label before RadioGroup (supercedes <code>label</code> property)</td
+    >
+  </tr>
+</Table>
