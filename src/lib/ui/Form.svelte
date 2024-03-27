@@ -1,20 +1,21 @@
 <script>
-  import { setContext } from 'svelte'
-  import { superForm } from 'sveltekit-superforms'
+	import { setContext } from 'svelte';
+	import { superForm } from 'sveltekit-superforms';
 
-  let { method = 'POST', superform, class: _class = '' } = $props()
+	let { method = 'POST', superform, class: _class = '' } = $props();
 
-  if (!superform || !Object.keys(superform).length) {
-    throw new Error('LIB/UI Form component requires a superform prop.')
-  }
+	let enhance = () => {};
 
-  // Set SuperForm context for child form elements
-  const { form, errors, constraints, enhance } = superForm(superform)
-  setContext('form', form)
-  setContext('errors', errors)
-  setContext('constraints', constraints)
+	if (superform) {
+		// Set SuperForm context for child form elements
+		const sf = superForm(superform);
+		setContext('form', sf.form);
+		setContext('errors', sf.errors);
+		setContext('constraints', sf.constraints);
+		enhance = sf.enhance;
+	}
 </script>
 
 <form class="lib-ui Form {_class}" {method} use:enhance>
-  <slot />
+	<slot />
 </form>
