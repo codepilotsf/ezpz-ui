@@ -54,7 +54,7 @@
     flex-direction: row;
     align-items: center;
     margin: 0;
-    font-size: var(--ui-radio-font-size, var(--ui-font-size-small, 0.875rem));
+    font-size: var(--ui-radio-font-size, var(--ui-small-font-size, 0.875rem));
     gap: var(--ui-radio-gap, 0.5rem);
     width: fit-content;
     padding: var(--ui-radio-padding, 2px);

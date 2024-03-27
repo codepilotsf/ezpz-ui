@@ -50,7 +50,7 @@
   --ui-form-label-margin: 4px 0;
   --ui-form-label-font-weight: 600;
   --ui-form-label-font-size: 1rem;
-  --ui-form-label-font-size-small: 14px; /* checkbox/radios */
+  --ui-form-label-small-font-size: 14px; /* checkbox/radios */
 
   /* Form Elements
   -------------------

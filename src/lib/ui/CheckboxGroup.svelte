@@ -33,7 +33,7 @@
   })
 </script>
 
-<fieldset class="lib-ui CheckboxGroup {_class}" {...other}>
+<ui-checkbox-group class="lib-ui CheckboxGroup {_class}" {...other}>
   {#if label}
     <Label isLegend="true" isError={Boolean(error)}>{label}</Label>
   {:else if $$slots.label}
@@ -43,14 +43,15 @@
   {#if error || note}
     <Note isError={Boolean(error)}>{error || note}</Note>
   {/if}
-</fieldset>
+</ui-checkbox-group>
 
 <style>
   .lib-ui {
     flex: 1;
   }
 
-  fieldset {
+  ui-checkbox-group {
     display: block;
+    margin-top: var(--ui-checkbox-group-margin, var(--ui-margin, 1rem));
   }
 </style>

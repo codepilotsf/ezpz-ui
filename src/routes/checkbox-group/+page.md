@@ -1,6 +1,7 @@
 <script>
 	import { Checkbox, CheckboxGroup } from '$lib/ui';
   import Table from '$lib/components/Table.svelte';
+  import HeadsUp from '$lib/components/HeadsUp.svelte';
   import { Martini } from 'lucide-svelte';
 
   let toppings = $state(['pepperoni']);
@@ -174,14 +175,10 @@ label with more complex content.
   </tr>
 </Table>
 
-<Table name="Checkbox" type="css">
-  <tr>
-    <td><code>--ui-checkbox-background</code></td>
-    <td>Color</td>
-    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
-    <td>Background color of checked checkbox</td>
-  </tr>
-</Table>
+<HeadsUp>To style a CheckboxGroup, use Checkbox CSS Style Props like
+<code>--ui-checkbox-border-color</code>. These can be passed to the CheckboxGroup and will be 
+inherited by child Checkboxes.</HeadsUp>
+
 
 <Table name="CheckboxGroup" type="slots">
   <tr>

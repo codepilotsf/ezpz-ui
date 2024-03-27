@@ -259,7 +259,7 @@ components. They are all optional and will fall back to default values if not se
   </tr>
 
   <tr>
-    <td colspan="4" class="pt-8">GLOBAL FORM ITEMS</td>
+    <td colspan="4" class="pt-8">GLOBAL GLOBAL SPACING AND TYPOGRAPHY</td>
   </tr>
   <tr>
     <td><code>--ui-margin</code></td>
@@ -267,24 +267,24 @@ components. They are all optional and will fall back to default values if not se
     <td><code>1rem</code></td>
     <td>Sets margin-top on form elements within a form</td>
   </tr>
-  <!-- <tr>
-    <td><code>--ui-form-row-gap</code></td>
-    <td>Numeric</td>
-    <td><code>.5rem</code></td>
-    <td>Sets gap on elements within a FormRow</td>
+  <tr>
+    <td><code>--ui-padding</code></td>
+    <td>CSS Padding Shorthand</td>
+    <td><code>4px 6px</code></td>
+    <td>Padding for form fields</td>
   </tr>
   <tr>
-    <td><code>--ui-note-spacing</code></td>
+    <td><code>--ui-font-size</code></td>
     <td>Numeric</td>
-    <td><code>6px</code></td>
-    <td>Sets sets margin-top on notes and errors below form elements</td>
+    <td><code>0.875rem</code></td>
+    <td>Font size for things like Input text</td>
   </tr>
   <tr>
-    <td><code>--ui-note-size</code></td>
+    <td><code>--ui-small-font-size</code></td>
     <td>Numeric</td>
-    <td><code>.9rem</code></td>
-    <td>Sets sets font-size on notes and errors below form elements</td>
-  </tr> -->
+    <td><code>0.875rem</code></td>
+    <td>Font size for things like checkbox labels</td>
+  </tr>
 </Table>
 
 <HeadsUp>Note that component level classes such as <code>--ui-alert-color</code> are documented in each

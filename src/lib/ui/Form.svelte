@@ -15,6 +15,6 @@
   setContext('constraints', constraints)
 </script>
 
-<form class="lib-ui Form {_class}" {method} {superform} use:enhance>
+<form class="lib-ui Form {_class}" {method} use:enhance>
   <slot />
 </form>

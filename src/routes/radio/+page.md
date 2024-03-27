@@ -165,9 +165,33 @@ Use the `leadingLabel` slot to pass in a more complex leading label that precede
 
 <Table name="Radio" type="css">
   <tr>
+    <td><code>--ui-radio-small-font-size</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-small-font-size</code>, <code>0.875rem</code></td>
+    <td>Font size for radio label</td>
+  </tr>
+  <tr>
+    <td><code>--ui-radio-gap</code></td>
+    <td>Numeric</td>
+    <td><code>0.5rem</code></td>
+    <td>Font size for radio label</td>
+  </tr>
+  <tr>
+    <td><code>--ui-radio-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-border-width</code>, <code>1px</code></td>
+    <td>Border width</td>
+  </tr>
+  <tr>
+    <td><code>--ui-radio-border-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-border-color</code>, <code>--ui-midtone</code>, <code>#94a3b8</code></td>
+    <td>Border color</td>
+  </tr>
+  <tr>
     <td><code>--ui-radio-background</code></td>
     <td>Color</td>
-    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td><code>--ui-focus</code>, <code>#3b82f6</code></td>
     <td>Background color of checked radio</td>
   </tr>
 </Table>

@@ -38,7 +38,8 @@ A `FormRow` is a simple wrapper for placing multiple form elements in a row with
   <Input label="Last Name" />
 </FormRow>
 
-  <Input label="Last Name" />
+<Input label="Email" type="email" />
+
 <FormRow>
   <Textarea label="Bio" />
   <CheckboxGroup label="Preferences">

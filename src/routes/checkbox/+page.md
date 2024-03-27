@@ -89,7 +89,7 @@ Default is true but can also be assigned a Boolean value like `disabled={user.is
 ### Value
 
 When used within a [CheckboxGroup](/checkbox-group), this is the value that will be assigned to the
-CheckboxGroup's `value.value` array when checked.
+CheckboxGroup's `value` array when checked.
 
 ```svelte
 <Checkbox label="Spam me" value="spamMe" />
@@ -178,9 +178,33 @@ pass in a more complex leading label.
 
 <Table name="Checkbox" type="css">
   <tr>
+    <td><code>--ui-checkbox-small-font-size</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-small-font-size</code>, <code>0.875rem</code></td>
+    <td>Font size for checkbox label</td>
+  </tr>
+  <tr>
+    <td><code>--ui-checkbox-gap</code></td>
+    <td>Numeric</td>
+    <td><code>0.5rem</code></td>
+    <td>Font size for checkbox label</td>
+  </tr>
+  <tr>
+    <td><code>--ui-checkbox-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>--ui-border-width</code>, <code>1px</code></td>
+    <td>Border width</td>
+  </tr>
+  <tr>
+    <td><code>--ui-checkbox-border-color</code></td>
+    <td>Color</td>
+    <td><code>--ui-border-color</code>, <code>--ui-midtone</code>, <code>#94a3b8</code></td>
+    <td>Border color</td>
+  </tr>
+  <tr>
     <td><code>--ui-checkbox-background</code></td>
     <td>Color</td>
-    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
+    <td><code>--ui-focus</code>, <code>#3b82f6</code></td>
     <td>Background color of checked checkbox</td>
   </tr>
 </Table>

@@ -122,16 +122,22 @@ Use the `size` prop on the ButtonGroup to set the size for all child Buttons.
 
 <Table name="ButtonGroup" type="css">
   <tr>
-    <td><code>--ui-button-group-border</code></td>
-    <td>Border shorthand</td>
-    <td><code>none</code></td>
-    <td>CSS border shorthand</td>
+    <td><code>--ui-button-group-border-width</code></td>
+    <td>Numeric</td>
+    <td><code>0</code></td>
+    <td>Border width</td>
   </tr>
   <tr>
-    <td><code>--ui-button-group-radius</code></td>
+    <td><code>--ui-button-group-border-color</code></td>
+    <td>Color</td>
+    <td><code>none</code></td>
+    <td>Border color</td>
+  </tr>
+  <tr>
+    <td><code>--ui-button-group-border-radius</code></td>
     <td>Numeric</td>
-    <td><code>--ui-button-radius</code>, <code>--ui-border-radius</code>, <code>3px</code></td>
-    <td>CSS border shorthand</td>
+    <td><code>--ui-button-border-radius</code>, <code>--ui-border-radius</code>, <code>3px</code></td>
+    <td>Border radius</td>
   </tr>
   <tr>
     <td><code>--ui-button-group-shadow</code></td>

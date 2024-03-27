@@ -1,6 +1,7 @@
 <script>
 	import { Radio, RadioGroup } from '$lib/ui';
   import Table from '$lib/components/Table.svelte';
+  import HeadsUp from '$lib/components/HeadsUp.svelte';
   import { Martini } from 'lucide-svelte';
 
   let make = $state();
@@ -138,14 +139,9 @@ complex content.
   </tr>
 </Table>
 
-<Table name="Radio" type="css">
-  <tr>
-    <td><code>--ui-checkbox-background</code></td>
-    <td>Color</td>
-    <td><code>--ui-focus</code> or <code>#3b82f6</code></td>
-    <td>Background color of checked checkbox</td>
-  </tr>
-</Table>
+<HeadsUp>To style a RadioGroup, use Radio CSS Style Props like
+<code>--ui-radio-border-color</code>. These can be passed to the RadioGroup and will be 
+inherited by child Radios.</HeadsUp>
 
 <Table name="RadioGroup" type="slots">
   <tr>

@@ -27,7 +27,7 @@ constraints which are shared through context with child form elements.
 #### Output
 
 ```html
-<form class="lib-ui" method="POST" use:enhance>
+<form class="lib-ui Form" method="POST" use:enhance>
   <!-- Form elements here -->
 </form>
 ```

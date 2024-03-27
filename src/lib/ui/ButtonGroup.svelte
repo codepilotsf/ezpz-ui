@@ -12,29 +12,25 @@
 </ui-button-group>
 
 <style>
-  .lib-ui {
-    --ui-this-border: var(--ui-button-group-border, none);
-    --ui-this-radius: var(
-      --ui-button-group-radius,
-      var(--ui-button-radius, var(--ui-border-radius, 3px))
-    );
-    --ui-this-shadow: var(
-      --ui-button-group-shadow,
-      var(--ui-button-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.2))
-    );
-  }
-
   ui-button-group {
     flex: 1;
     margin-top: var(--ui-margin-top, 1rem);
     position: relative;
     overflow: hidden;
-    border: var(--ui-this-border);
-    border-radius: var(--ui-this-radius);
+    border-style: solid;
+    border-width: var(--ui-button-group-border-width, 0);
+    border-color: var(--ui-button-group-border-color, none);
+    border-radius: var(
+      --ui-button-group-border-radius,
+      var(--ui-button-border-radius, var(--ui-border-radius, 3px))
+    );
     display: inline-flex;
     flex-wrap: nowrap;
     gap: 1px;
-    box-shadow: var(--ui-this-shadow);
+    box-shadow: var(
+      --ui-button-group-shadow,
+      var(--ui-button-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.2))
+    );
   }
 
   ui-button-group::before {
