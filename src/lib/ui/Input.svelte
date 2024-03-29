@@ -1,4 +1,6 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
+  const dispatch = createEventDispatcher()
   import { getContext } from 'svelte'
   import { readable, writable } from 'svelte/store'
   import { Label, Note } from '$lib/ui'
@@ -37,7 +39,7 @@
   }
 </script>
 
-<ui-input class="lib-ui Input {_class}" class:error={Boolean(error)}>
+<ui-input class="lib-ui Input m-0 {_class}" class:error={Boolean(error)}>
   <Label forId={id} {label} isError={Boolean(error)}></Label>
 
   <input
@@ -51,6 +53,7 @@
     {...$constraints[name]}
     {...other}
     on:input={handleInput}
+    on:keydown
   />
 
   {#if error || note}
@@ -73,7 +76,7 @@
     border-width: var(--ui-input-border-width, var(--ui-border-width, 1px));
     border-color: var(--ui-input-border-color, var(--ui-midtone, #94a3b8));
     border-radius: var(--ui-input-radius, var(--ui-border-radius, 3px));
-    padding: var(--ui-input-padding, var(--ui-padding, 4px 6px));
+    padding: var(--ui-input-padding, var(--ui-padding, 8px 6px));
   }
 
   input:focus {

@@ -16,14 +16,13 @@ tag is used instead of `label` but styled the same way.
     class: _class = '',
   } = $props()
 
-  console.log('label:', label)
   // Convert "false" string to boolean
   isError = isError === 'false' ? false : isError
 </script>
 
 {#if isLegend && label !== null}
   <legend class="lib-ui Label {_class}" class:error={isError}>
-    {#if label === null}
+    {#if !label}
       &nbsp;
     {/if}
     <slot />

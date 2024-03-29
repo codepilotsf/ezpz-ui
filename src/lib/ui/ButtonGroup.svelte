@@ -13,7 +13,6 @@
 
 <style>
   ui-button-group {
-    flex: 1;
     margin-top: var(--ui-margin-top, 1rem);
     position: relative;
     overflow: hidden;

@@ -67,7 +67,7 @@ props in the `select` element.
   select {
     display: block;
     width: 100%;
-    padding: var(--ui-select-padding, var(--ui-padding, 4px 6px));
+    padding: var(--ui-select-padding, var(--ui-padding, 8px 6px));
     font-size: var(--ui-select-font-size, var(--ui-font-size 0.875rem));
     color: var(--ui-select-color, var(--ui-dark, #1e293b));
     border-style: solid;
