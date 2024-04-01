@@ -33,7 +33,7 @@
       <!-- Download Link -->
       <a
         class="p-2 !text-white"
-        href="lib-ui.vercel.app/latest.zip"
+        href="https://lib-ui.vercel.app/latest.zip"
         target="_blank"><DownloadCloud size={24} strokeWidth={3} /></a
       >
       <!-- Github Link -->
