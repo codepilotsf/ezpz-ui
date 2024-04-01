@@ -85,13 +85,13 @@ submission.
 Display error message below the checkboxes. Also adds error styles.
 
 ```svelte
-<CheckboxGroup error="You must select at least two">
+<CheckboxGroup label="Bands" error="You must select at least two">
   <Checkbox label="Bauhaus" />
   <Checkbox label="The Cure" />
   <Checkbox label="The Smiths" />
 </CheckboxGroup>
 ```
-<CheckboxGroup error="You must select at least two">
+<CheckboxGroup label="Bands" error="You must select at least two">
   <Checkbox label="Bauhaus" />
   <Checkbox label="The Cure" />
   <Checkbox label="The Smiths" />
@@ -156,6 +156,18 @@ label with more complex content.
     <td>String</td>
     <td>&nbsp;</td>
     <td>The <code>name</code> property to be inherited by all child Checkbox components</td>
+  </tr>
+  <tr>
+    <td><code>error</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The error note displayed</td>
+  </tr>
+  <tr>
+    <td><code>note</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The help note displayed</td>
   </tr>
   <tr>
     <td><code>class</code></td>

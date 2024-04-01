@@ -20,22 +20,31 @@ tag is used instead of `label` but styled the same way.
   isError = isError === 'false' ? false : isError
 </script>
 
-{#if isLegend && label !== null}
-  <legend class="lib-ui Label {_class}" class:error={isError}>
-    {#if !label}
-      &nbsp;
-    {/if}
-    <slot />
-  </legend>
-{:else if label !== null}
-  <slot />
-  <label class="lib-ui Label {_class}" for={forId} class:error={isError}>
-    {#if !label}
-      &nbsp;
-    {:else}
-      {label}
-    {/if}
-  </label>
+<!-- Insert a space to hold empty label position unless explicitly set to null -->
+{#if label !== null}
+  {#if isLegend}
+    <!-- Use legend tag for things like CheckboxGroup and RadioGroup -->
+    <legend class="lib-ui Label {_class}" class:error={isError}>
+      {#if label}
+        {label}
+      {:else if $$slots.default}
+        <slot />
+      {:else}
+        &nbsp;
+      {/if}
+    </legend>
+  {:else}
+    <!-- Use label tag for everything else -->
+    <label class="lib-ui Label {_class}" for={forId} class:error={isError}>
+      {#if label}
+        {label}
+      {:else if $$slots.default}
+        <slot />
+      {:else}
+        &nbsp;
+      {/if}
+    </label>
+  {/if}
 {/if}
 
 <style>

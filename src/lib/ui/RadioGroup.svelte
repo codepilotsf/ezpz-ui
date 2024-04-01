@@ -10,6 +10,7 @@
     ...other 
   } = $props()
 
+  setContext('isGroup', true)
   if (name) setContext('name', name)
 
   /* 

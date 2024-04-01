@@ -49,6 +49,38 @@ A `label` prop let's you define a simple String to be used as the checkbox label
 
 ---
 
+### Name
+
+Use the `name` prop for a single checkbox to specify the FormData key.
+
+```svelte
+<Checkbox label="I agree to the terms." name="approveTerms" />
+```
+<Checkbox label="I agree to the terms." name="approveTerms" />
+
+---
+
+### Error
+
+Display error message below the checkboxes. Also adds error styles.
+
+```svelte
+<Checkbox label="Bauhaus" error="You must like bauhaus" />
+```
+<Checkbox label="Bauhaus" error="You must like Bauhaus" />
+---
+
+### Note
+
+A `note` prop let's you define a note displayed below the field.
+
+```svelte
+<Checkbox label="Bauhaus" note="Check above to indicate good taste" />
+```
+<Checkbox label="Bauhaus" note="Check above to indicate good taste" />
+
+---
+
 ### Leading Label
 
 Labels normally appear to the right of the checkbox. Use the `leadingLabel` prop instead to place it
@@ -139,6 +171,24 @@ pass in a more complex leading label.
     <td>String</td>
     <td>&nbsp;</td>
     <td>Text label appears trailing the checkmark</td>
+  </tr>
+  <tr>
+    <td><code>name</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The <code>name</code> property for this Checkbox</td>
+  </tr>
+  <tr>
+    <td><code>error</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The error note displayed</td>
+  </tr>
+  <tr>
+    <td><code>note</code></td>
+    <td>String</td>
+    <td>&nbsp;</td>
+    <td>The help note displayed</td>
   </tr>
   <tr>
     <td><code>leadingLabel</code></td>
