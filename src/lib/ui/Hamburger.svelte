@@ -2,10 +2,12 @@
 @component
 
 ## Hamburger Button
-Include this button and toggle the class "active" on its parent element to animate.
+Include this button and toggle the class "active" on 
+its parent element to animate.
 
-Configure the button by changing the variables below. For number of spins, be sure to use odd
-numbers only so the button ends up in the correct position.
+Configure the button by changing the variables below.
+For number of spins, be sure to use odd numbers only
+so the button ends up in the correct position.
 -->
 <script>
   // prettier-ignore
@@ -88,7 +90,6 @@ numbers only so the button ends up in the correct position.
     background-color: var(--ui-this-line-color);
     border-radius: var(--ui-this-line-radius);
     transition: all var(--ui-this-spins-duration) ease-in-out;
-    top: 0;
   }
 
   line-2 {
@@ -96,7 +97,7 @@ numbers only so the button ends up in the correct position.
   }
 
   line-3 {
-    top: calc(100% - var(--ui-this-line-thickness));
+    bottom: 0;
   }
 
   .active line-1 {

@@ -7,8 +7,8 @@ tag is used instead of `label` but styled the same way.
 -->
 
 <script>
-  // prettier-ignore
-  let {
+	// prettier-ignore
+	let {
     label = '',
     isLegend = false,
     forId = null,
@@ -16,50 +16,41 @@ tag is used instead of `label` but styled the same way.
     class: _class = '',
   } = $props()
 
-  // Convert "false" string to boolean
-  isError = isError === 'false' ? false : isError
+	// Convert "false" string to boolean
+	isError = isError === 'false' ? false : isError;
 </script>
 
-<!-- Insert a space to hold empty label position unless explicitly set to null -->
-{#if label !== null}
-  {#if isLegend}
-    <!-- Use legend tag for things like CheckboxGroup and RadioGroup -->
-    <legend class="lib-ui Label {_class}" class:error={isError}>
-      {#if label}
-        {label}
-      {:else if $$slots.default}
-        <slot />
-      {:else}
-        &nbsp;
-      {/if}
-    </legend>
-  {:else}
-    <!-- Use label tag for everything else -->
-    <label class="lib-ui Label {_class}" for={forId} class:error={isError}>
-      {#if label}
-        {label}
-      {:else if $$slots.default}
-        <slot />
-      {:else}
-        &nbsp;
-      {/if}
-    </label>
-  {/if}
+{#if isLegend && label !== null}
+	<legend class="lib-ui Label {_class}" class:error={isError}>
+		{#if !label}
+			&nbsp;
+		{/if}
+		<slot />
+	</legend>
+{:else if label !== null}
+	<slot />
+	<label class="lib-ui Label {_class}" for={forId} class:error={isError}>
+		{#if !label}
+			&nbsp;
+		{:else}
+			{label}
+		{/if}
+	</label>
 {/if}
 
 <style>
-  label,
-  legend {
-    display: block;
-    margin: var(--ui-label-margin, 3px 0);
-    font-size: var(--ui-label-font-size, 0.9rem);
-    font-weight: var(--ui-label-font-weight, 600);
-    font-variation-settings: 'wght' var(--ui-label-font-weight, 600);
-    color: inherit;
-  }
+	label,
+	legend {
+		display: block;
+		margin: var(--ui-label-margin, 3px 0);
+		font-size: var(--ui-label-font-size, 0.9rem);
+		font-weight: var(--ui-label-font-weight, 600);
+		font-variation-settings: 'wght' var(--ui-label-font-weight, 600);
+		color: inherit;
+	}
 
-  label.error,
-  legend.error {
-    color: var(--ui-error, #b91c1c);
-  }
+	label.error,
+	legend.error {
+		color: var(--ui-error, #b91c1c);
+	}
 </style>

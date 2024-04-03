@@ -14,52 +14,41 @@
   } = $props()
 
   const valueState = getContext('valueState')
-  const isGroup = getContext('isGroup')
 
   function handleChange() {
     if (valueState) valueState.value = value
   }
 </script>
 
-<ui-radio
-  class="lib-ui Radio {_class}"
-  style={isGroup
-    ? null
-    : '--ui-this-margin: var(--ui-radio-margin, var(--ui-margin, 1rem));'}
->
-  <label>
-    {#if $$slots.leadingLabel}
-      <slot name="leadingLabel" />
-    {:else if leadingLabel}
-      <span>{leadingLabel}</span>
-    {/if}
+<label>
+  {#if $$slots.leadingLabel}
+    <slot name="leadingLabel" />
+  {:else if leadingLabel}
+    <span>{leadingLabel}</span>
+  {/if}
 
-    <input
-      type="radio"
-      {id}
-      {name}
-      {value}
-      {disabled}
-      checked={(value && value === valueState?.value) ||
-        (!valueState?.value?.length && checked)}
-      {...other}
-      aria-checked={checked}
-      on:change={handleChange}
-    />
+  <input
+    class="lib-ui Radio {_class}"
+    type="radio"
+    {id}
+    {name}
+    {value}
+    {disabled}
+    checked={(value && value === valueState?.value) ||
+      (!valueState?.value?.length && checked)}
+    {...other}
+    aria-checked={checked}
+    on:change={handleChange}
+  />
 
-    {#if $$slots.label}
-      <slot name="label" />
-    {:else if label}
-      <span>{label}</span>
-    {/if}
-  </label>
-</ui-radio>
+  {#if $$slots.label}
+    <slot name="label" />
+  {:else if label}
+    <span>{label}</span>
+  {/if}
+</label>
 
 <style>
-  ui-radio {
-    display: block;
-    margin-top: var(--ui-this-margin, 0);
-  }
   label {
     display: flex;
     flex-direction: row;
