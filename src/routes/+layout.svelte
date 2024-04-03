@@ -6,8 +6,10 @@
   import { FolderOpenDot, DownloadCloud } from 'lucide-svelte'
   import GitHubIcon from '$lib/components/GitHubIcon.svelte'
   import MenuItem from '$lib/components/MenuItem.svelte'
+  import { Hamburger } from '$lib/ui'
 
   let contentEl = $state()
+  let isMenuOpen = $state(false)
 
   afterNavigate(() => {
     contentEl.scrollTo(0, 0)
@@ -19,16 +21,26 @@
   <header
     class="flex h-20 items-center justify-between border-b border-b-slate-200 bg-slate-800 px-3 text-white shadow"
   >
-    <!-- Logo -->
-    <a
-      href="/"
-      class="flex items-end gap-1 text-2xl font-bold !text-white hover:no-underline"
-    >
-      <FolderOpenDot size={34} strokeWidth={2.3} />
-      <span
-        >LIB<span class="mx-.5">/</span><span class="font-light">UI</span></span
+    <div class="flex items-center">
+      <!-- Hamburger -->
+      <Hamburger
+        class="!mr-2 block 2xl:hidden"
+        --ui-hamburger-line-color="#fff"
+        --ui-hamburger-line-thickness="4px"
+      />
+
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-end gap-1 text-2xl font-bold !text-white hover:no-underline"
       >
-    </a>
+        <FolderOpenDot size={34} strokeWidth={2.3} />
+        <span
+          >LIB<span class="mx-.5">/</span><span class="font-light">UI</span
+          ></span
+        >
+      </a>
+    </div>
     <div class="flex items-center gap-3">
       <!-- Download Link -->
       <a
@@ -48,7 +60,7 @@
   <scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
     <!-- Menu -->
     <menu
-      class="block h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2"
+      class="hidden h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2 2xl:block"
     >
       <MenuItem href="/alert" label="Alert" class="h-52" />
       <MenuItem href="/avatar" label="Avatar" />
