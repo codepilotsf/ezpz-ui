@@ -26,7 +26,7 @@
       <Hamburger
         class="!mr-2 block 2xl:hidden"
         --ui-hamburger-line-color="#fff"
-        --ui-hamburger-line-thickness="4px"
+        --ui-hamburger-line-thickness="3px"
       />
 
       <!-- Logo -->
