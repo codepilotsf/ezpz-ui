@@ -24,7 +24,7 @@
     <div class="flex items-center">
       <!-- Hamburger -->
       <Hamburger
-        class="!mr-2 block sm:hidden"
+        class="!mr-2 !hidden"
         --ui-hamburger-line-color="#fff"
         --ui-hamburger-line-thickness="3px"
       />
@@ -60,7 +60,7 @@
   <scrollable-wrapper class="flex w-full flex-1 overflow-hidden">
     <!-- Menu -->
     <menu
-      class="hidden h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2 2xl:block"
+      class="block h-full min-w-[160px] overflow-y-auto bg-sky-50 px-1 pt-2"
     >
       <MenuItem href="/alert" label="Alert" class="h-52" />
       <MenuItem href="/avatar" label="Avatar" />
