@@ -96,14 +96,14 @@ radius for only Alert components like this:
 
 ```css
 :root {
-  --ui-alert-radius: 8px;
+  --ui-alert-border-radius: 8px;
 }
 ```
 
 You can even set custom properties directly on a single component instance in your Svelte file:
 
 ```svelte
-<Alert --ui-alert-radius="8px">
+<Alert --ui-alert-border-radius="8px">
   This alert has a custom border radius.
 </Alert>
 ```
