@@ -24,7 +24,7 @@
     <div class="flex items-center">
       <!-- Hamburger -->
       <Hamburger
-        class="!mr-2 block 2xl:hidden"
+        class="!mr-2 block sm:hidden"
         --ui-hamburger-line-color="#fff"
         --ui-hamburger-line-thickness="3px"
       />
